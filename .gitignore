@@ -1,0 +1,6 @@
+# Local-only content (not published)
+backup/
+PROJECT.md
+tmp/
+.agents/
+.codex/
