@@ -43,7 +43,7 @@
       groups.set(parent, groupIndex + 1);
       element.style.setProperty('--reveal-delay', Math.min(groupIndex * 80, 320) + 'ms');
 
-      if (element.closest('.hero') && element.id !== 'hero-visual') {
+      if (element.closest('.hero') && element.id !== 'hero-visual' && !element.matches('.hero-title')) {
         element.classList.add('reveal-rise');
       } else if (element.matches('.about-photo,.timeline,.github-mark')) {
         element.classList.add('reveal-left');
@@ -55,6 +55,15 @@
         element.classList.add(index % 2 ? 'reveal-rise' : 'reveal-soft');
       }
     });
+  }
+
+  function initHeadline() {
+    const title = document.querySelector('.hero-title');
+    if (!title || reducedMotion) return;
+    const lines = title.innerHTML.split(/<br\s*\/?>/i);
+    title.innerHTML = lines.map(function (line, index) {
+      return '<span class="h-line"><span class="h-line-in" style="--line-delay:' + (index * 120) + 'ms">' + line + '</span></span>';
+    }).join('');
   }
 
   function initReveal() {
@@ -165,6 +174,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     finishBoot();
+    initHeadline();
     initReveal();
     initSectionMotion();
     initScrollEffects();

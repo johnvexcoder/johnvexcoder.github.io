@@ -90,3 +90,27 @@ html.motion-lite *,html.motion-lite *::before,html.motion-lite *::after{animatio
 html.motion-lite .reveal{opacity:1;transform:none;filter:none}
 html.motion-lite .section-heading.reveal h2{clip-path:none}
 @media(prefers-reduced-motion:reduce){.section-heading.reveal h2{clip-path:none}.guest-grid>div::after,.topology-link::after{display:none}.lab-shell.revealed .topology-node,.lab-shell.revealed .guest-grid>div{animation:none}}
+
+/* ---- Elevated hero headline: lines rise in staggered ---- */
+.hero-title .h-line{display:block;overflow:hidden;padding:.06em 0 .1em;margin:-.06em 0 -.1em}
+.hero-title .h-line-in{display:block;opacity:0;transform:translate3d(0,115%,0);will-change:transform}
+body.site-ready .hero-title .h-line-in{animation:lineRise .9s var(--ease) var(--line-delay,0ms) both}
+body.is-booting .hero-title.reveal.revealed{opacity:0;transform:none}
+@keyframes lineRise{from{opacity:0;transform:translate3d(0,115%,0)}to{opacity:1;transform:none}}
+
+/* ---- Skill bar shimmer sweep ---- */
+.progress-bar-bar{position:relative;overflow:hidden}
+.progress-bar-bar::after{content:"";position:absolute;top:0;bottom:0;left:0;width:46%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);transform:translateX(-140%);animation:barShine 2.9s var(--ease) 1.1s infinite;pointer-events:none}
+@keyframes barShine{45%,100%{transform:translateX(330%)}}
+
+/* ---- Back-to-top ping when visible ---- */
+.back-to-top::after{content:"";position:absolute;inset:-7px;border:1px solid rgba(var(--accent-rgb),.45);border-radius:10px;opacity:0;pointer-events:none}
+.back-to-top.visible::after{animation:btnPing 2.6s var(--ease) infinite}
+@keyframes btnPing{0%{transform:scale(.86);opacity:0}32%{opacity:.9}100%{transform:scale(1.32);opacity:0}}
+
+/* ---- Primary button light sweep ---- */
+.btn.primary{position:relative;overflow:hidden}
+.btn.primary::after{content:"";position:absolute;top:0;left:-75%;width:38%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.32),transparent);transform:skewX(-20deg);pointer-events:none}
+.btn.primary:hover::after{left:145%;transition:left .6s var(--ease)}
+
+@media(prefers-reduced-motion:reduce){.hero-title .h-line-in{opacity:1;transform:none;animation:none}.progress-bar-bar::after{display:none}.back-to-top::after{animation:none;opacity:0}.btn.primary::after{display:none}}

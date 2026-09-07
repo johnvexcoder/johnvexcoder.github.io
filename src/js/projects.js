@@ -362,7 +362,7 @@
       const imageSource = useScrollImage ? project.scrollImage : project.image;
       const imageFallback = useScrollImage ? project.image : project.imageFallback;
       const imageContent = imageSource
-        ? '<img src="' + imageSource + '" data-fallback="' + (imageFallback || '') + '" data-placeholder="pj-img-' + project.id + '" alt="' + escapeHtml(project.name) + ' screenshot" loading="lazy">'
+        ? '<img src="' + imageSource + '" data-fallback="' + (imageFallback || '') + '" data-placeholder="pj-img-' + project.id + '" alt="' + escapeHtml(project.name) + ' screenshot" loading="eager" decoding="async">'
         : '';
 
       const serviceVisual = project.visualType === 'service'
@@ -630,9 +630,9 @@
         const profile = results[0];
         const repos = results[1];
         const stars = repos.reduce(function (total, repo) { return total + (repo.stargazers_count || 0); }, 0);
-        if (reposEl) reposEl.textContent = profile.public_repos ?? '—';
-        if (followersEl) followersEl.textContent = profile.followers ?? '—';
-        if (starsEl) starsEl.textContent = stars;
+        animateValue(reposEl, profile.public_repos ?? 0);
+        animateValue(followersEl, profile.followers ?? 0);
+        animateValue(starsEl, stars);
         if (noteEl) noteEl.textContent = 'Public GitHub information loaded live.';
       })
       .catch(function () {
@@ -641,6 +641,19 @@
         if (starsEl) starsEl.textContent = '—';
         if (noteEl) noteEl.textContent = 'Live GitHub stats unavailable right now. Stats load from the public API when reachable.';
       });
+  }
+
+  function animateValue(el, target) {
+    if (!el) return;
+    if (reduceMotion()) { el.textContent = String(target); return; }
+    const duration = 900;
+    const startTime = performance.now();
+    (function tick(now) {
+      const progress = Math.min(1, (now - startTime) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (progress < 1) requestAnimationFrame(tick);
+    })(startTime);
   }
 
   function animateBars() {
