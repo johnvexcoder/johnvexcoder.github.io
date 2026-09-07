@@ -22,6 +22,7 @@
     active: { text: 'Active', class: 'active' },
     experimental: { text: 'Experimental', class: 'experimental' },
     concept: { text: 'Concept', class: 'concept' },
+    demo: { text: 'Live Demo', class: 'active' },
     completed: { text: 'Completed', class: 'completed' },
     comingSoon: { text: 'Coming Soon', class: 'concept' }
   };
