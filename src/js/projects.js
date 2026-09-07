@@ -36,7 +36,11 @@
   let imageScrollFrame = null;
   let imageScrollTimer = null;
   let activeImageScroller = null;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('motion-lite');
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const reduceMotion = () => motionPreference.matches || document.documentElement.classList.contains('motion-lite');
+  motionPreference.addEventListener('change', function () { if (reduceMotion()) clearImageAutoScroll(); });
+  if (navigator.connection && navigator.connection.addEventListener) navigator.connection.addEventListener('change', function () { if (navigator.connection.saveData) clearImageAutoScroll(); });
+  document.addEventListener('visibilitychange', function () { if (document.hidden) clearImageAutoScroll(); });
 
   function clearImageAutoScroll() {
     if (imageScrollFrame) cancelAnimationFrame(imageScrollFrame);
@@ -49,7 +53,7 @@
   function startImageAutoScroll(container, delay) {
     clearImageAutoScroll();
     activeImageScroller = container || null;
-    if (!container || reduceMotion) return;
+    if (!container || reduceMotion() || document.hidden) return;
     const image = container.querySelector('img');
     if (!image) return;
 
@@ -64,7 +68,9 @@
       container.classList.add('is-auto-scrolling');
 
       function step(time) {
-        if (activeImageScroller !== container) return;
+        if (activeImageScroller !== container || reduceMotion() || document.hidden) return;
+        const bounds = container.getBoundingClientRect();
+        if (bounds.bottom < 0 || bounds.top > innerHeight) { clearImageAutoScroll(); return; }
         if (startedAt === null) startedAt = time;
         const progress = Math.min(1, (time - startedAt) / duration);
         const eased = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
@@ -352,8 +358,9 @@
         return '<span class="tag">' + escapeHtml(t) + '</span>';
       }).join('');
 
-      const imageSource = project.scrollImage || project.image;
-      const imageFallback = project.scrollImage ? project.image : project.imageFallback;
+      const useScrollImage = project.scrollImage && !(navigator.connection && navigator.connection.saveData);
+      const imageSource = useScrollImage ? project.scrollImage : project.image;
+      const imageFallback = useScrollImage ? project.image : project.imageFallback;
       const imageContent = imageSource
         ? '<img src="' + imageSource + '" data-fallback="' + (imageFallback || '') + '" data-placeholder="pj-img-' + project.id + '" alt="' + escapeHtml(project.name) + ' screenshot" loading="lazy">'
         : '';
@@ -605,6 +612,11 @@
     const followersEl = document.getElementById('gh-followers');
     const starsEl = document.getElementById('gh-stars');
     const noteEl = document.getElementById('github-api-note');
+
+    if (navigator.connection && navigator.connection.saveData) {
+      if (noteEl) noteEl.textContent = 'Data saver is on. Open GitHub for current public activity.';
+      return;
+    }
 
     Promise.all([
       fetch('https://api.github.com/users/johnvexcoder'),

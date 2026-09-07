@@ -55,3 +55,36 @@ body.site-ready .hero .reveal{transition-duration:1s}
 
 /* Data-saver and lower-memory devices keep the visual system lightweight. */
 html.motion-lite .boot-loader{display:none}html.motion-lite body.is-booting{overflow:auto}html.motion-lite .cursor-glow{display:none}html.motion-lite .ambient-grid{background-attachment:scroll}html.motion-lite .reveal{filter:none}html.motion-lite .system-card,html.motion-lite .scan-line,html.motion-lite .topology-link::after,html.motion-lite .online i,html.motion-lite .status-dot,html.motion-lite .service-visual::before,html.motion-lite .service-orbit,html.motion-lite .system-frame,html.motion-lite .system-lines,html.motion-lite .portrait-wrap::before{animation:none!important}html.motion-lite .system-frame,html.motion-lite .system-card,html.motion-lite .system-lines{opacity:1!important;filter:none!important}html.motion-lite .hero-system{transform:none!important}html.motion-lite .project-card{will-change:auto!important}
+
+/* Motion follows the page's reading direction and the network's connections. */
+@keyframes guestFlow{0%,15%{transform:translateY(0);opacity:0}25%,75%{opacity:.9}90%,100%{transform:translateY(20px);opacity:0}}
+@keyframes verticalPacket{0%{transform:translateY(0);opacity:0}20%,75%{opacity:1}100%{transform:translateY(30px);opacity:0}}
+@keyframes sectionLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes nodeArrive{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
+.section{position:relative}
+.section::before{content:"";position:absolute;top:0;left:0;width:100%;height:1px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,transparent,rgba(var(--accent-rgb),.28),transparent)}
+.section.section-entered::before{animation:sectionLine 1.3s var(--ease) both}
+.section:nth-of-type(even)::before{transform-origin:right}
+.lab-shell{background:radial-gradient(ellipse at 50% 0,rgba(var(--accent-rgb),.055),transparent 65%),var(--surface)}
+.lab-shell.revealed .topology-node,.lab-shell.revealed .guest-grid>div{animation:nodeArrive .7s var(--ease) both}
+.lab-shell.revealed .topology-node:nth-of-type(2){animation-delay:.12s}
+.lab-shell.revealed .topology-node:nth-of-type(3){animation-delay:.24s}
+.lab-shell.revealed .guest-grid>div{animation-delay:calc(.36s + var(--node-delay,0s))}
+.topology-link:nth-child(4)::after{animation-delay:.8s}
+.topology-link.branch::after{animation-delay:1.6s}
+.section-heading.reveal h2{clip-path:inset(0 0 100%);transition:clip-path 1s var(--ease) var(--reveal-delay,0ms)}
+.section-heading.revealed h2{clip-path:inset(-2px -2px -20px)}
+@media(hover:hover) and (pointer:fine){
+  .lab-shell{transition:border-color .4s,box-shadow .4s}
+  .lab-shell:hover{border-color:rgba(var(--accent-rgb),.35);box-shadow:0 24px 70px rgba(0,0,0,.16)}
+  .topology-node:hover,.guest-grid>div:hover{border-color:var(--accent)}
+}
+@media(max-width:860px){.topology-link::after{animation:verticalPacket 3.6s linear infinite}.reveal{filter:none}.hero-system{will-change:auto}}
+/* Pause decorative loops outside the viewport and in background tabs. */
+html.motion-observed main>section:not(.in-view) *,html.motion-observed main>section:not(.in-view) *::before,html.motion-observed main>section:not(.in-view) *::after,
+html.motion-paused *,html.motion-paused *::before,html.motion-paused *::after{animation-play-state:paused!important}
+html.motion-lite{scroll-behavior:auto}
+html.motion-lite *,html.motion-lite *::before,html.motion-lite *::after{animation:none!important;transition:none!important}
+html.motion-lite .reveal{opacity:1;transform:none;filter:none}
+html.motion-lite .section-heading.reveal h2{clip-path:none}
+@media(prefers-reduced-motion:reduce){.section-heading.reveal h2{clip-path:none}.guest-grid>div::after,.topology-link::after{display:none}.lab-shell.revealed .topology-node,.lab-shell.revealed .guest-grid>div{animation:none}}

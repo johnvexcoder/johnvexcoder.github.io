@@ -38,7 +38,7 @@ The depth carousel, search, filters, GitHub repository list, tags, and status la
 - Personal copy, experience, services, homelab details, and contact information are in `index.html`.
 - Project content and upcoming concepts are in `src/js/projects-data.js`.
 - Skill names and experience levels are in `src/js/projects.js`.
-- The downloadable résumé is stored at `output/pdf/john-de-joya-resume.pdf`.
+- The downloadable résumé is stored at `output/pdf/johnangelodejoya.pdf`.
 - Design tokens and light/dark colors are in `src/css/variables.css`.
 
 ## Restore the previous site
@@ -77,3 +77,12 @@ The version immediately before the animation and carousel work is in `backup/pre
     │   └── terminal.js
     └── img
 ```
+
+## Motion, 404, and résumé maintenance
+
+- `src/js/animations.js` coordinates directional reveals, section entry, and visibility. Decorative loops pause outside visible sections and in background tabs.
+- Reduced-motion, data-saver, and low-memory preferences disable decorative motion. Data saver also uses compact project previews and skips optional GitHub statistics requests.
+- The custom `404.html` uses a bounded canvas network tunnel (about 30 frames per second, capped pixel density). Its ping is a visual effect; it sends no network request. Root-relative links support missing nested URLs on this GitHub Pages user site.
+- `scripts/build_resume.py` regenerates the one-page résumé with ReportLab and embedded Liberation Sans fonts. Install those fonts or update `FONT_DIR` for another system. Render and visually inspect the PDF after changing it.
+- Education dates and achievements were explicitly supplied in “Check website files” and reconfirmed on September 7, 2026: degree 2024–2025; Youth Leadership Award 2024–2025; NC II Bartending 2023; NC II Bread and Pastry 2024. Retain these user-confirmed credits.
+- The pre-update website and PDF are backed up locally in `backup/pre-topology-motion-2026-09-07/` in the isolated checkout. This ignored folder is not published. Copy its files back to restore the previous version.
