@@ -1,5 +1,18 @@
 (function () {
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('motion-lite');
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const connection = navigator.connection;
+  let reducedMotion;
+  function syncMotion() {
+    const lite = Boolean((connection && connection.saveData) || (navigator.deviceMemory && navigator.deviceMemory <= 4));
+    document.documentElement.classList.toggle('motion-lite', lite);
+    reducedMotion = motionQuery.matches || lite;
+    document.documentElement.classList.toggle('motion-paused', document.hidden);
+    if (reducedMotion) document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('revealed'); });
+  }
+  syncMotion();
+  motionQuery.addEventListener('change', syncMotion);
+  if (connection && connection.addEventListener) connection.addEventListener('change', syncMotion);
+  document.addEventListener('visibilitychange', syncMotion);
 
   function finishBoot() {
     const loader = document.getElementById('boot-loader');
@@ -70,7 +83,7 @@
       const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       const ratio = Math.min(1, Math.max(0, window.scrollY / max));
       if (progress) progress.style.transform = 'scaleX(' + ratio + ')';
-      if (!reducedMotion) {
+      if (!reducedMotion && window.innerWidth > 860 && window.scrollY < window.innerHeight * 1.5) {
         root.style.setProperty('--hero-shift', Math.min(window.scrollY * 0.055, 42) + 'px');
         root.style.setProperty('--grid-shift', (window.scrollY * -0.018) + 'px');
       }
@@ -89,6 +102,7 @@
     const hero = document.getElementById('hero-visual');
     if (!hero || reducedMotion || window.matchMedia('(pointer: coarse)').matches) return;
     hero.addEventListener('pointermove', function (event) {
+      if (reducedMotion || window.innerWidth <= 860) return;
       const rect = hero.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width - 0.5;
       const y = (event.clientY - rect.top) / rect.height - 0.5;
@@ -108,6 +122,7 @@
     let x = 0;
     let y = 0;
     document.addEventListener('pointermove', function (event) {
+      if (reducedMotion) return;
       x = event.clientX;
       y = event.clientY;
       glow.classList.add('active');
@@ -119,6 +134,22 @@
       });
     }, { passive: true });
     document.documentElement.addEventListener('mouseleave', function () { glow.classList.remove('active'); });
+  }
+
+  function initSectionMotion() {
+    const sections = document.querySelectorAll('main > section');
+    if (!('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('motion-observed');
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+        if (entry.isIntersecting) entry.target.classList.add('section-entered');
+      });
+    }, { rootMargin: '60px', threshold: 0 });
+    sections.forEach(function (section) { observer.observe(section); });
+    document.querySelectorAll('.guest-grid > div').forEach(function (node, index) {
+      node.style.setProperty('--node-delay', (index * .35) + 's');
+    });
   }
 
   function initBackToTop() {
@@ -135,6 +166,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     finishBoot();
     initReveal();
+    initSectionMotion();
     initScrollEffects();
     initHeroTilt();
     initCursorGlow();
