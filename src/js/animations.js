@@ -30,7 +30,7 @@
       groups.set(parent, groupIndex + 1);
       element.style.setProperty('--reveal-delay', Math.min(groupIndex * 80, 320) + 'ms');
 
-      if (element.closest('.hero')) {
+      if (element.closest('.hero') && element.id !== 'hero-visual') {
         element.classList.add('reveal-rise');
       } else if (element.matches('.about-photo,.timeline,.github-mark')) {
         element.classList.add('reveal-left');

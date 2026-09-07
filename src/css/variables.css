@@ -12,6 +12,7 @@
   --line-strong: rgba(111, 211, 255, .34);
   --accent: #50c9ff;
   --accent-2: #7c8cff;
+  --violet: #7c8cff;
   --accent-rgb: 80, 201, 255;
   --green: #4de0a4;
   --warning: #f5ba55;
@@ -42,6 +43,7 @@ html[data-theme="light"] {
   --line-strong: rgba(0, 124, 184, .3);
   --accent: #007fbd;
   --accent-2: #5968d8;
+  --violet: #5968d8;
   --accent-rgb: 0, 127, 189;
   --green: #087a54;
   --shadow: 0 20px 60px rgba(32, 68, 98, .13);

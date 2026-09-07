@@ -8,6 +8,9 @@
 @keyframes bootOut{to{opacity:0;visibility:hidden;transform:scale(1.035)}}
 @keyframes gridDrift{to{background-position:48px 48px}}
 @keyframes signalSweep{0%{transform:translateX(-130%)}100%{transform:translateX(230%)}}
+@keyframes frameIn{from{opacity:0;transform:translate(-50%,-50%) scale(.96)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes cardReveal{from{opacity:0;filter:blur(6px)}to{opacity:1;filter:blur(0)}}
+@keyframes sheen{0%{transform:translateX(-130%)}55%{transform:translateX(130%)}100%{transform:translateX(130%)}}
 
 .boot-loader{position:fixed;z-index:5000;inset:0;display:grid;place-items:center;overflow:hidden;background:#050d18;color:#e9f7ff;transition:opacity .7s var(--ease),visibility .7s,transform .7s var(--ease)}
 .boot-loader::before{content:"";position:absolute;inset:-15%;background-image:linear-gradient(rgba(80,201,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(80,201,255,.055) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(circle,#000 12%,transparent 68%);animation:gridDrift 2.4s linear infinite}
@@ -23,8 +26,20 @@
 
 .online i,.status-dot{animation:pulse 2.2s ease-in-out infinite}.scan-line{animation:scan 5s linear infinite}.topology-link::after{animation:packet 2.4s linear infinite}.system-card{animation:drift 6s ease-in-out infinite}.card-infra{animation-delay:-2s}.card-sec{animation-delay:-4s}
 .ambient-grid{background-position:center var(--grid-shift,0)}
-.hero-system{transform:translate3d(0,var(--hero-shift,0),0) rotateX(var(--hero-tilt-x,0deg)) rotateY(var(--hero-tilt-y,0deg));transform-style:preserve-3d;transition:transform .22s ease-out;will-change:transform}
+.hero-system{transform:translate3d(0,var(--hero-shift,0),0) rotateX(var(--hero-tilt-x,0deg)) rotateY(var(--hero-tilt-y,0deg));transform-style:preserve-3d;transition:transform .18s ease-out;will-change:transform}
+.hero-system.reveal{opacity:0;transform:translate3d(0,var(--hero-shift,0),0) rotateX(var(--hero-tilt-x,0deg)) rotateY(var(--hero-tilt-y,0deg));transition:opacity .9s var(--ease) var(--reveal-delay,0ms),transform .18s ease-out}
+.hero-system.reveal.revealed{opacity:1;transform:translate3d(0,var(--hero-shift,0),0) rotateX(var(--hero-tilt-x,0deg)) rotateY(var(--hero-tilt-y,0deg))}
+body.is-booting .hero-system.reveal.revealed{opacity:0;transform:translate3d(0,var(--hero-shift,0),0) rotateX(var(--hero-tilt-x,0deg)) rotateY(var(--hero-tilt-y,0deg))}
+body.site-ready .hero-system.reveal{transition-duration:.9s,.18s}
+body.is-booting .system-frame,body.is-booting .system-lines,body.is-booting .system-card{opacity:0}
+body.site-ready .system-frame{animation:frameIn .95s var(--ease) both}
+body.site-ready .system-lines{animation:frameIn .9s var(--ease) .5s both}
+body.site-ready .card-code{animation:drift 6s ease-in-out infinite,cardReveal .9s var(--ease) .18s both}
+body.site-ready .card-infra{animation:drift 6s ease-in-out -2s infinite,cardReveal .9s var(--ease) .33s both}
+body.site-ready .card-sec{animation:drift 6s ease-in-out -4s infinite,cardReveal .9s var(--ease) .48s both}
 .cursor-glow{left:0!important;top:0!important;will-change:transform}
+
+.portrait-wrap::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.05) 45%,rgba(255,255,255,.09) 50%,transparent 60%);animation:sheen 5.5s ease-in-out 1.4s infinite}
 
 .reveal{opacity:0;transition:opacity .78s var(--ease) var(--reveal-delay,0ms),transform .9s var(--ease) var(--reveal-delay,0ms),filter .8s var(--ease) var(--reveal-delay,0ms)}
 .reveal-rise{transform:translate3d(0,34px,0)}.reveal-soft{transform:translate3d(0,18px,0);filter:blur(7px)}.reveal-left{transform:translate3d(-42px,0,0)}.reveal-right{transform:translate3d(42px,0,0)}.reveal-scale{transform:translate3d(0,24px,0) scale(.965)}
@@ -35,8 +50,8 @@ body.site-ready .hero .reveal{transition-duration:1s}
 .capability-card,.skill-card,.featured-card,.service-card,.environment-item,.github-repo{transition:transform .32s var(--ease),border-color .32s,box-shadow .32s,background .32s}
 .capability-card:hover,.skill-card:hover,.featured-card:hover,.service-card:hover,.environment-item:hover,.github-repo:hover{transform:translateY(-5px);border-color:rgba(var(--accent-rgb),.35);box-shadow:0 20px 48px rgba(0,0,0,.16)}
 
-@media(max-width:860px){.hero-system{transform:none}.reveal-left,.reveal-right{transform:translate3d(0,28px,0)}}
-@media(prefers-reduced-motion:reduce){.boot-loader{display:none}.is-booting{overflow:auto!important}.reveal{opacity:1;transform:none;filter:none;transition:none}.system-card,.scan-line,.topology-link::after,.online i,.status-dot,.boot-orbit,.boot-core strong,.boot-track span{animation:none}.hero-system{transform:none;transition:none}.ambient-grid{background-position:center}.section-heading.revealed h2::after{animation:none}.capability-card:hover,.skill-card:hover,.featured-card:hover,.service-card:hover,.environment-item:hover,.github-repo:hover{transform:none}}
+@media(max-width:860px){.hero-system,.hero-system.reveal,.hero-system.reveal.revealed{transform:none}.reveal-left,.reveal-right{transform:translate3d(0,28px,0)}}
+@media(prefers-reduced-motion:reduce){.boot-loader{display:none}.is-booting{overflow:auto!important}.reveal{opacity:1;transform:none;filter:none;transition:none}.system-card,.scan-line,.topology-link::after,.online i,.status-dot,.boot-orbit,.boot-core strong,.boot-track span{animation:none}.system-frame,.system-lines{animation:none!important}.system-card{animation:none!important}.hero-system,.hero-system.reveal,.hero-system.reveal.revealed{transform:none;transition:none}.hero-system.reveal.revealed{opacity:1}.system-frame,.system-lines,.system-card{opacity:1!important;filter:none!important}.ambient-grid{background-position:center}.section-heading.revealed h2::after{animation:none}.capability-card:hover,.skill-card:hover,.featured-card:hover,.service-card:hover,.environment-item:hover,.github-repo:hover{transform:none}.portrait-wrap::before{animation:none}}
 
 /* Data-saver and lower-memory devices keep the visual system lightweight. */
-html.motion-lite .boot-loader{display:none}html.motion-lite body.is-booting{overflow:auto}html.motion-lite .cursor-glow{display:none}html.motion-lite .ambient-grid{background-attachment:scroll}html.motion-lite .reveal{filter:none}html.motion-lite .system-card,html.motion-lite .scan-line,html.motion-lite .topology-link::after,html.motion-lite .online i,html.motion-lite .status-dot,html.motion-lite .service-visual::before,html.motion-lite .service-orbit{animation:none!important}html.motion-lite .hero-system{transform:none!important}html.motion-lite .project-card{will-change:auto!important}
+html.motion-lite .boot-loader{display:none}html.motion-lite body.is-booting{overflow:auto}html.motion-lite .cursor-glow{display:none}html.motion-lite .ambient-grid{background-attachment:scroll}html.motion-lite .reveal{filter:none}html.motion-lite .system-card,html.motion-lite .scan-line,html.motion-lite .topology-link::after,html.motion-lite .online i,html.motion-lite .status-dot,html.motion-lite .service-visual::before,html.motion-lite .service-orbit,html.motion-lite .system-frame,html.motion-lite .system-lines,html.motion-lite .portrait-wrap::before{animation:none!important}html.motion-lite .system-frame,html.motion-lite .system-card,html.motion-lite .system-lines{opacity:1!important;filter:none!important}html.motion-lite .hero-system{transform:none!important}html.motion-lite .project-card{will-change:auto!important}
