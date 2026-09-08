@@ -18,6 +18,8 @@
   function schedule(){if(!frame)frame=requestAnimationFrame(update);}
   document.addEventListener('DOMContentLoaded',()=>{
     sync();document.body.classList.add('site-ready');
+    const boot=document.getElementById('boot-sequence');
+    if(boot){let finished=false;const finish=()=>{if(finished)return;finished=true;document.body.classList.remove('is-booting');boot.classList.add('is-complete');setTimeout(()=>boot.remove(),700)};if(root.classList.contains('motion-lite'))finish();else{const reveal=()=>setTimeout(finish,Math.max(0,1250-(performance.now()-(window.__bootAt||0))));if(document.readyState==='complete')reveal();else addEventListener('load',reveal,{once:true});setTimeout(finish,3200);}}
     document.getElementById('motion-toggle')?.addEventListener('click',()=>{requested=root.classList.contains('motion-lite')?'full':'reduced';try{localStorage.setItem('portfolio-motion',requested)}catch(e){}sync();});
     if('IntersectionObserver'in window){
       const reveal=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('revealed');reveal.unobserve(entry.target)}}),{threshold:.05});
