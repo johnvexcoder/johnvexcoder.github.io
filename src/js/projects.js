@@ -22,6 +22,7 @@
     active: { text: 'Active', class: 'active' },
     experimental: { text: 'Experimental', class: 'experimental' },
     concept: { text: 'Concept', class: 'concept' },
+    demo: { text: 'Live Demo', class: 'active' },
     completed: { text: 'Completed', class: 'completed' },
     comingSoon: { text: 'Coming Soon', class: 'concept' }
   };
@@ -53,7 +54,7 @@
   function startImageAutoScroll(container, delay) {
     clearImageAutoScroll();
     activeImageScroller = container || null;
-    if (!container || reduceMotion() || document.hidden) return;
+    if (!container || reduceMotion() || document.hidden || !document.documentElement.classList.contains('preview-playing') || document.documentElement.classList.contains('projects-list')) return;
     const image = container.querySelector('img');
     if (!image) return;
 
@@ -162,14 +163,15 @@
 
     activeProjectIndex = wrapIndex(activeProjectIndex, cards.length);
 
+    const listView = document.documentElement.classList.contains('projects-list');
     cards.forEach(function (card, index) {
-      let offset = index - activeProjectIndex;
+      let offset = listView ? 0 : index - activeProjectIndex;
       if (offset > cards.length / 2) offset -= cards.length;
       if (offset < -cards.length / 2) offset += cards.length;
       const distance = Math.abs(offset);
       const side = offset === 0 ? 0 : (offset < 0 ? -1 : 1);
       const scale = Math.max(0.7, 1 - distance * 0.12);
-      const opacity = distance === 0 ? 1 : distance === 1 ? 0.68 : distance === 2 ? 0.26 : 0;
+      const opacity = distance === 0 ? 1 : distance === 1 ? 0.4 : 0;
 
       card.style.setProperty('--carousel-x', (offset * 58) + '%');
       card.style.setProperty('--carousel-z', (-distance * 170) + 'px');
@@ -190,7 +192,7 @@
 
     if (current) current.textContent = String(activeProjectIndex + 1).padStart(2, '0');
     if (total) total.textContent = String(cards.length).padStart(2, '0');
-    if (controls) controls.hidden = cards.length < 2;
+    if (controls) controls.hidden = cards.length < 2 || listView;
     if (hint) hint.hidden = cards.length < 2;
     if (dots) {
       dots.querySelectorAll('button').forEach(function (dot, index) {
@@ -289,27 +291,17 @@
   function renderSkills() {
     const container = document.getElementById('skills-grid');
     if (!container) return;
-
-    container.innerHTML = SKILLS.map(function (skill, index) {
-      const label = skill.level >= 9 ? 'Advanced' : skill.level >= 8 ? 'Proficient' : 'Working knowledge';
-      const pct = label === 'Advanced' ? 100 : label === 'Proficient' ? 72 : 44;
-      return `
-        <div class="skill-card reveal reveal-delay-${index % 4}">
-          <div class="skill-head">
-            <div class="skill-name-group">
-              <div class="skill-icon" style="--skill-color:${skill.color}" aria-hidden="true">${skill.icon}</div>
-              <span class="skill-name">${skill.name}</span>
-            </div>
-            <span class="skill-level">${label}</span>
-          </div>
-          <div class="skill-bar-wrap">
-            <div class="progress-bar" role="img" aria-label="${skill.name}: ${label}, based on practical project use">
-              <div class="progress-bar-bar" data-level="${pct}" style="width:0%"></div>
-            </div>
-            <span class="skill-bar-val">Project use</span>
-          </div>
-        </div>
-      `;
+    const evidence = {
+      HTML: ['Website interfaces', 'starbucks-portal'], CSS: ['Responsive interfaces', 'monthsary'],
+      Java: ['Development toolkit', null], Python: ['CompressMe & Python-Keybr', 'compressme'],
+      Docker: ['Self-hosted deployment', 'homelab-os'], Linux: ['Host telemetry & administration', 'homelab-agent'],
+      GitHub: ['Source & documentation', 'homelab-os'], Proxmox: ['Homelab integration', 'homelab-os'],
+      SQLite: ['Application data', 'movieflix'], 'Next.js': ['Private media platform', 'movieflix'],
+      Nginx: ['Self-hosted environment', null], WordPress: ['Website development', null]
+    };
+    container.innerHTML = SKILLS.map(function (skill) {
+      const proof = evidence[skill.name];
+      return '<div class="skill-card reveal"><div class="skill-head"><div class="skill-name-group"><div class="skill-icon" style="--skill-color:' + skill.color + '" aria-hidden="true">' + skill.icon + '</div><span class="skill-name">' + skill.name + '</span></div></div><p class="skill-evidence">' + (proof[1] ? '<a href="work/' + proof[1] + '/">' + proof[0] + ' ↗</a>' : proof[0]) + '</p></div>';
     }).join('');
   }
 
@@ -362,7 +354,7 @@
       const imageSource = useScrollImage ? project.scrollImage : project.image;
       const imageFallback = useScrollImage ? project.image : project.imageFallback;
       const imageContent = imageSource
-        ? '<img src="' + imageSource + '" data-fallback="' + (imageFallback || '') + '" data-placeholder="pj-img-' + project.id + '" alt="' + escapeHtml(project.name) + ' screenshot" loading="lazy">'
+        ? '<img src="' + imageSource + '" data-fallback="' + (imageFallback || '') + '" data-placeholder="pj-img-' + project.id + '" alt="' + escapeHtml(project.name) + ' screenshot" loading="eager" decoding="async">'
         : '';
 
       const serviceVisual = project.visualType === 'service'
@@ -384,7 +376,7 @@
       }).join('');
 
       const actions = [];
-      actions.push('<button type="button" class="project-action case-study-trigger" data-case-study="' + project.id + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>Case study</button>');
+      actions.push('<button type="button" class="project-action case-study-trigger" data-case-study="' + project.id + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>Quick view</button>');
       if (project.github) actions.push('<a href="' + project.github + '" class="project-action" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</a>');
       if (project.docs) actions.push('<a href="' + project.docs + '" class="project-action" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>Docs</a>');
       if (project.release && project.status !== 'concept') actions.push('<a href="' + project.release + '" class="project-action" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 4 4L8 20l-4 1 1-4Z"/><path d="m13 7 4 4"/></svg>Releases</a>');
@@ -403,12 +395,12 @@
           <div class="project-body">
             <div class="project-head">
               <div>
-                <h3 class="project-name">${escapeHtml(project.name)}</h3>
+                <h3 class="project-name"><a href="work/${project.id}/">${escapeHtml(project.name)}</a></h3>
                 <p class="project-category">${escapeHtml(project.category)}</p>
               </div>
               <span class="status-badge ${status.class}" style="flex-shrink:0">${status.text}</span>
             </div>
-            <p class="project-desc">${escapeHtml(project.shortDescription)}</p>
+            <p class="project-desc">${escapeHtml(project.shortDescription)}</p><a class="case-link" href="work/${project.id}/">Read case study ↗</a>
             ${disclaimer}
             ${facts ? '<ul class="project-facts">' + facts + '</ul>' : ''}
             <div class="project-tags">${techTags}</div>
@@ -461,7 +453,7 @@
       modal.setAttribute('aria-hidden', 'true');
       modal.inert = true;
       document.body.classList.remove('modal-open');
-      if (previousFocus && previousFocus.focus) previousFocus.focus();
+      if (previousFocus && previousFocus.focus) queueMicrotask(function () { previousFocus.focus(); });
     }
 
     function openCaseStudy(project, trigger) {
@@ -474,7 +466,7 @@
       document.getElementById('case-study-meta').innerHTML = '<span class="status-badge ' + (STATUS_LABELS[project.status] || STATUS_LABELS.completed).class + '">' + escapeHtml((STATUS_LABELS[project.status] || STATUS_LABELS.completed).text) + '</span><span>' + escapeHtml(project.category) + '</span><span>Independent project</span>';
       document.getElementById('case-study-facts').innerHTML = (project.facts || []).map(function (fact) { return '<li>' + escapeHtml(fact) + '</li>'; }).join('');
       document.getElementById('case-study-stack').innerHTML = project.technologies.map(function (tech) { return '<span class="tag">' + escapeHtml(tech) + '</span>'; }).join('');
-      const links = [];
+      const links = ['<a class="btn primary" href="work/' + project.id + '/">Full case study ↗</a>'];
       if (project.github) links.push('<a class="btn primary" href="' + project.github + '" target="_blank" rel="noopener noreferrer">View source<svg><use href="#i-external"/></svg></a>');
       if (project.docs) links.push('<a class="btn secondary" href="' + project.docs + '" target="_blank" rel="noopener noreferrer">Read documentation<svg><use href="#i-external"/></svg></a>');
       if (project.demo) links.push('<a class="btn secondary" href="' + project.demo + '" target="_blank" rel="noopener noreferrer">Open live demo<svg><use href="#i-external"/></svg></a>');
@@ -630,9 +622,9 @@
         const profile = results[0];
         const repos = results[1];
         const stars = repos.reduce(function (total, repo) { return total + (repo.stargazers_count || 0); }, 0);
-        if (reposEl) reposEl.textContent = profile.public_repos ?? '—';
-        if (followersEl) followersEl.textContent = profile.followers ?? '—';
-        if (starsEl) starsEl.textContent = stars;
+        animateValue(reposEl, profile.public_repos ?? 0);
+        animateValue(followersEl, profile.followers ?? 0);
+        animateValue(starsEl, stars);
         if (noteEl) noteEl.textContent = 'Public GitHub information loaded live.';
       })
       .catch(function () {
@@ -641,6 +633,19 @@
         if (starsEl) starsEl.textContent = '—';
         if (noteEl) noteEl.textContent = 'Live GitHub stats unavailable right now. Stats load from the public API when reachable.';
       });
+  }
+
+  function animateValue(el, target) {
+    if (!el) return;
+    if (reduceMotion()) { el.textContent = String(target); return; }
+    const duration = 900;
+    const startTime = performance.now();
+    (function tick(now) {
+      const progress = Math.min(1, (now - startTime) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (progress < 1) requestAnimationFrame(tick);
+    })(startTime);
   }
 
   function animateBars() {
@@ -661,6 +666,9 @@
     div.textContent = str;
     return div.innerHTML;
   }
+
+  window.addEventListener('portfolio-view-change', function () { updateCarousel(false); });
+  window.addEventListener('portfolio-motion-change', function () { updateCarousel(false); });
 
   function initProjects() {
     renderSkills();

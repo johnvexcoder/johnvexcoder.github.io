@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome | Starbucks — Demo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="success-page">
+    <div class="success-card">
+      <h1>Welcome back, <span id="username">friend</span>!</h1>
+      <p>You are successfully signed in to Starbucks.</p>
+      <a href="index.html" class="btn btn-secondary">Return to login</a>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const user = sessionStorage.getItem('sbx_user');
+      if (user) document.getElementById('username').textContent = user.split('@')[0];
+    })();
+  </script>
+</body>
+</html>

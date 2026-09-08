@@ -21,7 +21,7 @@ Then open `http://localhost:4173`.
 5. Confirm the published URL, then add that exact address as the canonical URL, Open Graph URL, and JSON-LD `url` in `index.html`.
 6. Change the Open Graph and Twitter image values to the absolute published URL of `src/img/og/portfolio-preview.png`.
 
-No package installation or build command is required.
+No package installation is required to serve the site. After changing project data, run `node scripts/build-case-studies.cjs` to regenerate the static project pages and sitemap. The no-JavaScript project directory in `index.html` should be kept in sync when adding or removing projects.
 
 ## Add a project
 
@@ -29,7 +29,7 @@ No package installation or build command is required.
 2. Add one object to `PROJECTS_DATA` in `src/js/projects-data.js`.
 3. Set its `category`, `description`, `technologies`, `status`, and available links.
 4. Use `null` for unavailable links. The interface only renders actions that have a URL.
-5. For a tall full-page capture, add an optimized WebP and set `scrollImage` to its path. The active carousel card will pan through it automatically and pause for user interaction.
+5. For a tall full-page capture, add an optimized WebP and set `scrollImage` to its path. Visitors can opt into screenshot playback; it pauses for user interaction and respects reduced-motion preferences.
 
 The depth carousel, search, filters, GitHub repository list, tags, and status label render automatically. Each project also opens an accessible case-study dialog generated from its project data.
 
@@ -86,3 +86,13 @@ The version immediately before the animation and carousel work is in `backup/pre
 - `scripts/build_resume.py` regenerates the one-page résumé with ReportLab and embedded Liberation Sans fonts. Install those fonts or update `FONT_DIR` for another system. Render and visually inspect the PDF after changing it.
 - Education dates and achievements were explicitly supplied in “Check website files” and reconfirmed on September 7, 2026: degree 2024–2025; Youth Leadership Award 2024–2025; NC II Bartending 2023; NC II Bread and Pastry 2024. Retain these user-confirmed credits.
 - The pre-update website and PDF are backed up locally in `backup/pre-topology-motion-2026-09-07/` in the isolated checkout. This ignored folder is not published. Copy its files back to restore the previous version.
+
+## Local redesign review — September 2026
+
+The local redesign uses an editorial layout, an optional depth showcase or full project grid, static case studies, and an interactive lab diagram. Education, awards, existing demos, the résumé PDF, and the animated 404 remain available. The lab diagram illustrates configuration; it is not a live monitor.
+
+Motion uses section-specific image masks, timeline entrances, shallow portrait depth, and short interface transitions. Decorative network signals pause outside the viewport or when the tab is hidden. The Motion control, system reduced-motion setting, and data saver constrain animation. Screenshot playback is opt-in.
+
+The contact form prepares an email in the visitor's email application; it does not send or store messages. External project services and GitHub statistics depend on their respective providers.
+
+Before publishing, review this version locally. The redesign has not been committed or pushed. Private backups and the continuation checkpoint are under the ignored `backup/` and `tmp/` directories. Do not remove their ignore rules.

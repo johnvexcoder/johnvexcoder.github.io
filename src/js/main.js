@@ -100,7 +100,7 @@
       modal.setAttribute('aria-hidden', 'true');
       modal.inert = true;
       document.body.classList.remove('modal-open');
-      if (previousFocus && previousFocus.focus) previousFocus.focus();
+      if (previousFocus && previousFocus.focus) queueMicrotask(function () { previousFocus.focus(); });
     }
 
     if (openBtn) openBtn.addEventListener('click', open);
@@ -153,7 +153,7 @@
     const el = document.getElementById('footer-year');
     const nowDate = document.getElementById('now-date');
     if (el) el.textContent = now.getFullYear();
-    if (nowDate) nowDate.textContent = now.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }).toUpperCase();
+    // The Now date is an editorial update date, supplied in the HTML.
   }
 
   document.addEventListener('DOMContentLoaded', function () {

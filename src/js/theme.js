@@ -2,7 +2,7 @@
   const STORAGE_KEY = 'j0hnvexcoder-theme';
 
   function getInitialTheme() {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    let stored; try { stored = localStorage.getItem(STORAGE_KEY); } catch (error) {}
     if (stored === 'dark' || stored === 'light') {
       return stored;
     }
@@ -30,7 +30,7 @@
     const next = current === 'dark' ? 'light' : 'dark';
     document.body.classList.add('theme-transition');
     applyTheme(next);
-    localStorage.setItem(STORAGE_KEY, next);
+    try { localStorage.setItem(STORAGE_KEY, next); } catch (error) {}
     setTimeout(() => document.body.classList.remove('theme-transition'), 400);
   }
 

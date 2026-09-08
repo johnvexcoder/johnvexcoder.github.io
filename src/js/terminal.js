@@ -225,7 +225,7 @@
     term.setAttribute('aria-hidden', 'true');
     term.inert = true;
     document.body.classList.remove('modal-open');
-    if (previousFocus && previousFocus.focus) previousFocus.focus();
+    if (previousFocus && previousFocus.focus) queueMicrotask(function () { previousFocus.focus(); });
   }
 
   function initTerminal() {

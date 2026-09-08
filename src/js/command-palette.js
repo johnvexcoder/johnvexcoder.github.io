@@ -64,7 +64,7 @@
     palette.setAttribute('aria-hidden', 'true');
     palette.inert = true;
     document.body.classList.remove('palette-open');
-    if (previousFocus && previousFocus.focus) previousFocus.focus();
+    if (previousFocus && previousFocus.focus) queueMicrotask(function () { previousFocus.focus(); });
   }
 
   function renderResults(query) {
