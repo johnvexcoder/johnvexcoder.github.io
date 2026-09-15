@@ -19,7 +19,7 @@ Then open `http://localhost:4173`.
 3. Under **Build and deployment**, select **Deploy from a branch**.
 4. Select the branch containing the site, choose `/ (root)`, and save.
 5. Confirm the published URL, then add that exact address as the canonical URL, Open Graph URL, and JSON-LD `url` in `index.html`.
-6. Change the Open Graph and Twitter image values to the absolute published URL of `src/img/og/portfolio-preview.png`.
+6. Keep the Open Graph and Twitter image URLs pointed at the published 1200×630 card in `src/img/og/portfolio-social-v2.png`. Regenerate it with `node scripts/render-social-preview.cjs` after editing `scripts/social-preview.html`.
 
 No package installation is required to serve the site. After changing project data, run `node scripts/build-case-studies.cjs` to regenerate the static project pages and sitemap. The no-JavaScript project directory in `index.html` should be kept in sync when adding or removing projects.
 

@@ -1,0 +1,3 @@
+const path=require('node:path');
+let chromium;try{({chromium}=require('playwright'))}catch(error){({chromium}=require('/home/j0hn/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'))}
+(async()=>{const browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1200,height:630},deviceScaleFactor:1});await page.goto('file://'+path.resolve(__dirname,'social-preview.html'));await page.locator('.portrait-arch img').evaluate(image=>image.decode());await page.screenshot({path:path.resolve(__dirname,'../src/img/og/portfolio-social-v2.png')});await browser.close();console.log('Rendered 1200×630 portfolio social card')})().catch(error=>{console.error(error);process.exit(1)});
