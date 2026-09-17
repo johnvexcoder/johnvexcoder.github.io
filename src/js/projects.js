@@ -8,6 +8,9 @@
     { group: 'Development', name: 'CSS', level: 9.5, color: '#1572B6', icon: icon('<path d="m4 3 1.6 17L12 22l6.4-2L20 3H4Z"/><path d="M8 8h8l-.4 3H9l.2 3h6l-.3 3-2.9.8-2.8-.8"/>') },
     { group: 'Development', name: 'JavaScript', level: 9, color: '#F7DF1E', icon: icon('<path d="M4 3h16v18H4V3Zm6 7h4v9M8 10h4l-1 4-1-2"/>') },
     { group: 'Development', name: 'Next.js', level: 7, color: 'var(--text)', icon: icon('<circle cx="12" cy="12" r="9"/><path d="M8 16V8l8 8V8"/>') },
+    { group: 'Development', name: 'React', level: 7.5, color: '#61DAFB', icon: icon('<circle cx="12" cy="12" r="3.2"/><path d="M6.5 9.7c-1 .5-1.5 1.5-1.5 2.3s.5 1.8 1.5 2.3c1-.5 3-1.4 5.5-2.3-2.5-.9-4.5-1.8-5.5-2.3ZM17.5 9.7c-1-.5-3-1.4-5.5-2.3 2.5-.9 4.5-1.8 5.5-2.3 1 .5 1.5 1.5 1.5 2.3s-.5 1.8-1.5 2.3Z"/><path d="M12 9.4c-.3 1.4-1.3 2.8-2.4 4 .9.4 2 .7 3.2.9 1.2-.2 2.3-.5 3.2-.9-1.1-1.2-2.1-2.6-2.4-4ZM6.5 14.3c-.5 1 0 2.2 1 2.7s2.1-.4 2.6-1.4c-.5-1-2.1-1.8-3.6-1.3ZM17.5 14.3c-1.5-.5-3.1.3-3.6 1.3.5 1 1.6 1.7 2.6 1.4s1.5-1.7 1-2.7Z"/><path d="M13.6 15.6c-1-.5-2.2-.7-3.2-.6-.6.5-1 1.3-.9 2.1.4.3 1 .4 1.7.4 1 .3 2 .1 2.7-.6.2-.4 0-1-.3-1.3ZM10.4 8.4c1 .5 2.2.7 3.2.6.6-.5 1-1.3.9-2.1-.4-.3-1-.4-1.7-.4-1-.3-2-.1-2.7.6-.2.4 0 1 .3 1.3Z"/>') },
+    { group: 'Development', name: 'TypeScript', level: 7, color: '#3178C6', icon: icon('<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9v9m0-4.5h5V9m-2 0v9"/>') },
+    { group: 'Development', name: 'Node.js', level: 7.5, color: '#3C873A', icon: icon('<path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z"/><path d="m8 15 4-6v6"/>') },
     { group: 'Development', name: 'Python', level: 10, color: '#3776AB', icon: icon('<path d="M12 3c-4 0-4 2-4 4v3h8a3 3 0 0 1 3 3v4c0 2-2 4-7 4"/><path d="M12 21c4 0 4-2 4-4v-3H8a3 3 0 0 1-3-3V7c0-2 2-4 7-4"/><path d="M10 6h.01M14 18h.01"/>') },
     { group: 'Development', name: 'Java', level: 8.5, color: '#EA2D2E', icon: icon('<path d="M8 18h8a3 3 0 0 0 3-3v-3h-3"/><path d="M6 12h10v5a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4v-5Z"/><path d="M9 8c3-1 1-3 4-4M8 22h9"/>') },
     { group: 'Development', name: 'WordPress', level: 9, color: '#21759B', icon: icon('<circle cx="12" cy="12" r="9"/><path d="M7 8h3l4 10 3-8c.6-1.7-.4-2-1-2M6 8l4 10 2-5"/>') },
@@ -16,6 +19,9 @@
     { group: 'Infrastructure', name: 'Proxmox', level: 7.5, color: '#E57000', icon: icon('<path d="m3 5 7 7-7 7M14 5l7 7-7 7M9 5l7 7-7 7"/>') },
     { group: 'Infrastructure', name: 'Nginx', level: 9, color: '#009639', icon: icon('<path d="m12 2 8 5v10l-8 5-8-5V7l8-5Z"/><path d="M8.5 16V8l7 8V8"/>') },
     { group: 'Data', name: 'SQLite', level: 8.5, color: '#0F80CC', icon: icon('<ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v14c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 12c0 1.7 3.1 3 7 3 1 0 2-.1 2.8-.3"/>') },
+    { group: 'Data', name: 'PostgreSQL', level: 7, color: '#336791', icon: icon('<path d="M12 3 4 6v6c0 4 3.5 7.5 8 9 4.5-1.5 8-5 8-9V6l-8-3Z"/><path d="M12 3v18M4 6l8 3 8-3M8 9h0M16 12h0"/>') },
+    { group: 'Data', name: 'Redis', level: 7, color: '#DC382D', icon: icon('<path d="M5 8h14l-1 10H6L5 8Z"/><path d="M7 8 6 3h3l1 5M17 8l1-5h-3l-1 5M10 11h4M10 14h3"/>') },
+    { group: 'Tools', name: 'Git', level: 8, color: '#F05032', icon: icon('<path d="M12 3 3 12l9 9 9-9-9-9Z"/><path d="m12 3 9 9-4 4-9-9 4-4ZM12 3 8 7l9 9 4-4"/>') },
     { group: 'Tools', name: 'GitHub', level: 8.5, color: 'var(--text)', icon: icon('<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.7.9-1.1 2-.9 3.5v4"/><path d="M9 18c-4.5 2-5-2-7-2"/>') }
   ];
 
@@ -295,10 +301,14 @@
     const evidence = {
       HTML: ['Website interfaces', 'starbucks-portal'], CSS: ['Responsive interfaces', 'monthsary'],
       JavaScript: ['Interactive interfaces', 'smart-expense'],
+      React: ['Dashboard UI', 'homelab-os'], TypeScript: ['Typed application code', 'homelab-os'],
+      'Node.js': ['Agent runtime', 'homelab-agent'],
       Java: ['Development toolkit', null], Python: ['CompressMe & Python-Keybr', 'compressme'],
       Docker: ['Self-hosted deployment', 'homelab-os'], Linux: ['Host telemetry & administration', 'homelab-agent'],
-      GitHub: ['Source & documentation', 'homelab-os'], Proxmox: ['Homelab integration', 'homelab-os'],
-      SQLite: ['Application data', 'movieflix'], 'Next.js': ['Private media platform', 'movieflix'],
+      GitHub: ['Source & documentation', 'homelab-os'], Git: ['Version control', null],
+      Proxmox: ['Homelab integration', 'homelab-os'], Redis: ['Media streaming cache', 'movieflix'],
+      SQLite: ['Application data', 'movieflix'], PostgreSQL: ['Relational databases', null],
+      'Next.js': ['Private media platform', 'movieflix'],
       Nginx: ['Self-hosted environment', null], WordPress: ['Website development', null]
     };
     const groupOrder = ['Development', 'Infrastructure', 'Data', 'Tools'];
