@@ -4,18 +4,19 @@
   };
 
   const SKILLS = [
-    { name: 'HTML', level: 10, color: '#E34F26', icon: icon('<path d="m4 3 1.6 17L12 22l6.4-2L20 3H4Z"/><path d="M8 8h8l-.5 3H8.3l.3 3H15l-.3 3-2.7.8L9.3 17l-.2-1.5"/>') },
-    { name: 'CSS', level: 9.5, color: '#1572B6', icon: icon('<path d="m4 3 1.6 17L12 22l6.4-2L20 3H4Z"/><path d="M8 8h8l-.4 3H9l.2 3h6l-.3 3-2.9.8-2.8-.8"/>') },
-    { name: 'Java', level: 8.5, color: '#EA2D2E', icon: icon('<path d="M8 18h8a3 3 0 0 0 3-3v-3h-3"/><path d="M6 12h10v5a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4v-5Z"/><path d="M9 8c3-1 1-3 4-4M8 22h9"/>') },
-    { name: 'Python', level: 10, color: '#3776AB', icon: icon('<path d="M12 3c-4 0-4 2-4 4v3h8a3 3 0 0 1 3 3v4c0 2-2 4-7 4"/><path d="M12 21c4 0 4-2 4-4v-3H8a3 3 0 0 1-3-3V7c0-2 2-4 7-4"/><path d="M10 6h.01M14 18h.01"/>') },
-    { name: 'Docker', level: 7.5, color: '#2496ED', icon: icon('<path d="M3 13h15c0 4-3 7-8 7-4 0-7-2-7-7Z"/><path d="M6 10h3v3H6zM9 7h3v3H9zM12 10h3v3h-3zM9 10h3v3H9z"/><path d="M18 11c1-1 2-1 3 0-.5 1.5-1.5 2-3 2"/>') },
-    { name: 'Linux', level: 10, color: '#FCC624', icon: icon('<rect x="2.5" y="3.5" width="19" height="17" rx="3"/><path d="m7 8 4 4-4 4M13 16h4"/>') },
-    { name: 'GitHub', level: 8.5, color: 'var(--text)', icon: icon('<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.7.9-1.1 2-.9 3.5v4"/><path d="M9 18c-4.5 2-5-2-7-2"/>') },
-    { name: 'Proxmox', level: 7.5, color: '#E57000', icon: icon('<path d="m3 5 7 7-7 7M14 5l7 7-7 7M9 5l7 7-7 7"/>') },
-    { name: 'SQLite', level: 8.5, color: '#0F80CC', icon: icon('<ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v14c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 12c0 1.7 3.1 3 7 3 1 0 2-.1 2.8-.3"/>') },
-    { name: 'Next.js', level: 7, color: 'var(--text)', icon: icon('<circle cx="12" cy="12" r="9"/><path d="M8 16V8l8 8V8"/>') },
-    { name: 'Nginx', level: 9, color: '#009639', icon: icon('<path d="m12 2 8 5v10l-8 5-8-5V7l8-5Z"/><path d="M8.5 16V8l7 8V8"/>') },
-    { name: 'WordPress', level: 9, color: '#21759B', icon: icon('<circle cx="12" cy="12" r="9"/><path d="M7 8h3l4 10 3-8c.6-1.7-.4-2-1-2M6 8l4 10 2-5"/>') }
+    { group: 'Development', name: 'HTML', level: 10, color: '#E34F26', icon: icon('<path d="m4 3 1.6 17L12 22l6.4-2L20 3H4Z"/><path d="M8 8h8l-.5 3H8.3l.3 3H15l-.3 3-2.7.8L9.3 17l-.2-1.5"/>') },
+    { group: 'Development', name: 'CSS', level: 9.5, color: '#1572B6', icon: icon('<path d="m4 3 1.6 17L12 22l6.4-2L20 3H4Z"/><path d="M8 8h8l-.4 3H9l.2 3h6l-.3 3-2.9.8-2.8-.8"/>') },
+    { group: 'Development', name: 'JavaScript', level: 9, color: '#F7DF1E', icon: icon('<path d="M4 3h16v18H4V3Zm6 7h4v9M8 10h4l-1 4-1-2"/>') },
+    { group: 'Development', name: 'Next.js', level: 7, color: 'var(--text)', icon: icon('<circle cx="12" cy="12" r="9"/><path d="M8 16V8l8 8V8"/>') },
+    { group: 'Development', name: 'Python', level: 10, color: '#3776AB', icon: icon('<path d="M12 3c-4 0-4 2-4 4v3h8a3 3 0 0 1 3 3v4c0 2-2 4-7 4"/><path d="M12 21c4 0 4-2 4-4v-3H8a3 3 0 0 1-3-3V7c0-2 2-4 7-4"/><path d="M10 6h.01M14 18h.01"/>') },
+    { group: 'Development', name: 'Java', level: 8.5, color: '#EA2D2E', icon: icon('<path d="M8 18h8a3 3 0 0 0 3-3v-3h-3"/><path d="M6 12h10v5a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4v-5Z"/><path d="M9 8c3-1 1-3 4-4M8 22h9"/>') },
+    { group: 'Development', name: 'WordPress', level: 9, color: '#21759B', icon: icon('<circle cx="12" cy="12" r="9"/><path d="M7 8h3l4 10 3-8c.6-1.7-.4-2-1-2M6 8l4 10 2-5"/>') },
+    { group: 'Infrastructure', name: 'Linux', level: 10, color: '#FCC624', icon: icon('<rect x="2.5" y="3.5" width="19" height="17" rx="3"/><path d="m7 8 4 4-4 4M13 16h4"/>') },
+    { group: 'Infrastructure', name: 'Docker', level: 7.5, color: '#2496ED', icon: icon('<path d="M3 13h15c0 4-3 7-8 7-4 0-7-2-7-7Z"/><path d="M6 10h3v3H6zM9 7h3v3H9zM12 10h3v3h-3zM9 10h3v3H9z"/><path d="M18 11c1-1 2-1 3 0-.5 1.5-1.5 2-3 2"/>') },
+    { group: 'Infrastructure', name: 'Proxmox', level: 7.5, color: '#E57000', icon: icon('<path d="m3 5 7 7-7 7M14 5l7 7-7 7M9 5l7 7-7 7"/>') },
+    { group: 'Infrastructure', name: 'Nginx', level: 9, color: '#009639', icon: icon('<path d="m12 2 8 5v10l-8 5-8-5V7l8-5Z"/><path d="M8.5 16V8l7 8V8"/>') },
+    { group: 'Data', name: 'SQLite', level: 8.5, color: '#0F80CC', icon: icon('<ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v14c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 12c0 1.7 3.1 3 7 3 1 0 2-.1 2.8-.3"/>') },
+    { group: 'Tools', name: 'GitHub', level: 8.5, color: 'var(--text)', icon: icon('<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.7.9-1.1 2-.9 3.5v4"/><path d="M9 18c-4.5 2-5-2-7-2"/>') }
   ];
 
   const STATUS_LABELS = {
@@ -293,15 +294,23 @@
     if (!container) return;
     const evidence = {
       HTML: ['Website interfaces', 'starbucks-portal'], CSS: ['Responsive interfaces', 'monthsary'],
+      JavaScript: ['Interactive interfaces', 'smart-expense'],
       Java: ['Development toolkit', null], Python: ['CompressMe & Python-Keybr', 'compressme'],
       Docker: ['Self-hosted deployment', 'homelab-os'], Linux: ['Host telemetry & administration', 'homelab-agent'],
       GitHub: ['Source & documentation', 'homelab-os'], Proxmox: ['Homelab integration', 'homelab-os'],
       SQLite: ['Application data', 'movieflix'], 'Next.js': ['Private media platform', 'movieflix'],
       Nginx: ['Self-hosted environment', null], WordPress: ['Website development', null]
     };
-    container.innerHTML = SKILLS.map(function (skill) {
-      const proof = evidence[skill.name];
-      return '<div class="skill-card reveal"><div class="skill-head"><div class="skill-name-group"><div class="skill-icon" style="--skill-color:' + skill.color + '" aria-hidden="true">' + skill.icon + '</div><span class="skill-name">' + skill.name + '</span></div></div><p class="skill-evidence">' + (proof[1] ? '<a href="work/' + proof[1] + '/">' + proof[0] + ' ↗</a>' : proof[0]) + '</p></div>';
+    const groupOrder = ['Development', 'Infrastructure', 'Data', 'Tools'];
+    container.innerHTML = groupOrder.map(function (group) {
+      const cards = SKILLS.filter(function (s) { return s.group === group; });
+      if (!cards.length) return '';
+      const cardHtml = cards.map(function (skill) {
+        const proof = evidence[skill.name] || ['', null];
+        const ev = proof[1] ? '<a href="work/' + proof[1] + '/">' + proof[0] + ' ↗</a>' : proof[0];
+        return '<div class="skill-card reveal"><div class="skill-head"><div class="skill-name-group"><div class="skill-icon" style="--skill-color:' + skill.color + '" aria-hidden="true">' + skill.icon + '</div><span class="skill-name">' + skill.name + '</span></div></div><p class="skill-evidence">' + ev + '</p></div>';
+      }).join('');
+      return '<div class="skill-group"><h3 class="skill-group-title">' + group + '</h3><div class="skill-group-grid">' + cardHtml + '</div></div>';
     }).join('');
   }
 
@@ -310,7 +319,9 @@
     const empty = document.getElementById('projects-empty');
     if (!grid) return;
 
-    let projects = PROJECTS_DATA.slice();
+    let projects = PROJECTS_DATA.slice().sort(function (a, b) {
+      return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+    });
 
     if (filter && filter !== 'all') {
       projects = projects.filter(function (p) {
@@ -606,7 +617,10 @@
     const noteEl = document.getElementById('github-api-note');
 
     if (navigator.connection && navigator.connection.saveData) {
-      if (noteEl) noteEl.textContent = 'Data saver is on. Open GitHub for current public activity.';
+      if (noteEl) noteEl.textContent = 'Data saver is on — view live stats on the GitHub profile.';
+      if (reposEl) reposEl.textContent = '—';
+      if (followersEl) followersEl.textContent = '—';
+      if (starsEl) starsEl.textContent = '—';
       return;
     }
 
@@ -631,7 +645,7 @@
         if (reposEl) reposEl.textContent = '—';
         if (followersEl) followersEl.textContent = '—';
         if (starsEl) starsEl.textContent = '—';
-        if (noteEl) noteEl.textContent = 'Live GitHub stats unavailable right now. Stats load from the public API when reachable.';
+        if (noteEl) noteEl.textContent = 'Live GitHub stats are unavailable right now. Open the GitHub profile for current activity.';
       });
   }
 

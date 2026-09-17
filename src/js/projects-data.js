@@ -183,7 +183,7 @@ const PROJECTS_DATA = [
     release: null,
     demo: 'https://15th-monthsary.netlify.app/',
     openSource: false,
-    featured: true,
+    featured: false,
     facts: ['Live site', 'Time together counter', 'Photo galleries + letters'],
     problemSolution: 'A personal dedication site to celebrate and preserve an anniversary — every moment together counted, remembered, and expressed with love.',
     disclaimer: 'Personal Project'
