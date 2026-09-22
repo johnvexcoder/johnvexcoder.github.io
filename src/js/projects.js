@@ -22,7 +22,13 @@
     { group: 'Data', name: 'PostgreSQL', level: 7, color: '#336791', icon: icon('<path d="M12 3 4 6v6c0 4 3.5 7.5 8 9 4.5-1.5 8-5 8-9V6l-8-3Z"/><path d="M12 3v18M4 6l8 3 8-3M8 9h0M16 12h0"/>') },
     { group: 'Data', name: 'Redis', level: 7, color: '#DC382D', icon: icon('<path d="M5 8h14l-1 10H6L5 8Z"/><path d="M7 8 6 3h3l1 5M17 8l1-5h-3l-1 5M10 11h4M10 14h3"/>') },
     { group: 'Tools', name: 'Git', level: 8, color: '#F05032', icon: icon('<path d="M12 3 3 12l9 9 9-9-9-9Z"/><path d="m12 3 9 9-4 4-9-9 4-4ZM12 3 8 7l9 9 4-4"/>') },
-    { group: 'Tools', name: 'GitHub', level: 8.5, color: 'var(--text)', icon: icon('<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.7.9-1.1 2-.9 3.5v4"/><path d="M9 18c-4.5 2-5-2-7-2"/>') }
+    { group: 'Tools', name: 'GitHub', level: 8.5, color: 'var(--text)', icon: icon('<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.7.9-1.1 2-.9 3.5v4"/><path d="M9 18c-4.5 2-5-2-7-2"/>') },
+    { group: 'Development', name: 'Tailwind CSS', level: 7.5, color: '#38BDF8', icon: icon('<path d="M5 9c1.5-4 4-5.5 7-4.5 1.7.6 2.7 2.1 3.8 3.1C17 8.8 18.2 9 20 8.5c-1.5 4-4 5.5-7 4.5-1.7-.6-2.7-2.1-3.8-3.1C8 8.7 6.8 8.5 5 9Zm-2 6.5c1.5-4 4-5.5 7-4.5 1.7.6 2.7 2.1 3.8 3.1 1.2 1.2 2.4 1.4 4.2.9-1.5 4-4 5.5-7 4.5-1.7-.6-2.7-2.1-3.8-3.1C6 15.2 4.8 15 3 15.5Z"/>') },
+    { group: 'Development', name: 'Framer Motion', level: 7, color: '#A78BFA', icon: icon('<path d="M6 3h12l-6 7h6l-12 11 4-8H6V3Z"/>') },
+    { group: 'Development', name: 'Zustand', level: 7, color: '#D3A46F', icon: icon('<path d="M5 18V8l7-4 7 4v10l-7 3-7-3Z"/><path d="m5 8 7 4 7-4M12 12v9"/>') },
+    { group: 'Data', name: 'Zod', level: 7, color: '#3E67B1', icon: icon('<path d="M4 5h16l-9 14h9"/><path d="M7 9h8"/>') },
+    { group: 'Tools', name: 'Vercel', level: 8, color: 'var(--text)', icon: icon('<path d="m12 4 9 16H3L12 4Z"/>') },
+    { group: 'Data', name: 'localStorage', level: 9, color: '#F59E0B', icon: icon('<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5M8 17h3"/>') }
   ];
 
   const STATUS_LABELS = {
@@ -300,28 +306,37 @@
     if (!container) return;
     const evidence = {
       HTML: ['Website interfaces', 'starbucks-portal'], CSS: ['Responsive interfaces', 'monthsary'],
-      JavaScript: ['Interactive interfaces', 'smart-expense'],
-      React: ['Dashboard UI', 'homelab-os'], TypeScript: ['Typed application code', 'homelab-os'],
+      JavaScript: ['Interactive café experience', 'your-coffee'],
+      React: ['Commerce + dashboard UI', 'donut-house'], TypeScript: ['Typed commerce application', 'donut-house'],
       'Node.js': ['Agent runtime', 'homelab-agent'],
       Java: ['Development toolkit', null], Python: ['CompressMe & Python-Keybr', 'compressme'],
       Docker: ['Self-hosted deployment', 'homelab-os'], Linux: ['Host telemetry & administration', 'homelab-agent'],
       GitHub: ['Source & documentation', 'homelab-os'], Git: ['Version control', null],
       Proxmox: ['Homelab integration', 'homelab-os'], Redis: ['Media streaming cache', 'movieflix'],
       SQLite: ['Application data', 'movieflix'], PostgreSQL: ['Relational databases', null],
-      'Next.js': ['Private media platform', 'movieflix'],
+      'Next.js': ['Commerce + media platforms', 'donut-house'],
+      'Tailwind CSS': ['Responsive design system', 'donut-house'], 'Framer Motion': ['Product motion system', 'donut-house'],
+      Zustand: ['Persistent commerce state', 'donut-house'], Zod: ['Structured input validation', 'donut-house'],
+      Vercel: ['Production demo delivery', 'your-coffee'], localStorage: ['Persistent browser cart', 'your-coffee'],
       Nginx: ['Self-hosted environment', null], WordPress: ['Website development', null]
     };
-    const groupOrder = ['Development', 'Infrastructure', 'Data', 'Tools'];
-    container.innerHTML = groupOrder.map(function (group) {
-      const cards = SKILLS.filter(function (s) { return s.group === group; });
-      if (!cards.length) return '';
+    const groups = [
+      { index: '01', title: 'Interface engineering', description: 'Responsive systems, component architecture, and purposeful motion.', names: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Framer Motion'] },
+      { index: '02', title: 'Application & data', description: 'Runtime logic, state, validation, automation, and persistence.', names: ['Node.js', 'Python', 'Java', 'Zustand', 'Zod', 'SQLite', 'PostgreSQL', 'Redis', 'localStorage'] },
+      { index: '03', title: 'Infrastructure & delivery', description: 'The systems, deployment paths, and platforms behind the work.', names: ['Linux', 'Docker', 'Proxmox', 'Nginx', 'Vercel', 'Git', 'GitHub', 'WordPress'] }
+    ];
+    const skillByName = Object.fromEntries(SKILLS.map(function (skill) { return [skill.name, skill]; }));
+    container.innerHTML = groups.map(function (group) {
+      const cards = group.names.map(function (name) { return skillByName[name]; }).filter(Boolean);
       const cardHtml = cards.map(function (skill) {
         const proof = evidence[skill.name] || ['', null];
         const ev = proof[1] ? '<a href="work/' + proof[1] + '/">' + proof[0] + ' ↗</a>' : proof[0];
         return '<div class="skill-card reveal"><div class="skill-head"><div class="skill-name-group"><div class="skill-icon" style="--skill-color:' + skill.color + '" aria-hidden="true">' + skill.icon + '</div><span class="skill-name">' + skill.name + '</span></div></div><p class="skill-evidence">' + ev + '</p></div>';
       }).join('');
-      return '<div class="skill-group"><h3 class="skill-group-title">' + group + '</h3><div class="skill-group-grid">' + cardHtml + '</div></div>';
+      return '<section class="skill-group"><header class="skill-group-head"><span>' + group.index + '</span><div><h3>' + group.title + '</h3><p>' + group.description + '</p></div><small>' + String(cards.length).padStart(2, '0') + ' TOOLS</small></header><div class="skill-group-grid">' + cardHtml + '</div></section>';
     }).join('');
+    const supporting = document.querySelector('.skill-tags');
+    if (supporting) supporting.innerHTML = '<span>Tailscale</span><span>Bash</span><span>Networking</span><span>Docker Compose</span><span>Vercel Hosting</span><span>Responsive UI</span>';
   }
 
   function renderProjects(filter, search) {
