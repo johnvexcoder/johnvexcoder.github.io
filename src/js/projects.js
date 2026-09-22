@@ -127,8 +127,9 @@
   function bindImageScroller(container) {
     if (!container || container.dataset.scrollBound === 'true') return;
     container.dataset.scrollBound = 'true';
-    const cue = container.nextElementSibling && container.nextElementSibling.classList.contains('project-scroll-cue')
-      ? container.nextElementSibling
+    const previewFrame = container.closest('.project-preview-frame');
+    const cue = previewFrame && previewFrame.nextElementSibling && previewFrame.nextElementSibling.classList.contains('project-scroll-cue')
+      ? previewFrame.nextElementSibling
       : null;
     if (cue) {
       cue.addEventListener('click', function (event) {
@@ -439,13 +440,15 @@
 
       return `
         <article class="project-card" data-category="${project.category}" data-id="${project.id}" data-carousel-index="${projectIndex}">
-          <div class="project-image${project.scrollImage ? ' is-scrollable' : ''}" id="project-preview-${project.id}"${project.scrollImage ? ' tabindex="0" aria-label="Scrollable full-page screenshot for ' + escapeHtml(project.name) + '"' : ''}>
-            ${imageContent}
-            ${fallbackContent}
-            ${logoContent}
-            <div class="project-image-overlay">
-              <span class="status-badge ${status.class}">${status.text}</span>
+          <div class="project-preview-frame">
+            <div class="project-image${project.scrollImage ? ' is-scrollable' : ''}" id="project-preview-${project.id}"${project.scrollImage ? ' tabindex="0" aria-label="Scrollable full-page screenshot for ' + escapeHtml(project.name) + '"' : ''}>
+              ${imageContent}
+              ${fallbackContent}
+              <div class="project-image-overlay">
+                <span class="status-badge ${status.class}">${status.text}</span>
+              </div>
             </div>
+            ${logoContent}
           </div>
           ${project.scrollImage ? '<button class="project-scroll-cue" type="button" aria-controls="project-preview-' + project.id + '" aria-label="Scroll through the ' + escapeHtml(project.name) + ' website preview"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v14M7 13l5 5 5-5"/></svg>Scroll website preview</span><small>INTERACTIVE</small></button>' : ''}
           <div class="project-body">
