@@ -127,6 +127,25 @@
   function bindImageScroller(container) {
     if (!container || container.dataset.scrollBound === 'true') return;
     container.dataset.scrollBound = 'true';
+    const cue = container.nextElementSibling && container.nextElementSibling.classList.contains('project-scroll-cue')
+      ? container.nextElementSibling
+      : null;
+    if (cue) {
+      cue.addEventListener('click', function (event) {
+        event.stopPropagation();
+        pauseImageForInteraction(container, 5000);
+        const maximum = container.scrollHeight - container.clientHeight;
+        const nearEnd = maximum - container.scrollTop < container.clientHeight * 0.35;
+        container.scrollTo({
+          top: nearEnd ? 0 : Math.min(maximum, container.scrollTop + container.clientHeight * 0.78),
+          behavior: reduceMotion() ? 'auto' : 'smooth'
+        });
+        container.focus({ preventScroll: true });
+      });
+      container.addEventListener('scroll', function () {
+        cue.classList.toggle('has-progress', container.scrollTop > 8);
+      }, { passive: true });
+    }
     container.addEventListener('pointerenter', function () { pauseImageForInteraction(container); });
     container.addEventListener('pointerleave', function () { startImageAutoScroll(container, 1200); });
     container.addEventListener('pointerdown', function () { pauseImageForInteraction(container); });
@@ -420,7 +439,7 @@
 
       return `
         <article class="project-card" data-category="${project.category}" data-id="${project.id}" data-carousel-index="${projectIndex}">
-          <div class="project-image${project.scrollImage ? ' is-scrollable' : ''}"${project.scrollImage ? ' tabindex="0" aria-label="Scrollable full-page screenshot for ' + escapeHtml(project.name) + '"' : ''}>
+          <div class="project-image${project.scrollImage ? ' is-scrollable' : ''}" id="project-preview-${project.id}"${project.scrollImage ? ' tabindex="0" aria-label="Scrollable full-page screenshot for ' + escapeHtml(project.name) + '"' : ''}>
             ${imageContent}
             ${fallbackContent}
             ${logoContent}
@@ -428,6 +447,7 @@
               <span class="status-badge ${status.class}">${status.text}</span>
             </div>
           </div>
+          ${project.scrollImage ? '<button class="project-scroll-cue" type="button" aria-controls="project-preview-' + project.id + '" aria-label="Scroll through the ' + escapeHtml(project.name) + ' website preview"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v14M7 13l5 5 5-5"/></svg>Scroll website preview</span><small>INTERACTIVE</small></button>' : ''}
           <div class="project-body">
             <div class="project-head">
               <div>
