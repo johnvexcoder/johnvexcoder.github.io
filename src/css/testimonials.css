@@ -15,8 +15,8 @@
 .testimonial-top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-bottom:19px;border-bottom:1px solid var(--line)}
 .testimonial-top small,.testimonial-project,.testimonial-date{color:var(--muted);font:600 .66rem var(--mono);letter-spacing:.07em;text-transform:uppercase}
 .testimonial-stars{color:var(--accent);font-size:1rem;letter-spacing:.06em;white-space:nowrap}
-.testimonial-quote{flex:1;margin:22px 0;color:var(--text);font-size:1rem;line-height:1.65;overflow-wrap:anywhere}
-.testimonial-identity{display:flex;align-items:center;gap:11px}
+.testimonial-quote{flex:1;display:grid;align-content:center;margin:18px 0;color:var(--text);font-size:1rem;line-height:1.65;overflow-wrap:anywhere}
+.testimonial-identity{display:flex;align-items:center;gap:11px;margin-top:auto}
 .testimonial-avatar{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line-strong);border-radius:9px;background:var(--surface-2);color:var(--accent);font:700 .75rem var(--mono)}
 .testimonial-avatar img{width:100%;height:100%;object-fit:cover}
 .testimonial-identity strong,.testimonial-identity small{display:block}.testimonial-identity strong{font-size:.88rem}.testimonial-identity small{margin-top:2px;color:var(--muted);font-size:.72rem}
