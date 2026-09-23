@@ -1,18 +1,23 @@
 [
   {
-    "name": "Jenica",
+    "name": "Je****",
     "rating": 5,
-    "review": "Johnvexcoder exceeded every expectation. The user experience is smooth, the design aesthetic is elegant, and the performance is flawless. If you want a web developer who truly understands modern web standards and design, look no further!"
+    "review": "The user experience is smooth, the design aesthetic is elegant, and the performance is flawless. If you want a web developer who truly understands modern web standards and design, look no further!"
   },
   {
-    "name": "4 Coffee",
-    "company": "4 Coffee",
+    "name": "Ge****",
+    "company": "4th Coffee",
     "rating": 5,
     "review": "A perfect demonstration of clean code and modern frontend design!"
   },
   {
-    "name": "MJ",
+    "name": "Ma********",
     "rating": 5,
     "review": "Super responsive, polished, and perfectly structured to highlight skills and achievements. He consistently delivers clean, high-performing websites. Couldn’t recommend him enough"
+  }
+  {
+    "name": "Ra****",
+    "rating": 5,
+    "review": "I’m really impressed by his work. I was hesitant at first, but after seeing his proposal, I knew he understood exactly what I wanted to achieve with my first landing page. He delivered the vision I had in mind, and I’m very happy with the result."
   }
 ]
