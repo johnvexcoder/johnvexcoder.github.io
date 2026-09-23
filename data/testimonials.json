@@ -19,5 +19,12 @@
     "name": "Ra****",
     "rating": 5,
     "review": "I’m really impressed by his work. I was hesitant at first, but after seeing his proposal, I knew he understood exactly what I wanted to achieve with my first landing page. He delivered the vision I had in mind, and I’m very happy with the result."
+  },
+  {
+    "name": "Greek Man",
+    "company": "Homelab",
+    "rating": 5,
+    "review": "I directly asked him for a favor to help me deployed a server dashboard through my homelab and he didn't think twice helping me. Thanks men",
+    "avatar": "https://api.dicebear.com/10.x/glass/svg?seed=Luna"
   }
 ]
