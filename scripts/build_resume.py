@@ -55,8 +55,8 @@ text('Computer configuration, networking, room access point setup, troubleshooti
 text('IT  |  Hundredfold Digital',11,ink,True)
 section('Selected independent projects')
 projects = [
-('HomeLab-OS','HomeLab-OS','Real-time infrastructure dashboard with WebSocket telemetry, topology mapping, and Proxmox integration; includes a simulated demo fleet.'),
-('HomeLab-Agent','HomeLab-Agent','Modular Linux telemetry agent that reports host, hardware, Docker, disk, and network data to HomeLab OS.'),
+('Nexora Lab','nexora-lab','Real-time infrastructure dashboard with WebSocket telemetry, topology mapping, and Proxmox integration; includes a simulated demo fleet.'),
+('Nexora Agent','nexora-agent','Modular Linux telemetry agent that reports host, hardware, Docker, disk, and network data to Nexora Lab.'),
 ('CompressMe','CompressMe','Cross-platform Python image compression tool with a PySide6 GUI and CLI, batch processing, and duplicate detection.'),
 ('MovieFlix','MovieFlix','Self-hosted media platform with local media scanning, HTTP range streaming, and FFmpeg transcoding.')]
 for title,repo,desc in projects:

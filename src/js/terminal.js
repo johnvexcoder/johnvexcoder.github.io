@@ -43,7 +43,7 @@
     },
     projects: function () {
       const projects = [
-        { name: 'HomeLab-OS', desc: 'self-hosted NOC dashboard' },
+        { name: 'Nexora Lab', desc: 'self-hosted NOC dashboard' },
         { name: 'MovieFlix', desc: 'private media streaming platform' },
         { name: 'CompressMe', desc: 'image compression tool (GUI + CLI)' },
         { name: 'Python-Keybr', desc: 'terminal typing trainer' },
@@ -71,9 +71,9 @@
         ' Storage: 2 TB SSD',
         ' Virtualization: Proxmox VE',
         ' Guests: Debian x2, Ubuntu',
-        ' Services: Jellyfin, Plex, HomeLab-OS, Uptime Kuma,', 
+        ' Services: Jellyfin, Plex, Nexora Lab, Uptime Kuma,',
         '           MovieFlix, AdGuard, Home Assistant, NFS,',
-        '           LibrePhotos, HomeLab Agent',
+        '           LibrePhotos, Nexora Agent',
         ' Backup: TrueNAS',
         ''
       ].join('\n');
