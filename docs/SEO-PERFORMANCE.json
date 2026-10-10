@@ -1,0 +1,30 @@
+{
+  "conditions": "Local development only; cached assets, no CPU/network throttling; simulated DPR-1 viewports; intro settled; quick navigation open/Escape. Provisional measurements, not field percentiles or production scores.",
+  "mobile": {
+    "viewport": "390x844",
+    "LCP_ms": 604,
+    "FCP_ms": 604,
+    "TTFB_ms": 312.4,
+    "CLS": 0,
+    "INP_ms": 112
+  },
+  "desktop": {
+    "viewport": "1366x768",
+    "LCP_ms": 656,
+    "FCP_ms": 656,
+    "TTFB_ms": 328.7,
+    "CLS": 0,
+    "INP_ms": null
+  },
+  "limitations": [
+    "No pre-change Core Web Vitals baseline",
+    "No Lighthouse run",
+    "Desktop INP not captured in saved measurement",
+    "No real-device or CrUX field data",
+    "No ranking or indexing evidence"
+  ],
+  "rawEvidence": [
+    "SEO-MOBILE-METRICS.json",
+    "SEO-DESKTOP-METRICS.json"
+  ]
+}

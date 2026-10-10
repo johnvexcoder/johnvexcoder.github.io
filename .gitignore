@@ -1,6 +1,6 @@
-# Local-only content (not published)
-backup/
-PROJECT.md
-tmp/
-.agents/
-.codex/
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+.env*
+!.env.example

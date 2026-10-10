@@ -1,0 +1,40 @@
+- link "Schema.org":
+  - /url: https://schema.org/
+- list:
+  - link "Documentation":
+    - /url: https://schema.org/docs/documents.html
+  - link "Schemas":
+    - /url: https://schema.org/docs/schemas.html
+  - link "Validate":
+    - /url: /
+  - link "About":
+    - /url: https://schema.org/docs/about.html
+- textbox "search"
+- generic: public
+- button "Magpatakbo ng bagong test"
+- button "language_japanese_kana":
+  - generic: language_japanese_kana
+- button "info":
+  - generic: info
+- textbox
+- generic: "1"
+- text: "<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Person\",\"@id\":\"https://johnvexcoder.github.io/#person\",\"name\":\"John Angelo De Joya\",\"alternateName\":\"J0hnvexcoder\",\"jobTitle\":[\"Web Developer\",\"Software Developer\",\"Systems & Automation Practitioner\"],\"description\":\"John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.\",\"homeLocation\":{\"@type\":\"Place\",\"name\":\"Bulacan, Philippines\"},\"url\":\"https://johnvexcoder.github.io\",\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://johnvexcoder.github.io/social.png\",\"width\":1200,\"height\":630,\"caption\":\"John Angelo De Joya, J0hnvexcoder\"},\"sameAs\":[\"https://github.com/johnvexcoder\",\"https://www.linkedin.com/in/johnvexcoder/\",\"https://x.com/johnvexcoder\",\"https://t.me/j0hnvexcoder\"],\"knowsAbout\":[\"Web Development\",\"Python\",\"Linux\",\"Docker\",\"Proxmox\",\"Networking\",\"Self-hosting\"]}</script>"
+- generic: "2"
+- text: "<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://johnvexcoder.github.io/work/shoesonthego/\",\"url\":\"https://johnvexcoder.github.io/work/shoesonthego/\",\"name\":\"Shoes on the Go\",\"description\":\"An independent 3D footwear experience combining cinematic motion and real-time interaction.\",\"primaryImageOfPage\":{\"@type\":\"ImageObject\",\"url\":\"https://johnvexcoder.github.io/social/shoesonthego.jpg\",\"width\":1200,\"height\":630},\"mainEntity\":{\"@id\":\"https://johnvexcoder.github.io/work/shoesonthego/#project\"},\"isPartOf\":{\"@id\":\"https://johnvexcoder.github.io/#website\"},\"breadcrumb\":{\"@id\":\"https://johnvexcoder.github.io/work/shoesonthego/#breadcrumbs\"}},{\"@type\":\"CreativeWork\",\"@id\":\"https://johnvexcoder.github.io/work/shoesonthego/#project\",\"name\":\"Shoes on the Go\",\"description\":\"A personal, noncommercial footwear concept exploring interactive 3D product visualization, cinematic scrolling, and frontend animation.\",\"url\":\"https://johnvexcoder.github.io/work/shoesonthego/\",\"creator\":{\"@id\":\"https://johnvexcoder.github.io/#person\"},\"genre\":\"Web\",\"about\":[{\"@type\":\"Thing\",\"name\":\"Next.js\"},{\"@type\":\"Thing\",\"name\":\"Three.js\"},{\"@type\":\"Thing\",\"name\":\"React Three Fiber\"},{\"@type\":\"Thing\",\"name\":\"GSAP\"},{\"@type\":\"Thing\",\"name\":\"Vercel\"}],\"image\":\"https://johnvexcoder.github.io/social/shoesonthego.jpg\",\"sameAs\":\"https://shoesonthego.vercel.app/\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://johnvexcoder.github.io/work/shoesonthego/#breadcrumbs\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Portfolio\",\"item\":\"https://johnvexcoder.github.io/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Shoes on the Go\",\"item\":\"https://johnvexcoder.github.io/work/shoesonthego/\"}]}]}</script>"
+- generic: Nakita
+- text: 0 ERROR
+- text: 0 BABALA
+- text: 2 ITEM
+- list:
+  - generic: WebPage
+  - text: 0 ERROR
+  - text: 0 BABALA
+  - text: 1 ITEM
+  - generic: CreativeWork
+  - text: 0 ERROR
+  - text: 0 BABALA
+  - text: 1 ITEM
+- button "play_arrow" [disabled]:
+  - generic: play_arrow
+- generic: PATUNAYAN
+- button

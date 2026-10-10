@@ -1,0 +1,89 @@
+{
+  "checkedAt": "2026-10-10T09:31:01.259Z",
+  "homepageTitle": "John De Joya — Web Developer &amp; Linux Systems | J0hnvexcoder",
+  "payload": {
+    "routes": 20,
+    "localReferences": 466,
+    "scriptFilesAcrossHomeAndCases": 12,
+    "totalScriptBytes": 707281,
+    "totalScriptGzipBytes": 220787,
+    "note": "Union of scripts referenced by all exported pages, not a Lighthouse score or one-page network measurement.",
+    "scripts": [
+      {
+        "url": "/_next/static/chunks/2kzd2bib-2ux6.js",
+        "bytes": 32585,
+        "gzipBytes": 8655
+      },
+      {
+        "url": "/_next/static/chunks/0s7mvllxht1mo.js",
+        "bytes": 229597,
+        "gzipBytes": 71895
+      },
+      {
+        "url": "/_next/static/chunks/29r-xunj0ib4x.js",
+        "bytes": 164858,
+        "gzipBytes": 45608
+      },
+      {
+        "url": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+        "bytes": 10030,
+        "gzipBytes": 3940
+      },
+      {
+        "url": "/_next/static/chunks/0umf92h1sb77c.js",
+        "bytes": 13822,
+        "gzipBytes": 3514
+      },
+      {
+        "url": "/_next/static/chunks/1638ay_8qo_2o.js",
+        "bytes": 51729,
+        "gzipBytes": 17326
+      },
+      {
+        "url": "/_next/static/chunks/1zpq1y_09s50w.js",
+        "bytes": 4757,
+        "gzipBytes": 1891
+      },
+      {
+        "url": "/_next/static/chunks/2omixrdf8am9f.js",
+        "bytes": 7726,
+        "gzipBytes": 2625
+      },
+      {
+        "url": "/_next/static/chunks/0l426a16acxss.js",
+        "bytes": 66374,
+        "gzipBytes": 21116
+      },
+      {
+        "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+        "bytes": 112594,
+        "gzipBytes": 39627
+      },
+      {
+        "url": "/_next/static/chunks/1ckvzn7sfprko.js",
+        "bytes": 5584,
+        "gzipBytes": 2035
+      },
+      {
+        "url": "/_next/static/chunks/0g1eikl8c1ylf.js",
+        "bytes": 7625,
+        "gzipBytes": 2555
+      }
+    ]
+  },
+  "sourceHashes": {
+    "lib/seo.ts": "36f03bbc9df9bf60991dbdb40cd8c8b24493153c70f1daab0228c8f17a2f1337",
+    "app/layout.tsx": "37e227bd364594449145b2d7fb1a2895dda1417ba86bd5f193c9145fa930183d",
+    "app/page.tsx": "0ca370cd3dd743b8e567ea0ba8a4aa1dfc7ce10035f32d1b70b2c6abfd9c49e5",
+    "app/robots.ts": "a5d92c23538f5534e3f6b0b03421177bcae5d18983e1d0281a469066606f1b34",
+    "app/sitemap.ts": "dbeca9650ba54a3a5fb68dffc74340bc841b372830b64e12e27b1b538f27ce8f",
+    "app/work/[id]/page.tsx": "0f33b632d7a38216b69803752af8c2ef5fba0ce644e70373facade785883c17b",
+    "components/Hero.tsx": "fa5ca3fe5d368344cfb7bf9b62172983a423776fbfc2eda2c6e91893d10f25a5",
+    "components/ProfileSections.tsx": "1bc8f928f59ca4bda2f6356f1b61fb09e586b2c02c6c2746adacaad058a16cd7",
+    "components/Preview.tsx": "9c94cd706d067c9989624e6c849acedd9f65584ed1796b850aa57784375ef15a",
+    "scripts/check-seo.mjs": "c798b67f02f28af3201e4a991528638ce2f6b0f465335b6434b420727c380d5a",
+    "package.json": "8da4e5991cabc044e8dd468ea86cc34c347fe890072d5021310d39272b9de04b",
+    "README.md": "04a4145bb6abdb5a6dba372a688bb1cda039892f01227daa86647ca531f55c1f"
+  },
+  "metrics": "No pre-change LCP/INP/CLS or Lighthouse run recorded."
+}

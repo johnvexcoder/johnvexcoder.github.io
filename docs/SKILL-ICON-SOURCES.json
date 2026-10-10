@@ -1,0 +1,135 @@
+{
+  "downloadedAt": "2026-10-10T03:47:14.722Z",
+  "sources": [
+    {
+      "name": "html5",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "css3",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "javascript",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "nextjs",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "react",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "typescript",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "nodejs",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "python",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "java",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "wordpress",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/wordpress/wordpress-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "tailwindcss",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "framermotion",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/framermotion/framermotion-original.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "zustand",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/zustand/zustand-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "linux",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "docker",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "proxmox",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/proxmox/proxmox-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "nginx",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "bash",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/bash/bash-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "sqlite",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "postgresql",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "redis",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "git",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-plain.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "github",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "vercel",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original.svg",
+      "license": "Devicon MIT"
+    },
+    {
+      "name": "tailscale",
+      "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tailscale.svg",
+      "license": "Simple Icons CC0"
+    },
+    {
+      "name": "zod",
+      "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/zod.svg",
+      "license": "Simple Icons CC0"
+    }
+  ]
+}

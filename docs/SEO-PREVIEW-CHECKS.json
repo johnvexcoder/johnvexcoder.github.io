@@ -1,0 +1,175 @@
+{
+  "checkedAt": "2026-10-10T09:45:59.417Z",
+  "origin": "https://johnvexcoder.github.io",
+  "indexingMode": "preview",
+  "pages": 19,
+  "sitemapUrls": 0,
+  "imageSitemap": false,
+  "internalLinks": 746,
+  "fragments": 605,
+  "imageCount": 58,
+  "schemaCount": 76,
+  "checks": [
+    {
+      "route": "/",
+      "title": "John Angelo De Joya | Web Developer Philippines — J0hnvexcoder",
+      "description": "John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.",
+      "canonical": "https://johnvexcoder.github.io/",
+      "image": "https://johnvexcoder.github.io/social.png",
+      "indexable": false
+    },
+    {
+      "route": "/work/homelab-os/",
+      "title": "Nexora Lab — Self-hosted infrastructure dashboard | J0hnvexcoder",
+      "description": "A self-hosted Infrastructure Operating System that turns your homelab into a live Network Operations Center.",
+      "canonical": "https://johnvexcoder.github.io/work/homelab-os/",
+      "image": "https://johnvexcoder.github.io/social/homelab-os.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/homelab-agent/",
+      "title": "Nexora Agent — Linux telemetry service | J0hnvexcoder",
+      "description": "The dedicated modular telemetry service that enriches Nexora Lab with node-local host, container, hardware, disk, and network data.",
+      "canonical": "https://johnvexcoder.github.io/work/homelab-agent/",
+      "image": "https://johnvexcoder.github.io/social.png",
+      "indexable": false
+    },
+    {
+      "route": "/work/compressme/",
+      "title": "CompressMe — Python image compression tool | J0hnvexcoder",
+      "description": "A powerful, cross-platform image compression tool with a modern PySide6 GUI and full CLI.",
+      "canonical": "https://johnvexcoder.github.io/work/compressme/",
+      "image": "https://johnvexcoder.github.io/social/compressme.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/jenica-portfolio/",
+      "title": "Jenica Salazar's Portfolio — Next.js portfolio website | J0hnvexcoder",
+      "description": "A personal portfolio for Jenica B. Salazar, introducing her professional story, experience, skills, and MovieFlix venture.",
+      "canonical": "https://johnvexcoder.github.io/work/jenica-portfolio/",
+      "image": "https://johnvexcoder.github.io/social/jenica-portfolio.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/movieflix/",
+      "title": "MovieFlix — Self-hosted media platform | J0hnvexcoder",
+      "description": "A self-hosted, private media streaming platform delivering a Netflix-inspired experience from your own storage.",
+      "canonical": "https://johnvexcoder.github.io/work/movieflix/",
+      "image": "https://johnvexcoder.github.io/social/movieflix.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/donut-house/",
+      "title": "Donut House — Next.js storefront demo | J0hnvexcoder",
+      "description": "A premium cosmic bakery storefront with a rich product catalog, custom donut boxes, persistent shopping tools, and a complete demonstration checkout.",
+      "canonical": "https://johnvexcoder.github.io/work/donut-house/",
+      "image": "https://johnvexcoder.github.io/social/donut-house.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/jaron-portfolio/",
+      "title": "Mark Jaron's Portfolio — Engineering portfolio website | J0hnvexcoder",
+      "description": "A personal portfolio for industrial engineer Mark Jaron R. Marigondon, focused on operations, process improvement, and measurable work.",
+      "canonical": "https://johnvexcoder.github.io/work/jaron-portfolio/",
+      "image": "https://johnvexcoder.github.io/social/jaron-portfolio.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/your-coffee/",
+      "title": "Your Coffee — Café ordering website demo | J0hnvexcoder",
+      "description": "A responsive café ordering concept with 33 crafted drinks, flexible customization, local cart persistence, and a complete demonstration checkout.",
+      "canonical": "https://johnvexcoder.github.io/work/your-coffee/",
+      "image": "https://johnvexcoder.github.io/social/your-coffee.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/python-keybr/",
+      "title": "Python-Keybr — Python terminal typing trainer | J0hnvexcoder",
+      "description": "A terminal-based typing trainer inspired by keybr.com, built entirely in Python using the curses library.",
+      "canonical": "https://johnvexcoder.github.io/work/python-keybr/",
+      "image": "https://johnvexcoder.github.io/social.png",
+      "indexable": false
+    },
+    {
+      "route": "/work/distrozsh/",
+      "title": "DistroZSH — Linux ZSH configuration | J0hnvexcoder",
+      "description": "A lightweight, framework-free ZSH configuration delivering a native, professional terminal experience across Linux distributions.",
+      "canonical": "https://johnvexcoder.github.io/work/distrozsh/",
+      "image": "https://johnvexcoder.github.io/social.png",
+      "indexable": false
+    },
+    {
+      "route": "/work/starbucks-portal/",
+      "title": "Starbucks Login — Login interface demo | J0hnvexcoder",
+      "description": "An unofficial Starbucks-inspired login page demo — a functional UI concept with working form validation.",
+      "canonical": "https://johnvexcoder.github.io/work/starbucks-portal/",
+      "image": "https://johnvexcoder.github.io/social/starbucks-portal.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/smart-expense/",
+      "title": "Smart Expense Visualizer — Expense tracking dashboard | J0hnvexcoder",
+      "description": "An interactive expense-tracking dashboard with Chart.js visualization — try it live right in the browser.",
+      "canonical": "https://johnvexcoder.github.io/work/smart-expense/",
+      "image": "https://johnvexcoder.github.io/social/smart-expense.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/monthsary/",
+      "title": "Monthsary — Personal dedication website | J0hnvexcoder",
+      "description": "A heartfelt 15th monthsary dedication website — a countdown of time together, a love timeline, photo galleries, and letters.",
+      "canonical": "https://johnvexcoder.github.io/work/monthsary/",
+      "image": "https://johnvexcoder.github.io/social/monthsary.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/johnvex-winops/",
+      "title": "JohnVex-WinOps — PowerShell administration tools | J0hnvexcoder",
+      "description": "Enterprise Windows Administration Suite — a modular PowerShell engine for health, licensing, and system operations.",
+      "canonical": "https://johnvexcoder.github.io/work/johnvex-winops/",
+      "image": "https://johnvexcoder.github.io/social/johnvex-winops.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/jnglo/",
+      "title": "J&GLO — Streetwear storefront demo | J0hnvexcoder",
+      "description": "A premium fictional streetwear storefront with an interactive portfolio store demo.",
+      "canonical": "https://johnvexcoder.github.io/work/jnglo/",
+      "image": "https://johnvexcoder.github.io/social/jnglo.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/arkosenyo/",
+      "title": "ARKOSENYO — Architecture website demo | J0hnvexcoder",
+      "description": "An architecture website demonstration presenting design, interiors, and construction.",
+      "canonical": "https://johnvexcoder.github.io/work/arkosenyo/",
+      "image": "https://johnvexcoder.github.io/social/arkosenyo.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/taitechmarine/",
+      "title": "TAITECH Marine — Marine equipment website demo | J0hnvexcoder",
+      "description": "A marine and industrial equipment website redesign demonstration.",
+      "canonical": "https://johnvexcoder.github.io/work/taitechmarine/",
+      "image": "https://johnvexcoder.github.io/social/taitechmarine.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/work/shoesonthego/",
+      "title": "Shoes on the Go — Interactive 3D footwear showcase | J0hnvexcoder",
+      "description": "An independent 3D footwear experience combining cinematic motion and real-time interaction.",
+      "canonical": "https://johnvexcoder.github.io/work/shoesonthego/",
+      "image": "https://johnvexcoder.github.io/social/shoesonthego.jpg",
+      "indexable": false
+    },
+    {
+      "route": "/404/",
+      "title": "404 — Find a new connection | J0hnvexcoder",
+      "description": "A missing route in the J0hnvexcoder portfolio. Find a real project, explore the work, or return home.",
+      "canonical": "https://johnvexcoder.github.io/404/",
+      "indexable": false
+    }
+  ],
+  "advisory": [],
+  "note": "Local initial HTML, images, links and schema shape checks. Not external Rich Results validation or evidence of Google indexing/ranking."
+}

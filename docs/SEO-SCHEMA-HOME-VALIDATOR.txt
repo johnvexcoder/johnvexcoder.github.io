@@ -1,0 +1,423 @@
+- link "Schema.org":
+  - /url: https://schema.org/
+- list:
+  - link "Documentation":
+    - /url: https://schema.org/docs/documents.html
+  - link "Schemas":
+    - /url: https://schema.org/docs/schemas.html
+  - link "Validate":
+    - /url: /
+  - link "About":
+    - /url: https://schema.org/docs/about.html
+- textbox "search"
+- generic: public
+- button "Magpatakbo ng bagong test"
+- button "language_japanese_kana":
+  - generic: language_japanese_kana
+- button "info":
+  - generic: info
+- textbox
+- generic: "1"
+- text: "<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Person\",\"@id\":\"https://johnvexcoder.github.io/#person\",\"name\":\"John Angelo De Joya\",\"alternateName\":\"J0hnvexcoder\",\"jobTitle\":[\"Web Developer\",\"Software Developer\",\"Systems & Automation Practitioner\"],\"description\":\"John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.\",\"homeLocation\":{\"@type\":\"Place\",\"name\":\"Bulacan, Philippines\"},\"url\":\"https://johnvexcoder.github.io\",\"image\":{\"@type\":\"ImageObject\",\"url\":\"https://johnvexcoder.github.io/social.png\",\"width\":1200,\"height\":630,\"caption\":\"John Angelo De Joya, J0hnvexcoder\"},\"sameAs\":[\"https://github.com/johnvexcoder\",\"https://www.linkedin.com/in/johnvexcoder/\",\"https://x.com/johnvexcoder\",\"https://t.me/j0hnvexcoder\"],\"knowsAbout\":[\"Web Development\",\"Python\",\"Linux\",\"Docker\",\"Proxmox\",\"Networking\",\"Self-hosting\"]}</script>"
+- generic: "2"
+- text: "<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"ProfilePage\",\"@id\":\"https://johnvexcoder.github.io/#profile\",\"url\":\"https://johnvexcoder.github.io/\",\"name\":\"John Angelo De Joya — J0hnvexcoder\",\"description\":\"John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.\",\"isPartOf\":{\"@id\":\"https://johnvexcoder.github.io/#website\"},\"mainEntity\":{\"@id\":\"https://johnvexcoder.github.io/#person\"},\"primaryImageOfPage\":{\"@type\":\"ImageObject\",\"url\":\"https://johnvexcoder.github.io/social.png\",\"width\":1200,\"height\":630}}</script>"
+- generic: "3"
+- text: "<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"@id\":\"https://johnvexcoder.github.io/#website\",\"url\":\"https://johnvexcoder.github.io/\",\"name\":\"J0hnvexcoder\",\"alternateName\":\"John Angelo De Joya Portfolio\",\"description\":\"John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.\",\"inLanguage\":\"en-PH\",\"author\":{\"@id\":\"https://johnvexcoder.github.io/#person\"}}</script>"
+- generic: ProfilePage
+- button "All (1) arrow_drop_down":
+  - text: All (1)
+  - generic: arrow_drop_down
+- list:
+  - text: ProfilePage
+  - generic: "ID: https://johnvexcoder.github.io/#profile"
+  - generic: 0 ERROR
+  - generic: 0 BABALA
+  - generic: expand_less
+  - table:
+    - rowgroup:
+      - row "@type ProfilePage":
+        - cell "@type":
+          - generic: "@type"
+        - cell "ProfilePage":
+          - generic: ProfilePage
+      - row "@id https://johnvexcoder.github.io/#profile":
+        - cell "@id":
+          - generic: "@id"
+        - cell "https://johnvexcoder.github.io/#profile":
+          - generic: https://johnvexcoder.github.io/#profile
+      - row "url https://johnvexcoder.github.io/":
+        - cell "url":
+          - generic: url
+        - cell "https://johnvexcoder.github.io/":
+          - generic: https://johnvexcoder.github.io/
+      - row "name John Angelo De Joya — J0hnvexcoder":
+        - cell "name":
+          - generic: name
+        - cell "John Angelo De Joya — J0hnvexcoder":
+          - generic: John Angelo De Joya — J0hnvexcoder
+      - row "description John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.":
+        - cell "description":
+          - generic: description
+        - cell "John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.":
+          - generic: John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.
+      - row "isPartOf":
+        - cell "isPartOf":
+          - generic: isPartOf
+        - cell
+      - row "@type WebSite":
+        - cell "@type":
+          - generic: "@type"
+        - cell "WebSite":
+          - generic: WebSite
+      - row "@id https://johnvexcoder.github.io/#website":
+        - cell "@id":
+          - generic: "@id"
+        - cell "https://johnvexcoder.github.io/#website":
+          - generic: https://johnvexcoder.github.io/#website
+      - row "url https://johnvexcoder.github.io/":
+        - cell "url":
+          - generic: url
+        - cell "https://johnvexcoder.github.io/":
+          - generic: https://johnvexcoder.github.io/
+      - row "name J0hnvexcoder":
+        - cell "name":
+          - generic: name
+        - cell "J0hnvexcoder":
+          - generic: J0hnvexcoder
+      - row "alternateName John Angelo De Joya Portfolio":
+        - cell "alternateName":
+          - generic: alternateName
+        - cell "John Angelo De Joya Portfolio":
+          - generic: John Angelo De Joya Portfolio
+      - row "description John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.":
+        - cell "description":
+          - generic: description
+        - cell "John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.":
+          - generic: John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.
+      - row "inLanguage en-PH":
+        - cell "inLanguage":
+          - generic: inLanguage
+        - cell "en-PH":
+          - generic: en-PH
+      - row "author":
+        - cell "author":
+          - generic: author
+        - cell
+      - row "@type Person":
+        - cell "@type":
+          - generic: "@type"
+        - cell "Person":
+          - generic: Person
+      - row "@id https://johnvexcoder.github.io/#person":
+        - cell "@id":
+          - generic: "@id"
+        - cell "https://johnvexcoder.github.io/#person":
+          - generic: https://johnvexcoder.github.io/#person
+      - row "name John Angelo De Joya":
+        - cell "name":
+          - generic: name
+        - cell "John Angelo De Joya":
+          - generic: John Angelo De Joya
+      - row "alternateName J0hnvexcoder":
+        - cell "alternateName":
+          - generic: alternateName
+        - cell "J0hnvexcoder":
+          - generic: J0hnvexcoder
+      - row "jobTitle Web Developer":
+        - cell "jobTitle":
+          - generic: jobTitle
+        - cell "Web Developer":
+          - generic: Web Developer
+      - row "jobTitle Software Developer":
+        - cell "jobTitle":
+          - generic: jobTitle
+        - cell "Software Developer":
+          - generic: Software Developer
+      - row "jobTitle Systems & Automation Practitioner":
+        - cell "jobTitle":
+          - generic: jobTitle
+        - cell "Systems & Automation Practitioner":
+          - generic: Systems & Automation Practitioner
+      - row "description John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.":
+        - cell "description":
+          - generic: description
+        - cell "John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.":
+          - generic: John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.
+      - row "url https://johnvexcoder.github.io/":
+        - cell "url":
+          - generic: url
+        - cell "https://johnvexcoder.github.io/":
+          - generic: https://johnvexcoder.github.io/
+      - row "sameAs https://github.com/johnvexcoder":
+        - cell "sameAs":
+          - generic: sameAs
+        - cell "https://github.com/johnvexcoder":
+          - generic: https://github.com/johnvexcoder
+      - row "sameAs https://www.linkedin.com/in/johnvexcoder/":
+        - cell "sameAs":
+          - generic: sameAs
+        - cell "https://www.linkedin.com/in/johnvexcoder/":
+          - generic: https://www.linkedin.com/in/johnvexcoder/
+      - row "sameAs https://x.com/johnvexcoder":
+        - cell "sameAs":
+          - generic: sameAs
+        - cell "https://x.com/johnvexcoder":
+          - generic: https://x.com/johnvexcoder
+      - row "sameAs https://t.me/j0hnvexcoder":
+        - cell "sameAs":
+          - generic: sameAs
+        - cell "https://t.me/j0hnvexcoder":
+          - generic: https://t.me/j0hnvexcoder
+      - row "knowsAbout Web Development":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Web Development":
+          - generic: Web Development
+      - row "knowsAbout Python":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Python":
+          - generic: Python
+      - row "knowsAbout Linux":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Linux":
+          - generic: Linux
+      - row "knowsAbout Docker":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Docker":
+          - generic: Docker
+      - row "knowsAbout Proxmox":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Proxmox":
+          - generic: Proxmox
+      - row "knowsAbout Networking":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Networking":
+          - generic: Networking
+      - row "knowsAbout Self-hosting":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Self-hosting":
+          - generic: Self-hosting
+      - row "homeLocation":
+        - cell "homeLocation":
+          - generic: homeLocation
+        - cell
+      - row "@type Place":
+        - cell "@type":
+          - generic: "@type"
+        - cell "Place":
+          - generic: Place
+      - row "name Bulacan, Philippines":
+        - cell "name":
+          - generic: name
+        - cell "Bulacan, Philippines":
+          - generic: Bulacan, Philippines
+      - row "image":
+        - cell "image":
+          - generic: image
+        - cell
+      - row "@type ImageObject":
+        - cell "@type":
+          - generic: "@type"
+        - cell "ImageObject":
+          - generic: ImageObject
+      - row "url https://johnvexcoder.github.io/social.png":
+        - cell "url":
+          - generic: url
+        - cell "https://johnvexcoder.github.io/social.png":
+          - generic: https://johnvexcoder.github.io/social.png
+      - row "width 1200":
+        - cell "width":
+          - generic: width
+        - cell "1200":
+          - generic: "1200"
+      - row "height 630":
+        - cell "height":
+          - generic: height
+        - cell "630":
+          - generic: "630"
+      - row "caption John Angelo De Joya, J0hnvexcoder":
+        - cell "caption":
+          - generic: caption
+        - cell "John Angelo De Joya, J0hnvexcoder":
+          - generic: John Angelo De Joya, J0hnvexcoder
+      - row "mainEntity":
+        - cell "mainEntity":
+          - generic: mainEntity
+        - cell
+      - row "@type Person":
+        - cell "@type":
+          - generic: "@type"
+        - cell "Person":
+          - generic: Person
+      - row "@id https://johnvexcoder.github.io/#person":
+        - cell "@id":
+          - generic: "@id"
+        - cell "https://johnvexcoder.github.io/#person":
+          - generic: https://johnvexcoder.github.io/#person
+      - row "name John Angelo De Joya":
+        - cell "name":
+          - generic: name
+        - cell "John Angelo De Joya":
+          - generic: John Angelo De Joya
+      - row "alternateName J0hnvexcoder":
+        - cell "alternateName":
+          - generic: alternateName
+        - cell "J0hnvexcoder":
+          - generic: J0hnvexcoder
+      - row "jobTitle Web Developer":
+        - cell "jobTitle":
+          - generic: jobTitle
+        - cell "Web Developer":
+          - generic: Web Developer
+      - row "jobTitle Software Developer":
+        - cell "jobTitle":
+          - generic: jobTitle
+        - cell "Software Developer":
+          - generic: Software Developer
+      - row "jobTitle Systems & Automation Practitioner":
+        - cell "jobTitle":
+          - generic: jobTitle
+        - cell "Systems & Automation Practitioner":
+          - generic: Systems & Automation Practitioner
+      - row "description John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.":
+        - cell "description":
+          - generic: description
+        - cell "John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.":
+          - generic: John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.
+      - row "url https://johnvexcoder.github.io/":
+        - cell "url":
+          - generic: url
+        - cell "https://johnvexcoder.github.io/":
+          - generic: https://johnvexcoder.github.io/
+      - row "sameAs https://github.com/johnvexcoder":
+        - cell "sameAs":
+          - generic: sameAs
+        - cell "https://github.com/johnvexcoder":
+          - generic: https://github.com/johnvexcoder
+      - row "sameAs https://www.linkedin.com/in/johnvexcoder/":
+        - cell "sameAs":
+          - generic: sameAs
+        - cell "https://www.linkedin.com/in/johnvexcoder/":
+          - generic: https://www.linkedin.com/in/johnvexcoder/
+      - row "sameAs https://x.com/johnvexcoder":
+        - cell "sameAs":
+          - generic: sameAs
+        - cell "https://x.com/johnvexcoder":
+          - generic: https://x.com/johnvexcoder
+      - row "sameAs https://t.me/j0hnvexcoder":
+        - cell "sameAs":
+          - generic: sameAs
+        - cell "https://t.me/j0hnvexcoder":
+          - generic: https://t.me/j0hnvexcoder
+      - row "knowsAbout Web Development":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Web Development":
+          - generic: Web Development
+      - row "knowsAbout Python":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Python":
+          - generic: Python
+      - row "knowsAbout Linux":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Linux":
+          - generic: Linux
+      - row "knowsAbout Docker":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Docker":
+          - generic: Docker
+      - row "knowsAbout Proxmox":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Proxmox":
+          - generic: Proxmox
+      - row "knowsAbout Networking":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Networking":
+          - generic: Networking
+      - row "knowsAbout Self-hosting":
+        - cell "knowsAbout":
+          - generic: knowsAbout
+        - cell "Self-hosting":
+          - generic: Self-hosting
+      - row "homeLocation":
+        - cell "homeLocation":
+          - generic: homeLocation
+        - cell
+      - row "@type Place":
+        - cell "@type":
+          - generic: "@type"
+        - cell "Place":
+          - generic: Place
+      - row "name Bulacan, Philippines":
+        - cell "name":
+          - generic: name
+        - cell "Bulacan, Philippines":
+          - generic: Bulacan, Philippines
+      - row "image":
+        - cell "image":
+          - generic: image
+        - cell
+      - row "@type ImageObject":
+        - cell "@type":
+          - generic: "@type"
+        - cell "ImageObject":
+          - generic: ImageObject
+      - row "url https://johnvexcoder.github.io/social.png":
+        - cell "url":
+          - generic: url
+        - cell "https://johnvexcoder.github.io/social.png":
+          - generic: https://johnvexcoder.github.io/social.png
+      - row "width 1200":
+        - cell "width":
+          - generic: width
+        - cell "1200":
+          - generic: "1200"
+      - row "height 630":
+        - cell "height":
+          - generic: height
+        - cell "630":
+          - generic: "630"
+      - row "caption John Angelo De Joya, J0hnvexcoder":
+        - cell "caption":
+          - generic: caption
+        - cell "John Angelo De Joya, J0hnvexcoder":
+          - generic: John Angelo De Joya, J0hnvexcoder
+      - row "primaryImageOfPage":
+        - cell "primaryImageOfPage":
+          - generic: primaryImageOfPage
+        - cell
+      - row "@type ImageObject":
+        - cell "@type":
+          - generic: "@type"
+        - cell "ImageObject":
+          - generic: ImageObject
+      - row "url https://johnvexcoder.github.io/social.png":
+        - cell "url":
+          - generic: url
+        - cell "https://johnvexcoder.github.io/social.png":
+          - generic: https://johnvexcoder.github.io/social.png
+      - row "width 1200":
+        - cell "width":
+          - generic: width
+        - cell "1200":
+          - generic: "1200"
+      - row "height 630":
+        - cell "height":
+          - generic: height
+        - cell "630":
+          - generic: "630"
+- button "play_arrow" [disabled]:
+  - generic: play_arrow
+- generic: PATUNAYAN
+- button

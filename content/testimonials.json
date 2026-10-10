@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Je****",
+    "rating": 5,
+    "review": "The user experience is smooth, the design aesthetic is elegant, and the performance is flawless. If you want a web developer who truly understands modern web standards and design, look no further!",
+    "avatar": "/source/avatar/sophie.svg"
+  },
+  {
+    "name": "Ge****",
+    "company": "4th Coffee",
+    "rating": 5,
+    "review": "A perfect demonstration of clean code and modern frontend design!",
+    "avatar": "/source/avatar/aneka.svg"
+  },
+  {
+    "name": "Ma********",
+    "rating": 5,
+    "review": "Super responsive, polished, and perfectly structured to highlight skills and achievements. He consistently delivers clean, high-performing websites. Couldn’t recommend him enough",
+    "avatar": "/source/avatar/felix.svg"
+  },
+  {
+    "name": "Ra****",
+    "rating": 5,
+    "review": "I’m really impressed by his work. I was hesitant at first, but after seeing his proposal, I knew he understood exactly what I wanted to achieve with my first landing page. He delivered the vision I had in mind, and I’m very happy with the result.",
+    "avatar": "/source/avatar/milo.svg"
+  },
+  {
+    "name": "Greek Man",
+    "company": "Homelab",
+    "rating": 5,
+    "review": "I directly asked him for a favor to help me deployed a server dashboard through my homelab and he didn't think twice helping me. Thanks men",
+    "avatar": "/source/avatar/luna.svg"
+  }
+]

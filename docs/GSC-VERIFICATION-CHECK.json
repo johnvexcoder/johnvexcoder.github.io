@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-10T14:44:40.319740+00:00",
+  "filename": "google1c03abb64b8da92a.html",
+  "source": "/home/j0hn/Downloads/google1c03abb64b8da92a.html",
+  "destination": "/home/j0hn/Projects/My-Portfolio-v2/public/google1c03abb64b8da92a.html",
+  "exportedFile": "/home/j0hn/Projects/My-Portfolio-v2/out/google1c03abb64b8da92a.html",
+  "bytes": 53,
+  "sha256": "b9636838168ff3da68a0d0358a75ac8c7dab6719d79b16182eaf2643bf1b85d9",
+  "identicalContents": true,
+  "productionBuild": "passed",
+  "staticExport": "passed",
+  "localHttp": {
+    "url": "http://127.0.0.1:3004/google1c03abb64b8da92a.html",
+    "status": 200,
+    "redirected": false,
+    "locationHeader": null,
+    "bodyMatchesSource": true,
+    "javascriptRequired": false,
+    "authenticationRequired": false
+  },
+  "applicationAndConfigurationFilesChanged": [],
+  "otherVerificationFiles": [],
+  "futurePublicUrl": "https://johnvexcoder.github.io/google1c03abb64b8da92a.html",
+  "deployed": false,
+  "googleOwnershipVerified": false,
+  "issues": []
+}

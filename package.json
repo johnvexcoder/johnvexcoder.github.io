@@ -1,0 +1,41 @@
+{
+  "name": "johnvexcoder-signature-portfolio-v2",
+  "version": "1.2.2",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 3003",
+    "build": "next build",
+    "start": "node scripts/serve.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "prepare:assets": "node scripts/prepare-assets.mjs",
+    "lint": "eslint .",
+    "check:seo": "node scripts/check-seo.mjs",
+    "check:export": "node scripts/check-export.mjs",
+    "prepare:portrait": "node scripts/prepare-portrait.mjs",
+    "prepare:social": "node scripts/prepare-social.mjs"
+  },
+  "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^2.2.0",
+    "lucide-react": "^0.468.0",
+    "next": "16.4.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "web-vitals": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^10.12.0",
+    "eslint-config-next": "^16.4.0",
+    "parse5": "^8.0.1",
+    "prettier": "3.6.2",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.0"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

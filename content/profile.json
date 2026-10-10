@@ -1,0 +1,128 @@
+{
+  "name": "John Angelo De Joya",
+  "alias": "J0hnvexcoder",
+  "email": "johnangelodejoya@gmail.com",
+  "experience": [
+    {
+      "date": "JUN — SEP 2026",
+      "title": "Web Development / Information Technology",
+      "place": "HundredFold Digital",
+      "copy": "Provided web development and IT support. Maintained the organization’s technical environment."
+    },
+    {
+      "date": "APR — MAY 2026",
+      "title": "Web Development",
+      "place": "Freelance · Contract Client",
+      "copy": "Delivered contract web development on a fixed timeline. Implemented and deployed client-requested features."
+    },
+    {
+      "date": "DEC 2025 — MAR 2026",
+      "title": "Web Development",
+      "place": "Freelance · Private Client",
+      "copy": "Built and shipped an end-to-end web project. Managed the full delivery lifecycle for a private client."
+    },
+    {
+      "date": "AUG — OCT 2025",
+      "title": "Web Development / Networking",
+      "place": "Freelance · Client",
+      "copy": "Delivered web development for freelance clients. Handled networking and deployment tasks."
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "interface",
+      "label": "Interface",
+      "code": "01",
+      "title": "The part people experience.",
+      "copy": "Responsive websites, portfolios, business sites, and thoughtful interfaces shaped around usability and maintainability.",
+      "tech": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Framer Motion",
+        "WordPress"
+      ]
+    },
+    {
+      "id": "application",
+      "label": "Application",
+      "code": "02",
+      "title": "From interaction to logic.",
+      "copy": "Full-stack applications, Python software, APIs, data handling, and command-line tools that solve practical problems.",
+      "tech": [
+        "TypeScript",
+        "Node.js",
+        "Python",
+        "Java",
+        "SQLite",
+        "PostgreSQL",
+        "Redis",
+        "Zod",
+        "Zustand"
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "label": "Infrastructure",
+      "code": "03",
+      "title": "Give the software a home.",
+      "copy": "Hands-on Linux administration, containerized deployments, virtualization, and self-hosted service configuration.",
+      "tech": [
+        "Linux",
+        "Docker",
+        "Proxmox",
+        "Nginx",
+        "Docker Compose",
+        "Debian",
+        "Ubuntu",
+        "Fedora"
+      ]
+    },
+    {
+      "id": "operations",
+      "label": "Operations",
+      "code": "04",
+      "title": "Understand what happens next.",
+      "copy": "Networking, monitoring, automation, technical troubleshooting, and ongoing information security studies.",
+      "tech": [
+        "Git",
+        "GitHub",
+        "Bash",
+        "Tailscale",
+        "Uptime Kuma",
+        "NFS",
+        "AdGuard Home",
+        "Vercel"
+      ]
+    }
+  ],
+  "lab": [
+    {
+      "id": "host",
+      "label": "pve0",
+      "title": "The physical foundation",
+      "copy": "Lenovo ThinkCentre M710q · Intel Core i5-7500 · 16 GB DDR4 · 2 TB SSD. Running Proxmox VE to explore virtualization, storage, deployment, monitoring, and backups."
+    },
+    {
+      "id": "guests",
+      "label": "Virtual machines",
+      "title": "Three guest environments",
+      "copy": "Two Debian virtual machines and one Ubuntu virtual machine hosted on pve0. The source portfolio documents the overall service collection without assigning specific services to individual guests."
+    },
+    {
+      "id": "services",
+      "label": "Service layer",
+      "title": "A self-hosted ecosystem",
+      "copy": "Jellyfin, Uptime Kuma, MovieFlix, Nexora Lab, Plex, AdGuard Home, NFS, LibrePhotos, Home Assistant, and Nexora Agent."
+    },
+    {
+      "id": "backup",
+      "label": "Storage & backup",
+      "title": "Building for continuity",
+      "copy": "A 2 TB SSD on the host, NFS in the service environment, and TrueNAS for backup. A practical learning environment for storage and system reliability."
+    }
+  ]
+}

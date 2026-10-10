@@ -1,0 +1,146 @@
+{
+  "checkedAt": "2026-10-10T09:43:08.563Z",
+  "results": [
+    {
+      "url": "https://15th-monthsary.netlify.app/",
+      "status": 200,
+      "finalUrl": "https://15th-monthsary.netlify.app/"
+    },
+    {
+      "url": "https://demo-arkosenyo.vercel.app/",
+      "status": 200,
+      "finalUrl": "https://demo-arkosenyo.vercel.app/"
+    },
+    {
+      "url": "https://demo-taitechmarine.vercel.app/",
+      "status": 200,
+      "finalUrl": "https://demo-taitechmarine.vercel.app/"
+    },
+    {
+      "url": "https://donut-house.vercel.app/",
+      "status": 200,
+      "finalUrl": "https://donut-house.vercel.app/"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/CompressMe",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/CompressMe"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/CompressMe/blob/main/README.md",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/CompressMe/blob/main/README.md"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/CompressMe/releases",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/CompressMe/releases"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/DistroZSH",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/DistroZSH"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/DistroZSH/blob/main/README.md",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/DistroZSH/blob/main/README.md"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/JohnVex-WinOps",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/JohnVex-WinOps"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/JohnVex-WinOps/blob/main/README.md",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/JohnVex-WinOps/blob/main/README.md"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/JohnVex-WinOps/releases",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/JohnVex-WinOps/releases"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/MovieFlix",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/MovieFlix"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/MovieFlix/blob/main/README.md",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/MovieFlix/blob/main/README.md"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/MovieFlix/releases",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/MovieFlix/releases"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/nexora-agent",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/nexora-agent"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/nexora-agent/blob/main/README.md",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/nexora-agent/blob/main/README.md"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/nexora-lab",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/nexora-lab"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/nexora-lab/blob/main/README.md",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/nexora-lab/blob/main/README.md"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/nexora-lab/releases",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/nexora-lab/releases"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/Python-Keybr",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/Python-Keybr"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/Python-Keybr/blob/master/README.md",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/Python-Keybr/blob/master/README.md"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/Python-Keybr/releases",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/Python-Keybr/releases"
+    },
+    {
+      "url": "https://jenica-salazar.vercel.app/",
+      "status": 200,
+      "finalUrl": "https://jenica-salazar.vercel.app/"
+    },
+    {
+      "url": "https://jnglo.vercel.app/",
+      "status": 200,
+      "finalUrl": "https://jnglo.vercel.app/"
+    },
+    {
+      "url": "https://mark-jaron.vercel.app/",
+      "status": 200,
+      "finalUrl": "https://mark-jaron.vercel.app/"
+    },
+    {
+      "url": "https://shoesonthego.vercel.app/",
+      "status": 200,
+      "finalUrl": "https://shoesonthego.vercel.app/"
+    },
+    {
+      "url": "https://your-coffee-six.vercel.app/",
+      "status": 200,
+      "finalUrl": "https://your-coffee-six.vercel.app/"
+    }
+  ],
+  "excluded": "MovieFlix private Tailscale destination; no private-network probe."
+}

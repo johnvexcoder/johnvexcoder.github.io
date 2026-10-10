@@ -1,0 +1,146 @@
+
+> johnvexcoder-signature-portfolio-v2@1.0.0 test
+> node --experimental-strip-types --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: all fourteen catalog records preserve verified content, classification and destinations
+ok 1 - all fourteen catalog records preserve verified content, classification and destinations
+  ---
+  duration_ms: 9.127051
+  type: 'test'
+  ...
+# Subtest: four owner-confirmed recent projects use their exact live URLs and actual source captures
+ok 2 - four owner-confirmed recent projects use their exact live URLs and actual source captures
+  ---
+  duration_ms: 0.601477
+  type: 'test'
+  ...
+# Subtest: all five authentic client reviews are preserved, including masked names and ratings
+ok 3 - all five authentic client reviews are preserved, including masked names and ratings
+  ---
+  duration_ms: 0.646538
+  type: 'test'
+  ...
+# Subtest: assets referenced by projects, reviews, fonts and résumé exist
+ok 4 - assets referenced by projects, reviews, fonts and résumé exist
+  ---
+  duration_ms: 1.240984
+  type: 'test'
+  ...
+# Subtest: portrait retains transparency and long captures retain measured image dimensions
+ok 5 - portrait retains transparency and long captures retain measured image dimensions
+  ---
+  duration_ms: 31.997541
+  type: 'test'
+  ...
+# Subtest: original source file hashes remain unchanged
+ok 6 - original source file hashes remain unchanged
+  ---
+  duration_ms: 549.762925
+  type: 'test'
+  ...
+# Subtest: original local demos have a working static document destination
+ok 7 - original local demos have a working static document destination
+  ---
+  duration_ms: 0.469659
+  type: 'test'
+  ...
+# Subtest: skill logos are locally available and all project sharing images use real existing assets
+ok 8 - skill logos are locally available and all project sharing images use real existing assets
+  ---
+  duration_ms: 13.52938
+  type: 'test'
+  ...
+# Subtest: intro phases are deterministic, bounded and match the wordless storyboard
+ok 9 - intro phases are deterministic, bounded and match the wordless storyboard
+  ---
+  duration_ms: 12.616464
+  type: 'test'
+  ...
+# Subtest: restructuring removes the vulnerable connection and builds independently redundant routes
+ok 10 - restructuring removes the vulnerable connection and builds independently redundant routes
+  ---
+  duration_ms: 2.312524
+  type: 'test'
+  ...
+# Subtest: first session plays, refresh skips, reduced motion skips and storage failure leaves the hero usable
+ok 11 - first session plays, refresh skips, reduced motion skips and storage failure leaves the hero usable
+  ---
+  duration_ms: 6.190326
+  type: 'test'
+  ...
+# Subtest: measured screenshot cycles remain continuous, bounded, and return through the whole image
+ok 12 - measured screenshot cycles remain continuous, bounded, and return through the whole image
+  ---
+  duration_ms: 14.467634
+  type: 'test'
+  ...
+# Subtest: manual screenshot interaction resumes at the measured user position
+ok 13 - manual screenshot interaction resumes at the measured user position
+  ---
+  duration_ms: 0.71537
+  type: 'test'
+  ...
+# Subtest: screenshots without meaningful overflow stay still
+ok 14 - screenshots without meaningful overflow stay still
+  ---
+  duration_ms: 0.38604
+  type: 'test'
+  ...
+# Subtest: testimonial clones cover a complete translation for one, two and variable-width collections
+ok 15 - testimonial clones cover a complete translation for one, two and variable-width collections
+  ---
+  duration_ms: 0.548713
+  type: 'test'
+  ...
+# Subtest: scroll assembly settles at both boundaries and has a restrained contact rebound
+ok 16 - scroll assembly settles at both boundaries and has a restrained contact rebound
+  ---
+  duration_ms: 4.855308
+  type: 'test'
+  ...
+# Subtest: scroll choreography is reversible with no accumulated state or direction-dependent jumps
+ok 17 - scroll choreography is reversible with no accumulated state or direction-dependent jumps
+  ---
+  duration_ms: 2.796102
+  type: 'test'
+  ...
+# Subtest: feedback drag and horizontal scroll wrap in either direction through identical loop seams
+ok 18 - feedback drag and horizontal scroll wrap in either direction through identical loop seams
+  ---
+  duration_ms: 0.595949
+  type: 'test'
+  ...
+# Subtest: canonical origins cannot silently discard paths or accept preview credentials
+ok 19 - canonical origins cannot silently discard paths or accept preview credentials
+  ---
+  duration_ms: 5.088697
+  type: 'test'
+  ...
+# Subtest: preview indexing is explicit and invalid configuration fails instead of indexing silently
+ok 20 - preview indexing is explicit and invalid configuration fails instead of indexing silently
+  ---
+  duration_ms: 1.329493
+  type: 'test'
+  ...
+# Subtest: project metadata distinguishes all actual work without changing the source catalog
+ok 21 - project metadata distinguishes all actual work without changing the source catalog
+  ---
+  duration_ms: 19.820559
+  type: 'test'
+  ...
+# Subtest: responsive portrait variants preserve aspect ratio, alpha and useful byte reductions
+ok 22 - responsive portrait variants preserve aspect ratio, alpha and useful byte reductions
+  ---
+  duration_ms: 13.441726
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1019.891056

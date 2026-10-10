@@ -1,0 +1,43 @@
+[
+  {
+    "name": "EmailBlast - SMTP",
+    "icon": "mail",
+    "status": "concept",
+    "tagline": "Planned",
+    "description": "A customizable enterprise email campaign management system designed for sending templated emails to contact groups, managing multiple SMTP senders, tracking delivery status, and running paced campaigns automatically in the background.",
+    "capabilities": [
+      "Templated emails",
+      "Multiple SMTP senders",
+      "Delivery tracking",
+      "Automated campaigns"
+    ]
+  },
+  {
+    "name": "VaultNote",
+    "icon": "lock",
+    "status": "concept",
+    "tagline": "In Development",
+    "description": "A privacy-focused web application for storing notes, documents, credentials, and important information in an organized and encrypted workspace.",
+    "capabilities": [
+      "Categories",
+      "Search",
+      "Tagging",
+      "Attachments",
+      "Encryption"
+    ]
+  },
+  {
+    "name": "InvoiceFlow",
+    "icon": "file",
+    "status": "concept",
+    "tagline": "Planned",
+    "description": "A modern client and invoice management platform for freelancers and small businesses.",
+    "capabilities": [
+      "Quotations",
+      "Invoices",
+      "Payment tracking",
+      "Client records",
+      "Document generation"
+    ]
+  }
+]

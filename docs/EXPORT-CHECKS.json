@@ -1,0 +1,70 @@
+{
+  "routes": 20,
+  "localReferences": 519,
+  "scriptFilesAcrossHomeAndCases": 12,
+  "totalScriptBytes": 709121,
+  "totalScriptGzipBytes": 221829,
+  "note": "Union of scripts referenced by all exported pages, not a Lighthouse score or one-page network measurement.",
+  "scripts": [
+    {
+      "url": "/_next/static/chunks/2n86e7h60o0qo.js",
+      "bytes": 33153,
+      "gzipBytes": 8831
+    },
+    {
+      "url": "/_next/static/chunks/0s7mvllxht1mo.js",
+      "bytes": 229597,
+      "gzipBytes": 71895
+    },
+    {
+      "url": "/_next/static/chunks/2cd4yg2bb-73f.js",
+      "bytes": 164290,
+      "gzipBytes": 45447
+    },
+    {
+      "url": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "bytes": 10030,
+      "gzipBytes": 3940
+    },
+    {
+      "url": "/_next/static/chunks/0umf92h1sb77c.js",
+      "bytes": 13822,
+      "gzipBytes": 3514
+    },
+    {
+      "url": "/_next/static/chunks/0cy9bm0fc9ngo.js",
+      "bytes": 57739,
+      "gzipBytes": 19503
+    },
+    {
+      "url": "/_next/static/chunks/0zg2rda2lt0g3.js",
+      "bytes": 4757,
+      "gzipBytes": 1892
+    },
+    {
+      "url": "/_next/static/chunks/2vo7juzj79ut3.js",
+      "bytes": 12324,
+      "gzipBytes": 4131
+    },
+    {
+      "url": "/_next/static/chunks/1ggovuxothpnt.js",
+      "bytes": 57609,
+      "gzipBytes": 18456
+    },
+    {
+      "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "bytes": 112594,
+      "gzipBytes": 39627
+    },
+    {
+      "url": "/_next/static/chunks/1ckvzn7sfprko.js",
+      "bytes": 5584,
+      "gzipBytes": 2035
+    },
+    {
+      "url": "/_next/static/chunks/0gpkna_44x_5u.js",
+      "bytes": 7622,
+      "gzipBytes": 2558
+    }
+  ]
+}

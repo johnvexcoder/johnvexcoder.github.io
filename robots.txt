@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://johnvexcoder.github.io/sitemap.xml

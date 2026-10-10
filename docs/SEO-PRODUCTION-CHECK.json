@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-10T09:31:02.036Z",
+  "confirmedByOwner": "https://johnvexcoder.github.io/",
+  "results": [
+    {
+      "url": "https://johnvexcoder.github.io/",
+      "status": 200,
+      "finalUrl": "https://johnvexcoder.github.io/",
+      "server": "GitHub.com",
+      "title": "J0hnvexcoder | Web Developer · Full-Stack · Linux &amp; Infrastructure",
+      "canonical": "https://johnvexcoder.github.io/",
+      "googleVerificationPresent": false
+    },
+    {
+      "url": "https://johnvexcoder.github.io/robots.txt",
+      "status": 200,
+      "finalUrl": "https://johnvexcoder.github.io/robots.txt",
+      "server": "GitHub.com",
+      "googleVerificationPresent": false,
+      "file": "User-agent: *\nAllow: /\nSitemap: https://johnvexcoder.github.io/sitemap.xml\n"
+    },
+    {
+      "url": "https://johnvexcoder.github.io/sitemap.xml",
+      "status": 200,
+      "finalUrl": "https://johnvexcoder.github.io/sitemap.xml",
+      "server": "GitHub.com",
+      "googleVerificationPresent": false,
+      "file": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://johnvexcoder.github.io/</loc></url><url><loc>https://johnvexcoder.github.io/work/homelab-os/</loc></url><url><loc>https://johnvexcoder.github.io/work/homelab-agent/</loc></url><url><loc>https://johnvexcoder.github.io/work/compressme/</loc></url><url><loc>https://johnvexcoder.github.io/work/jenica-portfolio/</loc></url><url><loc>https://johnvexcoder.github.io/work/movieflix/</loc><"
+    }
+  ],
+  "deployedV2": false
+}

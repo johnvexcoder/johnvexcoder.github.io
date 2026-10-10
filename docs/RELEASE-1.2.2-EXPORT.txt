@@ -1,0 +1,12 @@
+
+> johnvexcoder-signature-portfolio-v2@1.2.2 check:export
+> node scripts/check-export.mjs
+
+{
+  "routes": 20,
+  "localReferences": 519,
+  "scriptFilesAcrossHomeAndCases": 12,
+  "totalScriptBytes": 709121,
+  "totalScriptGzipBytes": 221829,
+  "note": "Union of scripts referenced by all exported pages, not a Lighthouse score or one-page network measurement."
+}

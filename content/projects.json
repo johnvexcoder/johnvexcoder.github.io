@@ -1,0 +1,549 @@
+[
+  {
+    "id": "homelab-os",
+    "name": "Nexora Lab",
+    "category": "Infrastructure",
+    "shortDescription": "A self-hosted Infrastructure Operating System that turns your homelab into a live Network Operations Center.",
+    "description": "Nexora Lab turns your infrastructure into a live Network Operations Center. The dashboard renders a fleet of servers with CPU, memory, storage, temperature and network telemetry, a network topology map, an alert feed, and deep per-server detail views — all updated in real time. It ships in demo mode with a simulated six-host fleet and can switch to live Proxmox VE data and optionally Nexora Agent integrations through environment configuration.",
+    "image": "/source/projects/homelab-os/homelab-os-preview.webp",
+    "scrollImage": "/source/projects/homelab-os/homelab-os-scroll.webp",
+    "imageFallback": "/source/projects/homelab-os/HomeLab-OS-Screenshot.png",
+    "logo": "/source/projects/nexora-icon.webp",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Express",
+      "WebSocket",
+      "Tailwind",
+      "ECharts",
+      "SQLite",
+      "Docker"
+    ],
+    "status": "active",
+    "github": "https://github.com/johnvexcoder/nexora-lab",
+    "docs": "https://github.com/johnvexcoder/nexora-lab/blob/main/README.md",
+    "release": "https://github.com/johnvexcoder/nexora-lab/releases",
+    "demo": null,
+    "openSource": true,
+    "featured": true,
+    "facts": [
+      "v1.0.17",
+      "2-second WebSocket telemetry",
+      "Proxmox + optional agent"
+    ],
+    "problemSolution": "Built because conventional server dashboards often lacked enough control, visibility, security, or infrastructure context. Delivers central observability, server health visibility, topology understanding, system status, restricted account access, secure administration, and easy infrastructure monitoring."
+  },
+  {
+    "id": "homelab-agent",
+    "name": "Nexora Agent",
+    "category": "Infrastructure",
+    "shortDescription": "The dedicated modular telemetry service that enriches Nexora Lab with node-local host, container, hardware, disk, and network data.",
+    "description": "A modular, plugin-based telemetry agent built specifically for Nexora Lab. It runs on Linux hosts and reports the node-local information that the Proxmox API does not expose, including temperatures, fan speeds, SMART disk health, Docker containers, kernel details, services, and network health. Six isolated plugins auto-detect the host environment, collect at independent intervals, and securely report through the Agent Core without opening inbound ports.",
+    "image": null,
+    "logo": "/source/projects/nexora-icon.webp",
+    "visualType": "service",
+    "visualLabel": "Dedicated Nexora Lab telemetry service",
+    "technologies": [
+      "TypeScript",
+      "Node.js",
+      "Linux",
+      "Docker",
+      "Proxmox"
+    ],
+    "status": "active",
+    "github": "https://github.com/johnvexcoder/nexora-agent",
+    "docs": "https://github.com/johnvexcoder/nexora-agent/blob/main/README.md",
+    "release": null,
+    "demo": null,
+    "openSource": true,
+    "featured": true,
+    "facts": [
+      "v2.0.0",
+      "6 modular plugins",
+      "< 1% CPU · < 60 MB RAM"
+    ],
+    "problemSolution": "Complements the Proxmox API with host-local telemetry while keeping collection modular, outbound-only, and resilient when optional tools or individual plugins are unavailable."
+  },
+  {
+    "id": "compressme",
+    "name": "CompressMe",
+    "category": "Software",
+    "shortDescription": "A powerful, cross-platform image compression tool with a modern PySide6 GUI and full CLI.",
+    "description": "A powerful, cross-platform image compression tool — modern PySide6 GUI plus full CLI. Batch-compress thousands of images, detect duplicates with perceptual hashing, preserve metadata, and generate detailed reports. Supports JPEG, PNG, WebP, AVIF, GIF, and RAW formats with optional external tool acceleration.",
+    "image": "/source/projects/compressme/compressme-screenshot.webp",
+    "imageFallback": "/source/projects/compressme/compressme-screenshot.png",
+    "logo": "/source/projects/compressme/compressme-icon.webp",
+    "logoFallback": "/source/projects/compressme/compressme-icon.png",
+    "technologies": [
+      "Python",
+      "PySide6",
+      "Pillow",
+      "CLI",
+      "Desktop"
+    ],
+    "status": "completed",
+    "github": "https://github.com/johnvexcoder/CompressMe",
+    "docs": "https://github.com/johnvexcoder/CompressMe/blob/main/README.md",
+    "release": "https://github.com/johnvexcoder/CompressMe/releases",
+    "demo": null,
+    "openSource": true,
+    "featured": true,
+    "facts": [
+      "Windows + Linux",
+      "GUI + CLI",
+      "Exact + perceptual dedupe"
+    ],
+    "problemSolution": "Solves the pain of managing large photo libraries. Batch compression with parallel processing, duplicate detection to free up storage, and detailed reporting whether running from a GUI or a script."
+  },
+  {
+    "id": "jenica-portfolio",
+    "name": "Jenica Salazar's Portfolio",
+    "category": "Web",
+    "shortDescription": "A personal portfolio for Jenica B. Salazar, introducing her professional story, experience, skills, and MovieFlix venture.",
+    "description": "A responsive personal portfolio for Jenica B. Salazar. The site presents her background in tourism management, client service, and administrative work, then connects her skills, work history, certificates, MovieFlix founder story, résumé, and contact form in one clear narrative.",
+    "image": "/source/projects/jenica-portfolio/jenica-portfolio-preview.webp",
+    "scrollImage": "/source/projects/jenica-portfolio/jenica-portfolio-scroll.webp",
+    "imageFallback": "/source/projects/jenica-portfolio/jenica-portfolio-preview.webp",
+    "logo": "/source/projects/jenica-portfolio/favicon.svg",
+    "technologies": [
+      "Next.js",
+      "React",
+      "CSS",
+      "Vercel"
+    ],
+    "status": "active",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://jenica-salazar.vercel.app/",
+    "openSource": false,
+    "featured": true,
+    "facts": [
+      "Live client portfolio",
+      "Experience + certificates",
+      "MovieFlix founder story"
+    ],
+    "problemSolution": "Brings Jenica’s professional background, practical strengths, and founder story into one coherent portfolio that employers and collaborators can explore quickly."
+  },
+  {
+    "id": "movieflix",
+    "name": "MovieFlix",
+    "category": "Web",
+    "shortDescription": "A self-hosted, private media streaming platform delivering a Netflix-inspired experience from your own storage.",
+    "description": "A self-hosted, private media streaming platform. Scans local media folders, identifies movies and shows, fetches metadata from TMDB, analyzes codecs with FFprobe, and streams video over HTTP 206 partial-content requests. Includes multi-profile accounts, trial accounts, adaptive quality transcoding, subtitles, and a full administrative command center.",
+    "image": "/source/projects/movieflix/movieflix-cover.webp",
+    "scrollImage": "/source/projects/movieflix/movieflix-scroll.webp",
+    "imageFallback": "/source/projects/movieflix/movieflix-ss.png",
+    "logo": "/source/projects/movieflix/logo.svg",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Redis",
+      "SQLite",
+      "FFmpeg",
+      "Docker",
+      "TMDB"
+    ],
+    "status": "active",
+    "github": "https://github.com/johnvexcoder/MovieFlix",
+    "docs": "https://github.com/johnvexcoder/MovieFlix/blob/main/README.md",
+    "release": "https://github.com/johnvexcoder/MovieFlix/releases",
+    "demo": "https://movieflix.tailc31a5a.ts.net",
+    "openSource": true,
+    "featured": true,
+    "facts": [
+      "v1.0.0",
+      "HTTP 206 streaming",
+      "On-demand FFmpeg transcoding"
+    ],
+    "problemSolution": "Turns local and NAS media folders into a polished, private streaming platform. Accurate byte-range seeking, protection against bulk downloads, and full admin control all under your own infrastructure."
+  },
+  {
+    "id": "donut-house",
+    "name": "Donut House",
+    "category": "Web",
+    "shortDescription": "A premium cosmic bakery storefront with a rich product catalog, custom donut boxes, persistent shopping tools, and a complete demonstration checkout.",
+    "description": "A polished commerce concept built with Next.js, React, and TypeScript. Customers can browse a detailed donut catalog, search and filter products, save favorites, customize products, assemble a box, manage a persistent cart, and follow a complete demonstration checkout flow. Framer Motion supports the interface transitions, Zustand manages browser state, and Zod validates structured inputs.",
+    "image": "/source/projects/donut-house/donut-house-preview.webp",
+    "scrollImage": "/source/projects/donut-house/donut-house-scroll.webp",
+    "imageFallback": "/source/projects/donut-house/donut-house-preview.webp",
+    "logo": null,
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Zustand",
+      "Zod",
+      "Vercel"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://donut-house.vercel.app/",
+    "openSource": false,
+    "featured": true,
+    "facts": [
+      "Live Vercel demo",
+      "Custom box builder",
+      "Persistent cart + wishlist"
+    ],
+    "problemSolution": "Explores how a visually distinctive bakery can still support a deep, understandable shopping journey. Catalog discovery, product options, box building, saved items, and checkout are connected into one responsive interface.",
+    "disclaimer": "Portfolio Commerce Concept — No real orders or payments"
+  },
+  {
+    "id": "jaron-portfolio",
+    "name": "Mark Jaron's Portfolio",
+    "category": "Web",
+    "shortDescription": "A personal portfolio for industrial engineer Mark Jaron R. Marigondon, focused on operations, process improvement, and measurable work.",
+    "description": "A responsive professional portfolio for Mark Jaron R. Marigondon. It organizes his industrial engineering background, education, site and operations experience, featured studies, practical toolkit, certifications, résumé, and contact details into an editorial, easy-to-navigate website.",
+    "image": "/source/projects/jaron-portfolio/jaron-portfolio-preview.webp",
+    "scrollImage": "/source/projects/jaron-portfolio/jaron-portfolio-scroll.webp",
+    "imageFallback": "/source/projects/jaron-portfolio/jaron-portfolio-preview.webp",
+    "logo": "/source/projects/jaron-portfolio/favicon.svg",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Vercel"
+    ],
+    "status": "active",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://mark-jaron.vercel.app/",
+    "openSource": false,
+    "featured": true,
+    "facts": [
+      "Live client portfolio",
+      "Experience + projects",
+      "Responsive contact flow"
+    ],
+    "problemSolution": "Turns an extensive industrial engineering résumé into a structured digital story, making Mark Jaron’s practical experience and project work easier to assess."
+  },
+  {
+    "id": "your-coffee",
+    "name": "Your Coffee",
+    "category": "Web",
+    "shortDescription": "A responsive café ordering concept with 33 crafted drinks, flexible customization, local cart persistence, and a complete demonstration checkout.",
+    "description": "A framework-free café experience built with semantic HTML, modern CSS, and vanilla JavaScript. The site includes a 33-drink catalog, category filters, search, detailed drink customization, a persistent browser cart, promotional pricing, and demonstration checkout and payment views. Hash-based routing keeps the multi-view experience compatible with static Vercel hosting.",
+    "image": "/source/projects/your-coffee/your-coffee-preview.webp",
+    "scrollImage": "/source/projects/your-coffee/your-coffee-scroll.webp",
+    "imageFallback": "/source/projects/your-coffee/your-coffee-preview.webp",
+    "logo": null,
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "localStorage",
+      "Vercel"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://your-coffee-six.vercel.app/",
+    "openSource": false,
+    "featured": true,
+    "facts": [
+      "33-drink catalog",
+      "Hash-based routing",
+      "Custom orders + demo checkout"
+    ],
+    "problemSolution": "Turns a broad drink menu into a clear, personal ordering flow. Search, categories, customization choices, a locally saved cart, and a responsive checkout make the fictional café easy to explore on any device.",
+    "disclaimer": "Portfolio Café Concept — No real orders or payments"
+  },
+  {
+    "id": "python-keybr",
+    "name": "Python-Keybr",
+    "category": "CLI",
+    "shortDescription": "A terminal-based typing trainer inspired by keybr.com, built entirely in Python using the curses library.",
+    "description": "A terminal-based typing trainer inspired by keybr.com, built in pure Python with the curses library. Features 6 practice modes, real-time WPM and accuracy tracking, persistent progress, adaptive letter unlocking, bigram tracking, and a professional keyboard diagnostic with NKRO monitoring.",
+    "image": null,
+    "logo": null,
+    "technologies": [
+      "Python",
+      "curses",
+      "Terminal"
+    ],
+    "status": "completed",
+    "github": "https://github.com/johnvexcoder/Python-Keybr",
+    "docs": "https://github.com/johnvexcoder/Python-Keybr/blob/master/README.md",
+    "release": "https://github.com/johnvexcoder/Python-Keybr/releases",
+    "demo": null,
+    "openSource": true,
+    "featured": false,
+    "facts": [
+      "v1.2.0",
+      "6 practice modes",
+      "Adaptive letter unlocking"
+    ],
+    "problemSolution": "Bringing an adaptive, keybr.com-style typing experience to the terminal. Tracks per-letter accuracy, unlocks letters progressively as you improve, and provides a full keyboard diagnostic tool."
+  },
+  {
+    "id": "distrozsh",
+    "name": "DistroZSH",
+    "category": "CLI",
+    "shortDescription": "A lightweight, framework-free ZSH configuration delivering a native, professional terminal experience across Linux distributions.",
+    "description": "A lightweight, framework-free ZSH configuration that delivers a native, professional terminal experience. Auto-detects the running distribution and applies per-distribution color themes. No framework, no plugin manager, no Nerd Font requirement. Four prompt layouts, smart command-not-found with typo suggestions, and a fully reversible installer.",
+    "image": null,
+    "logo": null,
+    "technologies": [
+      "ZSH",
+      "Bash",
+      "Linux",
+      "Terminal"
+    ],
+    "status": "active",
+    "github": "https://github.com/johnvexcoder/DistroZSH",
+    "docs": "https://github.com/johnvexcoder/DistroZSH/blob/main/README.md",
+    "release": null,
+    "demo": null,
+    "openSource": true,
+    "featured": false,
+    "facts": [
+      "ZSH 5.9+",
+      "21 distro themes",
+      "Fully reversible installer"
+    ],
+    "problemSolution": "Provides a clean, fast, distribution-aware ZSH experience without the bloat of frameworks like Oh My Zsh. The prompt adopts the color of your distribution while keeping one consistent, native layout."
+  },
+  {
+    "id": "starbucks-portal",
+    "name": "Starbucks Login",
+    "category": "Web",
+    "shortDescription": "An unofficial Starbucks-inspired login page demo — a functional UI concept with working form validation.",
+    "description": "An unofficial Starbucks-inspired login page built as a fun UI concept and practice project. The demo runs entirely in the browser with client-side form handling and demo credentials, and is not affiliated with or commissioned by Starbucks.",
+    "image": "/source/projects/starbucks-portal/startbucks-portal-screenshot.webp",
+    "imageFallback": "/source/projects/starbucks-portal/startbucks-portal-screenshot.png",
+    "logo": "/source/projects/starbucks-portal/starbucks-icon.webp",
+    "logoFallback": "/source/projects/starbucks-portal/starbucks-icon.png",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "UI/UX"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "/demos/starbucks-login/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Live demo",
+      "Demo login: customer@email.com",
+      "Not affiliated with Starbucks"
+    ],
+    "problemSolution": "A working, client-side login page demo built purely for fun and to practice building polished, responsive web interfaces. Not an official Starbucks product.",
+    "disclaimer": "Unofficial Concept Project — Live Demo"
+  },
+  {
+    "id": "smart-expense",
+    "name": "Smart Expense Visualizer",
+    "category": "Web",
+    "shortDescription": "An interactive expense-tracking dashboard with Chart.js visualization — try it live right in the browser.",
+    "description": "A browser-based expense-tracking demo using JavaScript, Tailwind CSS, and Chart.js. Add expenses, organize them by category, and watch a live pie chart update as you go. All data is persisted only in your browser via localStorage — no server or database — which makes it perfect as a hands-on portfolio demo. Includes dark/light theme, spending summary cards, custom categories, and a sortable transactions table.",
+    "image": "/source/projects/smart-expenses/smart-expense-preview.webp",
+    "imageFallback": "/source/projects/smart-expenses/smart-expenses.png",
+    "logo": "/source/projects/smart-expenses/smart-expense-icon.webp",
+    "logoFallback": "/source/projects/smart-expenses/smart-expense-icon.png",
+    "technologies": [
+      "JavaScript",
+      "Chart.js",
+      "Tailwind",
+      "localStorage"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "/demos/smart-expense/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Live demo",
+      "localStorage (no database)",
+      "Dark/light theme"
+    ],
+    "problemSolution": "Makes tracking expenses visual and immediate. The whole app runs client-side in the browser, so anyone can try it live without any backend, database, or setup.",
+    "disclaimer": "Live Demo — Data stays in your browser"
+  },
+  {
+    "id": "monthsary",
+    "name": "Monthsary",
+    "category": "Web",
+    "shortDescription": "A heartfelt 15th monthsary dedication website — a countdown of time together, a love timeline, photo galleries, and letters.",
+    "description": "A personal anniversary website dedicated to a 15th monthsary. Features a live time-together counter (days, months, hours, minutes, seconds since May 21 2025), a love timeline, photo museums, photobooth strips, video moments, and handwritten letters. Built with a warm, romantic design and subtle interactions.",
+    "image": "/source/projects/monthsary/monthsary-preview.webp",
+    "scrollImage": "/source/projects/monthsary/monthsary-scroll.webp",
+    "imageFallback": "/source/projects/monthsary/monthsary-preview.webp",
+    "logo": "/source/projects/monthsary/monthsary-icon.webp",
+    "logoFallback": "/source/projects/monthsary/monthsary-icon.webp",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "status": "active",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://15th-monthsary.netlify.app/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Live site",
+      "Time together counter",
+      "Photo galleries + letters"
+    ],
+    "problemSolution": "A personal dedication site to celebrate and preserve an anniversary — every moment together counted, remembered, and expressed with love.",
+    "disclaimer": "Personal Project"
+  },
+  {
+    "id": "johnvex-winops",
+    "name": "JohnVex-WinOps",
+    "category": "Infrastructure",
+    "shortDescription": "Enterprise Windows Administration Suite — a modular PowerShell engine for health, licensing, and system operations.",
+    "description": "JohnVex WinOps is an enterprise Windows administration suite built on a modular Windows PowerShell 5.1 engine. It ships Community, Professional, and Enterprise edition boundaries, enterprise-safe licensing diagnostics, system inventory, health auditing, network diagnostics, DISM and SFC handlers, a declarative operation catalog with a fixed code allowlist, dry-run planning with explicit risk acceptance, verified registry writes, operation journals, rollback, and structured JSONL session logging. Preserves the audited Win11Max.bat as the Community compatibility engine.",
+    "image": "/source/projects/winops/winops-preview.webp",
+    "imageFallback": "/source/projects/winops/winops-preview.webp",
+    "logo": "/source/projects/winops/winops-icon.webp",
+    "logoFallback": "/source/projects/winops/winops-icon.webp",
+    "technologies": [
+      "PowerShell",
+      "Windows",
+      "Security",
+      "Automation"
+    ],
+    "status": "active",
+    "github": "https://github.com/johnvexcoder/JohnVex-WinOps",
+    "docs": "https://github.com/johnvexcoder/JohnVex-WinOps/blob/main/README.md",
+    "release": "https://github.com/johnvexcoder/JohnVex-WinOps/releases",
+    "demo": null,
+    "openSource": true,
+    "featured": true,
+    "facts": [
+      "v3.0.0",
+      "PowerShell 5.1",
+      "Community/Pro/Enterprise"
+    ],
+    "problemSolution": "Administrative Windows operations often sprawl across ad-hoc scripts. WinOps centralizes them behind a vetted, declarative, and safely executable engine with rollback and journals.",
+    "disclaimer": null
+  },
+  {
+    "id": "jnglo",
+    "name": "J&GLO",
+    "category": "Web",
+    "shortDescription": "A premium fictional streetwear storefront with an interactive portfolio store demo.",
+    "description": "An outerwear and streetwear concept presented through a live, interactive storefront.",
+    "image": "/source/projects/jnglo/capture.webp",
+    "scrollImage": "/source/projects/jnglo/capture.webp",
+    "technologies": [
+      "Next.js",
+      "Vercel"
+    ],
+    "status": "active",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://jnglo.vercel.app/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Live website demonstration",
+      "Actual full-page source capture"
+    ],
+    "problemSolution": "An outerwear and streetwear concept presented through a live, interactive storefront.",
+    "sourceCapture": true,
+    "disclaimer": "Portfolio store concept — no real orders or payments."
+  },
+  {
+    "id": "arkosenyo",
+    "name": "ARKOSENYO",
+    "category": "Web",
+    "shortDescription": "An architecture website demonstration presenting design, interiors, and construction.",
+    "description": "An architectural website demonstration with a considered presentation of architecture, interiors, and construction.",
+    "image": "/source/projects/arkosenyo/capture.webp",
+    "scrollImage": "/source/projects/arkosenyo/capture.webp",
+    "technologies": [
+      "Next.js",
+      "Vercel"
+    ],
+    "status": "active",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://demo-arkosenyo.vercel.app/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Live website demonstration",
+      "Actual full-page source capture"
+    ],
+    "problemSolution": "An architectural website demonstration with a considered presentation of architecture, interiors, and construction.",
+    "sourceCapture": true,
+    "disclaimer": "Website demonstration."
+  },
+  {
+    "id": "taitechmarine",
+    "name": "TAITECH Marine",
+    "category": "Web",
+    "shortDescription": "A marine and industrial equipment website redesign demonstration.",
+    "description": "A redesign demonstration for TAITECH Marine, presenting marine and industrial equipment, technical services, and a demo request preview.",
+    "image": "/source/projects/taitechmarine/capture.webp",
+    "scrollImage": "/source/projects/taitechmarine/capture.webp",
+    "technologies": [
+      "Next.js",
+      "Vercel"
+    ],
+    "status": "active",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://demo-taitechmarine.vercel.app/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Live website demonstration",
+      "Actual full-page source capture"
+    ],
+    "problemSolution": "A redesign demonstration for TAITECH Marine, presenting marine and industrial equipment, technical services, and a demo request preview.",
+    "sourceCapture": true,
+    "disclaimer": "Website redesign demonstration — request preview only."
+  },
+  {
+    "id": "shoesonthego",
+    "name": "Shoes on the Go",
+    "category": "Web",
+    "shortDescription": "An independent 3D footwear experience combining cinematic motion and real-time interaction.",
+    "description": "A personal, noncommercial footwear concept exploring interactive 3D product visualization, cinematic scrolling, and frontend animation.",
+    "image": "/source/projects/shoesonthego/capture.webp",
+    "scrollImage": "/source/projects/shoesonthego/capture.webp",
+    "technologies": [
+      "Next.js",
+      "Three.js",
+      "React Three Fiber",
+      "GSAP",
+      "Vercel"
+    ],
+    "status": "active",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://shoesonthego.vercel.app/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Live noncommercial concept",
+      "Interactive 3D footwear"
+    ],
+    "problemSolution": "Explores how a real 3D product can be presented through cinematic scroll choreography and direct interaction.",
+    "disclaimer": "Independent, noncommercial concept — no brand affiliation or product sales.",
+    "sourceCapture": true
+  }
+]

@@ -1,0 +1,7 @@
+J0hnvexcoder Signature Portfolio V2
+Portraits, project screenshots, project marks, résumé and review avatars were copied from the owner's existing portfolios. Those files remain attributed to their original projects and creators. No new portrait or project screenshot was fabricated.
+SignatureSans and SignatureMono are the source portfolio's local Adwaita font conversions. Their original notices are retained in /fonts/LICENSE-Sans.txt and /fonts/LICENSE-Mono.txt.
+Lucide's ISC notice is retained in /licenses/Lucide.txt.
+Recent project destinations were supplied by the portfolio owner. Demo storefronts and brand-inspired concepts retain their project disclaimers.
+
+Skills use 24 Devicon SVGs (MIT, /licenses/Devicon.txt), two Simple Icons SVGs (CC0, /licenses/Simple-Icons.txt), and Lucide generic Networking/localStorage symbols. Sources are recorded in docs/SKILL-ICON-SOURCES.json. Brand marks identify tools used; they do not imply endorsement.

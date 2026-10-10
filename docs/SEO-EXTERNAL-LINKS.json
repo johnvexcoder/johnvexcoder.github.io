@@ -1,0 +1,501 @@
+{
+  "checkedAt": "2026-10-10T09:47:57.019Z",
+  "results": [
+    {
+      "url": "https://15th-monthsary.netlify.app/",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://15th-monthsary.netlify.app/",
+      "chain": [
+        {
+          "url": "https://15th-monthsary.netlify.app/",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://demo-arkosenyo.vercel.app/",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://demo-arkosenyo.vercel.app/",
+      "chain": [
+        {
+          "url": "https://demo-arkosenyo.vercel.app/",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://demo-taitechmarine.vercel.app/",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://demo-taitechmarine.vercel.app/",
+      "chain": [
+        {
+          "url": "https://demo-taitechmarine.vercel.app/",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://donut-house.vercel.app/",
+      "assessment": "Reachable",
+      "initialAttempt": {
+        "error": "The operation was aborted due to timeout",
+        "assessment": "Request failed; needs manual verification"
+      },
+      "retry": {
+        "method": "HEAD",
+        "redirects": "Automatically followed; final URL recorded",
+        "status": 200,
+        "finalUrl": "https://donut-house.vercel.app/"
+      },
+      "status": 200,
+      "finalUrl": "https://donut-house.vercel.app/"
+    },
+    {
+      "url": "https://github.com/johnvexcoder",
+      "assessment": "Reachable",
+      "initialAttempt": {
+        "error": "The operation was aborted due to timeout",
+        "assessment": "Request failed; needs manual verification"
+      },
+      "retry": {
+        "method": "HEAD",
+        "redirects": "Automatically followed; final URL recorded",
+        "status": 200,
+        "finalUrl": "https://github.com/johnvexcoder"
+      },
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/CompressMe",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/CompressMe",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/CompressMe",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/CompressMe/blob/main/README.md",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/CompressMe/blob/main/README.md",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/CompressMe/blob/main/README.md",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/CompressMe/releases",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/CompressMe/releases",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/CompressMe/releases",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/DistroZSH",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/DistroZSH",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/DistroZSH",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/DistroZSH/blob/main/README.md",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/DistroZSH/blob/main/README.md",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/DistroZSH/blob/main/README.md",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/JohnVex-WinOps",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/JohnVex-WinOps",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/JohnVex-WinOps",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/JohnVex-WinOps/blob/main/README.md",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/JohnVex-WinOps/blob/main/README.md",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/JohnVex-WinOps/blob/main/README.md",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/JohnVex-WinOps/releases",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/JohnVex-WinOps/releases",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/JohnVex-WinOps/releases",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/MovieFlix",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/MovieFlix",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/MovieFlix",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/MovieFlix/blob/main/README.md",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/MovieFlix/blob/main/README.md",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/MovieFlix/blob/main/README.md",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/MovieFlix/releases",
+      "assessment": "Reachable",
+      "initialAttempt": {
+        "error": "The operation was aborted due to timeout",
+        "assessment": "Request failed; needs manual verification"
+      },
+      "retry": {
+        "method": "HEAD",
+        "redirects": "Automatically followed; final URL recorded",
+        "status": 200,
+        "finalUrl": "https://github.com/johnvexcoder/MovieFlix/releases"
+      },
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/MovieFlix/releases"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/nexora-agent",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/nexora-agent",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/nexora-agent",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/nexora-agent/blob/main/README.md",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/nexora-agent/blob/main/README.md",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/nexora-agent/blob/main/README.md",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/nexora-lab",
+      "assessment": "Reachable",
+      "initialAttempt": {
+        "error": "The operation was aborted due to timeout",
+        "assessment": "Request failed; needs manual verification"
+      },
+      "retry": {
+        "method": "HEAD",
+        "redirects": "Automatically followed; final URL recorded",
+        "status": 200,
+        "finalUrl": "https://github.com/johnvexcoder/nexora-lab"
+      },
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/nexora-lab"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/nexora-lab/blob/main/README.md",
+      "assessment": "Reachable",
+      "initialAttempt": {
+        "error": "The operation was aborted due to timeout",
+        "assessment": "Request failed; needs manual verification"
+      },
+      "retry": {
+        "method": "HEAD",
+        "redirects": "Automatically followed; final URL recorded",
+        "status": 200,
+        "finalUrl": "https://github.com/johnvexcoder/nexora-lab/blob/main/README.md"
+      },
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/nexora-lab/blob/main/README.md"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/nexora-lab/releases",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/nexora-lab/releases",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/nexora-lab/releases",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/Python-Keybr",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/Python-Keybr",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/Python-Keybr",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/Python-Keybr/blob/master/README.md",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/Python-Keybr/blob/master/README.md",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/Python-Keybr/blob/master/README.md",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://github.com/johnvexcoder/Python-Keybr/releases",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://github.com/johnvexcoder/Python-Keybr/releases",
+      "chain": [
+        {
+          "url": "https://github.com/johnvexcoder/Python-Keybr/releases",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://jenica-salazar.vercel.app/",
+      "assessment": "Reachable",
+      "initialAttempt": {
+        "error": "The operation was aborted due to timeout",
+        "assessment": "Request failed; needs manual verification"
+      },
+      "retry": {
+        "method": "HEAD",
+        "redirects": "Automatically followed; final URL recorded",
+        "status": 200,
+        "finalUrl": "https://jenica-salazar.vercel.app/"
+      },
+      "status": 200,
+      "finalUrl": "https://jenica-salazar.vercel.app/"
+    },
+    {
+      "url": "https://jnglo.vercel.app/",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://jnglo.vercel.app/",
+      "chain": [
+        {
+          "url": "https://jnglo.vercel.app/",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://johnvexcoder.github.io/",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://johnvexcoder.github.io/",
+      "chain": [
+        {
+          "url": "https://johnvexcoder.github.io/",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://ko-fi.com/johnvexcoder",
+      "method": "GET",
+      "status": 403,
+      "finalUrl": "https://ko-fi.com/johnvexcoder",
+      "chain": [
+        {
+          "url": "https://ko-fi.com/johnvexcoder",
+          "status": 403
+        }
+      ],
+      "assessment": "Access/rate restriction; not proof of a broken destination"
+    },
+    {
+      "url": "https://mark-jaron.vercel.app/",
+      "assessment": "Reachable",
+      "initialAttempt": {
+        "error": "The operation was aborted due to timeout",
+        "assessment": "Request failed; needs manual verification"
+      },
+      "retry": {
+        "method": "HEAD",
+        "redirects": "Automatically followed; final URL recorded",
+        "status": 200,
+        "finalUrl": "https://mark-jaron.vercel.app/"
+      },
+      "status": 200,
+      "finalUrl": "https://mark-jaron.vercel.app/"
+    },
+    {
+      "url": "https://movieflix.tailc31a5a.ts.net",
+      "method": "HEAD",
+      "excluded": "Private Tailscale destination; no request performed.",
+      "chain": [],
+      "assessment": "Excluded"
+    },
+    {
+      "url": "https://shoesonthego.vercel.app/",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://shoesonthego.vercel.app/",
+      "chain": [
+        {
+          "url": "https://shoesonthego.vercel.app/",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://t.me/j0hnvexcoder",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://t.me/j0hnvexcoder",
+      "chain": [
+        {
+          "url": "https://t.me/j0hnvexcoder",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://wa.me/639331045271",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://api.whatsapp.com/send/?phone=639331045271&text&type=phone_number&app_absent=0",
+      "chain": [
+        {
+          "url": "https://wa.me/639331045271",
+          "status": 302
+        },
+        {
+          "url": "https://api.whatsapp.com/send/?phone=639331045271&text&type=phone_number&app_absent=0",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.linkedin.com/in/johnvexcoder/",
+      "method": "GET",
+      "status": 999,
+      "finalUrl": "https://www.linkedin.com/in/johnvexcoder",
+      "chain": [
+        {
+          "url": "https://www.linkedin.com/in/johnvexcoder/",
+          "status": 301
+        },
+        {
+          "url": "https://www.linkedin.com/in/johnvexcoder",
+          "status": 999
+        }
+      ],
+      "assessment": "Access/rate restriction; not proof of a broken destination"
+    },
+    {
+      "url": "https://x.com/johnvexcoder",
+      "method": "HEAD",
+      "status": 200,
+      "finalUrl": "https://x.com/johnvexcoder",
+      "chain": [
+        {
+          "url": "https://x.com/johnvexcoder",
+          "status": 200
+        }
+      ],
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://your-coffee-six.vercel.app/",
+      "assessment": "Reachable",
+      "initialAttempt": {
+        "error": "The operation was aborted due to timeout",
+        "assessment": "Request failed; needs manual verification"
+      },
+      "retry": {
+        "method": "HEAD",
+        "redirects": "Automatically followed; final URL recorded",
+        "status": 200,
+        "finalUrl": "https://your-coffee-six.vercel.app/"
+      },
+      "status": 200,
+      "finalUrl": "https://your-coffee-six.vercel.app/"
+    }
+  ],
+  "note": "Read-only public requests. Private destinations excluded; no login, messages or account actions.",
+  "retriedAt": "2026-10-10T09:50:31.209Z"
+}
