@@ -1,0 +1,48 @@
+{
+  "name": "Portfolio Version 1.2.2",
+  "tag": "portfolio-v1.2.2",
+  "url": "https://github.com/johnvexcoder/johnvexcoder.github.io/releases/tag/portfolio-v1.2.2",
+  "published": true,
+  "releaseCommit": "8f95267d9116d42e053c4a85adc6c7b380e0baf8",
+  "mainCommitBeforeAndAfter": "5b88678f4b33cad275adafbc93f1f842b7037bc2",
+  "publishingBranchChanged": false,
+  "websiteDeploymentPerformed": false,
+  "tests": {
+    "passed": 22,
+    "failed": 0
+  },
+  "lint": "passed",
+  "build": "passed",
+  "seo": "passed",
+  "staticExport": "passed",
+  "assets": [
+    {
+      "name": "portfolio-v1.2.2-link-preview.png",
+      "bytes": 175271,
+      "url": "https://github.com/johnvexcoder/johnvexcoder.github.io/releases/download/portfolio-v1.2.2/portfolio-v1.2.2-link-preview.png",
+      "sha256": "sha256:5e553875144b86f41a7eaea237266d278268459e2f52f6c4da8f61ba2c465913",
+      "githubDigestMatches": true
+    },
+    {
+      "name": "portfolio-v1.2.2-source.zip",
+      "bytes": 47737343,
+      "url": "https://github.com/johnvexcoder/johnvexcoder.github.io/releases/download/portfolio-v1.2.2/portfolio-v1.2.2-source.zip",
+      "sha256": "sha256:b56ee002c815788d7c230892bf40c9766c09bbc51bde599cf2e4961ea7dd03fe",
+      "githubDigestMatches": true
+    },
+    {
+      "name": "portfolio-v1.2.2-static.zip",
+      "bytes": 48243269,
+      "url": "https://github.com/johnvexcoder/johnvexcoder.github.io/releases/download/portfolio-v1.2.2/portfolio-v1.2.2-static.zip",
+      "sha256": "sha256:e23da51046aaa4f43a8ccc22bb5791678241843f84f1928c70bb66b58ff03918",
+      "githubDigestMatches": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 288,
+      "url": "https://github.com/johnvexcoder/johnvexcoder.github.io/releases/download/portfolio-v1.2.2/SHA256SUMS.txt",
+      "sha256": "sha256:c6662ed51263f094a888cba7c02e7a4ccaf93e04d813abf2466358d933736f55",
+      "githubDigestMatches": true
+    }
+  ]
+}

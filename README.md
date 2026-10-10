@@ -1,3 +1,11 @@
+## Portfolio Version 2.0.0 publication
+
+The owner approved replacing the existing GitHub Pages portfolio with V2 on 10 October 2026. The repository contains the editable Next.js source; `.github/workflows/deploy-pages.yml` validates and exports it before publishing `out/` through GitHub Pages. Future pushes to `main` deploy only after the checks succeed. Release tags do not trigger deployment.
+
+Production origin remains https://johnvexcoder.github.io/. Pages uses GitHub Actions as its publishing source; no DNS change is required. The exact downloaded Google verification file is retained in `public/google1c03abb64b8da92a.html` and checked during every export. The owner clicks VERIFY in Search Console after checking its public URL.
+
+The pre-V2 live source is retained by the rollback tag `portfolio-v1-before-v2-2026-10-10`. Version 2.0.0 release downloads include the Next.js source and the complete static export. Earlier handoff documents record local-only preparation before deployment approval and should be read with that date context.
+
 # J0hnvexcoder — Signature Portfolio V2
 
 A local-first Next.js portfolio built around John De Joya's actual portrait, original project catalog and professional background. The centerpiece is a centered portrait in front of oversized branding, connected to a wordless network-restructuring intro. All development belongs to `/home/j0hn/Projects/My-Portfolio-v2`; both reference projects remain read-only.

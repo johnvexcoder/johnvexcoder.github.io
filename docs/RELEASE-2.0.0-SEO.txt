@@ -1,0 +1,5 @@
+
+> johnvexcoder-signature-portfolio-v2@2.0.0 check:seo
+> node scripts/check-seo.mjs
+
+SEO passed: 19 content pages, 746 internal links, 605 fragments, 76 schema nodes; production indexing policy.

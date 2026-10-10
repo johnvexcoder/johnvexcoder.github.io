@@ -1,0 +1,36 @@
+
+> johnvexcoder-signature-portfolio-v2@2.0.0 build
+> next build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.ts took 79ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 652ms
+  Running TypeScript ...
+  Finished TypeScript in 5.0s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/25) ...
+  Generating static pages using 7 workers (6/25) 
+  Generating static pages using 7 workers (12/25) 
+  Generating static pages using 7 workers (18/25) 
+✓ Generating static pages using 7 workers (25/25) in 2.1s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /404
+├ ○ /icon.svg
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+└   /work/[id]
+  ├ ● /work/homelab-os
+  ├ ● /work/homelab-agent
+  ├ ● /work/compressme
+  └ ● [+15 more paths]
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
