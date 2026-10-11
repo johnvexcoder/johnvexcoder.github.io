@@ -8,9 +8,11 @@ import media from "@/content/media.json";
 export default function Preview({
   project,
   large = false,
+  priority = false,
 }: {
   project: Project;
   large?: boolean;
+  priority?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null),
     img = useRef<HTMLImageElement>(null);
@@ -166,7 +168,8 @@ export default function Preview({
           ref={img}
           src={project.scrollImage || project.image}
           alt={`${project.name} — ${project.shortDescription}`}
-          loading="lazy"
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : undefined}
           decoding="async"
           width={size?.width || 1366}
           height={size?.height || 900}

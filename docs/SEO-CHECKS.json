@@ -1,19 +1,19 @@
 {
-  "checkedAt": "2026-10-10T14:59:59.311Z",
+  "checkedAt": "2026-10-11T15:02:19.065Z",
   "origin": "https://johnvexcoder.github.io",
   "indexingMode": "production",
-  "pages": 19,
-  "sitemapUrls": 19,
+  "pages": 20,
+  "sitemapUrls": 20,
   "imageSitemap": true,
-  "internalLinks": 746,
-  "fragments": 605,
-  "imageCount": 58,
-  "schemaCount": 76,
+  "internalLinks": 783,
+  "fragments": 635,
+  "imageCount": 60,
+  "schemaCount": 80,
   "checks": [
     {
       "route": "/",
-      "title": "John Angelo De Joya | Web Developer Philippines — J0hnvexcoder",
-      "description": "John Angelo De Joya (J0hnvexcoder), a web developer in Bulacan, Philippines. Explore websites, full-stack applications, Linux systems and automation projects.",
+      "title": "J0hnvexcoder | Freelance Web Developer in Bulacan",
+      "description": "John Angelo De Joya (J0hnvexcoder), a freelance web developer in Bulacan, Philippines. Explore web development projects, full-stack apps and Linux systems.",
       "canonical": "https://johnvexcoder.github.io/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
@@ -37,7 +37,7 @@
     {
       "route": "/work/compressme/",
       "title": "CompressMe — Python image compression tool | J0hnvexcoder",
-      "description": "A powerful, cross-platform image compression tool with a modern PySide6 GUI and full CLI.",
+      "description": "CompressMe is a cross-platform Python image compression tool with a PySide6 desktop interface and command-line controls. Explore the project case study.",
       "canonical": "https://johnvexcoder.github.io/work/compressme/",
       "image": "https://johnvexcoder.github.io/social/compressme.jpg",
       "indexable": true
@@ -109,7 +109,7 @@
     {
       "route": "/work/smart-expense/",
       "title": "Smart Expense Visualizer — Expense tracking dashboard | J0hnvexcoder",
-      "description": "An interactive expense-tracking dashboard with Chart.js visualization — try it live right in the browser.",
+      "description": "Smart Expense Visualizer is a browser expense-tracking demo with Chart.js charts, category filters and localStorage persistence. Explore the case study.",
       "canonical": "https://johnvexcoder.github.io/work/smart-expense/",
       "image": "https://johnvexcoder.github.io/social/smart-expense.jpg",
       "indexable": true
@@ -133,7 +133,7 @@
     {
       "route": "/work/jnglo/",
       "title": "J&GLO — Streetwear storefront demo | J0hnvexcoder",
-      "description": "A premium fictional streetwear storefront with an interactive portfolio store demo.",
+      "description": "J&GLO is a fictional streetwear storefront demo built with Next.js. Explore the interactive store concept and project case study by J0hnvexcoder.",
       "canonical": "https://johnvexcoder.github.io/work/jnglo/",
       "image": "https://johnvexcoder.github.io/social/jnglo.jpg",
       "indexable": true
@@ -141,7 +141,7 @@
     {
       "route": "/work/arkosenyo/",
       "title": "ARKOSENYO — Architecture website demo | J0hnvexcoder",
-      "description": "An architecture website demonstration presenting design, interiors, and construction.",
+      "description": "ARKOSENYO is a Next.js architecture website demo presenting architecture, interiors and construction. Explore the project case study by J0hnvexcoder.",
       "canonical": "https://johnvexcoder.github.io/work/arkosenyo/",
       "image": "https://johnvexcoder.github.io/social/arkosenyo.jpg",
       "indexable": true
@@ -149,7 +149,7 @@
     {
       "route": "/work/taitechmarine/",
       "title": "TAITECH Marine — Marine equipment website demo | J0hnvexcoder",
-      "description": "A marine and industrial equipment website redesign demonstration.",
+      "description": "TAITECH Marine is a Next.js website redesign demo for marine and industrial equipment, technical services and a demo request preview. Explore the case study.",
       "canonical": "https://johnvexcoder.github.io/work/taitechmarine/",
       "image": "https://johnvexcoder.github.io/social/taitechmarine.jpg",
       "indexable": true
@@ -157,9 +157,17 @@
     {
       "route": "/work/shoesonthego/",
       "title": "Shoes on the Go — Interactive 3D footwear showcase | J0hnvexcoder",
-      "description": "An independent 3D footwear experience combining cinematic motion and real-time interaction.",
+      "description": "Shoes on the Go is a personal, noncommercial 3D footwear concept using Three.js, React Three Fiber and GSAP. Explore the interactive showcase case study.",
       "canonical": "https://johnvexcoder.github.io/work/shoesonthego/",
       "image": "https://johnvexcoder.github.io/social/shoesonthego.jpg",
+      "indexable": true
+    },
+    {
+      "route": "/work/archeon/",
+      "title": "archeon — Interactive 3D architecture demo | J0hnvexcoder",
+      "description": "An architecture portfolio demo with a scroll-driven 3D construction sequence, interactive house exploration, and illustrative tropical-modern floor plans.",
+      "canonical": "https://johnvexcoder.github.io/work/archeon/",
+      "image": "https://johnvexcoder.github.io/social/archeon.jpg",
       "indexable": true
     },
     {

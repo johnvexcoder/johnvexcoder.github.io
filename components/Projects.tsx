@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Search } from "lucide-react";
+import { ArrowUpRight, Search, X } from "lucide-react";
 import {
   projects,
   categories,
@@ -12,6 +12,7 @@ import {
 import Preview from "./Preview";
 import Reveal from "./Reveal";
 export default function Projects() {
+  const searchInput = useRef<HTMLInputElement>(null);
   const [category, setCategory] = useState("All"),
     [query, setQuery] = useState(""),
     [featured, setFeatured] = useState(false);
@@ -19,7 +20,7 @@ export default function Projects() {
     (p) =>
       (category === "All" || category === p.category) &&
       (!featured || p.featured) &&
-      `${p.name} ${p.description} ${p.technologies.join(" ")}`
+      `${p.name} ${p.shortDescription} ${p.description} ${p.category} ${p.technologies.join(" ")}`
         .toLowerCase()
         .includes(query.trim().toLowerCase()),
   );
@@ -66,7 +67,7 @@ export default function Projects() {
                 ))}
               </div>
               <Link className="button secondary" href={`/work/${p.id}/`}>
-                Explore the build <ArrowUpRight size={16} />
+                Explore {p.name} <ArrowUpRight size={16} />
               </Link>
               <div className="project-direct">
                 {actions(p)
@@ -113,15 +114,65 @@ export default function Projects() {
               </button>
             ))}
           </div>
-          <div className="archive-search">
-            <Search size={16} />
-            <input
-              type="search"
-              aria-label="Search projects"
-              placeholder="Search projects or technologies"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
+          <div
+            className="signature-search-group"
+            role="search"
+            aria-label="Project collection"
+          >
+            <label
+              className="signature-search-label"
+              htmlFor="collection-search"
+            >
+              PROJECT INDEX{" "}
+              <span aria-hidden="true">
+                / {String(projects.length).padStart(2, "0")}
+              </span>
+            </label>
+            <div className="archive-search signature-search">
+              <span className="signature-search-lens" aria-hidden="true">
+                <Search size={17} strokeWidth={1.5} />
+              </span>
+              <div className="signature-search-field">
+                <input
+                  ref={searchInput}
+                  id="collection-search"
+                  type="search"
+                  aria-label="Search projects"
+                  placeholder="Search projects…"
+                  autoComplete="off"
+                  spellCheck={false}
+                  onKeyDown={(e) => {
+                    if (e.key === "Escape" && query) {
+                      e.preventDefault();
+                      setQuery("");
+                    }
+                  }}
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+              </div>
+              <div className="signature-search-end">
+                {query ? (
+                  <button
+                    type="button"
+                    aria-label="Clear project search"
+                    onClick={() => {
+                      setQuery("");
+                      searchInput.current?.focus();
+                    }}
+                  >
+                    <X size={16} aria-hidden="true" />
+                  </button>
+                ) : (
+                  <span
+                    className="signature-search-monogram"
+                    aria-hidden="true"
+                  >
+                    J0
+                  </span>
+                )}
+              </div>
+            </div>
           </div>
           <label className="featured-filter">
             <input
@@ -132,7 +183,12 @@ export default function Projects() {
             Featured
           </label>
         </div>
-        <p className="archive-count" aria-live="polite">
+        <p
+          className="archive-count"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           {matches.length} {matches.length === 1 ? "project" : "projects"} shown
         </p>
         <div className="archive-list">
@@ -175,7 +231,7 @@ export default function Projects() {
                     ))}
                   </div>
                   <Link className="text-link" href={`/work/${p.id}/`}>
-                    Project details <ArrowUpRight size={14} />
+                    {p.name} case study <ArrowUpRight size={14} />
                   </Link>
                   {actions(p).map(([name, url]) => (
                     <a
@@ -197,7 +253,10 @@ export default function Projects() {
         {!matches.length && (
           <div className="archive-empty">
             <h3>No matching builds.</h3>
-            <p>Try another category or technology.</p>
+            <p>
+              Try another project name, technology, or category. Clear the
+              search to keep your filters, or reset all filters below.
+            </p>
             <button
               className="button secondary"
               onClick={() => {

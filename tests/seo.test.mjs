@@ -43,7 +43,7 @@ test("project metadata distinguishes all actual work without changing the source
     await fs.readFile("content/projects.json", "utf8"),
   );
   const titles = projects.map(projectSearchTitle);
-  assert.equal(new Set(titles).size, 18);
+  assert.equal(new Set(titles).size, projects.length);
   assert.ok(titles.every((title, i) => title.startsWith(projects[i].name)));
 });
 

@@ -60,6 +60,12 @@ for (const [route, { nodes, ids }] of pages) {
   canonicals.add(canonical);
   const title = text(nodes.find((n) => n.tagName === "title"));
   const description = meta("description");
+  assert.equal(meta("keywords"), undefined, `${route}: no meta keywords`);
+  assert.equal(
+    nodes.filter((n) => n.tagName === "main").length,
+    1,
+    `${route}: one main landmark`,
+  );
   assert.ok(title && description, `${route}: title/description`);
   assert.equal(
     nodes.filter((n) => n.tagName === "h1").length,
@@ -118,7 +124,11 @@ for (const [route, { nodes, ids }] of pages) {
   schemaCount += graph.length;
   const person = graph.find((n) => n["@type"] === "Person");
   assert.equal(person?.name, "John Angelo De Joya");
-  assert.equal(person?.alternateName, "J0hnvexcoder");
+  assert.deepEqual(person?.alternateName, [
+    "J0hnvexcoder",
+    "johnvexcoder",
+    "John De Joya",
+  ]);
   assert.equal(person.url, origin);
   assert.equal(person["@id"], absolute("/#person"));
   assert.ok(person.sameAs.includes("https://github.com/johnvexcoder"));
@@ -166,6 +176,20 @@ for (const [route, { nodes, ids }] of pages) {
       "testimonials",
     ])
       assert.ok(ids.has(id), id);
+    const aboutText = text(nodes.find((n) => attributes(n).id === "about"));
+    for (const alias of [
+      "J0hnvexcoder",
+      "johnvexcoder",
+      "John Angelo De Joya",
+      "John De Joya",
+    ]) {
+      assert.ok(aboutText.includes(alias), `${alias}: visible identity`);
+    }
+    const introduction = text(
+      nodes.find((n) => attributes(n).id === "introduction"),
+    );
+    assert.ok(introduction.includes("freelance web developer in Bulacan"));
+    assert.ok(introduction.includes("web development in the Philippines"));
     for (const p of projects) {
       assert.ok(
         text(nodes.find((n) => attributes(n).id === "projects")).includes(
@@ -189,6 +213,29 @@ for (const [route, { nodes, ids }] of pages) {
       nodes.filter((n) => attributes(n).class?.includes("skill-icon")).length,
       28,
     );
+    const aboutImage = nodes.find(
+      (n) =>
+        n.tagName === "img" &&
+        attributes(n).src === "/source/me/john_aboutme.webp",
+    );
+    assert.equal(attributes(aboutImage).loading, "lazy");
+    assert.equal(attributes(aboutImage).decoding, "async");
+    assert.ok(
+      attributes(aboutImage).srcset.includes("john_aboutme-480.webp 480w"),
+    );
+    assert.ok(
+      attributes(aboutImage).srcset.includes("john_aboutme-768.webp 768w"),
+    );
+    for (const width of [480, 768]) {
+      const file = `out/source/me/john_aboutme-${width}.webp`;
+      const dimensions = await sharp(file).metadata();
+      assert.equal(dimensions.width, width);
+      assert.equal(dimensions.height / dimensions.width, 1.25);
+      assert.ok(
+        (await fs.stat(file)).size <
+          (await fs.stat("out/source/me/john_aboutme.webp")).size,
+      );
+    }
     const heroImage = nodes.find(
       (n) =>
         n.tagName === "img" && attributes(n).src === "/source/me/portrait.webp",
@@ -198,6 +245,15 @@ for (const [route, { nodes, ids }] of pages) {
     assert.ok(attributes(heroImage).srcset.includes("portrait-320.webp"));
   } else if (!isError) {
     const project = projects.find((p) => route === `/work/${p.id}/`);
+    if (project.image) {
+      const preview = nodes.find(
+        (n) =>
+          n.tagName === "img" &&
+          attributes(n).src === (project.scrollImage || project.image),
+      );
+      assert.equal(attributes(preview).loading, "eager");
+      assert.equal(attributes(preview).fetchpriority, "high");
+    }
     const work = graph.find((n) => n["@type"] === "CreativeWork");
     assert.equal(work?.name, project.name);
     assert.equal(work?.description, project.description);

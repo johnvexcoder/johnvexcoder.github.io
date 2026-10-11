@@ -4,6 +4,7 @@ export {
   homeSearchTitle,
   homeSearchDescription,
   projectSearchTitle,
+  projectSearchDescription,
 } from "./seo-policy";
 export const siteUrl = resolveSiteOrigin(process.env.NEXT_PUBLIC_SITE_URL);
 export const isIndexable = resolveIndexing(process.env.SITE_INDEXING);

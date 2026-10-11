@@ -4,7 +4,12 @@ import { notFound } from "next/navigation";
 import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import { projects, statusLabel, actions } from "@/lib/content";
 import Preview from "@/components/Preview";
-import { absoluteUrl, projectSocialImage, projectSearchTitle } from "@/lib/seo";
+import {
+  absoluteUrl,
+  projectSocialImage,
+  projectSearchTitle,
+  projectSearchDescription,
+} from "@/lib/seo";
 export const dynamicParams = false;
 export const generateStaticParams = () => projects.map((p) => ({ id: p.id }));
 export async function generateMetadata({
@@ -17,13 +22,13 @@ export async function generateMetadata({
   return p
     ? {
         title: projectSearchTitle(p),
-        description: p.shortDescription,
+        description: projectSearchDescription(p),
         alternates: { canonical: `/work/${id}/` },
         openGraph: {
           siteName: "J0hnvexcoder",
           locale: "en_PH",
           title: `${projectSearchTitle(p)} | J0hnvexcoder`,
-          description: p.shortDescription,
+          description: projectSearchDescription(p),
           url: absoluteUrl(`/work/${id}/`),
           type: "website",
           images: [
@@ -40,7 +45,7 @@ export async function generateMetadata({
         twitter: {
           card: "summary_large_image",
           title: `${projectSearchTitle(p)} | J0hnvexcoder`,
-          description: p.shortDescription,
+          description: projectSearchDescription(p),
           images: [projectSocialImage(p)],
         },
       }
@@ -82,7 +87,7 @@ export default async function Work({
                 "@id": absoluteUrl(`/work/${id}/`),
                 url: absoluteUrl(`/work/${id}/`),
                 name: p.name,
-                description: p.shortDescription,
+                description: projectSearchDescription(p),
                 primaryImageOfPage: {
                   "@type": "ImageObject",
                   url: absoluteUrl(projectSocialImage(p)),
@@ -158,7 +163,7 @@ export default async function Work({
         </div>
         {p.disclaimer && <p className="disclaimer">{p.disclaimer}</p>}
       </header>
-      <Preview project={p} large />
+      <Preview project={p} large priority />
       <div className="case-story">
         <div>
           <section>

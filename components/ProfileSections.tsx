@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { ArrowUpRight, Code2, Server, Network, Workflow } from "lucide-react";
 import { profile, skills, services, tagline } from "@/lib/content";
 import Reveal from "./Reveal";
@@ -165,12 +164,16 @@ export function About() {
       </Reveal>
       <div className="about-layout">
         <Reveal className="about-photo">
-          <Image
+          {/* Static export: use prebuilt responsive files without an image server. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/source/me/john_aboutme.webp"
+            srcSet="/source/me/john_aboutme-480.webp 480w, /source/me/john_aboutme-768.webp 768w, /source/me/john_aboutme.webp 1000w"
             alt="John Angelo De Joya working at his desk with a laptop"
             width={1000}
             height={1250}
             sizes="(max-width: 700px) 90vw, 40vw"
+            decoding="async"
             loading="lazy"
           />
           <span>JOHN DE JOYA / J0HNVEXCODER</span>
@@ -192,9 +195,10 @@ export function About() {
             </span>
           </blockquote>
           <p className="lead">
-            I’m a web developer based in Bulacan, Philippines, working across
-            full-stack application development, Linux, and self-hosted
-            infrastructure.
+            I’m John Angelo De Joya, also known as John De Joya. I publish my
+            work as J0hnvexcoder, using the handle johnvexcoder. Based in
+            Bulacan, Philippines, I work across full-stack application
+            development, Linux, and self-hosted infrastructure.
           </p>
           <p>
             My formal degree is in Hospitality Management — but my technical

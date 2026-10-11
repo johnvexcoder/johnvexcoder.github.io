@@ -17,13 +17,13 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 export const metadata: Metadata = {
   metadataBase: new URL(url),
   title: {
-    default: `${homeSearchTitle} — J0hnvexcoder`,
+    default: homeSearchTitle,
     template: "%s | J0hnvexcoder",
   },
   description: homeSearchDescription,
   alternates: { canonical: "/" },
   openGraph: {
-    title: `${homeSearchTitle} — J0hnvexcoder`,
+    title: homeSearchTitle,
     type: "website",
     url: absoluteUrl("/"),
     siteName: "J0hnvexcoder",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${homeSearchTitle} — J0hnvexcoder`,
+    title: homeSearchTitle,
     description: homeSearchDescription,
     creator: "@johnvexcoder",
     images: ["/social.png"],
@@ -65,7 +65,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     "@type": "Person",
     "@id": absoluteUrl("/#person"),
     name: profile.name,
-    alternateName: profile.alias,
+    alternateName: [profile.alias, "johnvexcoder", "John De Joya"],
     jobTitle: [
       "Web Developer",
       "Software Developer",

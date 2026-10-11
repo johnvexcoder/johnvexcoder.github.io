@@ -545,5 +545,39 @@
     "problemSolution": "Explores how a real 3D product can be presented through cinematic scroll choreography and direct interaction.",
     "disclaimer": "Independent, noncommercial concept — no brand affiliation or product sales.",
     "sourceCapture": true
+  },
+  {
+    "id": "archeon",
+    "name": "archeon",
+    "category": "Web",
+    "shortDescription": "An architecture portfolio demo with a scroll-driven 3D construction sequence, interactive house exploration, and illustrative tropical-modern floor plans.",
+    "description": "A frontend architecture portfolio demo built with Next.js, React, TypeScript, Three.js, React Three Fiber, and GSAP. Visitors can explore an original tropical-modern house concept through nine construction stages, camera presets, floor selection, day/night lighting, and material choices. Interactive concept floor plans describe the rooms. A local project-brief form validates and downloads a text draft without sending a request or storing data on a server.",
+    "image": "/source/projects/archeon/capture.webp",
+    "scrollImage": "/source/projects/archeon/capture.webp",
+    "imageFallback": "/source/projects/archeon/archeon.png",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Three.js",
+      "React Three Fiber",
+      "GSAP",
+      "Vercel"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://demo-archeon.vercel.app",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Nine construction stages",
+      "Interactive concept floor plans",
+      "Local project-brief download"
+    ],
+    "problemSolution": "Makes an illustrative residential concept easier to explore by connecting a reversible 3D construction sequence with camera controls, floor plans, lighting, and material choices in one interactive website.",
+    "sourceCapture": true,
+    "disclaimer": "Architecture visualization demo — Amihan House is an illustrative concept, not a completed commission. Project briefs are downloaded locally; no requests are sent."
   }
 ]

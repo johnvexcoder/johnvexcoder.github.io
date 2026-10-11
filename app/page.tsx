@@ -46,7 +46,7 @@ export default function Home() {
             "@id": absoluteUrl("/#website"),
             url: absoluteUrl("/"),
             name: "J0hnvexcoder",
-            alternateName: "John Angelo De Joya Portfolio",
+            alternateName: ["johnvexcoder", "John Angelo De Joya Portfolio"],
             description: homeSearchDescription,
             inLanguage: "en-PH",
             author: { "@id": absoluteUrl("/#person") },
@@ -65,12 +65,14 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <p>
-            I’m John Angelo De Joya, a web developer in Bulacan, Philippines. I
-            build practical software and the systems that give it a home.
+            I’m John Angelo De Joya (J0hnvexcoder), a freelance web developer in
+            Bulacan, Philippines. I build practical software and the systems
+            that give it a home.
           </p>
           <p>
-            Web development. Automation. Linux and infrastructure. A connected
-            practice, from the first interaction to the last server.
+            My work spans web development in the Philippines, automation, and
+            Linux infrastructure — from the first interaction to the last
+            server.
           </p>
           <a className="text-link" href="#about">
             Meet the person behind the work <span aria-hidden="true">→</span>

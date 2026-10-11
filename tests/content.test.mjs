@@ -48,19 +48,20 @@ test("all fourteen catalog records preserve verified content, classification and
     "Web",
   ]);
 });
-test("four owner-confirmed recent projects use their exact live URLs and actual source captures", () => {
+test("five owner-confirmed recent projects use their exact live URLs and actual source captures", () => {
   const urls = {
     jnglo: "https://jnglo.vercel.app/",
     arkosenyo: "https://demo-arkosenyo.vercel.app/",
     taitechmarine: "https://demo-taitechmarine.vercel.app/",
     shoesonthego: "https://shoesonthego.vercel.app/",
+    archeon: "https://demo-archeon.vercel.app",
   };
-  assert.equal(projects.length, 18);
-  assert.equal(new Set(projects.map((p) => p.id)).size, 18);
+  assert.equal(projects.length, 19);
+  assert.equal(new Set(projects.map((p) => p.id)).size, 19);
   for (const [id, url] of Object.entries(urls)) {
     const p = projects.find((p) => p.id === id);
     assert.equal(p.demo, url);
-    assert.equal(p.status, "active");
+    assert.equal(p.status, id === "archeon" ? "demo" : "active");
     assert.ok(p.sourceCapture);
     assert.ok(p.image.endsWith("capture.webp"));
   }
