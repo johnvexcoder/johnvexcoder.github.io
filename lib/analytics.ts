@@ -231,8 +231,11 @@ export function createAnalyticsController({
     if (!initialized) {
       w[disabledKey] = false;
       w.dataLayer = w.dataLayer || [];
-      w.gtag = function (...args: unknown[]) {
-        w.dataLayer!.push(args);
+      w.gtag = function () {
+        // gtag.js consumes Arguments commands. Plain arrays are interpreted as
+        // data-layer messages and silently fail to configure/send GA4 events.
+        // eslint-disable-next-line prefer-rest-params -- Google's required queue protocol
+        w.dataLayer!.push(arguments);
       };
       // Nothing in this queue exists before opt-in, and the tag is appended last.
       w.gtag("consent", "default", {

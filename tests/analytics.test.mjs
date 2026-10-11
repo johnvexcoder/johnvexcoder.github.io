@@ -129,6 +129,33 @@ test("explicit acceptance initializes one async tag, one config and one initial 
   assert.equal(h.calls()[0][2].ad_storage, "denied");
   assert.ok(!JSON.stringify(h.calls()).includes("private@example.com"));
 });
+test("gtag queues Google's required Arguments objects, never plain command arrays", () => {
+  const h = harness({ stored: "granted" });
+  h.controller.initialize("/");
+  h.controller.track("contact_email_click", { location: "contact" });
+  assert.ok(h.calls().length > 0);
+  for (const command of h.calls()) {
+    assert.equal(Array.isArray(command), false);
+    assert.equal(Object.prototype.toString.call(command), "[object Arguments]");
+  }
+});
+test("a Google-command consumer can read configuration and dispatch the existing email event", () => {
+  const h = harness({ stored: "granted" });
+  h.controller.initialize("/");
+  h.controller.initialize("/");
+  h.controller.track("contact_email_click", { location: "contact" });
+  let accepted = false, configured = false;
+  const events = [];
+  // Contract model, not a substitute for the real-tag browser network check.
+  for (const command of h.calls()) {
+    if (Object.prototype.toString.call(command) !== "[object Arguments]") continue;
+    if (command[0] === "consent") accepted = command[2].analytics_storage === "granted";
+    if (command[0] === "config") configured = accepted && command[1] === GA_MEASUREMENT_ID;
+    if (command[0] === "event" && configured) events.push(command[1]);
+  }
+  assert.equal(configured, true);
+  assert.deepEqual(events, ["page_view", "contact_email_click"]);
+});
 test("accepted and declined preferences survive refresh and old valid choices remain usable", () => {
   for (const stored of ["granted", "denied"]) {
     const h = harness({ stored });
