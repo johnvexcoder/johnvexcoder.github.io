@@ -1,43 +1,35 @@
 "use client";
-import Script from "next/script";
 import { useEffect, useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
 import {
-  GA_MEASUREMENT_ID,
-  applyAnalyticsConsent,
   getAnalyticsConsentServerSnapshot,
   getAnalyticsConsentSnapshot,
   subscribeAnalyticsConsent,
+  initializeAnalytics,
   track,
   updateAnalyticsConsent,
 } from "@/lib/analytics";
 import ConsentBanner from "./ConsentBanner";
 
-// The public measurement ID is baked into every page. Local development keeps
-// the consent UI and event wiring, but does not send data to the live property.
-const analyticsEnabled = process.env.NODE_ENV === "production";
-
 export default function GoogleAnalytics() {
+  const pathname = usePathname();
   const consent = useSyncExternalStore(
     subscribeAnalyticsConsent,
     getAnalyticsConsentSnapshot,
     getAnalyticsConsentServerSnapshot,
   );
-
   useEffect(() => {
-    if (consent) applyAnalyticsConsent(consent);
-  }, [consent]);
-
+    if (consent === "granted") initializeAnalytics(pathname);
+  }, [consent, pathname]);
   useEffect(() => {
-    // One delegated listener covers links rendered by server components too,
-    // so the Google tag stays installed once without per-link bundles.
     const onClick = (event: MouseEvent) => {
-      const target = event.target as Element | null;
-      const element = target?.closest?.(
-        "[data-ga-event]",
-      ) as HTMLElement | null;
-      const data = element?.dataset;
-      if (!data?.gaEvent) return;
-      track(data.gaEvent, {
+      const element =
+        event.target instanceof Element
+          ? event.target.closest<HTMLElement>("[data-ga-event]")
+          : null;
+      if (!element?.dataset.gaEvent) return;
+      const data = element.dataset;
+      track(data.gaEvent!, {
         project: data.gaProject,
         action: data.gaAction,
         location: data.gaLocation,
@@ -45,31 +37,28 @@ export default function GoogleAnalytics() {
         service: data.gaService,
       });
     };
+    const onToggle = (event: Event) => {
+      const element = event.target;
+      if (
+        element instanceof HTMLDetailsElement &&
+        element.open &&
+        element.classList.contains("archive-project")
+      ) {
+        track("project_explore", {
+          project: element.dataset.gaProject,
+          action: "Expand details",
+          location: "project-archive",
+        });
+      }
+    };
     document.addEventListener("click", onClick, true);
-    return () => document.removeEventListener("click", onClick, true);
+    document.addEventListener("toggle", onToggle, true);
+    return () => {
+      document.removeEventListener("click", onClick, true);
+      document.removeEventListener("toggle", onToggle, true);
+    };
   }, []);
-
-  return (
-    <>
-      {analyticsEnabled && (
-        <>
-          <Script
-            id="ga4-google-tag"
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="ga4-config" strategy="afterInteractive">
-            {`window.gtag('config','${GA_MEASUREMENT_ID}');`}
-          </Script>
-        </>
-      )}
-      {consent === null && (
-        <ConsentBanner
-          onChoice={(value) => {
-            updateAnalyticsConsent(value);
-          }}
-        />
-      )}
-    </>
-  );
+  return consent === null ? (
+    <ConsentBanner onChoice={updateAnalyticsConsent} />
+  ) : null;
 }

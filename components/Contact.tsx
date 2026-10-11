@@ -75,7 +75,7 @@ export default function Contact() {
             const data = new FormData(e.currentTarget);
             const body = `Name: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("message")}`;
             window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject || "Portfolio enquiry")}&body=${encodeURIComponent(body)}`;
-            track("contact_form_submit", { method: "email_app" });
+            track("contact_email_prepare", { method: "email_app" });
             setStatus(
               "Your email application will open with the message prepared. Send it there when you’re ready.",
             );

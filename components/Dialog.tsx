@@ -6,11 +6,17 @@ export default function Dialog({
   onClose,
   title,
   children,
+  className = "",
+  description,
+  fallbackFocusSelector,
 }: {
   open: boolean;
   onClose: () => void;
   title: string;
   children: ReactNode;
+  className?: string;
+  description?: string;
+  fallbackFocusSelector?: string;
 }) {
   const ref = useRef<HTMLDialogElement>(null),
     id = useId();
@@ -18,21 +24,28 @@ export default function Dialog({
     const el = ref.current;
     if (!el) return;
     if (open) {
-      el.showModal();
+      const previous = document.activeElement as HTMLElement | null;
+      if (!el.open) el.showModal();
       const old = document.body.style.overflow;
       document.body.style.overflow = "hidden";
       return () => {
         document.body.style.overflow = old;
         el.close();
+        if (previous?.isConnected) previous.focus({ preventScroll: true });
+        else if (fallbackFocusSelector)
+          document
+            .querySelector<HTMLElement>(fallbackFocusSelector)
+            ?.focus({ preventScroll: true });
       };
     }
     el.close();
-  }, [open]);
+  }, [open, fallbackFocusSelector]);
   return (
     <dialog
       ref={ref}
-      className="dialog"
+      className={`dialog ${className}`}
       aria-labelledby={id}
+      aria-describedby={description}
       onKeyDownCapture={(e) => {
         if (e.key === "Escape") {
           e.preventDefault();

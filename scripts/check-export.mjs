@@ -37,17 +37,19 @@ for (const route of routes) {
     html.match(/googletagmanager\.com\/gtag\/js\?id=G-11E1T1HREX/g) || [];
   assert.equal(
     tagReferences.length,
-    1,
-    `${route}: the Google tag is installed exactly once`,
+    0,
+    `${route}: no Google tag URL before explicit opt-in`,
   );
   gaTagReferences += tagReferences.length;
   assert.ok(
-    html.includes("analytics_storage:'denied'"),
-    `${route}: analytics storage denied until consent`,
+    !/<(?:script|link)[^>]+(?:googletagmanager|google-analytics)\.com/.test(
+      html,
+    ),
+    `${route}: no analytics script or preconnection in static HTML`,
   );
   assert.ok(
-    !html.includes("gtag('event','page_view'"),
-    `${route}: no manual page_view (GA4 Enhanced Measurement owns page views)`,
+    !html.includes("analytics_storage:'denied'"),
+    `${route}: no pre-consent analytics bootstrap`,
   );
 }
 for (const file of [

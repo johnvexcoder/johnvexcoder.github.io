@@ -67,7 +67,14 @@ export default function Projects() {
                   <span key={t}>{t}</span>
                 ))}
               </div>
-              <Link className="button secondary" href={`/work/${p.id}/`}>
+              <Link
+                className="button secondary"
+                href={`/work/${p.id}/`}
+                data-ga-event="project_explore"
+                data-ga-project={p.id}
+                data-ga-action="Case study"
+                data-ga-location="featured-build"
+              >
                 Explore {p.name} <ArrowUpRight size={16} />
               </Link>
               <div className="project-direct">
@@ -80,7 +87,9 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-ga-event={
-                        isDemoAction(name) ? "project_demo" : "project_reference"
+                        isDemoAction(name)
+                          ? "project_demo"
+                          : "project_reference"
                       }
                       data-ga-project={p.id}
                       data-ga-action={name}
@@ -200,7 +209,11 @@ export default function Projects() {
         </p>
         <div className="archive-list">
           {matches.map((p, i) => (
-            <details key={p.id} className="archive-project">
+            <details
+              key={p.id}
+              className="archive-project"
+              data-ga-project={p.id}
+            >
               <summary>
                 <span className="archive-number">
                   {String(i + 1).padStart(2, "0")}
@@ -237,7 +250,14 @@ export default function Projects() {
                       <span key={t}>{t}</span>
                     ))}
                   </div>
-                  <Link className="text-link" href={`/work/${p.id}/`}>
+                  <Link
+                    className="text-link"
+                    href={`/work/${p.id}/`}
+                    data-ga-event="project_explore"
+                    data-ga-project={p.id}
+                    data-ga-action="Case study"
+                    data-ga-location="project-archive"
+                  >
                     {p.name} case study <ArrowUpRight size={14} />
                   </Link>
                   {actions(p).map(([name, url]) => (
@@ -248,7 +268,9 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-ga-event={
-                        isDemoAction(name) ? "project_demo" : "project_reference"
+                        isDemoAction(name)
+                          ? "project_demo"
+                          : "project_reference"
                       }
                       data-ga-project={p.id}
                       data-ga-action={name}

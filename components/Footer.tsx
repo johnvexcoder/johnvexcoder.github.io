@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ArrowUp, Terminal, ShieldCheck } from "lucide-react";
 import Dialog from "./Dialog";
+import PrivacySettings from "./PrivacySettings";
 import { profile } from "@/lib/content";
 export default function Footer() {
   const [open, setOpen] = useState(false),
@@ -86,11 +87,12 @@ export default function Footer() {
           <button
             className="footer-terminal"
             onClick={() => setPrivacy(true)}
+            data-privacy-settings
             data-ga-event="privacy_open"
             data-ga-location="footer"
           >
             <ShieldCheck size={13} />
-            Privacy
+            Privacy Settings
           </button>
         </div>
       </footer>
@@ -133,56 +135,7 @@ export default function Footer() {
           </form>
         </div>
       </Dialog>
-      <Dialog
-        open={privacy}
-        onClose={() => setPrivacy(false)}
-        title="Privacy & analytics"
-      >
-        <div className="privacy-content">
-          <p>
-            This portfolio is a static website. It has no accounts, no database
-            and no advertising trackers. The only analytics is the Google
-            Analytics 4 property described here.
-          </p>
-          <h3>What is measured</h3>
-          <p>
-            Google Analytics 4 (measurement ID <code>G-11E1T1HREX</code>) helps
-            me understand aggregate traffic — which pages and projects are
-            useful — so I can improve the site. It records page views and the
-            interactions you trigger, such as opening a project demo or using
-            the contact links.
-          </p>
-          <h3>What is never sent</h3>
-          <p>
-            Names, email addresses, message contents and any other personal
-            information are never sent to Google Analytics from this site. The
-            contact form only prepares a message in your own email application,
-            and reviews are delivered through Web3Forms, not analytics.
-          </p>
-          <h3>Your choice</h3>
-          <p>
-            Analytics storage is denied until you accept it. You can decline and
-            keep browsing. If you decline, Google may still receive cookieless,
-            aggregated signals without new analytics identifiers; if you accept,
-            Google may set analytics cookies. Your choice is stored in your
-            browser under <code>j0hnvexcoder-analytics-consent</code>; clear your
-            browser storage to be asked again.
-          </p>
-          <h3>Contact</h3>
-          <p>
-            Questions about this notice? Email{" "}
-            <a
-              className="text-link"
-              href={`mailto:${profile.email}`}
-              data-ga-event="contact_email_click"
-              data-ga-location="privacy"
-            >
-              {profile.email}
-            </a>
-            .
-          </p>
-        </div>
-      </Dialog>
+      <PrivacySettings open={privacy} onClose={() => setPrivacy(false)} />
     </>
   );
 }

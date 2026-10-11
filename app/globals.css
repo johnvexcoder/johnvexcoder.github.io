@@ -2215,65 +2215,209 @@ input[type="radio"] {
 .footer-top {
   font-size: 10px;
 }
+/* Optional analytics uses the portfolio palette without changing page layout. */
 .analytics-consent {
   position: fixed;
-  left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
   z-index: 90;
-  width: min(680px, calc(100% - 32px));
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  width: min(600px, calc(100% - 48px));
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 4px 14px;
-  align-items: start;
-  padding: 16px 18px;
-  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  grid-template-columns: minmax(0, 1fr) 156px;
+  gap: 24px;
+  align-items: center;
+  padding: 22px;
   border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
-  animation: state-in 0.4s var(--ease);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 98%, transparent);
+  box-shadow: 0 12px 40px #0003;
+  animation: analytics-enter 180ms var(--ease);
+  transition:
+    opacity 150ms,
+    translate 150ms;
 }
-.analytics-consent > svg {
+.analytics-consent.is-leaving {
+  opacity: 0;
+  translate: 0 8px;
+  pointer-events: none;
+}
+.analytics-kicker {
+  margin: 0 0 9px;
   color: var(--blue);
-  margin-top: 2px;
+  font: 8px var(--mono);
+  letter-spacing: 0.12em;
 }
-.analytics-consent > p {
+.analytics-consent h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.analytics-consent-copy > p:not(.analytics-kicker) {
   margin: 0;
-  font-size: 11px;
-  line-height: 1.7;
+  font-size: 13px;
+  line-height: 1.65;
   color: var(--soft);
+}
+.privacy-details-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 2px 0 -9px;
+  padding: 0;
+  color: var(--soft);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.privacy-details-link:hover {
+  color: var(--blue);
 }
 .analytics-consent-actions {
-  grid-column: 2;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 6px;
+  gap: 8px;
 }
-.analytics-consent > .text-link {
-  grid-column: 2;
-  justify-self: start;
-  font-size: 10px;
-  margin-top: 4px;
+.analytics-consent > .analytics-consent-actions {
+  flex-direction: column;
+}
+.privacy-choice {
+  flex: 1;
+  min-height: 44px;
+  padding: 10px 13px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition:
+    border-color 150ms,
+    background 150ms;
+}
+.privacy-choice:hover,
+.privacy-choice:active {
+  border-color: var(--blue);
+  background: color-mix(in srgb, var(--blue) 6%, var(--surface));
+}
+.privacy-choice[aria-pressed="true"] {
+  border-color: var(--blue);
+}
+.dialog.privacy-dialog {
+  width: min(540px, calc(100% - 24px));
+  max-height: min(
+    740px,
+    calc(100svh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom))
+  );
+}
+.privacy-dialog .dialog-surface {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: inherit;
+  border-radius: 12px;
+}
+.privacy-dialog .dialog-surface > header {
+  padding: 14px 22px;
+  flex-shrink: 0;
+  gap: 12px;
+}
+.privacy-dialog .dialog-surface > header h2 {
+  font-size: 21px;
+  letter-spacing: -0.03em;
+}
+.privacy-dialog .icon-button {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
 }
 .privacy-content {
-  padding: 20px 25px 26px;
+  padding: 18px 22px 22px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  min-height: 0;
+}
+.privacy-intro {
+  margin-top: 0;
+  color: var(--soft);
+  font-size: 13px;
+}
+.privacy-content section + section {
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
 }
 .privacy-content h3 {
-  font-size: 13px;
-  font-weight: 550;
-  margin: 20px 0 6px;
+  margin: 0 0 7px;
+  font-size: 14px;
+  font-weight: 500;
 }
 .privacy-content p {
-  margin: 0 0 8px;
+  margin: 0 0 9px;
+  color: var(--soft);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.privacy-content .text-link {
+  min-height: 44px;
   font-size: 12px;
-  line-height: 1.8;
+}
+.privacy-preferences {
+  padding: 16px 22px 20px;
+  border-top: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.privacy-preferences > p {
+  margin: 0 0 12px;
+  font: 10px var(--mono);
   color: var(--soft);
 }
-.privacy-content code {
-  font: 10px var(--mono);
-  color: var(--blue);
+.privacy-preferences strong {
+  color: var(--text);
+  font-weight: 500;
+}
+@keyframes analytics-enter {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@media (max-width: 600px) {
+  .analytics-consent {
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: calc(100% - 24px);
+    padding: 18px;
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .analytics-consent > .analytics-consent-actions {
+    flex-direction: row;
+  }
+  .privacy-dialog .dialog-surface > header {
+    padding: 12px 16px;
+  }
+  .privacy-dialog .dialog-surface > header h2 {
+    font-size: 19px;
+  }
+  .privacy-content {
+    padding: 16px;
+  }
+  .privacy-preferences {
+    padding: 14px 16px 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .analytics-consent,
+  .privacy-choice,
+  .privacy-dialog .dialog-surface {
+    animation: none;
+    transition: none;
+  }
 }
 .dialog {
   position: fixed;

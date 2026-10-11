@@ -1,49 +1,63 @@
 "use client";
-import { ShieldCheck } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import type { AnalyticsConsent } from "@/lib/analytics";
-
 export default function ConsentBanner({
   onChoice,
 }: {
   onChoice: (value: AnalyticsConsent) => void;
 }) {
+  const [leaving, setLeaving] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  useEffect(() => () => clearTimeout(timer.current), []);
+  const choose = (value: AnalyticsConsent) => {
+    if (leaving) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      onChoice(value);
+      return;
+    }
+    setLeaving(true);
+    timer.current = setTimeout(() => onChoice(value), 150);
+  };
   return (
     <section
-      className="analytics-consent"
-      aria-label="Analytics consent"
-      role="region"
+      className={`analytics-consent${leaving ? " is-leaving" : ""}`}
+      aria-labelledby="analytics-choice-heading"
     >
-      <ShieldCheck size={20} aria-hidden="true" />
-      <p>
-        I use Google Analytics to understand aggregate visits and which
-        projects are useful. No names, emails or message contents are ever sent.
-        Analytics storage stays off until you choose.
-      </p>
+      <div className="analytics-consent-copy">
+        <p className="analytics-kicker">YOUR VISIT. YOUR CHOICE.</p>
+        <h2 id="analytics-choice-heading">Optional analytics</h2>
+        <p>
+          Help me understand which pages and projects are useful. Analytics
+          starts only if you accept.
+        </p>
+        <button
+          className="privacy-details-link"
+          type="button"
+          onClick={() =>
+            window.dispatchEvent(new CustomEvent("portfolio-privacy"))
+          }
+        >
+          Privacy details
+        </button>
+      </div>
       <div className="analytics-consent-actions">
         <button
-          className="button secondary"
+          className="privacy-choice"
           type="button"
-          onClick={() => onChoice("denied")}
+          disabled={leaving}
+          onClick={() => choose("granted")}
+        >
+          Accept Analytics
+        </button>
+        <button
+          className="privacy-choice"
+          type="button"
+          disabled={leaving}
+          onClick={() => choose("denied")}
         >
           Decline
         </button>
-        <button
-          className="button primary"
-          type="button"
-          onClick={() => onChoice("granted")}
-        >
-          Accept analytics
-        </button>
       </div>
-      <button
-        className="text-link"
-        type="button"
-        onClick={() =>
-          window.dispatchEvent(new CustomEvent("portfolio-privacy"))
-        }
-      >
-        Privacy details
-      </button>
     </section>
   );
 }
