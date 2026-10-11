@@ -2215,6 +2215,66 @@ input[type="radio"] {
 .footer-top {
   font-size: 10px;
 }
+.analytics-consent {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 90;
+  width: min(680px, calc(100% - 32px));
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 14px;
+  align-items: start;
+  padding: 16px 18px;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  animation: state-in 0.4s var(--ease);
+}
+.analytics-consent > svg {
+  color: var(--blue);
+  margin-top: 2px;
+}
+.analytics-consent > p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--soft);
+}
+.analytics-consent-actions {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+.analytics-consent > .text-link {
+  grid-column: 2;
+  justify-self: start;
+  font-size: 10px;
+  margin-top: 4px;
+}
+.privacy-content {
+  padding: 20px 25px 26px;
+}
+.privacy-content h3 {
+  font-size: 13px;
+  font-weight: 550;
+  margin: 20px 0 6px;
+}
+.privacy-content p {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--soft);
+}
+.privacy-content code {
+  font: 10px var(--mono);
+  color: var(--blue);
+}
 .dialog {
   position: fixed;
   inset: 0;

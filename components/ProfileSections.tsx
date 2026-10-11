@@ -1,6 +1,7 @@
 "use client";
 import { ArrowUpRight, Code2, Server, Network, Workflow } from "lucide-react";
 import { profile, skills, services, tagline } from "@/lib/content";
+import { track } from "@/lib/analytics";
 import Reveal from "./Reveal";
 import SkillIcon from "./SkillIcon";
 const serviceIcons = [Code2, Workflow, Server, Network];
@@ -128,11 +129,15 @@ export function Services() {
               <a
                 className="text-link"
                 href="#contact"
-                onClick={() =>
+                onClick={() => {
                   window.dispatchEvent(
                     new CustomEvent("portfolio-enquiry", { detail: enquiry }),
-                  )
-                }
+                  );
+                  track("service_enquiry", {
+                    service: enquiry,
+                    location: "services",
+                  });
+                }}
               >
                 {cta}
                 <ArrowUpRight size={15} />

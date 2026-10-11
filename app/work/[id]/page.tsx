@@ -2,7 +2,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
-import { projects, statusLabel, actions } from "@/lib/content";
+import {
+  projects,
+  statusLabel,
+  actions,
+  isDemoAction,
+} from "@/lib/content";
 import Preview from "@/components/Preview";
 import {
   absoluteUrl,
@@ -155,6 +160,12 @@ export default async function Work({
               href={url}
               target="_blank"
               rel="noopener noreferrer"
+              data-ga-event={
+                isDemoAction(n) ? "project_demo" : "project_reference"
+              }
+              data-ga-project={p.id}
+              data-ga-action={n}
+              data-ga-location="case-study"
             >
               {n}
               <ArrowUpRight size={14} />

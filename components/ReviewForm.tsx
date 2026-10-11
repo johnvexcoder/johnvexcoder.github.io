@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { ArrowUpRight, Check } from "lucide-react";
 import config from "@/content/review-config.json";
+import { track } from "@/lib/analytics";
 import Dialog from "./Dialog";
 const HCaptcha = dynamic(() => import("@hcaptcha/react-hcaptcha"), {
   ssr: false,
@@ -72,6 +73,9 @@ export default function ReviewForm({
                     ? "Please wait before trying again."
                     : "Your review could not be sent. Please try again.",
                 );
+              track("review_submitted", {
+                service: String(data.get("project_service") || ""),
+              });
               setSent(true);
             } catch (error) {
               setStatus(

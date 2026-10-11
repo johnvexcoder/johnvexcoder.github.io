@@ -6,6 +6,7 @@ const root = path.resolve("out");
 const projects = JSON.parse(await fs.readFile("content/projects.json", "utf8"));
 const routes = ["/", "/404/", ...projects.map((p) => `/work/${p.id}/`)];
 let checked = 0;
+let gaTagReferences = 0;
 const scripts = new Set();
 for (const route of routes) {
   const filename = path.join(root, route, "index.html");
@@ -32,6 +33,22 @@ for (const route of routes) {
   }
   assert.ok(html.includes("Designed &amp; Developed by"));
   assert.ok(html.includes('rel="canonical"'));
+  const tagReferences =
+    html.match(/googletagmanager\.com\/gtag\/js\?id=G-11E1T1HREX/g) || [];
+  assert.equal(
+    tagReferences.length,
+    1,
+    `${route}: the Google tag is installed exactly once`,
+  );
+  gaTagReferences += tagReferences.length;
+  assert.ok(
+    html.includes("analytics_storage:'denied'"),
+    `${route}: analytics storage denied until consent`,
+  );
+  assert.ok(
+    !html.includes("gtag('event','page_view'"),
+    `${route}: no manual page_view (GA4 Enhanced Measurement owns page views)`,
+  );
 }
 for (const file of [
   "404.html",
@@ -67,6 +84,7 @@ for (const url of scripts) {
 }
 const result = {
   routes: routes.length,
+  gaTagReferences,
   localReferences: checked,
   scriptFilesAcrossHomeAndCases: js.length,
   totalScriptBytes: js.reduce((n, p) => n + p.bytes, 0),

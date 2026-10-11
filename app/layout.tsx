@@ -12,7 +12,9 @@ import {
 } from "@/lib/seo";
 import "./globals.css";
 import { introBootstrap } from "@/lib/intro";
+import { analyticsBootstrap } from "@/lib/analytics";
 import WebVitals from "@/components/WebVitals";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 export const metadata: Metadata = {
   metadataBase: new URL(url),
@@ -101,6 +103,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introBootstrap }} />
+        <script dangerouslySetInnerHTML={{ __html: analyticsBootstrap }} />
         <link
           rel="preload"
           href="/fonts/SignatureSans.woff2"
@@ -126,6 +129,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             __html: JSON.stringify(schema).replaceAll("<", "\\u003c"),
           }}
         />
+        <GoogleAnalytics />
         <SceneMotion />
         {(process.env.NODE_ENV === "development" ||
           process.env.NEXT_PUBLIC_PERFORMANCE_DEBUG === "true") && (

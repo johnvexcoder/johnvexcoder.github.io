@@ -96,6 +96,9 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
+            data-ga-event="contact_social_click"
+            data-ga-network="GitHub"
+            data-ga-location="header"
           >
             <Github size={18} />
           </a>

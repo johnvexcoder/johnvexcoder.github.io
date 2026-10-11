@@ -123,6 +123,7 @@ export function actions(p: Project) {
     ["Releases", p.release],
   ].filter((a): a is [string, string] => !!a[1]);
 }
+export const isDemoAction = (name: string) => /demo|live site/i.test(name);
 export const statusLabel = (s: string) =>
   ({
     active: "Active",

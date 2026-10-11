@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { ArrowUpRight, Copy, Check } from "lucide-react";
 import { contacts, profile } from "@/lib/content";
+import { track } from "@/lib/analytics";
 import Reveal from "./Reveal";
 export default function Contact() {
   const [subject, setSubject] = useState(""),
@@ -26,7 +27,12 @@ export default function Contact() {
           A website idea. A software project. An infrastructure challenge. Let’s
           talk about what you’re building.
         </p>
-        <a className="contact-email" href={`mailto:${profile.email}`}>
+        <a
+          className="contact-email"
+          href={`mailto:${profile.email}`}
+          data-ga-event="contact_email_click"
+          data-ga-location="contact"
+        >
           {profile.email}
           <ArrowUpRight size={23} />
         </a>
@@ -38,13 +44,22 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${name}: ${text}`}
+              data-ga-event="contact_social_click"
+              data-ga-network={name}
+              data-ga-location="contact"
             >
               {name}
               <ArrowUpRight size={12} />
             </a>
           ))}
         </div>
-        <a className="text-link" href="/resume.pdf" download>
+        <a
+          className="text-link"
+          href="/resume.pdf"
+          download
+          data-ga-event="resume_download"
+          data-ga-location="contact"
+        >
           Download résumé <ArrowUpRight size={14} />
         </a>
         <p className="contact-note">
@@ -60,6 +75,7 @@ export default function Contact() {
             const data = new FormData(e.currentTarget);
             const body = `Name: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("message")}`;
             window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject || "Portfolio enquiry")}&body=${encodeURIComponent(body)}`;
+            track("contact_form_submit", { method: "email_app" });
             setStatus(
               "Your email application will open with the message prepared. Send it there when you’re ready.",
             );
@@ -109,6 +125,7 @@ export default function Contact() {
                 await navigator.clipboard.writeText(profile.email);
                 setCopied(true);
                 setStatus("Email address copied.");
+                track("contact_copy_email", { location: "contact" });
               } catch {
                 setStatus(`Please copy: ${profile.email}`);
               }

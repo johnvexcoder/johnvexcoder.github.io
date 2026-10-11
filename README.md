@@ -43,6 +43,10 @@ Use `SITE_INDEXING=production` for the intended public release. A separate stagi
 
 Contact prepares an email in the visitor's email application; it does not send mail from the site. Service enquiries prefill the subject. Contact/profile links and the résumé come from the source portfolios.
 
+## Analytics and consent
+
+Google Analytics 4 (`G-11E1T1HREX`) is installed once from the root layout with `next/script` (`afterInteractive`, so it never blocks rendering) and Google Consent Mode v2. Analytics storage is **denied** until a visitor accepts, and the choice is stored locally under `j0hnvexcoder-analytics-consent`; clearing browser storage asks again. Page views are owned by GA4 Enhanced Measurement — keep **Page changes based on browser history events** enabled in the GA4 property, and never add manual `page_view` calls (that would duplicate data). Custom events cover project demos/references, contact links, résumé downloads, service enquiries and successful review submissions. No form field, email address, name or message content is ever sent; `lib/analytics.ts` also strips known personal-data keys defensively. Local development keeps the consent UI and event wiring but does not send data to the live property.
+
 ## What was migrated
 
 - All **14** original catalog entries and their actual fields, descriptions, classifications, icons, screenshots, repository/documentation/release destinations, demo disclaimers and availability.
@@ -141,7 +145,7 @@ node scripts/check-external-links.mjs
 
 `npm run prepare:assets` regenerates copies and dimension data using source files already present inside V2, without touching the reference directories. Keep the retained original `capture.png` files for regeneration. New media must also have a source capture and valid metadata.
 
-Run `npm run prepare:portrait` after regenerating the original portrait to refresh its lossless responsive variants. Current tests total 22; `docs/SEO-AUDIT.md` records the latest SearchEdge checks and limitations. The five SearchEdge handoff documents include the keyword map, implementation record, monthly template and exact Search Console setup. No recurring monitoring or Search Console submission has been performed.
+Run `npm run prepare:portrait` after regenerating the original portrait to refresh its lossless responsive variants. Current tests total 27; `docs/SEO-AUDIT.md` records the latest SearchEdge checks and limitations. The five SearchEdge handoff documents include the keyword map, implementation record, monthly template and exact Search Console setup. No recurring monitoring or Search Console submission has been performed.
 
 For the confirmed GitHub Pages origin, publish the contents of `out/` only after approval. Preserve `.nojekyll`, `_next/`, the case directories and any real existing Search Console verification files. `docs/GOOGLE-SEARCH-CONSOLE-SETUP.md` explains replacement at the same origin and an owner-approved future Hostinger migration. No deployment workflow has been added or run.
 

@@ -8,6 +8,7 @@ import {
   concepts,
   statusLabel,
   actions,
+  isDemoAction,
 } from "@/lib/content";
 import Preview from "./Preview";
 import Reveal from "./Reveal";
@@ -78,6 +79,12 @@ export default function Projects() {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-ga-event={
+                        isDemoAction(name) ? "project_demo" : "project_reference"
+                      }
+                      data-ga-project={p.id}
+                      data-ga-action={name}
+                      data-ga-location="featured-build"
                     >
                       {name}
                       <ArrowUpRight size={12} />
@@ -240,6 +247,12 @@ export default function Projects() {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-ga-event={
+                        isDemoAction(name) ? "project_demo" : "project_reference"
+                      }
+                      data-ga-project={p.id}
+                      data-ga-action={name}
+                      data-ga-location="project-archive"
                     >
                       {name}
                       <ArrowUpRight size={13} />
