@@ -1,0 +1,215 @@
+{
+  "main": {
+    "route": "/services/",
+    "title": "Services & Solutions | J0hnvexcoder",
+    "description": "Business websites, technical SEO, CMS, portfolios, booking systems and custom web applications by J0hnvexcoder, based in Bulacan, Philippines.",
+    "h1": "Services & Solutions",
+    "headline": "A clear website. A system that works.",
+    "intro": "I’m John Angelo De Joya, the independent freelance developer behind J0hnvexcoder. I work directly with clients in Bulacan and across the Philippines, building websites and applications around a clear purpose.",
+    "scopeNote": "A company website, a reservation request and an operational booking platform have different requirements. I help define the appropriate scope before development, including content, integrations, administration and ongoing care.",
+    "primaryTopic": "web development services Philippines",
+    "relatedTerms": [
+      "freelance website development",
+      "business web solutions",
+      "Bulacan web developer"
+    ],
+    "sections": [
+      "Introduction and Discuss Your Project action",
+      "Six service areas with useful detail links",
+      "Selected work with accurate project-type labels",
+      "How a project is scoped and delivered",
+      "Website Care & Maintenance",
+      "Common scope questions",
+      "Discuss Your Project"
+    ],
+    "ctaLabel": "Discuss Your Project",
+    "ctaTarget": "/#contact"
+  },
+  "pages": [
+    {
+      "id": "business-websites",
+      "route": "/services/business-websites/",
+      "name": "Business Website Development & Redesign",
+      "title": "Business Websites & Redesign | J0hnvexcoder",
+      "description": "Responsive business websites and redesigns for Philippine companies, with clear services, product presentation, contact paths and agreed launch support.",
+      "summary": "Help customers understand your business, find what they need and take the next step. I build new sites and improve existing ones.",
+      "problem": "A business website should help someone understand the company and decide what to do next. Missing information, unclear navigation or difficult mobile layouts can get in the way. A redesign starts by examining what is already useful, what needs correction and which existing pages should be retained.",
+      "solution": "The agreed website can include company and service pages, product or menu presentation, galleries, location information and contact paths. Content hierarchy, responsive design, basic SEO and deployment readiness are part of planning the experience. The size of the site follows the information it needs to explain, not a template full of empty pages.",
+      "scope": [
+        "Company, service, product or menu presentation",
+        "Responsive layouts, galleries and contact/location information",
+        "Page titles, descriptions, headings and basic indexability setup",
+        "Performance review and agreed deployment/domain assistance"
+      ],
+      "distinctSection": "Redesigning an existing site: inventory the current content and URLs, retain useful material, clarify the new structure, and plan any necessary redirects before launch. The implementation follows the access and platform available; a migration is scoped separately when it requires substantial changes.",
+      "examples": ["arkosenyo", "taitechmarine", "donut-house"],
+      "faq": [
+        [
+          "Can you improve an existing website?",
+          "Yes. The starting point is an inventory of the current site, its content and the access available. The agreed work may be a focused improvement or a broader redesign."
+        ],
+        [
+          "Does this include online payments?",
+          "Only when an actual payment and order workflow is agreed. Existing storefront demonstrations do not establish that a live payment system is already integrated."
+        ]
+      ],
+      "evidence": "ARKOSENYO and TAITECH Marine are confirmed client projects with published website demonstrations. Donut House is a fictional storefront. The case studies distinguish implemented interfaces from unverified delivery integrations."
+    },
+    {
+      "id": "technical-seo",
+      "route": "/services/technical-seo/",
+      "name": "Technical SEO & Website Optimization",
+      "title": "Technical SEO & Website Optimization | J0hnvexcoder",
+      "description": "Technical SEO and website optimization for Philippine businesses: crawlability, metadata, canonical URLs, internal links and practical performance fixes.",
+      "summary": "Make useful content easier to discover and the website easier to use. I inspect the published pages and code, then address demonstrated technical problems.",
+      "problem": "A visually complete website can still have missing metadata, confusing canonical URLs, broken links or pages search engines cannot reliably discover. Slow assets and mobile usability issues can also make the same content harder for people to use.",
+      "solution": "I review the agreed pages and map each to a clear purpose. The work can cover titles and descriptions, headings, image descriptions, internal links, sitemap and robots rules, canonical signals and relevant structured data. Technical findings are prioritized so corrections address demonstrated problems rather than changing working configuration unnecessarily.",
+      "scope": [
+        "Search-intent and keyword-to-page review for agreed priority pages",
+        "Metadata, headings, alt text, internal links and canonical review",
+        "Crawlability, sitemap, robots, redirects and status-code diagnostics",
+        "PageSpeed/Core Web Vitals review and practical fixes within available access",
+        "Search Console monitoring and agreed reports when access is provided"
+      ],
+      "distinctSection": "Verification matters: use the production build and crawlable HTML to check what is actually published. Repeatable before/after checks are more useful than a promised score. Search rankings, traffic and leads are not guaranteed; content, competition and search systems also affect results.",
+      "examples": [],
+      "portfolioEvidence": "This portfolio's static export, metadata, canonical, internal-link and structured-data checks provide a concrete implementation example. They are not evidence of ranking gains or a client SEO campaign.",
+      "faq": [
+        [
+          "Is SEO included in a new website?",
+          "Basic setup belongs in the agreed build scope. A deeper audit, recurring monitoring or substantial remediation is defined separately."
+        ],
+        [
+          "Do you guarantee rankings?",
+          "No. The service provides scoped technical work and transparent findings, not a guaranteed position, traffic increase or sales result."
+        ]
+      ],
+      "evidence": "This portfolio provides an inspectable example: page metadata, canonical URLs, crawlable case-study links and structured data. It does not establish a ranking gain or a client campaign result."
+    },
+    {
+      "id": "cms-solutions",
+      "route": "/services/cms-solutions/",
+      "name": "CMS & Content Management Systems",
+      "title": "CMS & Content Management Systems | J0hnvexcoder",
+      "description": "Tailored CMS solutions for website content, product catalogs and request records, with agreed admin controls, publishing workflows and database-backed content.",
+      "summary": "Keep content updates manageable. I define the editing workflow, permissions and records your business actually needs.",
+      "problem": "When every small content update requires a developer, a website can become difficult to maintain. A product catalog or request workflow needs more than an editable text field: the team needs clear records, permissions and publishing controls.",
+      "solution": "A CMS extension starts with the content your team actually needs to manage. The agreed system may provide administrator access, text and image editing, galleries, optimized media and SEO fields. Catalog or workflow needs can add structured records, search, draft/published states, request statuses, attachments and notifications.",
+      "scope": [
+        "Agreed administrator access and content/media controls",
+        "Database-backed text, images and relevant SEO fields",
+        "Optional product/service catalogs with publishing controls",
+        "Optional request records, references, statuses, attachments and notifications"
+      ],
+      "distinctSection": "The administration model is scoped before the interface: who can edit, what needs review, which records are retained and what integrations are necessary. The CMS extends a website or application; it does not make unrelated business processes automatic by default.",
+      "examples": ["movieflix", "homelab-os"],
+      "faq": [
+        [
+          "Can my team update the site without editing code?",
+          "Yes, for the content and controls included in the agreed CMS scope. Some design or functionality changes still require development."
+        ],
+        [
+          "Does every project need a custom CMS?",
+          "No. A simpler content platform or source-managed site may be sufficient. The choice follows the editorial workflow and long-term maintenance needs."
+        ]
+      ],
+      "evidence": "MovieFlix and Nexora demonstrate administration and data-management patterns in different applications. They are not completed client website CMS deployments."
+    },
+    {
+      "id": "portfolio-websites",
+      "route": "/services/portfolio-websites/",
+      "name": "Professional Portfolio Website Development",
+      "title": "Professional Portfolio Websites | J0hnvexcoder",
+      "description": "Professional portfolio websites for individuals in the Philippines, connecting experience, selected work, case studies and clear contact options.",
+      "summary": "Give your work the context it deserves. I connect professional identity, selected projects and a clear contact path.",
+      "problem": "A résumé provides a summary, but projects often need context, images and explanation. A portfolio should make that evidence easy to inspect without forcing every person into the same visual template.",
+      "solution": "The website connects a professional introduction with selected work, experience, qualifications and contact access. Where the material supports it, project pages explain the problem, approach and implemented result. Visual direction can range from a clear compact portfolio to an original interactive presentation, while keeping mobile readability and truthful content central.",
+      "scope": [
+        "Professional identity, experience and relevant qualifications",
+        "Selected work and evidence-backed case studies",
+        "Responsive layout, accessible contact options and sharing metadata",
+        "Agreed visual direction, animation and interaction depth"
+      ],
+      "distinctSection": "The visual treatment should follow the work. A highly animated creative portfolio and a concise professional profile serve different visitors. Content, imagery, permissions and interaction requirements are agreed before the design expands.",
+      "examples": ["jenica-portfolio", "jaron-portfolio"],
+      "portfolioEvidence": "J0hnvexcoder's own portfolio demonstrates a more interactive personal presentation; it is distinct from the two professional portfolio examples.",
+      "faq": [
+        [
+          "Can the design be original rather than a template?",
+          "Yes. The agreed visual direction can be custom, with interaction and content shaped around your work."
+        ],
+        [
+          "Do I need all my projects on the homepage?",
+          "No. A focused selection can lead into individual case studies, with supporting work organized in an archive."
+        ]
+      ],
+      "evidence": "Jenica Salazar’s Portfolio and Mark Jaron’s Portfolio are confirmed client projects, published with permission. The case studies explain the delivered presentation and each contact workflow; career outcomes are not inferred."
+    },
+    {
+      "id": "booking-systems",
+      "route": "/services/booking-systems/",
+      "name": "Booking & Reservation Systems",
+      "title": "Booking & Reservation Systems | J0hnvexcoder",
+      "description": "Tailored reservation-request websites and operational booking systems, with clearly agreed availability, confirmation, administration and notification workflows.",
+      "summary": "Make requests clear and confirmations accurate. I scope the workflow around how your business manages availability.",
+      "problem": "Collecting a preferred date is different from reserving an available slot. A booking workflow needs a clear owner for availability, confirmation, cancellations and changes; otherwise the website can create expectations the business cannot fulfill.",
+      "solution": "For a request-based website, customers provide the required details and preferences, then the business reviews and confirms manually. An operational platform can instead maintain a booking calendar, agreed inventory or capacity, administration controls and automated confirmations. The appropriate model is defined before development.",
+      "scope": [
+        "Structured request details and date/service preferences",
+        "Manual confirmation workflows where appropriate",
+        "Separately scoped real-time availability and booking calendars",
+        "Agreed room/slot/service inventory and administration",
+        "Notifications, changes and cancellation rules when included"
+      ],
+      "distinctSection": "Before building, define what is reservable, who can change availability, when a request becomes a confirmed booking and which existing systems must connect. Payments, third-party calendars and complex operational rules are separate requirements to establish, not assumed integrations.",
+      "examples": ["taitechmarine"],
+      "faq": [
+        [
+          "Is a reservation request a confirmed booking?",
+          "Not automatically. A request-based workflow waits for the business's manual confirmation. The interface must communicate that distinction."
+        ],
+        [
+          "Can you build real-time availability?",
+          "It is an available separately scoped platform requirement. Inventory, staff controls and confirmation rules must be agreed and validated before it is described as operational."
+        ]
+      ],
+      "evidence": "TAITECH Marine’s client request preview demonstrates conditional form design. It is not an operational booking engine: submission, live availability and confirmed reservations require separate implementation."
+    },
+    {
+      "id": "custom-solutions",
+      "route": "/services/custom-solutions/",
+      "name": "Custom Web Applications & Tailored Business Solutions",
+      "title": "Custom Web Applications & Solutions | J0hnvexcoder",
+      "description": "Custom web applications and tailored technical solutions for agreed business workflows, dashboards, integrations and interactive customer experiences.",
+      "summary": "Turn a specific workflow into useful software. I establish feasibility, integrations and a practical acceptance plan first.",
+      "problem": "Some projects need to connect information, guide a multi-step task or expose an interaction that a conventional content page cannot provide. The useful starting point is the task itself, including who uses it and how success is verified.",
+      "solution": "The work may involve a dashboard, an integration, a focused application or an interactive product experience. Requirements define the data, permissions, inputs, outputs and operational boundaries before choosing technologies. A frontend concept and a deployed application are treated as different deliverables.",
+      "scope": [
+        "Workflow discovery and clearly scoped application behavior",
+        "Agreed dashboards, records, integrations and access controls",
+        "Focused automation or custom software where appropriate",
+        "Interactive 3D or product presentation when it serves the experience",
+        "Validation and deployment/maintenance planning appropriate to the system"
+      ],
+      "distinctSection": "I agree on scope, feasibility, delivery timeline and support requirements before development. A dashboard, file-processing tool and interactive 3D experience need different architectures and acceptance checks. A prototype is only described as operational after its required integrations are implemented and tested.",
+      "examples": ["compressme", "archeon", "shoesonthego"],
+      "faq": [
+        [
+          "Can a prototype become an operational application?",
+          "Potentially, after the backend, integrations, permissions and operational requirements are defined and implemented. A working interface alone is not enough."
+        ],
+        [
+          "How is the scope decided?",
+          "By reviewing the intended users, workflow, existing systems, necessary integrations and a clear acceptance plan before development."
+        ]
+      ],
+      "evidence": "These examples span tools, release-candidate infrastructure work and frontend demonstrations. Each case study identifies what is implemented and what has not been exercised in a live operating environment."
+    }
+  ],
+  "care": {
+    "name": "Website Care & Maintenance",
+    "anchor": "/services/#website-care",
+    "copy": "After launch, a website still needs attention. Website Care can cover agreed content updates, reported defects, broken links, configuration troubleshooting and practical technical support for the delivered site. Ongoing monitoring or a deeper maintenance arrangement is defined separately.",
+    "boundary": "Care coverage and response arrangements are agreed for the selected service. New features, redesigns, booking platforms and recurring SEO work are scoped separately."
+  }
+}

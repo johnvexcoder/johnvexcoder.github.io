@@ -123,9 +123,15 @@ export default function Preview({
         <span>
           {project.category === "CLI"
             ? "Terminal-native software"
-            : "Dedicated telemetry service"}
+            : project.imageWithheld
+              ? "Self-hosted infrastructure dashboard"
+              : "Dedicated telemetry service"}
         </span>
-        <small>Interface illustration · no screenshot provided</small>
+        <small>
+          {project.imageWithheld
+            ? "Interface illustration · private telemetry screenshot withheld"
+            : "Interface illustration · no screenshot provided"}
+        </small>
       </div>
     );
   const size = (media as Record<string, { width: number; height: number }>)[
@@ -167,7 +173,9 @@ export default function Preview({
         <img
           ref={img}
           src={project.scrollImage || project.image}
-          alt={`${project.name} — ${project.shortDescription}`}
+          alt={
+            project.imageAlt || `${project.name} — ${project.shortDescription}`
+          }
           loading={priority ? "eager" : "lazy"}
           fetchPriority={priority ? "high" : undefined}
           decoding="async"

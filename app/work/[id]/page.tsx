@@ -1,13 +1,10 @@
+import PremiumPageMotion from "@/components/PremiumPageMotion";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
-import {
-  projects,
-  statusLabel,
-  actions,
-  isDemoAction,
-} from "@/lib/content";
+import { projects, actions, isDemoAction } from "@/lib/content";
+import { caseStudy } from "@/lib/case-studies";
 import Preview from "@/components/Preview";
 import {
   absoluteUrl,
@@ -64,23 +61,16 @@ export default async function Work({
   const { id } = await params;
   const p = projects.find((p) => p.id === id);
   if (!p) notFound();
+  const story = caseStudy(id);
   const index = projects.indexOf(p);
-  const related = projects
-    .filter((candidate) => candidate.id !== id)
-    .map((candidate) => ({
-      candidate,
-      score:
-        (candidate.category === p.category ? 3 : 0) +
-        candidate.technologies.filter((tech) => p.technologies.includes(tech))
-          .length,
-    }))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3)
-    .map(({ candidate }) => candidate);
+  const related = story.related
+    .map((id) => projects.find((project) => project.id === id)!)
+    .filter(Boolean);
   const prev = projects[(index + projects.length - 1) % projects.length],
     next = projects[(index + 1) % projects.length];
   return (
-    <article className="case-study section">
+    <article className={`case-study section case-${story.layout}`}>
+      <PremiumPageMotion density={story.layout} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -107,10 +97,10 @@ export default async function Work({
                 "@type": "CreativeWork",
                 "@id": absoluteUrl(`/work/${id}/#project`),
                 name: p.name,
-                description: p.description,
+                description: story.overview,
                 url: absoluteUrl(`/work/${id}/`),
                 creator: { "@id": absoluteUrl("/#person") },
-                genre: p.category,
+                genre: [p.category, story.classification],
                 about: p.technologies.map((name) => ({
                   "@type": "Thing",
                   name,
@@ -118,7 +108,9 @@ export default async function Work({
                 ...(p.image
                   ? { image: absoluteUrl(projectSocialImage(p)) }
                   : {}),
-                ...(p.demo?.startsWith("https:") ? { sameAs: p.demo } : {}),
+                ...(p.id !== "movieflix" && p.demo?.startsWith("https:")
+                  ? { sameAs: p.demo }
+                  : {}),
               },
               {
                 "@type": "BreadcrumbList",
@@ -148,10 +140,10 @@ export default async function Work({
       </Link>
       <header className="case-heading">
         <p className="eyebrow">
-          {p.category} / {statusLabel(p.status)}
+          {p.category} / {story.type}
         </p>
         <h1>{p.name}</h1>
-        <p>{p.shortDescription}</p>
+        <p>{story.overview}</p>
         <div className="case-actions">
           {actions(p).map(([n, url]) => (
             <a
@@ -174,22 +166,62 @@ export default async function Work({
         </div>
         {p.disclaimer && <p className="disclaimer">{p.disclaimer}</p>}
       </header>
-      <Preview project={p} large priority />
+      <Preview
+        project={{ ...p, imageAlt: story.alt || undefined }}
+        large
+        priority
+      />
       <div className="case-story">
         <div>
           <section>
-            <p className="eyebrow">01 / CONTEXT</p>
+            <p className="eyebrow">01 / THE PROBLEM</p>
             <h2>
-              The problem
-              <br />
-              it addresses.
+              {story.layout === "system"
+                ? "The operational challenge."
+                : story.layout === "interactive"
+                  ? "The interaction challenge."
+                  : story.layout === "compact"
+                    ? "A focused problem."
+                    : "The challenge."}
             </h2>
-            <p>{p.problemSolution}</p>
+            <p>{story.problem}</p>
           </section>
           <section>
-            <p className="eyebrow">02 / THE BUILD</p>
-            <h2>What it does.</h2>
-            <p>{p.description}</p>
+            <p className="eyebrow">02 / ENGINEERING DECISIONS</p>
+            <h2>
+              {story.layout === "interactive"
+                ? "Motion with a purpose."
+                : story.layout === "system"
+                  ? "The architecture behind it."
+                  : story.layout === "compact"
+                    ? "A practical approach."
+                    : "The development approach."}
+            </h2>
+            <p>{story.approach}</p>
+            <p>{story.decisions}</p>
+          </section>
+          <section>
+            <p className="eyebrow">03 / IMPLEMENTED SOLUTION</p>
+            <h2>
+              {story.layout === "system"
+                ? "Implemented capabilities."
+                : "What works."}
+            </h2>
+            <ul className="case-capabilities">
+              {story.features.map((feature) => (
+                <li key={feature}>{feature}</li>
+              ))}
+            </ul>
+          </section>
+          <section>
+            <p className="eyebrow">04 / EVIDENCE & BOUNDARIES</p>
+            <h2>
+              {story.layout === "compact"
+                ? "Result and limits."
+                : "Verified scope."}
+            </h2>
+            <p>{story.result}</p>
+            <p>{story.tradeoff}</p>
           </section>
         </div>
         <aside>
@@ -201,19 +233,10 @@ export default async function Work({
               <p>No technology list recorded in the source.</p>
             )}
           </div>
-          <p className="eyebrow">SOURCE PROJECT FACTS</p>
-          <ul>
-            {p.facts.map((f) => (
-              <li key={f}>{f}</li>
-            ))}
-          </ul>
-          <p>
-            {p.sourceCapture
-              ? "Actual source screenshot. Live destination provided by the portfolio owner."
-              : p.openSource
-                ? "Source and documentation are available through the links above."
-                : "Portfolio project. Availability is represented by the verified source links above."}
-          </p>
+          <p className="eyebrow">PROJECT STATUS</p>
+          <p>{story.status}</p>
+          <p className="eyebrow">CAPABILITY DEMONSTRATED</p>
+          <p>{story.demonstrates}</p>
           <nav aria-label="Related work">
             <p className="eyebrow">RELATED WORK</p>
             <ul>
@@ -226,17 +249,11 @@ export default async function Work({
                 </li>
               ))}
             </ul>
-            <Link className="text-link" href="/#services">
-              Explore development services{" "}
+            <Link className="text-link" href={`/services/${story.service}/`}>
+              Explore the related service{" "}
               <ArrowUpRight size={12} aria-hidden="true" />
             </Link>
           </nav>
-          {p.id === "movieflix" && (
-            <p>
-              The demo uses a self-hosted Tailscale destination; it may require
-              access to the owner’s network.
-            </p>
-          )}
         </aside>
       </div>
       <nav className="case-pagination" aria-label="More projects">

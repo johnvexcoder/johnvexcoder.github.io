@@ -1,3 +1,4 @@
+import PremiumPageMotion from "@/components/PremiumPageMotion";
 import AssemblyBridge from "@/components/AssemblyBridge";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -16,6 +17,7 @@ import { absoluteUrl, homeSearchDescription } from "@/lib/seo";
 export default function Home() {
   return (
     <>
+      <PremiumPageMotion density="home" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

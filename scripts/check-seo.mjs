@@ -8,7 +8,18 @@ import { resolveSiteOrigin, resolveIndexing } from "../lib/seo-policy.ts";
 const origin = resolveSiteOrigin(process.env.NEXT_PUBLIC_SITE_URL);
 const indexable = resolveIndexing(process.env.SITE_INDEXING);
 const projects = JSON.parse(await fs.readFile("content/projects.json", "utf8"));
-const routes = ["/", ...projects.map((p) => `/work/${p.id}/`)];
+const services = JSON.parse(
+  await fs.readFile("content/service-routes.json", "utf8"),
+);
+const studies = JSON.parse(
+  await fs.readFile("content/case-studies.json", "utf8"),
+);
+const routes = [
+  "/",
+  "/services/",
+  ...services.map((service) => service.route),
+  ...projects.map((p) => `/work/${p.id}/`),
+];
 const absolute = (value) => new URL(value, origin).href;
 const attributes = (node) =>
   Object.fromEntries((node.attrs || []).map((a) => [a.name, a.value]));
@@ -243,7 +254,7 @@ for (const [route, { nodes, ids }] of pages) {
     assert.equal(attributes(heroImage).loading, "eager");
     assert.equal(attributes(heroImage).fetchpriority, "high");
     assert.ok(attributes(heroImage).srcset.includes("portrait-320.webp"));
-  } else if (!isError) {
+  } else if (route.startsWith("/work/")) {
     const project = projects.find((p) => route === `/work/${p.id}/`);
     if (project.image) {
       const preview = nodes.find(
@@ -254,9 +265,40 @@ for (const [route, { nodes, ids }] of pages) {
       assert.equal(attributes(preview).loading, "eager");
       assert.equal(attributes(preview).fetchpriority, "high");
     }
+    const study = studies.find((study) => study.id === project.id);
+    const articleText = text(nodes.find((n) => n.tagName === "article"));
+    for (const field of [
+      "overview",
+      "problem",
+      "approach",
+      "decisions",
+      "result",
+      "tradeoff",
+      "status",
+    ])
+      assert.ok(
+        articleText.includes(study[field]),
+        `${route}: missing ${field} evidence`,
+      );
+    for (const feature of study.features)
+      assert.ok(
+        articleText.includes(feature),
+        `${route}: missing implemented feature`,
+      );
+    assert.ok(
+      nodes.some(
+        (n) =>
+          n.tagName === "a" &&
+          attributes(n).href === `/services/${study.service}/`,
+      ),
+      `${route}: crawlable related service`,
+    );
     const work = graph.find((n) => n["@type"] === "CreativeWork");
     assert.equal(work?.name, project.name);
-    assert.equal(work?.description, project.description);
+    assert.equal(
+      work?.description,
+      studies.find((study) => study.id === project.id).overview,
+    );
     assert.deepEqual(
       work.about.map((n) => n.name),
       project.technologies,
@@ -272,6 +314,30 @@ for (const [route, { nodes, ids }] of pages) {
     assert.ok(
       nodes.some((n) => attributes(n)["aria-label"] === "Related work"),
     );
+  }
+  if (route.startsWith("/services/")) {
+    const breadcrumb = graph.find((n) => n["@type"] === "BreadcrumbList");
+    assert.ok(breadcrumb, `${route}: service breadcrumbs`);
+    assert.equal(breadcrumb.itemListElement.at(-1).item, canonical);
+    if (route === "/services/") {
+      for (const service of services)
+        assert.ok(
+          nodes.some(
+            (n) => n.tagName === "a" && attributes(n).href === service.route,
+          ),
+          `${service.route}: crawlable from hub`,
+        );
+      assert.ok(ids.has("website-care"));
+    }
+    if (route !== "/services/") {
+      const service = graph.find((n) => n["@type"] === "Service");
+      assert.equal(service?.provider["@id"], absolute("/#person"));
+      assert.equal(service?.areaServed.name, "Philippines");
+      assert.ok(
+        !service?.offers && !service?.price,
+        `${route}: no public pricing`,
+      );
+    }
   }
   for (const node of nodes.filter((n) => n.tagName === "a")) {
     const href = attributes(node).href;
@@ -310,6 +376,10 @@ for (const [route, { nodes, ids }] of pages) {
       `${route}: image dimensions`,
     );
   }
+  assert.ok(
+    !nodes.some((n) => attributes(n).href?.includes("ts.net")),
+    `${route}: no private runtime link`,
+  );
   checks.push({
     route,
     title,

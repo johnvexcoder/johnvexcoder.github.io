@@ -4,11 +4,14 @@ import sourceReviews from "@/content/testimonials.json";
 import sourceConcepts from "@/content/concepts.json";
 export type Project = {
   id: string;
+  classification: string;
   name: string;
   category: string;
   shortDescription: string;
   description: string;
   image: string | null;
+  imageAlt?: string;
+  imageWithheld?: boolean;
   scrollImage?: string;
   imageFallback?: string;
   logo?: string | null;
@@ -116,7 +119,7 @@ export function actions(p: Project) {
         : p.id === "movieflix"
           ? "Self-hosted demo"
           : "Live site",
-      p.demo,
+      p.id === "movieflix" ? null : p.demo,
     ],
     ["Repository", p.github],
     ["Documentation", p.docs],

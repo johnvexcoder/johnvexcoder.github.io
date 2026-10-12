@@ -98,7 +98,7 @@ const PROJECTS_DATA = [
     github: 'https://github.com/johnvexcoder/MovieFlix',
     docs: 'https://github.com/johnvexcoder/MovieFlix/blob/main/README.md',
     release: 'https://github.com/johnvexcoder/MovieFlix/releases',
-    demo: 'https://movieflix.tailc31a5a.ts.net',
+    demo: null,
     openSource: true,
     featured: true,
     facts: ['v1.0.0', 'HTTP 206 streaming', 'On-demand FFmpeg transcoding'],
