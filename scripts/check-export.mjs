@@ -4,7 +4,16 @@ import assert from "node:assert/strict";
 import zlib from "node:zlib";
 const root = path.resolve("out");
 const projects = JSON.parse(await fs.readFile("content/projects.json", "utf8"));
-const routes = ["/", "/404/", ...projects.map((p) => `/work/${p.id}/`)];
+const services = JSON.parse(
+  await fs.readFile("content/service-routes.json", "utf8"),
+);
+const routes = [
+  "/",
+  "/404/",
+  "/services/",
+  ...services.map((service) => service.route),
+  ...projects.map((p) => `/work/${p.id}/`),
+];
 let checked = 0;
 let gaTagReferences = 0;
 const scripts = new Set();

@@ -58,7 +58,8 @@ export default function Header() {
       document.removeEventListener("keydown", key);
     };
   }, [pathname]);
-  const href = (id: string) => (pathname === "/" ? `#${id}` : `/#${id}`);
+  const href = (id: string) =>
+    id === "services" ? "/services/" : pathname === "/" ? `#${id}` : `/#${id}`;
   return (
     <>
       <header className="site-header">
@@ -75,7 +76,11 @@ export default function Header() {
               key={id}
               href={href(id)}
               aria-current={
-                pathname === "/" && active === id ? "location" : undefined
+                id === "services" && pathname.startsWith("/services")
+                  ? "page"
+                  : pathname === "/" && active === id
+                    ? "location"
+                    : undefined
               }
             >
               {name}

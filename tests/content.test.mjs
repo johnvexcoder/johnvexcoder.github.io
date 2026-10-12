@@ -17,7 +17,7 @@ const original = JSON.parse(
     ),
   ),
 );
-test("all fourteen catalog records preserve verified content, classification and destinations", () => {
+test("all fourteen original projects preserve identities, technologies, assets and public reference destinations", () => {
   assert.equal(original.length, 14);
   for (const p of original) {
     const actual = projects.find((x) => x.id === p.id);
@@ -25,21 +25,22 @@ test("all fourteen catalog records preserve verified content, classification and
     for (const key of [
       "name",
       "category",
-      "shortDescription",
-      "description",
       "technologies",
-      "status",
       "github",
       "docs",
       "release",
       "openSource",
       "featured",
-      "facts",
-      "problemSolution",
-      "disclaimer",
     ])
       assert.deepEqual(actual[key], p[key], `${p.id}.${key}`);
-    if (!p.demo?.startsWith("projects/")) assert.equal(actual.demo, p.demo);
+    if (p.id === "movieflix")
+      assert.equal(
+        actual.demo,
+        null,
+        "private runtime is not a public destination",
+      );
+    else if (!p.demo?.startsWith("projects/"))
+      assert.equal(actual.demo, p.demo);
   }
   assert.deepEqual([...new Set(projects.map((p) => p.category))].sort(), [
     "CLI",
@@ -61,7 +62,7 @@ test("five owner-confirmed recent projects use their exact live URLs and actual 
   for (const [id, url] of Object.entries(urls)) {
     const p = projects.find((p) => p.id === id);
     assert.equal(p.demo, url);
-    assert.equal(p.status, id === "archeon" ? "demo" : "active");
+    assert.equal(p.status, "demo");
     assert.ok(p.sourceCapture);
     assert.ok(p.image.endsWith("capture.webp"));
   }

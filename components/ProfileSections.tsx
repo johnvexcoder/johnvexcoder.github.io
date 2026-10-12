@@ -1,10 +1,20 @@
 "use client";
-import { ArrowUpRight, Code2, Server, Network, Workflow } from "lucide-react";
-import { profile, skills, services, tagline } from "@/lib/content";
+import {
+  ArrowUpRight,
+  Code2,
+  Search,
+  Layers,
+  UserRound,
+  CalendarDays,
+  Workflow,
+} from "lucide-react";
+import { profile, skills, tagline } from "@/lib/content";
+import Link from "next/link";
+import services from "@/content/service-routes.json";
 import { track } from "@/lib/analytics";
 import Reveal from "./Reveal";
 import SkillIcon from "./SkillIcon";
-const serviceIcons = [Code2, Workflow, Server, Network];
+const serviceIcons = [Code2, Search, Layers, UserRound, CalendarDays, Workflow];
 export function Skills() {
   return (
     <section id="skills" className="section skills-section">
@@ -118,7 +128,11 @@ export function Services() {
         </p>
       </Reveal>
       <div className="services-list">
-        {services.map(([name, copy, cta, enquiry], i) => {
+        {services.map(({ id, name, summary: copy, route }, i) => {
+          const enquiry =
+            id === "custom-solutions"
+              ? "Maintenance or automation"
+              : "Website project";
           const Icon = serviceIcons[i];
           return (
             <Reveal key={name} className="service">
@@ -126,25 +140,38 @@ export function Services() {
               <Icon size={26} />
               <h3>{name}</h3>
               <p>{copy}</p>
-              <a
-                className="text-link"
-                href="#contact"
-                onClick={() => {
-                  window.dispatchEvent(
-                    new CustomEvent("portfolio-enquiry", { detail: enquiry }),
-                  );
-                  track("service_enquiry", {
-                    service: enquiry,
-                    location: "services",
-                  });
-                }}
-              >
-                {cta}
-                <ArrowUpRight size={15} />
-              </a>
+              <div className="service-home-actions">
+                <Link className="text-link" href={route}>
+                  Explore service <ArrowUpRight size={15} />
+                </Link>
+                <a
+                  className="text-link"
+                  href="#contact"
+                  onClick={() => {
+                    window.dispatchEvent(
+                      new CustomEvent("portfolio-enquiry", { detail: id }),
+                    );
+                    track("service_enquiry", {
+                      service: enquiry,
+                      location: "services",
+                    });
+                  }}
+                >
+                  Discuss your project
+                  <ArrowUpRight size={15} />
+                </a>
+              </div>
             </Reveal>
           );
         })}
+      </div>
+      <div className="services-home-footer">
+        <Link className="text-link" href="/services/">
+          Explore Services & Solutions <ArrowUpRight size={15} />
+        </Link>
+        <Link className="text-link" href="/services/#website-care">
+          Website Care & Maintenance <ArrowUpRight size={15} />
+        </Link>
       </div>
     </section>
   );

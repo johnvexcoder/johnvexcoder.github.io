@@ -144,13 +144,17 @@ test("a Google-command consumer can read configuration and dispatch the existing
   h.controller.initialize("/");
   h.controller.initialize("/");
   h.controller.track("contact_email_click", { location: "contact" });
-  let accepted = false, configured = false;
+  let accepted = false,
+    configured = false;
   const events = [];
   // Contract model, not a substitute for the real-tag browser network check.
   for (const command of h.calls()) {
-    if (Object.prototype.toString.call(command) !== "[object Arguments]") continue;
-    if (command[0] === "consent") accepted = command[2].analytics_storage === "granted";
-    if (command[0] === "config") configured = accepted && command[1] === GA_MEASUREMENT_ID;
+    if (Object.prototype.toString.call(command) !== "[object Arguments]")
+      continue;
+    if (command[0] === "consent")
+      accepted = command[2].analytics_storage === "granted";
+    if (command[0] === "config")
+      configured = accepted && command[1] === GA_MEASUREMENT_ID;
     if (command[0] === "event" && configured) events.push(command[1]);
   }
   assert.equal(configured, true);
@@ -342,7 +346,10 @@ test("the existing email key event retains its exact name and is queued once per
     send_to: GA_MEASUREMENT_ID,
   });
   const contact = fs.readFileSync("components/Contact.tsx", "utf8");
-  assert.equal((contact.match(/data-ga-event="contact_email_click"/g) || []).length, 1);
+  assert.equal(
+    (contact.match(/data-ga-event="contact_email_click"/g) || []).length,
+    2, // Direct email and blank-email fallback are separate anchors.
+  );
 });
 test("contact email preparation is not claimed as successful delivery; review success is verified", () => {
   const contact = fs.readFileSync("components/Contact.tsx", "utf8"),
@@ -352,5 +359,37 @@ test("contact email preparation is not claimed as successful delivery; review su
   assert.ok(
     review.indexOf('track("review_submitted"') >
       review.indexOf("if (!response.ok || !result.success)"),
+  );
+});
+
+test("all seven service routes produce one page view per navigation and stop after withdrawal", () => {
+  const services = JSON.parse(
+    fs.readFileSync("content/service-routes.json", "utf8"),
+  );
+  const routes = ["/services/", ...services.map((service) => service.route)];
+  const h = harness({ stored: "granted" });
+  for (const route of routes) {
+    assert.equal(
+      analyticsPage(route).page_location,
+      "https://johnvexcoder.github.io" + route,
+    );
+    h.controller.initialize(route);
+    h.controller.initialize(route + "?private=test#section");
+  }
+  assert.deepEqual(
+    h
+      .calls()
+      .filter((c) => c[1] === "page_view")
+      .map((c) => c[2].page_location),
+    routes.map((route) => "https://johnvexcoder.github.io" + route),
+  );
+  h.controller.update("denied");
+  const count = h.calls().filter((c) => c[1] === "page_view").length;
+  for (const route of routes) h.controller.initialize(route);
+  h.controller.track("contact_email_click", { location: "contact" });
+  assert.equal(h.calls().filter((c) => c[1] === "page_view").length, count);
+  assert.equal(
+    h.calls().filter((c) => c[1] === "contact_email_click").length,
+    0,
   );
 });

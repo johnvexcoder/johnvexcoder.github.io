@@ -21,7 +21,7 @@ export default function Projects() {
     (p) =>
       (category === "All" || category === p.category) &&
       (!featured || p.featured) &&
-      `${p.name} ${p.shortDescription} ${p.description} ${p.category} ${p.technologies.join(" ")}`
+      `${p.id} ${p.name} ${p.shortDescription} ${p.description} ${p.category} ${p.technologies.join(" ")}`
         .toLowerCase()
         .includes(query.trim().toLowerCase()),
   );
@@ -59,7 +59,11 @@ export default function Projects() {
                 )}
                 0{i + 1} / {p.category}
               </span>
-              <span className="project-status">{statusLabel(p.status)}</span>
+              <span className="project-status">
+                {p.classification === "Client work"
+                  ? "Client work"
+                  : statusLabel(p.status)}
+              </span>
               <h3>{p.name}</h3>
               <p>{p.shortDescription}</p>
               <div className="technology-tags">
@@ -235,7 +239,11 @@ export default function Projects() {
                   <small>{p.shortDescription}</small>
                 </span>
                 <span className="archive-category">{p.category}</span>
-                <span className="archive-status">{statusLabel(p.status)}</span>
+                <span className="archive-status">
+                  {p.classification === "Client work"
+                    ? "Client work"
+                    : statusLabel(p.status)}
+                </span>
                 <span className="archive-expand" aria-hidden="true">
                   +
                 </span>
