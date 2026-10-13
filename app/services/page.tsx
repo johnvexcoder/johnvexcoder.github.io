@@ -33,7 +33,7 @@ export default function ServicesPage() {
         <div>
           <p className="eyebrow">J0HNVEXCODER / INDEPENDENT DEVELOPMENT</p>
           <h1>
-            Services <span>& Solutions.</span>
+            Services <span>and Solutions.</span>
           </h1>
           <p className="services-lead">{main.headline}</p>
           <p>{main.intro}</p>
@@ -151,7 +151,7 @@ export default function ServicesPage() {
           ],
           [
             "Can you redesign a website I already have?",
-            "Yes. Redesign is included under Business Website Development & Redesign. Useful existing content and URLs are reviewed before deciding what changes.",
+            "Yes. Redesign is included under Business Website Development and Redesign. Useful existing content and URLs are reviewed before deciding what changes.",
           ],
           [
             "Does a working demo mean a complete business system?",

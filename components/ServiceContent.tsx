@@ -29,7 +29,7 @@ export function ServiceSchema({
     {
       "@type": "ListItem",
       position: 2,
-      name: "Services & Solutions",
+      name: "Services and Solutions",
       item: absoluteUrl("/services/"),
     },
   ];

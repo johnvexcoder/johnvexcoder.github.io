@@ -199,8 +199,9 @@ for (const [route, { nodes, ids }] of pages) {
     const introduction = text(
       nodes.find((n) => attributes(n).id === "introduction"),
     );
-    assert.ok(introduction.includes("freelance web developer in Bulacan"));
-    assert.ok(introduction.includes("web development in the Philippines"));
+    assert.match(introduction, /freelance web developer (?:based )?in Bulacan/);
+    assert.match(introduction, /Philippines/);
+    assert.match(introduction, /business websites/);
     for (const p of projects) {
       assert.ok(
         text(nodes.find((n) => attributes(n).id === "projects")).includes(

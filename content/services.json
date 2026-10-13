@@ -1,11 +1,11 @@
 {
   "main": {
     "route": "/services/",
-    "title": "Services & Solutions | J0hnvexcoder",
-    "description": "Business websites, technical SEO, CMS, portfolios, booking systems and custom web applications by J0hnvexcoder, based in Bulacan, Philippines.",
-    "h1": "Services & Solutions",
+    "title": "Web Development Services in the Philippines | J0hnvexcoder",
+    "description": "Web development services by John Angelo De Joya, a freelance developer in Bulacan, Philippines. Business websites, technical SEO, custom CMS and applications.",
+    "h1": "Services and Solutions",
     "headline": "A clear website. A system that works.",
-    "intro": "I’m John Angelo De Joya, the independent freelance developer behind J0hnvexcoder. I work directly with clients in Bulacan and across the Philippines, building websites and applications around a clear purpose.",
+    "intro": "I’m John Angelo De Joya, the independent freelance developer behind J0hnvexcoder. Based in Bulacan, I work directly with clients across the Philippines on business websites, content tools and custom web applications.",
     "scopeNote": "A company website, a reservation request and an operational booking platform have different requirements. I help define the appropriate scope before development, including content, integrations, administration and ongoing care.",
     "primaryTopic": "web development services Philippines",
     "relatedTerms": [
@@ -18,7 +18,7 @@
       "Six service areas with useful detail links",
       "Selected work with accurate project-type labels",
       "How a project is scoped and delivered",
-      "Website Care & Maintenance",
+      "Website Care and Maintenance",
       "Common scope questions",
       "Discuss Your Project"
     ],
@@ -29,12 +29,12 @@
     {
       "id": "business-websites",
       "route": "/services/business-websites/",
-      "name": "Business Website Development & Redesign",
-      "title": "Business Websites & Redesign | J0hnvexcoder",
-      "description": "Responsive business websites and redesigns for Philippine companies, with clear services, product presentation, contact paths and agreed launch support.",
-      "summary": "Help customers understand your business, find what they need and take the next step. I build new sites and improve existing ones.",
+      "name": "Business Website Development and Redesign",
+      "title": "Business Website Development Philippines | J0hnvexcoder",
+      "description": "Business website development and redesign for companies in the Philippines. Responsive service pages, project galleries and clear contact paths by J0hnvexcoder.",
+      "summary": "I build responsive company websites and redesign existing sites around clear services, useful content and an accessible contact path.",
       "problem": "A business website should help someone understand the company and decide what to do next. Missing information, unclear navigation or difficult mobile layouts can get in the way. A redesign starts by examining what is already useful, what needs correction and which existing pages should be retained.",
-      "solution": "The agreed website can include company and service pages, product or menu presentation, galleries, location information and contact paths. Content hierarchy, responsive design, basic SEO and deployment readiness are part of planning the experience. The size of the site follows the information it needs to explain, not a template full of empty pages.",
+      "solution": "I build responsive business websites that make it easier for customers to understand your services, explore your work and contact you. The agreed scope can include company pages, products or menus, galleries and location information. Basic SEO setup and deployment readiness are planned alongside the interface; the number of pages follows the content you need to explain.",
       "scope": [
         "Company, service, product or menu presentation",
         "Responsive layouts, galleries and contact/location information",
@@ -58,12 +58,12 @@
     {
       "id": "technical-seo",
       "route": "/services/technical-seo/",
-      "name": "Technical SEO & Website Optimization",
-      "title": "Technical SEO & Website Optimization | J0hnvexcoder",
-      "description": "Technical SEO and website optimization for Philippine businesses: crawlability, metadata, canonical URLs, internal links and practical performance fixes.",
-      "summary": "Make useful content easier to discover and the website easier to use. I inspect the published pages and code, then address demonstrated technical problems.",
+      "name": "Technical SEO and Website Optimization",
+      "title": "Technical SEO Services Philippines | J0hnvexcoder",
+      "description": "Technical SEO services for websites in the Philippines: audits, metadata, crawlability, canonical URLs, structured data and practical performance improvements.",
+      "summary": "I review how your website is discovered and loaded, then address crawlability, metadata and performance issues backed by actual findings.",
       "problem": "A visually complete website can still have missing metadata, confusing canonical URLs, broken links or pages search engines cannot reliably discover. Slow assets and mobile usability issues can also make the same content harder for people to use.",
-      "solution": "I review the agreed pages and map each to a clear purpose. The work can cover titles and descriptions, headings, image descriptions, internal links, sitemap and robots rules, canonical signals and relevant structured data. Technical findings are prioritized so corrections address demonstrated problems rather than changing working configuration unnecessarily.",
+      "solution": "My technical SEO work starts with the published website and the access available. I review how pages are structured, discovered and loaded, then prioritize demonstrated issues with titles, headings, internal links, canonical URLs, indexing directives or structured data. Performance work follows the same approach: measure the relevant pages and address the causes within the agreed scope.",
       "scope": [
         "Search-intent and keyword-to-page review for agreed priority pages",
         "Metadata, headings, alt text, internal links and canonical review",
@@ -89,12 +89,12 @@
     {
       "id": "cms-solutions",
       "route": "/services/cms-solutions/",
-      "name": "CMS & Content Management Systems",
-      "title": "CMS & Content Management Systems | J0hnvexcoder",
-      "description": "Tailored CMS solutions for website content, product catalogs and request records, with agreed admin controls, publishing workflows and database-backed content.",
-      "summary": "Keep content updates manageable. I define the editing workflow, permissions and records your business actually needs.",
+      "name": "Custom CMS Development",
+      "title": "Custom CMS Development Philippines | J0hnvexcoder",
+      "description": "Custom CMS development for businesses in the Philippines. Tailored content editing, admin dashboards and separately scoped catalog or record-management tools.",
+      "summary": "I build content editing and administration tools around the pages, images and records your business needs to manage.",
       "problem": "When every small content update requires a developer, a website can become difficult to maintain. A product catalog or request workflow needs more than an editable text field: the team needs clear records, permissions and publishing controls.",
-      "solution": "A CMS extension starts with the content your team actually needs to manage. The agreed system may provide administrator access, text and image editing, galleries, optimized media and SEO fields. Catalog or workflow needs can add structured records, search, draft/published states, request statuses, attachments and notifications.",
+      "solution": "I develop content management tools that let your business update agreed website text, images and relevant SEO fields without editing code. The administration interface follows what you need to manage and who is allowed to change it. Product catalogs, request records, publishing approvals and notifications are separate capabilities to define before development.",
       "scope": [
         "Agreed administrator access and content/media controls",
         "Database-backed text, images and relevant SEO fields",
@@ -119,11 +119,11 @@
       "id": "portfolio-websites",
       "route": "/services/portfolio-websites/",
       "name": "Professional Portfolio Website Development",
-      "title": "Professional Portfolio Websites | J0hnvexcoder",
-      "description": "Professional portfolio websites for individuals in the Philippines, connecting experience, selected work, case studies and clear contact options.",
-      "summary": "Give your work the context it deserves. I connect professional identity, selected projects and a clear contact path.",
+      "title": "Portfolio Website Development Philippines | J0hnvexcoder",
+      "description": "Professional portfolio website development in the Philippines. Present your experience, projects and achievements through an original, responsive personal website.",
+      "summary": "I create professional portfolio websites that connect your experience, projects and achievements with a clear way to contact you.",
       "problem": "A résumé provides a summary, but projects often need context, images and explanation. A portfolio should make that evidence easy to inspect without forcing every person into the same visual template.",
-      "solution": "The website connects a professional introduction with selected work, experience, qualifications and contact access. Where the material supports it, project pages explain the problem, approach and implemented result. Visual direction can range from a clear compact portfolio to an original interactive presentation, while keeping mobile readability and truthful content central.",
+      "solution": "I create professional portfolio websites that bring your experience, projects and achievements into one clear presentation. Each site is designed around your work, rather than forcing it into a generic template. Where the evidence supports it, individual project pages explain the challenge, development choices and implemented result. The visual direction stays grounded in readable content and mobile usability.",
       "scope": [
         "Professional identity, experience and relevant qualifications",
         "Selected work and evidence-backed case studies",
@@ -148,10 +148,10 @@
     {
       "id": "booking-systems",
       "route": "/services/booking-systems/",
-      "name": "Booking & Reservation Systems",
-      "title": "Booking & Reservation Systems | J0hnvexcoder",
-      "description": "Tailored reservation-request websites and operational booking systems, with clearly agreed availability, confirmation, administration and notification workflows.",
-      "summary": "Make requests clear and confirmations accurate. I scope the workflow around how your business manages availability.",
+      "name": "Booking and Reservation Systems",
+      "title": "Booking System Development Philippines | J0hnvexcoder",
+      "description": "Booking system development for Philippine businesses, from reservation requests to separately scoped availability, confirmation and administration workflows.",
+      "summary": "I develop reservation-request or booking workflows around your availability, confirmation and administration requirements.",
       "problem": "Collecting a preferred date is different from reserving an available slot. A booking workflow needs a clear owner for availability, confirmation, cancellations and changes; otherwise the website can create expectations the business cannot fulfill.",
       "solution": "For a request-based website, customers provide the required details and preferences, then the business reviews and confirms manually. An operational platform can instead maintain a booking calendar, agreed inventory or capacity, administration controls and automated confirmations. The appropriate model is defined before development.",
       "scope": [
@@ -178,12 +178,12 @@
     {
       "id": "custom-solutions",
       "route": "/services/custom-solutions/",
-      "name": "Custom Web Applications & Tailored Business Solutions",
-      "title": "Custom Web Applications & Solutions | J0hnvexcoder",
-      "description": "Custom web applications and tailored technical solutions for agreed business workflows, dashboards, integrations and interactive customer experiences.",
-      "summary": "Turn a specific workflow into useful software. I establish feasibility, integrations and a practical acceptance plan first.",
+      "name": "Custom Web Applications and Business Solutions",
+      "title": "Custom Web Applications Philippines | J0hnvexcoder",
+      "description": "Custom web application development in the Philippines for agreed workflows, dashboards, integrations and interactive experiences. Scope and feasibility come first.",
+      "summary": "I build focused web applications for specific workflows, data and interactions, with feasibility and support agreed before development.",
       "problem": "Some projects need to connect information, guide a multi-step task or expose an interaction that a conventional content page cannot provide. The useful starting point is the task itself, including who uses it and how success is verified.",
-      "solution": "The work may involve a dashboard, an integration, a focused application or an interactive product experience. Requirements define the data, permissions, inputs, outputs and operational boundaries before choosing technologies. A frontend concept and a deployed application are treated as different deliverables.",
+      "solution": "I develop custom web applications around the task your business needs to complete. That may involve a dashboard, integration, records workflow or interactive product presentation. I define the users, data, permissions and expected behavior before selecting technologies. A frontend prototype and an operational application remain different deliverables, with different acceptance checks.",
       "scope": [
         "Workflow discovery and clearly scoped application behavior",
         "Agreed dashboards, records, integrations and access controls",
@@ -207,9 +207,9 @@
     }
   ],
   "care": {
-    "name": "Website Care & Maintenance",
+    "name": "Website Care and Maintenance",
     "anchor": "/services/#website-care",
-    "copy": "After launch, a website still needs attention. Website Care can cover agreed content updates, reported defects, broken links, configuration troubleshooting and practical technical support for the delivered site. Ongoing monitoring or a deeper maintenance arrangement is defined separately.",
+    "copy": "After launch, I can help with agreed content updates, reported defects, broken links and configuration troubleshooting. Website Care supports the delivered website; monitoring, response arrangements and new features are defined separately.",
     "boundary": "Care coverage and response arrangements are agreed for the selected service. New features, redesigns, booking platforms and recurring SEO work are scoped separately."
   }
 }

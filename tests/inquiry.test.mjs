@@ -102,5 +102,5 @@ test("compact selection distinguishes redesign, prevents duplicates and preserve
     "a@b.test",
   );
   assert.match(prepared.subject, /Website Redesign/);
-  assert.match(prepared.body, /Technical SEO & Website Optimization/);
+  assert.match(prepared.body, /Technical SEO and Website Optimization/);
 });

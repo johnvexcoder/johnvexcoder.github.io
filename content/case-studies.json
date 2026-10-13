@@ -3,7 +3,7 @@
     "id": "homelab-os",
     "type": "Personal infrastructure application; release-candidate work",
     "meta": "Nexora Lab brings host metrics, Proxmox guests, Docker workloads and alerts into a self-hosted dashboard. Explore its architecture and release limits.",
-    "overview": "Nexora Lab is a self-hosted dashboard for understanding a homelab's hosts and workloads. It combines infrastructure telemetry, history, topology and administrator controls in one interface.",
+    "overview": "Nexora Lab is a self-hosted infrastructure dashboard for inspecting Linux hosts, Proxmox guests and Docker workloads. Telemetry, history and topology connect resource readings with the systems they describe.",
     "problem": "A host list does not explain how virtual machines, containers and physical resources relate. The project addresses that visibility gap: it connects changing metrics with the systems they describe, so an administrator can inspect a host in context.",
     "approach": "The React interface receives real-time updates from an Express backend over WebSocket. The backend combines Nexora Agent telemetry with optional direct Proxmox data and persists application records in SQLite. The interface does not need to know which collector supplied an individual metric.",
     "features": [
@@ -20,13 +20,15 @@
     "alt": "Nexora Lab dashboard showing host status, resource metrics and infrastructure health",
     "decisions": "Keeping collection behind the backend gives the interface one reporting model instead of separate rendering logic for each host integration. WebSocket updates carry changing values without repeatedly requesting an entire dashboard; persisted records serve a different purpose from live telemetry.",
     "classification": "Personal project",
-    "layout": "system"
+    "layout": "system",
+    "problemHeading": "Beyond a list of hosts.",
+    "decisionHeading": "One model for changing telemetry."
   },
   {
     "id": "homelab-agent",
     "type": "Open-source Linux telemetry tool",
     "meta": "Nexora Agent collects Linux, Docker, sensor, disk and network telemetry through isolated plugins, then reports to Nexora Lab using an outbound connection.",
-    "overview": "Nexora Agent collects information directly from a monitored Linux host and reports it to Nexora Lab. It complements the Proxmox API rather than replacing it.",
+    "overview": "Nexora Agent is a plugin-based Linux telemetry agent that reports host, container, sensor and disk information to Nexora Lab. It collects local details that a virtualization API cannot always provide.",
     "problem": "A virtualization API cannot expose every local temperature sensor, service state or disk-health reading. The Agent fills those gaps while allowing unsupported collectors to remain unavailable without disabling the whole application.",
     "approach": "Six collection plugins cover Linux, Docker, Proxmox, sensors, SMART disk health and networking. Plugins collect and normalize data; Agent Core handles identity, transport, retries and the versioned reporting contract. Capability detection tells the dashboard what a particular host can provide.",
     "features": [
@@ -43,13 +45,15 @@
     "alt": null,
     "decisions": "A plugin boundary lets a missing sensor tool affect one collector rather than the whole reporting process. Centralizing transport in Agent Core also keeps retry and identity behavior consistent across plugins. Capability reporting distinguishes unavailable data from a misleading zero reading.",
     "classification": "Personal project",
-    "layout": "system"
+    "layout": "system",
+    "problemHeading": "Collecting what the host can report.",
+    "decisionHeading": "Keep collectors independent."
   },
   {
     "id": "compressme",
     "type": "Open-source desktop and command-line utility",
     "meta": "CompressMe combines a PySide6 desktop interface and Python CLI for batch image compression, duplicate detection, metadata handling and exportable reports.",
-    "overview": "CompressMe is a Python utility for reducing image-library size and reviewing duplicates. The same compression workflow is available through a desktop interface and command-line controls.",
+    "overview": "CompressMe is a Python image compression tool for processing folders, reviewing duplicates and exporting reports. A PySide6 desktop application and command-line interface share the same batch-processing engine.",
     "problem": "Processing an image folder one file at a time makes it difficult to keep settings consistent or see which files failed. A repeatable batch workflow also needs to distinguish identical files from visually similar images.",
     "approach": "A Python compression engine supports the PySide6 interface and CLI. Exact hashing and perceptual comparison serve different duplicate-detection tasks. Reports preserve a record of processed files, size changes and failures; optional external encoders extend the available compression paths.",
     "features": [
@@ -66,13 +70,15 @@
     "alt": "CompressMe desktop dashboard showing a compression queue and processing reports",
     "decisions": "Sharing the compression engine between the desktop interface and CLI keeps the processing rules consistent for interactive and repeatable batch work. Exact hashes answer whether files are identical; perceptual comparison answers a different question about visual similarity. Keeping those paths separate avoids treating every similar image as a duplicate.",
     "classification": "Personal project",
-    "layout": "editorial"
+    "layout": "editorial",
+    "problemHeading": "Processing a folder consistently.",
+    "decisionHeading": "One engine, two interfaces."
   },
   {
     "id": "jenica-portfolio",
     "type": "Client work · Professional portfolio",
     "meta": "Jenica Salazar’s client portfolio website connects professional experience, certificates, selected work and résumé access. Explore the Next.js implementation.",
-    "overview": "Jenica Salazar's website brings her professional background and MovieFlix founder story into one responsive portfolio.",
+    "overview": "Jenica Salazar’s client portfolio website brings her professional background, experience and MovieFlix founder story into a responsive Next.js presentation.",
     "problem": "A résumé, certificates and a separate project story can be difficult to assess when presented independently. The website gives those materials a clear sequence while keeping résumé and contact access easy to find.",
     "approach": "Next.js and React organize the page into background, experience, skills, certificates and project sections. Supplied portraits use responsive image delivery, while metadata and Person structured data support a consistent public identity.",
     "features": [
@@ -89,13 +95,15 @@
     "alt": "Jenica Salazar's portfolio homepage with her portrait and professional introduction",
     "decisions": "Separating experience, qualifications and project context makes different kinds of evidence easier to inspect. Responsive image delivery avoids sending the largest portrait to every screen. A contact fallback gives visitors an alternative when the server-side message provider is unavailable, but requires distinct feedback for a prepared email and a delivered message.",
     "classification": "Client work",
-    "layout": "editorial"
+    "layout": "editorial",
+    "problemHeading": "A professional story in one place.",
+    "decisionHeading": "Structure the content around her work."
   },
   {
     "id": "movieflix",
     "type": "Self-hosted media application; private runtime",
     "meta": "MovieFlix organizes local media with TMDB metadata, byte-range playback and FFmpeg transcoding. Explore its self-hosted architecture and private-demo limits.",
-    "overview": "MovieFlix turns a local media collection into a self-hosted browsing and playback application. Its public case study explains the software without exposing the private runtime.",
+    "overview": "MovieFlix is a self-hosted media streaming platform for organizing a local video collection and serving playback. Its library interface connects media scanning, title information and FFmpeg processing; this case study keeps the private deployment address confidential.",
     "problem": "Media files need more than a directory listing: people need recognizable titles, artwork and playback that can seek through large files. Different codecs add another compatibility challenge.",
     "approach": "The application scans local media, uses FFprobe to inspect files and TMDB to enrich titles, then serves supported playback through byte-range requests or FFmpeg processing. Next.js provides the interface and server routes, with SQLite application records and Redis-backed runtime support.",
     "features": [
@@ -112,13 +120,15 @@
     "alt": "MovieFlix library homepage showing featured artwork and media rows",
     "decisions": "Byte-range responses allow supported players to request a portion of a file when seeking instead of restarting a full download. Codec inspection informs whether direct delivery is appropriate or processing is needed. Library metadata and playback are separate concerns, so richer browsing does not depend on changing the source media files.",
     "classification": "Personal project",
-    "layout": "system"
+    "layout": "system",
+    "problemHeading": "From local files to a browsable library.",
+    "decisionHeading": "Separate the library from playback processing."
   },
   {
     "id": "donut-house",
     "type": "Fictional commerce demonstration",
     "meta": "Donut House demonstrates product discovery, custom donut boxes, saved items and checkout in a Next.js storefront. No real orders or payments are processed.",
-    "overview": "Donut House is a fictional bakery storefront that connects product browsing, customization and a demonstration checkout in one experience.",
+    "overview": "Donut House is an interactive bakery storefront demonstration built with Next.js. Visitors can browse products, customize choices and follow a simulated cart and checkout journey.",
     "problem": "A custom box is more complicated than a single product purchase: choices need to remain understandable as items, quantities and options change. The design challenge is to carry those decisions from discovery into the cart without losing context.",
     "approach": "Next.js, React and TypeScript structure the storefront. Zustand manages shopping state, Zod validates structured inputs, and separate product, cart and checkout helpers keep calculations away from presentation components.",
     "features": [
@@ -135,13 +145,15 @@
     "alt": "Donut House storefront showing donut collections and custom box presentation",
     "decisions": "A shared cart store keeps selections consistent between the product page, box builder and checkout. Moving calculations into helpers makes quantities and totals easier to check independently of the layout. Input validation handles incomplete selections before they enter the demonstration checkout; it does not turn browser state into a trusted order record.",
     "classification": "Personal project",
-    "layout": "editorial"
+    "layout": "editorial",
+    "problemHeading": "A storefront with connected choices.",
+    "decisionHeading": "Keep shopping state separate from presentation."
   },
   {
     "id": "jaron-portfolio",
     "type": "Client work · Professional portfolio",
     "meta": "Mark Jaron’s client portfolio website presents engineering experience, selected studies, certifications and résumé access in a responsive static website.",
-    "overview": "Mark Jaron's portfolio presents an industrial engineering background through experience, selected studies, certifications and a practical toolkit.",
+    "overview": "Mark Jaron’s client portfolio website presents his industrial engineering experience, studies, certifications and practical toolkit in a structured professional profile.",
     "problem": "A long professional record needs clear grouping so visitors can understand responsibilities and inspect relevant work. The site turns that material into a readable professional narrative rather than copying a résumé into one uninterrupted block.",
     "approach": "Semantic HTML, CSS and JavaScript provide the layout and interactions without a framework build. The site is served statically on Vercel, with public metadata and a contact form that prepares an email in the visitor's own application.",
     "features": [
@@ -158,13 +170,15 @@
     "alt": "Mark Jaron's portfolio introduction and engineering experience presentation",
     "decisions": "Static delivery suits a presentation site whose content changes through source edits. Semantic sections establish a readable hierarchy without a framework runtime. The contact workflow uses the visitor’s email application, so the interface can prepare an inquiry without claiming a server received it.",
     "classification": "Client work",
-    "layout": "editorial"
+    "layout": "editorial",
+    "problemHeading": "Presenting an engineering background.",
+    "decisionHeading": "Give each part of the profile a clear place."
   },
   {
     "id": "your-coffee",
     "type": "Fictional café ordering demonstration",
     "meta": "Your Coffee presents a 33-drink menu, product customization and a locally saved cart in a static café demo. Checkout and payment are simulations.",
-    "overview": "Your Coffee is a fictional café website with a searchable drink menu, product options and a demonstration ordering journey.",
+    "overview": "Your Coffee is a café ordering website demo with a searchable drink menu, customization options and a JavaScript shopping cart. The ordering journey demonstrates interface behavior without accepting real orders.",
     "problem": "A broad drink menu becomes harder to explore when customers also need to choose options. The interface brings discovery and customization together, while keeping the current order visible.",
     "approach": "Semantic HTML, CSS and vanilla JavaScript power the experience. Hash-based routing switches between product, cart and checkout views on static hosting. Only cart state is persisted locally; checkout details are not submitted to a business.",
     "features": [
@@ -181,13 +195,15 @@
     "alt": "Your Coffee café homepage showing the drink menu and ordering presentation",
     "decisions": "Hash-based routes let the static host serve one application while preserving browser back and forward navigation. Keeping the cart in browser storage retains selections between visits without an account. Limiting persistence to cart state also avoids storing checkout details as though they were submitted orders.",
     "classification": "Personal project",
-    "layout": "editorial"
+    "layout": "editorial",
+    "problemHeading": "A menu that supports choices.",
+    "decisionHeading": "Connect options with cart calculations."
   },
   {
     "id": "python-keybr",
     "type": "Personal open-source terminal utility",
     "meta": "Python-Keybr brings adaptive typing practice, WPM and accuracy feedback, saved progress and keyboard diagnostics to a Python curses terminal interface.",
-    "overview": "Python-Keybr is a terminal typing trainer inspired by keybr.com. It offers practice and feedback without a browser-based interface.",
+    "overview": "Python-Keybr is a Python terminal typing trainer inspired by keybr.com. Its curses interface provides practice, timing feedback and keyboard diagnostics without a browser.",
     "problem": "A terminal practice tool needs to show errors and progress without interrupting typing. The project also explores adaptive practice, where weaker letters receive attention and new letters unlock as confidence improves.",
     "approach": "Python and curses handle the interface and keystroke feedback. Per-letter and bigram statistics guide adaptive practice, while local progress records support later sessions. A separate diagnostic mode inspects keyboard input behavior.",
     "features": [
@@ -204,13 +220,15 @@
     "alt": null,
     "decisions": "Immediate keystroke feedback belongs in the terminal loop, while accumulated statistics inform later practice. Per-letter and bigram records let adaptive sessions respond to specific weaknesses rather than only an overall score. A separate diagnostic mode makes input behavior inspectable without interrupting a practice session.",
     "classification": "Personal project",
-    "layout": "compact"
+    "layout": "compact",
+    "problemHeading": "Useful typing feedback in a terminal.",
+    "decisionHeading": "Coordinate input, timing and terminal rendering."
   },
   {
     "id": "distrozsh",
     "type": "Open-source shell configuration tool",
     "meta": "DistroZSH provides distribution-aware themes, prompt layouts and command suggestions without a shell framework, with a documented reversible installer.",
-    "overview": "DistroZSH is a distribution-aware ZSH configuration with a consistent prompt and selectable layouts, without a shell framework or plugin manager.",
+    "overview": "DistroZSH is a lightweight Linux ZSH configuration with a distribution-aware prompt and selectable layouts. It provides a consistent shell setup without a shell framework or plugin manager.",
     "problem": "Shell customization can accumulate dependencies and changes that are difficult to undo. This project provides a defined configuration while adapting the prompt's appearance to the running distribution.",
     "approach": "ZSH prompt functions, distribution detection and shell scripts provide themes and layouts. The installer and uninstall workflow document how to apply or reverse the configuration, while command-not-found handling can suggest likely corrections.",
     "features": [
@@ -227,13 +245,15 @@
     "alt": null,
     "decisions": "Distribution detection changes presentation while the prompt functions retain a common structure. A documented uninstall path treats shell configuration as a reversible change. Avoiding a framework dependency reduces the setup required, although terminal capabilities still need to be checked.",
     "classification": "Personal project",
-    "layout": "compact"
+    "layout": "compact",
+    "problemHeading": "A consistent prompt across Linux systems.",
+    "decisionHeading": "Keep the shell setup small and configurable."
   },
   {
     "id": "starbucks-portal",
     "type": "Unofficial frontend practice demo",
     "meta": "An unofficial Starbucks-inspired login interface demonstrating responsive layout and client-side validation. It is a practice demo, not real authentication.",
-    "overview": "Starbucks Login is an unofficial interface practice project. The published demonstration runs entirely in the browser.",
+    "overview": "Starbucks Login is an unofficial responsive login-interface demo built for frontend practice. Validation and feedback run in the browser; the page does not authenticate users against Starbucks services.",
     "problem": "A login interface needs understandable fields and clear feedback when input is incomplete or incorrect. This small project focuses on that interaction rather than account management.",
     "approach": "The portfolio publishes static HTML, CSS and JavaScript. A client-side submit handler prevents server submission and checks demonstration values, then presents success or error feedback.",
     "features": [
@@ -250,13 +270,15 @@
     "alt": "Unofficial Starbucks-inspired login form with email and password fields",
     "decisions": "Preventing the browser’s default submission keeps this exercise within its static demo boundary. Field checks and explicit error states make the interaction understandable. The success state demonstrates feedback design only; authentication belongs on a trusted server in an operational system.",
     "classification": "Personal project",
-    "layout": "compact"
+    "layout": "compact",
+    "problemHeading": "Clear feedback in a compact form.",
+    "decisionHeading": "Validate the interface without implying authentication."
   },
   {
     "id": "smart-expense",
     "type": "Browser-local application demo",
     "meta": "Smart Expense Visualizer combines expense entry, category charts, summary cards and a sortable table. Demo records stay in the browser using localStorage.",
-    "overview": "Smart Expense Visualizer is a browser-local demonstration for recording expenses and seeing how categories contribute to a total.",
+    "overview": "Smart Expense Visualizer is a browser-based expense tracking dashboard demonstration. JavaScript records and category charts help inspect a local collection of entries without a server account.",
     "problem": "A transaction list alone makes spending patterns hard to inspect. The dashboard connects each entry to category totals, summary cards and a chart that changes with the records.",
     "approach": "JavaScript manages the records and browser storage, while Chart.js renders category totals. A sortable table complements the chart so individual transactions remain inspectable.",
     "features": [
@@ -273,13 +295,15 @@
     "alt": "Expense dashboard showing summary cards, a category chart and transaction table",
     "decisions": "A chart provides an overview, while the table preserves access to individual entries. Recalculating summaries from the records keeps the chart and totals aligned after deletion. Browser storage enables continuity on one device without introducing an account or implying a remote backup.",
     "classification": "Personal project",
-    "layout": "compact"
+    "layout": "compact",
+    "problemHeading": "Seeing individual entries and category totals.",
+    "decisionHeading": "Keep records inspectable alongside the chart."
   },
   {
     "id": "monthsary",
     "type": "Personal anniversary website",
     "meta": "Monthsary is a personal anniversary website combining a time-together counter, timeline, photo galleries, video moments and letters in one intimate story.",
-    "overview": "Monthsary is a personal anniversary website that brings photographs, letters and shared moments into one place.",
+    "overview": "Monthsary is an interactive personal anniversary website that brings photographs, letters and shared moments into a timeline and media galleries.",
     "problem": "Personal memories deserve a coherent presentation rather than a disconnected set of files. The design challenge is to make the story easy to explore while keeping its intimate purpose intact.",
     "approach": "HTML, CSS and JavaScript connect a time-together counter with a timeline and media galleries. The visual treatment supports the story without introducing an account or commercial checkout workflow.",
     "features": [
@@ -296,13 +320,15 @@
     "alt": "Monthsary anniversary website with a personal timeline and photo presentation",
     "decisions": "The counter, timeline and galleries give different entry points into the same personal story. Lightweight browser interactions support reading and exploration without needing an account. The case study stays focused on presentation rather than reproducing additional private content.",
     "classification": "Personal project",
-    "layout": "compact"
+    "layout": "compact",
+    "problemHeading": "Make a personal story easy to explore.",
+    "decisionHeading": "Let the timeline and galleries carry the story."
   },
   {
     "id": "johnvex-winops",
     "type": "Open-source Windows administration toolkit",
     "meta": "JohnVex-WinOps organizes Windows diagnostics and allowlisted operations with dry-run planning, verification, journals and structured PowerShell output.",
-    "overview": "JohnVex-WinOps organizes Windows diagnostics and administration operations behind a modular PowerShell engine.",
+    "overview": "JohnVex-WinOps is a PowerShell Windows administration toolkit that organizes diagnostics and system operations behind a modular engine. Commands follow defined checks and execution boundaries.",
     "problem": "Ad-hoc maintenance scripts can make it difficult to understand what will change, what privileges are needed and what happened afterward. The toolkit gives those operations a defined planning and logging workflow.",
     "approach": "A declarative catalog exposes allowlisted operations. Dry-run planning, explicit risk acceptance and verification surround supported changes, while JSONL logs and operation journals preserve the session record.",
     "features": [
@@ -319,13 +345,15 @@
     "alt": "JohnVex-WinOps administration interface showing diagnostic and operation options",
     "decisions": "An allowlisted catalog makes the available operations explicit before execution. Planning and risk acceptance precede changes, while verification and logs describe what happened afterward. Operation-specific journals provide a recovery path where implemented instead of promising universal rollback.",
     "classification": "Personal project",
-    "layout": "system"
+    "layout": "system",
+    "problemHeading": "Organizing Windows administration tasks.",
+    "decisionHeading": "Separate commands from execution safeguards."
   },
   {
     "id": "jnglo",
     "type": "Fictional fashion storefront demonstration",
     "meta": "J&GLO demonstrates collection filters, product variants, image galleries and a locally saved shopping bag in a fictional Next.js fashion storefront.",
-    "overview": "J&GLO is a fictional fashion storefront that combines editorial presentation with product browsing and shopping-bag interactions.",
+    "overview": "J&GLO is a fictional Next.js fashion storefront with product variants, collection pages and an interactive shopping bag. Its editorial presentation supports browsing and simulated shopping rather than live commerce.",
     "problem": "Campaign imagery and a usable catalog have different jobs. The design challenge is to preserve the fashion identity while making variants, sizes and the current shopping bag understandable.",
     "approach": "Next.js and React organize collection and product routes. Catalog and cart helpers define variants and totals, while a shared store provider validates browser-persisted cart and wishlist state. Custom CSS and Motion support the presentation.",
     "features": [
@@ -342,13 +370,15 @@
     "alt": "J&GLO fictional fashion storefront with campaign imagery and garment collections",
     "decisions": "Product routes preserve room for the campaign presentation while cart helpers handle variants, quantities and totals. Validating persisted state prevents stale browser data from being accepted blindly when the catalog changes. The shared provider connects those behaviors without making individual presentation components responsible for storage.",
     "classification": "Personal project",
-    "layout": "editorial"
+    "layout": "editorial",
+    "problemHeading": "Connect editorial presentation with shopping state.",
+    "decisionHeading": "Define variants and totals in shared helpers."
   },
   {
     "id": "arkosenyo",
     "type": "Client work · Architecture website demonstration",
     "meta": "ARKOSENYO is a client architecture website project with service pages, project search, filters and galleries. Explore the implemented website demonstration.",
-    "overview": "ARKOSENYO is a client architecture website project connecting services, structured project records, search and image galleries. The published demonstration presents the implemented browsing experience.",
+    "overview": "ARKOSENYO is a client architecture website development project presenting services, project records and image galleries. The published demonstration includes search and filtering for exploring the work.",
     "problem": "An architecture website needs to connect project discovery with services and a clear inquiry path. I organized the client’s project material so visitors can filter work, open its details and explore imagery without losing context.",
     "approach": "The reviewed source uses Next.js, React and TypeScript with structured project records. Service and project routes share a display model; search, filters, keyboard-accessible galleries and an inquiry draft support exploration.",
     "features": [
@@ -365,13 +395,15 @@
     "alt": "ARKOSENYO redesign concept presenting architecture imagery and project discovery",
     "decisions": "Structured records let project lists, filters and detail routes use the same content model. Keeping an inquiry as a draft avoids suggesting a server accepted it. The model is suitable for a source-managed concept; adding editorial permissions and publishing workflows would be a separate CMS implementation.",
     "classification": "Client work",
-    "layout": "editorial"
+    "layout": "editorial",
+    "problemHeading": "Make architecture projects easier to explore.",
+    "decisionHeading": "Use structured records for search and galleries."
   },
   {
     "id": "taitechmarine",
     "type": "Client work · Marine website demonstration",
     "meta": "TAITECH Marine is a client website redesign with equipment browsing, service details, galleries and a conditional request preview. View the implementation.",
-    "overview": "TAITECH Marine is a client website redesign project for marine equipment and technical services. The published demonstration connects content browsing with a structured request preview.",
+    "overview": "TAITECH Marine is a client marine-equipment business website redesign project. Its published demonstration combines equipment and service presentation with search, galleries and a structured request preview.",
     "problem": "Equipment and service inquiries need useful context. I connected category browsing with a request flow that asks relevant questions and lets visitors review their details before the demonstration confirmation.",
     "approach": "Next.js, React and TypeScript provide static content routes, category views and native-dialog galleries. A six-step request preview changes its questions with the selected request type, then offers editable review and a demonstration confirmation.",
     "features": [
@@ -388,13 +420,15 @@
     "alt": "TAITECH Marine redesign demonstration showing equipment and technical service presentation",
     "decisions": "Conditional questions keep irrelevant fields out of a request path. A review step lets a visitor inspect and edit the assembled information before seeing the preview confirmation. This demonstrates form design without pretending that availability, scheduling or message delivery exists behind it.",
     "classification": "Client work",
-    "layout": "editorial"
+    "layout": "editorial",
+    "problemHeading": "Explain equipment and services clearly.",
+    "decisionHeading": "Connect browsing with a structured request preview."
   },
   {
     "id": "shoesonthego",
     "type": "Independent noncommercial 3D experiment",
     "meta": "Shoes on the Go combines scroll-directed scenes, model rotation, camera presets and material variants using Three.js, React Three Fiber and GSAP.",
-    "overview": "Shoes on the Go is an independent footwear visualization that connects a directed 3D narrative with hands-on product inspection.",
+    "overview": "Shoes on the Go is an interactive 3D product showcase built with Three.js and React Three Fiber. A directed footwear story leads into rotation, variants and inspection controls.",
     "problem": "A product presentation needs to show form and detail while still letting visitors explore it themselves. The project tests how cinematic scrolling and direct manipulation can share one model.",
     "approach": "One persistent React Three Fiber canvas holds the model. GSAP directs narrative progress, while a separate interaction group handles rotation, variants and inspection. Camera presets and explicit touch controls make exploration available beyond pointer dragging.",
     "features": [
@@ -411,13 +445,15 @@
     "alt": "Shoes on the Go 3D footwear presentation with model inspection controls",
     "decisions": "A persistent canvas avoids rebuilding the scene between narrative chapters. Separating scroll direction from direct manipulation lets visitors inspect the same object without losing the presentation structure. Camera presets and touch controls provide alternatives when dragging is inconvenient.",
     "classification": "Personal project",
-    "layout": "interactive"
+    "layout": "interactive",
+    "problemHeading": "Move from a product story to inspection.",
+    "decisionHeading": "Keep narrative and exploration controls distinct."
   },
   {
     "id": "archeon",
     "type": "Original frontend architecture visualization concept",
     "meta": "ARCHÉON presents an original house concept through nine construction stages, floor plans, camera controls and material choices. Briefs download locally.",
-    "overview": "ARCHÉON connects an original tropical-modern house concept with a reversible 3D construction story and interactive floor plans.",
+    "overview": "ARCHÉON is an interactive 3D architecture visualization of an original tropical-modern house concept. Visitors can move through reversible construction stages and explore concept floor plans.",
     "problem": "A finished rendering hides the relationship between structure, spaces and finishes. The concept helps visitors explore those relationships through staged assembly, viewpoints and room information.",
     "approach": "Next.js, React Three Fiber, Three.js and GSAP connect nine construction stages with camera controls. A component model records stage, floor, dimensions and materials; repeated shapes can be rendered together to reduce draw work. The 3D section loads near the point where it is needed.",
     "features": [
@@ -434,6 +470,8 @@
     "alt": "ARCHÉON Amihan House concept showing a construction stage and exploration controls",
     "decisions": "Stage and floor information in the component model connects construction chapters with the plan interface. Rendering repeated shapes together reduces repeated draw work, while loading the 3D section near its use avoids making it the first requirement for reading the page. Local brief download keeps the form useful within an explicitly frontend-only boundary.",
     "classification": "Personal project",
-    "layout": "interactive"
+    "layout": "interactive",
+    "problemHeading": "Explain a house through its construction stages.",
+    "decisionHeading": "Connect reversible chapters with floor exploration."
   }
 ]

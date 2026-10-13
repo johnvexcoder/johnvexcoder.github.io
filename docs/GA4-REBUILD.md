@@ -1,3 +1,5 @@
+> Current-source update, 13 October 2026: `/home/j0hn/Projects/My-Portfolio-v2` is now the standalone deployment repository. The inherited-parent and separate-Codex-checkout statements below are historical records of the earlier rebuild. Do not use those old locations for current development.
+
 # GA4 and privacy consent rebuild — 12 October 2026
 
 Local implementation and validation are complete. **Release QA is not fully passed:** actual Google request behavior and the property's Enhanced Measurement settings remain unverified. No commit, push, or deployment was made for this rebuild.

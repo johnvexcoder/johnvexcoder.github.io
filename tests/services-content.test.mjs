@@ -91,3 +91,23 @@ test("owner-confirmed client classification is consistent and supersedes the old
     );
   }
 });
+
+test("service names stay consistent across page, homepage and inquiry catalogs", async () => {
+  const routeCatalog = read("content/service-routes.json");
+  const { inquiryServices } = await import("../lib/inquiry.ts");
+  for (const page of services.pages) {
+    const route = routeCatalog.find((s) => s.id === page.id);
+    assert.equal(route.name, page.name);
+    assert.equal(route.summary, page.summary);
+    assert.equal(route.title, page.title);
+  }
+  for (const id of ["cms-solutions", "technical-seo", "booking-systems"])
+    assert.equal(
+      inquiryServices.find((s) => s.id === id).name,
+      services.pages.find((s) => s.id === id).name,
+    );
+  assert.equal(
+    services.pages.find((s) => s.id === "cms-solutions").name,
+    "Custom CMS Development",
+  );
+});

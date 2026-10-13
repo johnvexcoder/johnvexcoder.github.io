@@ -167,10 +167,10 @@ export function Services() {
       </div>
       <div className="services-home-footer">
         <Link className="text-link" href="/services/">
-          Explore Services & Solutions <ArrowUpRight size={15} />
+          Explore Services and Solutions <ArrowUpRight size={15} />
         </Link>
         <Link className="text-link" href="/services/#website-care">
-          Website Care & Maintenance <ArrowUpRight size={15} />
+          Website Care and Maintenance <ArrowUpRight size={15} />
         </Link>
       </div>
     </section>

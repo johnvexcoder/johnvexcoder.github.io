@@ -1,3 +1,7 @@
+## Current development source — 13 October 2026
+
+The authoritative standalone repository is `/home/j0hn/Projects/My-Portfolio-v2`. The deployed v2.1.0 baseline is `d9cea0a`; further SEO refinements are local and require separate publication approval. The prior production release `v2.0.1` and current `v2.1.0` are preserved. Migration, backups and detailed acceptance evidence are recorded in the owner’s local consolidation report, which is intentionally excluded from publication.
+
 ## Portfolio Version 2.0.0 publication
 
 The owner approved replacing the existing GitHub Pages portfolio with V2 on 10 October 2026. The repository contains the editable Next.js source; `.github/workflows/deploy-pages.yml` validates and exports it before publishing `out/` through GitHub Pages. Future pushes to `main` deploy only after the checks succeed. Release tags do not trigger deployment.
