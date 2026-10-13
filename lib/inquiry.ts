@@ -1,12 +1,12 @@
 export const inquiryServices = [
   { id: "business-websites", name: "Business Website Development" },
   { id: "website-redesign", name: "Website Redesign" },
-  { id: "technical-seo", name: "Technical SEO & Website Optimization" },
-  { id: "cms-solutions", name: "CMS & Content Management Systems" },
+  { id: "technical-seo", name: "Technical SEO and Website Optimization" },
+  { id: "cms-solutions", name: "Custom CMS Development" },
   { id: "portfolio-websites", name: "Professional Portfolio Website" },
-  { id: "booking-systems", name: "Booking & Reservation Systems" },
-  { id: "custom-solutions", name: "Custom Web Applications & Solutions" },
-  { id: "website-care", name: "Website Care & Maintenance" },
+  { id: "booking-systems", name: "Booking and Reservation Systems" },
+  { id: "custom-solutions", name: "Custom Web Applications and Solutions" },
+  { id: "website-care", name: "Website Care and Maintenance" },
   { id: "other", name: "Other / Not sure yet" },
 ];
 export function changePrimaryService(current: string[], value: string) {

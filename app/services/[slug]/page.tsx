@@ -94,7 +94,7 @@ export default async function ServiceDetail({
             implementation.
           </p>
           <Link className="text-link" href="/services/#website-care">
-            Website Care & Maintenance <ArrowUpRight size={14} />
+            Website Care and Maintenance <ArrowUpRight size={14} />
           </Link>
         </aside>
       </div>

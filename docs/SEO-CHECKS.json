@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-12T19:05:50.906Z",
+  "checkedAt": "2026-10-13T13:05:04.179Z",
   "origin": "https://johnvexcoder.github.io",
   "indexingMode": "production",
   "pages": 27,
@@ -13,63 +13,63 @@
     {
       "route": "/",
       "title": "J0hnvexcoder | Freelance Web Developer in Bulacan",
-      "description": "John Angelo De Joya (J0hnvexcoder), a freelance web developer in Bulacan, Philippines. Explore web development projects, full-stack apps and Linux systems.",
+      "description": "John Angelo De Joya (J0hnvexcoder), independent freelance web developer in Bulacan, Philippines. Business websites, portfolios, custom apps and technical SEO.",
       "canonical": "https://johnvexcoder.github.io/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
     },
     {
       "route": "/services/",
-      "title": "Services & Solutions | J0hnvexcoder",
-      "description": "Business websites, technical SEO, CMS, portfolios, booking systems and custom web applications by J0hnvexcoder, based in Bulacan, Philippines.",
+      "title": "Web Development Services in the Philippines | J0hnvexcoder",
+      "description": "Web development services by John Angelo De Joya, a freelance developer in Bulacan, Philippines. Business websites, technical SEO, custom CMS and applications.",
       "canonical": "https://johnvexcoder.github.io/services/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
     },
     {
       "route": "/services/business-websites/",
-      "title": "Business Websites & Redesign | J0hnvexcoder",
-      "description": "Responsive business websites and redesigns for Philippine companies, with clear services, product presentation, contact paths and agreed launch support.",
+      "title": "Business Website Development Philippines | J0hnvexcoder",
+      "description": "Business website development and redesign for companies in the Philippines. Responsive service pages, project galleries and clear contact paths by J0hnvexcoder.",
       "canonical": "https://johnvexcoder.github.io/services/business-websites/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
     },
     {
       "route": "/services/technical-seo/",
-      "title": "Technical SEO & Website Optimization | J0hnvexcoder",
-      "description": "Technical SEO and website optimization for Philippine businesses: crawlability, metadata, canonical URLs, internal links and practical performance fixes.",
+      "title": "Technical SEO Services Philippines | J0hnvexcoder",
+      "description": "Technical SEO services for websites in the Philippines: audits, metadata, crawlability, canonical URLs, structured data and practical performance improvements.",
       "canonical": "https://johnvexcoder.github.io/services/technical-seo/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
     },
     {
       "route": "/services/cms-solutions/",
-      "title": "CMS & Content Management Systems | J0hnvexcoder",
-      "description": "Tailored CMS solutions for website content, product catalogs and request records, with agreed admin controls, publishing workflows and database-backed content.",
+      "title": "Custom CMS Development Philippines | J0hnvexcoder",
+      "description": "Custom CMS development for businesses in the Philippines. Tailored content editing, admin dashboards and separately scoped catalog or record-management tools.",
       "canonical": "https://johnvexcoder.github.io/services/cms-solutions/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
     },
     {
       "route": "/services/portfolio-websites/",
-      "title": "Professional Portfolio Websites | J0hnvexcoder",
-      "description": "Professional portfolio websites for individuals in the Philippines, connecting experience, selected work, case studies and clear contact options.",
+      "title": "Portfolio Website Development Philippines | J0hnvexcoder",
+      "description": "Professional portfolio website development in the Philippines. Present your experience, projects and achievements through an original, responsive personal website.",
       "canonical": "https://johnvexcoder.github.io/services/portfolio-websites/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
     },
     {
       "route": "/services/booking-systems/",
-      "title": "Booking & Reservation Systems | J0hnvexcoder",
-      "description": "Tailored reservation-request websites and operational booking systems, with clearly agreed availability, confirmation, administration and notification workflows.",
+      "title": "Booking System Development Philippines | J0hnvexcoder",
+      "description": "Booking system development for Philippine businesses, from reservation requests to separately scoped availability, confirmation and administration workflows.",
       "canonical": "https://johnvexcoder.github.io/services/booking-systems/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
     },
     {
       "route": "/services/custom-solutions/",
-      "title": "Custom Web Applications & Solutions | J0hnvexcoder",
-      "description": "Custom web applications and tailored technical solutions for agreed business workflows, dashboards, integrations and interactive customer experiences.",
+      "title": "Custom Web Applications Philippines | J0hnvexcoder",
+      "description": "Custom web application development in the Philippines for agreed workflows, dashboards, integrations and interactive experiences. Scope and feasibility come first.",
       "canonical": "https://johnvexcoder.github.io/services/custom-solutions/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
@@ -84,7 +84,7 @@
     },
     {
       "route": "/work/homelab-agent/",
-      "title": "Nexora Agent — Linux telemetry service | J0hnvexcoder",
+      "title": "Nexora Agent — Linux telemetry agent | J0hnvexcoder",
       "description": "Nexora Agent collects Linux, Docker, sensor, disk and network telemetry through isolated plugins, then reports to Nexora Lab using an outbound connection.",
       "canonical": "https://johnvexcoder.github.io/work/homelab-agent/",
       "image": "https://johnvexcoder.github.io/social.png",
@@ -108,7 +108,7 @@
     },
     {
       "route": "/work/movieflix/",
-      "title": "MovieFlix — Self-hosted media platform | J0hnvexcoder",
+      "title": "MovieFlix — Self-hosted media streaming platform | J0hnvexcoder",
       "description": "MovieFlix organizes local media with TMDB metadata, byte-range playback and FFmpeg transcoding. Explore its self-hosted architecture and private-demo limits.",
       "canonical": "https://johnvexcoder.github.io/work/movieflix/",
       "image": "https://johnvexcoder.github.io/social/movieflix.jpg",
@@ -116,7 +116,7 @@
     },
     {
       "route": "/work/donut-house/",
-      "title": "Donut House — Next.js storefront demo | J0hnvexcoder",
+      "title": "Donut House — Interactive bakery storefront demo | J0hnvexcoder",
       "description": "Donut House demonstrates product discovery, custom donut boxes, saved items and checkout in a Next.js storefront. No real orders or payments are processed.",
       "canonical": "https://johnvexcoder.github.io/work/donut-house/",
       "image": "https://johnvexcoder.github.io/social/donut-house.jpg",
@@ -156,7 +156,7 @@
     },
     {
       "route": "/work/starbucks-portal/",
-      "title": "Starbucks Login — Login interface demo | J0hnvexcoder",
+      "title": "Starbucks Login — Responsive login interface demo | J0hnvexcoder",
       "description": "An unofficial Starbucks-inspired login interface demonstrating responsive layout and client-side validation. It is a practice demo, not real authentication.",
       "canonical": "https://johnvexcoder.github.io/work/starbucks-portal/",
       "image": "https://johnvexcoder.github.io/social/starbucks-portal.jpg",
@@ -172,7 +172,7 @@
     },
     {
       "route": "/work/monthsary/",
-      "title": "Monthsary — Personal dedication website | J0hnvexcoder",
+      "title": "Monthsary — Interactive personal anniversary website | J0hnvexcoder",
       "description": "Monthsary is a personal anniversary website combining a time-together counter, timeline, photo galleries, video moments and letters in one intimate story.",
       "canonical": "https://johnvexcoder.github.io/work/monthsary/",
       "image": "https://johnvexcoder.github.io/social/monthsary.jpg",
@@ -180,7 +180,7 @@
     },
     {
       "route": "/work/johnvex-winops/",
-      "title": "JohnVex-WinOps — PowerShell administration tools | J0hnvexcoder",
+      "title": "JohnVex-WinOps — PowerShell administration toolkit | J0hnvexcoder",
       "description": "JohnVex-WinOps organizes Windows diagnostics and allowlisted operations with dry-run planning, verification, journals and structured PowerShell output.",
       "canonical": "https://johnvexcoder.github.io/work/johnvex-winops/",
       "image": "https://johnvexcoder.github.io/social/johnvex-winops.jpg",
@@ -188,7 +188,7 @@
     },
     {
       "route": "/work/jnglo/",
-      "title": "J&GLO — Streetwear storefront demo | J0hnvexcoder",
+      "title": "J&GLO — Next.js fashion storefront demo | J0hnvexcoder",
       "description": "J&GLO demonstrates collection filters, product variants, image galleries and a locally saved shopping bag in a fictional Next.js fashion storefront.",
       "canonical": "https://johnvexcoder.github.io/work/jnglo/",
       "image": "https://johnvexcoder.github.io/social/jnglo.jpg",
@@ -196,7 +196,7 @@
     },
     {
       "route": "/work/arkosenyo/",
-      "title": "ARKOSENYO — Client architecture website | J0hnvexcoder",
+      "title": "ARKOSENYO — Client architecture website development | J0hnvexcoder",
       "description": "ARKOSENYO is a client architecture website project with service pages, project search, filters and galleries. Explore the implemented website demonstration.",
       "canonical": "https://johnvexcoder.github.io/work/arkosenyo/",
       "image": "https://johnvexcoder.github.io/social/arkosenyo.jpg",
@@ -204,7 +204,7 @@
     },
     {
       "route": "/work/taitechmarine/",
-      "title": "TAITECH Marine — Client marine website redesign | J0hnvexcoder",
+      "title": "TAITECH Marine — Client marine equipment website | J0hnvexcoder",
       "description": "TAITECH Marine is a client website redesign with equipment browsing, service details, galleries and a conditional request preview. View the implementation.",
       "canonical": "https://johnvexcoder.github.io/work/taitechmarine/",
       "image": "https://johnvexcoder.github.io/social/taitechmarine.jpg",
@@ -212,7 +212,7 @@
     },
     {
       "route": "/work/shoesonthego/",
-      "title": "Shoes on the Go — Interactive 3D footwear showcase | J0hnvexcoder",
+      "title": "Shoes on the Go — Interactive 3D product showcase | J0hnvexcoder",
       "description": "Shoes on the Go combines scroll-directed scenes, model rotation, camera presets and material variants using Three.js, React Three Fiber and GSAP.",
       "canonical": "https://johnvexcoder.github.io/work/shoesonthego/",
       "image": "https://johnvexcoder.github.io/social/shoesonthego.jpg",
@@ -220,7 +220,7 @@
     },
     {
       "route": "/work/archeon/",
-      "title": "ARCHÉON — Interactive 3D architecture demo | J0hnvexcoder",
+      "title": "ARCHÉON — Interactive 3D architecture visualization | J0hnvexcoder",
       "description": "ARCHÉON presents an original house concept through nine construction stages, floor plans, camera controls and material choices. Briefs download locally.",
       "canonical": "https://johnvexcoder.github.io/work/archeon/",
       "image": "https://johnvexcoder.github.io/social/archeon.jpg",

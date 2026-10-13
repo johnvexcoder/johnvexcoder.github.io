@@ -1,3 +1,5 @@
+> Current-source update, 13 October 2026: this is the historical Services implementation review. The v2.1.0 baseline is now deployed and the authoritative source is `/home/j0hn/Projects/My-Portfolio-v2`. Current refinements and acceptance evidence are recorded in the owner’s local consolidation review, which is intentionally excluded from publication.
+
 # Local implementation review — October 13, 2026
 
 Ready for local review. No commit, push, or deployment has been performed. The current production site has not been changed by this task.

@@ -67,14 +67,14 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <p>
-            I’m John Angelo De Joya (J0hnvexcoder), a freelance web developer in
-            Bulacan, Philippines. I build practical software and the systems
-            that give it a home.
+            I’m John Angelo De Joya (J0hnvexcoder), an independent freelance web
+            developer based in Bulacan, Philippines. I build business websites,
+            professional portfolios and custom web applications.
           </p>
           <p>
-            My work spans web development in the Philippines, automation, and
-            Linux infrastructure — from the first interaction to the last
-            server.
+            I also improve existing websites through redesign and technical SEO.
+            My work connects the interface with the systems behind it, including
+            automation and Linux infrastructure.
           </p>
           <a className="text-link" href="#about">
             Meet the person behind the work <span aria-hidden="true">→</span>

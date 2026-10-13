@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import { projects, actions, isDemoAction } from "@/lib/content";
 import { caseStudy } from "@/lib/case-studies";
+import { servicePages } from "@/lib/services";
 import Preview from "@/components/Preview";
 import {
   absoluteUrl,
@@ -175,28 +176,12 @@ export default async function Work({
         <div>
           <section>
             <p className="eyebrow">01 / THE PROBLEM</p>
-            <h2>
-              {story.layout === "system"
-                ? "The operational challenge."
-                : story.layout === "interactive"
-                  ? "The interaction challenge."
-                  : story.layout === "compact"
-                    ? "A focused problem."
-                    : "The challenge."}
-            </h2>
+            <h2>{story.problemHeading}</h2>
             <p>{story.problem}</p>
           </section>
           <section>
             <p className="eyebrow">02 / ENGINEERING DECISIONS</p>
-            <h2>
-              {story.layout === "interactive"
-                ? "Motion with a purpose."
-                : story.layout === "system"
-                  ? "The architecture behind it."
-                  : story.layout === "compact"
-                    ? "A practical approach."
-                    : "The development approach."}
-            </h2>
+            <h2>{story.decisionHeading}</h2>
             <p>{story.approach}</p>
             <p>{story.decisions}</p>
           </section>
@@ -250,7 +235,11 @@ export default async function Work({
               ))}
             </ul>
             <Link className="text-link" href={`/services/${story.service}/`}>
-              Explore the related service{" "}
+              Explore{" "}
+              {
+                servicePages.find((service) => service.id === story.service)!
+                  .name
+              }{" "}
               <ArrowUpRight size={12} aria-hidden="true" />
             </Link>
           </nav>

@@ -2,43 +2,43 @@
   {
     "id": "business-websites",
     "route": "/services/business-websites/",
-    "name": "Business Website Development & Redesign",
-    "title": "Business Websites & Redesign | J0hnvexcoder",
-    "summary": "Help customers understand your business, find what they need and take the next step. I build new sites and improve existing ones."
+    "name": "Business Website Development and Redesign",
+    "title": "Business Website Development Philippines | J0hnvexcoder",
+    "summary": "I build responsive company websites and redesign existing sites around clear services, useful content and an accessible contact path."
   },
   {
     "id": "technical-seo",
     "route": "/services/technical-seo/",
-    "name": "Technical SEO & Website Optimization",
-    "title": "Technical SEO & Website Optimization | J0hnvexcoder",
-    "summary": "Make useful content easier to discover and the website easier to use. I inspect the published pages and code, then address demonstrated technical problems."
+    "name": "Technical SEO and Website Optimization",
+    "title": "Technical SEO Services Philippines | J0hnvexcoder",
+    "summary": "I review how your website is discovered and loaded, then address crawlability, metadata and performance issues backed by actual findings."
   },
   {
     "id": "cms-solutions",
     "route": "/services/cms-solutions/",
-    "name": "CMS & Content Management Systems",
-    "title": "CMS & Content Management Systems | J0hnvexcoder",
-    "summary": "Keep content updates manageable. I define the editing workflow, permissions and records your business actually needs."
+    "name": "Custom CMS Development",
+    "title": "Custom CMS Development Philippines | J0hnvexcoder",
+    "summary": "I build content editing and administration tools around the pages, images and records your business needs to manage."
   },
   {
     "id": "portfolio-websites",
     "route": "/services/portfolio-websites/",
     "name": "Professional Portfolio Website Development",
-    "title": "Professional Portfolio Websites | J0hnvexcoder",
-    "summary": "Give your work the context it deserves. I connect professional identity, selected projects and a clear contact path."
+    "title": "Portfolio Website Development Philippines | J0hnvexcoder",
+    "summary": "I create professional portfolio websites that connect your experience, projects and achievements with a clear way to contact you."
   },
   {
     "id": "booking-systems",
     "route": "/services/booking-systems/",
-    "name": "Booking & Reservation Systems",
-    "title": "Booking & Reservation Systems | J0hnvexcoder",
-    "summary": "Make requests clear and confirmations accurate. I scope the workflow around how your business manages availability."
+    "name": "Booking and Reservation Systems",
+    "title": "Booking System Development Philippines | J0hnvexcoder",
+    "summary": "I develop reservation-request or booking workflows around your availability, confirmation and administration requirements."
   },
   {
     "id": "custom-solutions",
     "route": "/services/custom-solutions/",
-    "name": "Custom Web Applications & Tailored Business Solutions",
-    "title": "Custom Web Applications & Solutions | J0hnvexcoder",
-    "summary": "Turn a specific workflow into useful software. I establish feasibility, integrations and a practical acceptance plan first."
+    "name": "Custom Web Applications and Business Solutions",
+    "title": "Custom Web Applications Philippines | J0hnvexcoder",
+    "summary": "I build focused web applications for specific workflows, data and interactions, with feasibility and support agreed before development."
   }
 ]
