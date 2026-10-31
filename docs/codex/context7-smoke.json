@@ -1,0 +1,106 @@
+{
+  "checkedAt": "2026-10-31T17:12:51.515Z",
+  "server": {
+    "name": "Context7",
+    "title": "Context7",
+    "icons": [
+      {
+        "src": "https://context7.com/context7-icon-green.svg",
+        "mimeType": "image/svg+xml",
+        "sizes": [
+          "any"
+        ]
+      },
+      {
+        "src": "https://context7.com/context7-icon-green.png",
+        "mimeType": "image/png",
+        "sizes": [
+          "512x512"
+        ]
+      }
+    ],
+    "version": "4.4.3",
+    "websiteUrl": "https://context7.com",
+    "description": "Context7 provides up-to-date documentation and code examples for libraries and frameworks."
+  },
+  "tools": [
+    {
+      "name": "resolve-library-id",
+      "title": "Resolve Context7 Library ID",
+      "description": "Resolves a package/product name to a Context7-compatible library ID and returns matching libraries.\n\nYou MUST call this function before 'Query Documentation' tool to obtain a valid Context7-compatible library ID UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query.\n\nEach result includes:\n- Library ID: Context7-compatible identifier (format: /org/project)\n- Name: Library or package name\n- Description: Short summary\n- Code Snippets: Number of available code examples\n- Source Reputation: Authority indicator (High, Medium, Low, or Unknown)\n- Benchmark Score: Quality indicator (100 is the highest score)\n- Versions: List of versions if available. Use one of those versions if the user provides a version in their query. The format of the version is /org/project/version.\n\nFor best results, select libraries based on name match, source reputation, snippet coverage, benchmark score, and relevance to your use case.\n\nSelection Process:\n1. Analyze the query to understand what library/package the user is looking for\n2. Return the most relevant match based on:\n- Name similarity to the query (exact matches prioritized)\n- Description relevance to the query's intent\n- Documentation coverage (prioritize libraries with higher Code Snippet counts)\n- Source reputation (consider libraries with High or Medium reputation more authoritative)\n- Benchmark Score: Quality indicator (100 is the highest score)\n\nResponse Format:\n- Return the selected library ID in a clearly marked section\n- Provide a brief explanation for why this library was chosen\n- If multiple good matches exist, acknowledge this but proceed with the most relevant one\n- If no good matches exist, clearly state this and suggest query refinements\n\nFor ambiguous queries, request clarification before proceeding with a best-guess match.\n\nIMPORTANT: Do not call this tool more than 3 times per question. If you cannot find what you need after 3 calls, use the best result you have.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "What to look up in the library's documentation. This is used to rank library results by relevance to what the user is trying to accomplish. The query is sent to the Context7 API for processing. Do not include any sensitive or confidential information such as API keys, passwords, credentials, personal data, or proprietary code in your query."
+          },
+          "libraryName": {
+            "type": "string",
+            "description": "Library name to search for and retrieve a Context7-compatible library ID. Use the official library name with proper punctuation — e.g., 'Next.js' instead of 'nextjs', 'Customer.io' instead of 'customerio', 'Three.js' instead of 'threejs'."
+          }
+        },
+        "required": [
+          "query",
+          "libraryName"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "query-docs",
+      "title": "Query Documentation",
+      "description": "Retrieves and queries up-to-date documentation and code examples from Context7 for any programming library or framework.\n\nYou must call 'Resolve Context7 Library ID' tool first to obtain the exact Context7-compatible library ID required to use this tool, UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query.\n\nDo not call this tool more than 3 times per question.\n\nIf you know the programming language the user is working in, pass it as `language` so the results match their setup.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "libraryId": {
+            "type": "string",
+            "description": "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase', '/vercel/next.js/v16.2.9') retrieved from 'resolve-library-id' or directly from user query in the format '/org/project' or '/org/project/version'."
+          },
+          "query": {
+            "type": "string",
+            "description": "What to look up in the library's documentation, scoped to a single concept. Be specific and include relevant details, but keep each query to one topic — if the user's question spans multiple distinct concepts, make a separate call per concept instead of combining them, unless the question is about how the concepts interact. Good: 'How to set up authentication with JWT in Express.js' or 'React useEffect cleanup function examples'. Bad (too vague): 'auth' or 'hooks'. Bad (too broad): 'routing and auth and caching in Next.js'. The query is sent to the Context7 API for processing. Do not include any sensitive or confidential information such as API keys, passwords, credentials, personal data, or proprietary code in your query."
+          },
+          "language": {
+            "description": "Programming language the user is writing code in, such as 'Python', 'TypeScript', 'Go', or 'C#'. Ranks code examples in that language first. Leave it out when the language is unknown or does not apply.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "libraryId",
+          "query"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    }
+  ],
+  "resolve": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Available Libraries:\n\n- Title: Next.js\n- Context7-compatible library ID: /vercel/next.js\n- Description: Next.js enables you to create full-stack web applications by extending the latest React features and integrating powerful Rust-based JavaScript tooling for the fastest builds.\n- Code Snippets: 6602\n- Source Reputation: High\n- Benchmark Score: 79.33\n- Versions: v14.3.0-canary.87, v13.5.11, v15.1.8, v15.4.0-canary.82, v12.3.7, v11.1.3, v16.0.3, __branch__01-02-copy_58398, v16.1.0, v16.1.1, v15.1.11, v16.1.5, v16.1.6, v16.2.2, __branch__15-6-0-canary-57, v16.2.9\n----------\n- Title: Next.js\n- Context7-compatible library ID: /websites/nextjs\n- Description: Next.js is a React framework for building full-stack web applications. It provides additional features and optimizations, automatically configuring lower-level tools to help developers focus on building products quickly.\n- Code Snippets: 6876\n- Source Reputation: High\n- Benchmark Score: 75.45\n- Versions: 15\n----------\n- Title: Next.js (Deepwiki)\n- Context7-compatible library ID: /websites/deepwiki_vercel_next_js\n- Description: Next.js is an open-source React framework that enables developers to build full-stack web applications with server-side rendering, static site generation, and modern routing.\n- Code Snippets: 734\n- Source Reputation: High\n- Benchmark Score: 29.69\n----------\n- Title: Learn Next.js\n- Context7-compatible library ID: /vercel/next-learn\n- Description: A comprehensive collection of starter templates and final code examples for Next.js learning courses, covering App Router, data fetching, databases, authentication, basics, TypeScript, and SEO.\n- Code Snippets: 265\n- Source Reputation: High\n- Benchmark Score: 69.75\n----------\n- Title: Next.js Commerce\n- Context7-compatible library ID: /vercel/commerce\n- Description: A high-performance, server-rendered Next.js App Router ecommerce application template utilizing React Server Components, Server Actions, and other modern Next.js features.\n- Code Snippets: 427\n- Source Reputation: High\n- Benchmark Score: 69.37"
+      }
+    ]
+  },
+  "documentation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "### Generate programmatic sitemap in app/sitemap.(js|ts)\n\nSource: https://github.com/vercel/next.js/blob/canary/docs/01-app/03-api-reference/03-file-conventions/01-metadata/sitemap.mdx\n\nExport a default function returning an array of URLs to programmatically generate a sitemap. By default, sitemap Route Handlers are cached unless using request-time APIs or dynamic configuration options.\n\n```typescript\nimport type { MetadataRoute } from 'next'\n\nexport default function sitemap(): MetadataRoute.Sitemap {\n  return [\n    {\n      url: 'https://acme.com',\n      lastModified: new Date(),\n      changeFrequency: 'yearly',\n      priority: 1,\n    },\n    {\n      url: 'https://acme.com/about',\n      lastModified: new Date(),\n      changeFrequency: 'monthly',\n      priority: 0.8,\n    },\n    {\n      url: 'https://acme.com/blog',\n      lastModified: new Date(),\n      changeFrequency: 'weekly',\n      priority: 0.5,\n    },\n  ]\n}\n```\n\n```javascript\nexport default function sitemap() {\n  return [\n    {\n      url: 'https://acme.com',\n      lastModified: new Date(),\n      changeFrequency: 'yearly',\n      priority: 1,\n    },\n    {\n      url: 'https://acme.com/about',\n      lastModified: new Date(),\n      changeFrequency: 'monthly',\n      priority: 0.8,\n    },\n    {\n      url: 'https://acme.com/blog',\n      lastModified: new Date(),\n      changeFrequency: 'weekly',\n      priority: 0.5,\n    },\n  ]\n}\n```\n\n```xml\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url>\n    <loc>https://acme.com</loc>\n    <lastmod>2023-04-06T15:02:24.021Z</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>1</priority>\n  </url>\n  <url>\n    <loc>https://acme.com/about</loc>\n    <lastmod>2023-04-06T15:02:24.021Z</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  <url>\n    <loc>https://acme.com/blog</loc>\n    <lastmod>2023-04-06T15:02:24.021Z</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>\n</urlset>\n```\n\n--------------------------------\n\n### App Route Handler static export logic\n\nSource: https://github.com/vercel/next.js/blob/canary/packages/next/src/export/index.ts\n\nDuring static export, app route handlers are exported as raw `.body` files (the handler's response body) rather than as `.html` files. The `isAppRouteHandler` check determines whether a route is an app route handler. If so, its `.body` file is copied directly to the output path and the function returns early — skipping the standard `.html` file export that non-handler pages use.\n\n```typescript\nconst isAppRouteHandler = appPageName && isAppRouteRoute(appPageName)\n\n// ...\n\nconst handlerSrc = `${orig}.body`\nconst handlerDest = join(outDir, route)\n\nif (isAppRouteHandler && existsSync(handlerSrc)) {\n  await fs.mkdir(dirname(handlerDest), { recursive: true })\n  await fs.copyFile(handlerSrc, handlerDest)\n  return\n}\n\n// Non-handler pages are exported as .html:\nconst htmlDest = join(\n  outDir,\n  `${route}${\n    subFolders && route !== '/index' ? `${sep}index` : ''\n  }.html`\n)\n// ...\nconst htmlSrc = `${orig}.html`\nawait fs.copyFile(htmlSrc, htmlDest)\n```\n\n--------------------------------\n\n### Caveats > `export` mode\n\nSource: https://github.com/vercel/next.js/blob/canary/docs/01-app/02-guides/backend-for-frontend.mdx\n\n`export` mode outputs a static site without a runtime server. Features that require the Next.js runtime are [not supported](/docs/app/guides/static-exports#unsupported-features), because this mode produces a static site, and no runtime server.\n\nIn `export mode`, only `GET` Route Handlers are supported, in combination with the [`dynamic`](/docs/app/guides/caching-without-cache-components#dynamic) route segment config, set to `'force-static'`.\n\nThis can be used to generate static HTML, JSON, TXT, or other files.\n\n--------------------------------\n\n### Create a static GET Route Handler with force-static in export mode\n\nSource: https://github.com/vercel/next.js/blob/canary/docs/01-app/02-guides/backend-for-frontend.mdx\n\nIn `export` mode, only `GET` Route Handlers are supported, combined with the `dynamic` route segment config set to `'force-static'`. This can generate static HTML, JSON, TXT, or other files.\n\n```typescript\nexport const dynamic = 'force-static'\n\nexport function GET() {\n  return new Response('Hello World', { status: 200 })\n}\n```\n\n--------------------------------\n\n### Supported Features > Route Handlers\n\nSource: https://github.com/vercel/next.js/blob/canary/docs/01-app/02-guides/static-exports.mdx\n\nRoute Handlers will render a static response when running `next build`. Only the `GET` HTTP verb is supported. This can be used to generate static HTML, JSON, TXT, or other files from cached or uncached data. To ensure Route Handlers are prerendered, you must explicitly mark the handler as static by adding `export const dynamic = 'force-static'` when a static export is enabled. For example:\n\nThe above file `app/data.json/route.ts` will render to a static file during `next build`, producing `data.json` containing `{ name: 'Lee' }`.\n\nIf you need to read dynamic values from the incoming request, you cannot use a static export."
+      }
+    ]
+  }
+}

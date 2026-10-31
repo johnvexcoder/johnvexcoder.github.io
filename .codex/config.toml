@@ -7,3 +7,10 @@ startup_timeout_sec = 30
 command = "npx"
 args = ["-y", "@playwright/mcp@0.0.83", "--headless", "--isolated"]
 startup_timeout_sec = 60
+
+# Isolated performance diagnostics; no usage statistics or CrUX requests.
+[mcp_servers.chrome_devtools]
+command = "node"
+args = ["/home/j0hn/Projects/My-Portfolio-v2/.codex/tools/node_modules/chrome-devtools-mcp/build/src/bin/chrome-devtools-mcp.js", "--headless", "--isolated", "--executablePath", "/home/j0hn/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome", "--no-usage-statistics", "--no-performance-crux", "--memoryDebugging"]
+startup_timeout_sec = 60
+tool_timeout_sec = 120

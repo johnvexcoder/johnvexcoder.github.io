@@ -1,4 +1,3 @@
-"use client";
 import {
   ArrowUpRight,
   Code2,
@@ -11,7 +10,6 @@ import {
 import { profile, skills, tagline } from "@/lib/content";
 import Link from "next/link";
 import services from "@/content/service-routes.json";
-import { track } from "@/lib/analytics";
 import Reveal from "./Reveal";
 import SkillIcon from "./SkillIcon";
 const serviceIcons = [Code2, Search, Layers, UserRound, CalendarDays, Workflow];
@@ -146,16 +144,10 @@ export function Services() {
                 </Link>
                 <a
                   className="text-link"
-                  href="#contact"
-                  onClick={() => {
-                    window.dispatchEvent(
-                      new CustomEvent("portfolio-enquiry", { detail: id }),
-                    );
-                    track("service_enquiry", {
-                      service: enquiry,
-                      location: "services",
-                    });
-                  }}
+                  href={`/contact/?service=${id}`}
+                  data-ga-event="service_enquiry"
+                  data-ga-service={enquiry}
+                  data-ga-location="services"
                 >
                   Discuss your project
                   <ArrowUpRight size={15} />

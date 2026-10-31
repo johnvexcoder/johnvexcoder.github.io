@@ -31,18 +31,17 @@ export default function ServicesPage() {
       />
       <header className="services-hero">
         <div>
-          <p className="eyebrow">J0HNVEXCODER / INDEPENDENT DEVELOPMENT</p>
-          <h1>
-            Services <span>and Solutions.</span>
-          </h1>
+          <h1>Services and solutions.</h1>
           <p className="services-lead">{main.headline}</p>
           <p>{main.intro}</p>
-          <Link className="button primary" href="/#contact">
+          <Link className="button primary" href="/contact/">
             Discuss Your Project <ArrowUpRight size={16} />
           </Link>
         </div>
         <div className="services-hero-proof">
-          <span className="eyebrow">SELECTED PERSONAL PROJECT / ARCHÉON</span>
+          <span className="service-proof-label">
+            Personal project · ARCHÉON
+          </span>
           <Link
             href="/work/archeon/"
             aria-label="Explore the ARCHÉON architecture visualization case study"
@@ -69,12 +68,7 @@ export default function ServicesPage() {
       </header>
       <section className="service-offerings" aria-labelledby="service-areas">
         <div className="service-section-title">
-          <p className="eyebrow">01 / SERVICES</p>
-          <h2 id="service-areas">
-            The right scope.
-            <br />
-            <span>For the actual problem.</span>
-          </h2>
+          <h2 id="service-areas">Built around the actual problem.</h2>
           <p>{main.scopeNote}</p>
         </div>
         <div className="service-grid">
@@ -82,10 +76,11 @@ export default function ServicesPage() {
             const Icon = icons[i];
             return (
               <Link key={page.id} className="service-card" href={page.route}>
-                <div className="service-card-top">
-                  <span className="eyebrow">0{i + 1}</span>
-                  <Icon size={23} aria-hidden="true" />
-                </div>
+                <Icon
+                  className="service-ledger-icon"
+                  size={22}
+                  aria-hidden="true"
+                />
                 <h3>{page.name}</h3>
                 <p>{page.summary}</p>
                 <span className="text-link">
@@ -101,7 +96,6 @@ export default function ServicesPage() {
         evidence="Two confirmed client websites and an original personal 3D demonstration. I explain what each project implements, how it works and which integrations are not verified."
       />
       <section className="service-process">
-        <p className="eyebrow">02 / THE PROCESS</p>
         <h2>Define it before building it.</h2>
         <div>
           {[
@@ -121,9 +115,8 @@ export default function ServicesPage() {
               "Plan the handover",
               "Clarify deployment, content editing and any agreed care, with working and unfinished functionality recorded clearly.",
             ],
-          ].map(([title, copy], i) => (
+          ].map(([title, copy]) => (
             <div key={title}>
-              <span className="eyebrow">0{i + 1}</span>
               <h3>{title}</h3>
               <p>{copy}</p>
             </div>
@@ -131,7 +124,6 @@ export default function ServicesPage() {
         </div>
       </section>
       <section id="website-care" className="service-care">
-        <p className="eyebrow">03 / AFTER LAUNCH</p>
         <h2>{care.name}</h2>
         <p>{care.copy}</p>
         <p>{care.boundary}</p>
@@ -142,7 +134,6 @@ export default function ServicesPage() {
         />
       </section>
       <section className="service-faq">
-        <p className="eyebrow">04 / BEFORE WE START</p>
         <h2>A few useful distinctions.</h2>
         {[
           [

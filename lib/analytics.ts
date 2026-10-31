@@ -45,6 +45,7 @@ export function safeReferrer(value: string) {
   }
 }
 const enums: Record<string, Set<string>> = {
+  form_source: new Set(["homepage", "contact_page"]),
   action: new Set([
     "Live site",
     "Local demo",
@@ -94,6 +95,7 @@ const eventKeys: Record<string, string[]> = {
   project_demo: ["project", "action", "location"],
   project_reference: ["project", "action", "location"],
   project_explore: ["project", "action", "location"],
+  contact_submission_success: ["form_source"],
   contact_email_click: ["location"],
   contact_social_click: ["network", "location"],
   contact_email_prepare: ["method"],

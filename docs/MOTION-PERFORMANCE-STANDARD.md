@@ -1,0 +1,26 @@
+# Motion standard — 1 November 2026
+
+Preserve native scrolling, focus, browser history, touch and visible initial HTML. The established interface-to-infrastructure story remains; animation serves that story.
+
+| Owner                   | Responsibility                               | Budget/lifecycle                                                                                                                                                                                               |
+| ----------------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CSS hero + NetworkScene | Existing 3.6s first-visit network sequence   | Native SVG path animation owns geometry when supported; phase timers replace polling. Bounded rAF geometry fallback only. Skip/reduced-motion/hidden handling retained.                                        |
+| PremiumPageMotion       | One-shot text, image and editorial entrances | Mostly 260–480ms, cubic-bezier(.22,1,.36,1), short bounded stagger. Observe once; cancel when focused, reduced or unmounted. Register added subtrees, not the whole page after each mutation.                  |
+| SceneMotion             | Ambient visibility plus hero/assembly story  | Batch reads before writes. Quantize/skip unchanged values. No continuous scene variables on ordinary content wrappers. Fine-pointer depth only; small mobile motion. Pause ambient work when hidden/offscreen. |
+| Preview                 | Full screenshot inspection                   | WAAPI transform, measured 42px/s travel with endpoint holds; visible >=25%, pause offscreen/hidden. Native manual scroll, full-size link and persistent explicit/focus holds; reduced motion is manual.        |
+| Project layout          | Pointer category changes                     | Interruptible 220ms FLIP, capture current visible positions before cancel. Search/keyboard/reset and reduced-motion changes are immediate; no entrance animation on returning archive rows.                    |
+| CSS controls            | Hover, press, focus, inputs                  | 150–220ms ordinary feedback; capability-gated hover, visible focus. No transition:all or new runtime engine.                                                                                                   |
+
+Use transform/opacity for ordinary entrances. Avoid image-wide clip-path animations and inherited animated variables across large content subtrees. Keep intentional bounded FAQ height expansion as a direct interaction; it is not automatically a scroll defect.
+
+Verification: capture comparable Chrome traces and separate load/scroll evidence. Record browser, viewport, CPU/network settings and exact workflow. Count style/layout/long tasks on the page's renderer thread; nested trace durations overlap. Instrumented rAF gaps are not compositor FPS or field INP. Compare equivalent navigation states for memory; retained router/cache data is not by itself a leak.
+
+Test all six target viewport widths, normal/reduced motion, search/fast filter interruption, direction reversal, history, repeated navigation, offscreen previews, hidden documents and native touch controls. Use physical-device profiling when available; desktop emulation does not establish mobile GPU/keyboard/Safari behavior. Do not add GSAP/ScrollTrigger unless a demonstrated timeline requirement justifies it, and then scope/revert it with one owner per element.
+
+The refined header uses route state for active primary links. Its obsolete homepage section tracking was removed when the primary navigation changed to standalone pages; the CSS reading-progress indicator retains its native scroll timeline. The About-only PortraitNetwork uses fixed geographic vectors, a bounded30/24fps canvas draw loop and transform-based icon orbits. It stops offscreen/hidden or under reduced motion, with no pause control per the owner’s explicit preference. Still WorkThumbnail images replace automatic pans in the Works directory and service evidence cards. Interactive case-study inspection remains in Preview.
+
+## Measured release evidence
+
+Matched local Lighthouse 13.6 runs (three per device) improved the homepage median Performance score from74 to82 on mobile and retained100 on desktop. Mobile TBT fell from831.5ms to374ms; desktop from58.1ms to7ms. Median mobile LCP was3.61s versus3.09s before, so the2.5s/90+ mobile aims are not claimed achieved. CLS median stayed0. Separate single-page samples measured About92 mobile/100 desktop and Works89 mobile. These are lab samples, not field Core Web Vitals.
+
+Matched4×CPU native-scroll traces improved median instrumented rAF gaps from116.7ms to33.3ms desktop and66.7ms to16.7ms mobile. Final p95 gaps were83.3ms/50ms. These intervals are not compositor FPS; whole traces include load/wait/scroll and nested task durations overlap. In24 repeated actual client navigations, DOM nodes/listeners/document counts remained stable after warmup; a modest retained-heap increase remains and is not a leak-free proof. The delivered report includes raw evidence references and final source/deployment identifiers.

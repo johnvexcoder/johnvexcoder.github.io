@@ -41,6 +41,7 @@ function motionHarness({ reduced = false, available = true } = {}) {
     card = element("card");
   card.parentElement.children = [card];
   const root = {
+    matches: () => false,
     animate: available ? () => {} : undefined,
     querySelector: () => ({ querySelectorAll: () => [label, title] }),
     querySelectorAll: () => [card],
@@ -149,9 +150,16 @@ test("route entrances avoid native view transitions that abort on viewport chang
   const css = fs.readFileSync("app/globals.css", "utf8");
   assert.ok(template.includes('className="route-scene"'));
   assert.ok(template.includes("key={pathname}"));
-  assert.ok(!/(?:import\s*\{\s*ViewTransition|<ViewTransition\b|document\.startViewTransition\(|router\.push|preventDefault)/.test(template));
+  assert.ok(
+    !/(?:import\s*\{\s*ViewTransition|<ViewTransition\b|document\.startViewTransition\(|router\.push|preventDefault)/.test(
+      template,
+    ),
+  );
   assert.match(css, /\.route-scene\s*\{\s*animation:\s*portfolio-route-in/);
   assert.ok(!css.includes("::view-transition-old"));
   assert.ok(!css.includes("::view-transition-new"));
-  assert.match(css, /@media \(prefers-reduced-motion: reduce\)\s*\{\s*\.route-scene\s*\{\s*animation: none/);
+  assert.match(
+    css,
+    /@media \(prefers-reduced-motion: reduce\)\s*\{\s*\.route-scene\s*\{\s*animation: none/,
+  );
 });

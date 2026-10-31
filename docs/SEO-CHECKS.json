@@ -1,19 +1,19 @@
 {
-  "checkedAt": "2026-10-31T10:40:29.192Z",
+  "checkedAt": "2026-10-31T21:08:40.651Z",
   "origin": "https://johnvexcoder.github.io",
   "indexingMode": "production",
-  "pages": 33,
-  "sitemapUrls": 33,
+  "pages": 36,
+  "sitemapUrls": 36,
   "imageSitemap": true,
-  "internalLinks": 1376,
-  "fragments": 935,
-  "imageCount": 103,
-  "schemaCount": 131,
+  "internalLinks": 1672,
+  "fragments": 617,
+  "imageCount": 165,
+  "schemaCount": 140,
   "checks": [
     {
       "route": "/",
-      "title": "J0hnvexcoder | Freelance Web Developer in Bulacan",
-      "description": "John Angelo De Joya (J0hnvexcoder), independent freelance web developer in Bulacan, Philippines. Business websites, portfolios, custom apps and technical SEO.",
+      "title": "Freelance Web Developer Philippines | J0hnvexcoder",
+      "description": "Philippines-based freelance web developer for business websites, React and Next.js applications, technical SEO and remote collaboration. John Angelo De Joya.",
       "canonical": "https://johnvexcoder.github.io/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
@@ -23,6 +23,30 @@
       "title": "Web Development Services in the Philippines | J0hnvexcoder",
       "description": "Web development services by John Angelo De Joya, a freelance developer in Bulacan, Philippines. Business websites, technical SEO, custom CMS and applications.",
       "canonical": "https://johnvexcoder.github.io/services/",
+      "image": "https://johnvexcoder.github.io/social.png",
+      "indexable": true
+    },
+    {
+      "route": "/about/",
+      "title": "About John Angelo De Joya — Developer in the Philippines | J0hnvexcoder",
+      "description": "Meet John Angelo De Joya, the Philippines-based developer behind J0hnvexcoder. Explore his web development experience, engineering approach and Linux practice.",
+      "canonical": "https://johnvexcoder.github.io/about/",
+      "image": "https://johnvexcoder.github.io/social.png",
+      "indexable": true
+    },
+    {
+      "route": "/work/",
+      "title": "Web Development Projects and Case Studies — J0hnvexcoder",
+      "description": "Explore 25 J0hnvexcoder projects: client websites, independent software, Linux tools and demonstration concepts, with genuine screenshots and documented scope.",
+      "canonical": "https://johnvexcoder.github.io/work/",
+      "image": "https://johnvexcoder.github.io/social.png",
+      "indexable": true
+    },
+    {
+      "route": "/contact/",
+      "title": "Contact J0hnvexcoder — Discuss Your Web Development Project",
+      "description": "Discuss a business website, redesign, technical SEO or custom application with Philippines-based developer John Angelo De Joya. Remote inquiries are welcome.",
+      "canonical": "https://johnvexcoder.github.io/contact/",
       "image": "https://johnvexcoder.github.io/social.png",
       "indexable": true
     },

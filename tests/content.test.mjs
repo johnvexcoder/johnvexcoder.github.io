@@ -92,7 +92,7 @@ test("assets referenced by projects, reviews, fonts and résumé exist", () => {
   for (const r of read("content/testimonials.json"))
     assert.ok(fs.existsSync("public" + r.avatar));
   for (const f of [
-    "public/resume.pdf",
+    `public/${read("content/resume.json").fileName}`,
     "public/social.png",
     "public/fonts/SignatureSans.woff2",
     "public/fonts/SignatureMono.woff2",

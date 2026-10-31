@@ -15,7 +15,15 @@ export function serviceMetadata(page: {
   return {
     title: { absolute: page.title },
     description: page.description,
-    alternates: { canonical: page.route },
+    alternates: {
+      canonical: page.route,
+      types: {
+        "text/markdown":
+          page.route === "/services/"
+            ? "/markdown/services.md"
+            : `/markdown/services-${page.route.split("/").filter(Boolean).at(-1)}.md`,
+      },
+    },
     openGraph: {
       title: page.title,
       description: page.description,

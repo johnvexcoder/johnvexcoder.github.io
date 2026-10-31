@@ -10,7 +10,9 @@ export default function PremiumPageMotion({
   const pathname = usePathname();
   useEffect(() => {
     const root = document.querySelector<HTMLElement>(
-      density === "home" ? "#main" : ".services-page, .case-study",
+      density === "home"
+        ? "#main"
+        : ".services-page, .case-study, .editorial-page",
     );
     if (!root || typeof root.animate !== "function") return;
     const preference = matchMedia("(prefers-reduced-motion: reduce)");
@@ -39,10 +41,10 @@ export default function PremiumPageMotion({
         .catch(() => animations.delete(animation));
     };
     const hero = root.querySelector<HTMLElement>(
-      ".services-hero, .service-detail-hero, .case-heading",
+      ".services-hero, .service-detail-hero, .case-heading, .editorial-hero",
     );
     const heroElements = hero?.querySelectorAll<HTMLElement>(
-      ".eyebrow, h1, .services-lead, p:not(.eyebrow):not(.services-lead), .button, .services-hero-proof",
+      ".eyebrow, h1, .services-lead, p:not(.eyebrow):not(.services-lead), .button, .services-hero-proof, .profile-portrait",
     );
     if (heroElements)
       Array.from(heroElements).forEach((element, index) =>
@@ -62,6 +64,14 @@ export default function PremiumPageMotion({
     const seen = new WeakSet<Element>();
     const registered = new WeakSet<Element>();
     const selector = [
+      ".profile-section-heading",
+      ".capability-ledger > section",
+      ".experience-ledger li",
+      ".profile-evidence-grid > a",
+      ".availability-strip",
+      ".consultation-note",
+      ".consultation-form > h2",
+      ".editorial-directory",
       ".service-card",
       ".selected-work-card",
       ".service-section-title",
@@ -86,7 +96,6 @@ export default function PremiumPageMotion({
       ".project-narrative",
       ".preview",
       ".project-symbol",
-      ".archive-project",
       ".archive-toolbar",
       ".collection-heading",
       ".assembly-bridge",
@@ -138,12 +147,10 @@ export default function PremiumPageMotion({
               [
                 {
                   opacity: 0.65,
-                  clipPath: "inset(6% 0 6% 0)",
                   transform: "scale(.975)",
                 },
                 {
                   opacity: 1,
-                  clipPath: "inset(0% 0 0% 0)",
                   transform: "scale(1)",
                 },
               ],
@@ -189,8 +196,8 @@ export default function PremiumPageMotion({
             run(
               element,
               [
-                { opacity: 0.5, clipPath: "inset(0 14% 0 14%)" },
-                { opacity: 1, clipPath: "inset(0 0% 0 0%)" },
+                { opacity: 0.65, transform: "translateY(12px)" },
+                { opacity: 1, transform: "translateY(0)" },
               ],
               520,
             );
@@ -219,16 +226,22 @@ export default function PremiumPageMotion({
       },
       { threshold: 0.08, rootMargin: "0px 0px -24px 0px" },
     );
-    const register = () => {
-      root.querySelectorAll<HTMLElement>(selector).forEach((element) => {
+    const register = (scope: Element) => {
+      const elements = [...scope.querySelectorAll<HTMLElement>(selector)];
+      if (scope.matches(selector)) elements.unshift(scope as HTMLElement);
+      elements.forEach((element) => {
         if (registered.has(element) || element.closest("#home")) return;
         registered.add(element);
         observer.observe(element);
       });
     };
-    register();
-    // Filtered project rows and technical-reader panels can mount after the first pass.
-    const changes = new MutationObserver(register);
+    register(root);
+    // Register only added subtrees; text/count/validation updates require no page rescan.
+    const changes = new MutationObserver((records) => {
+      for (const record of records)
+        for (const node of record.addedNodes)
+          if (node instanceof HTMLElement) register(node);
+    });
     changes.observe(root, { childList: true, subtree: true });
     const footer = document.querySelector<HTMLElement>(".site-footer");
     if (footer) observer.observe(footer);

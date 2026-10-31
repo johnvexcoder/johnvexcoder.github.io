@@ -1,0 +1,282 @@
+[
+  {
+    "repo": "Leonxlnx/taste-skill",
+    "revision": "12af471f627f866411b4bd785b19646d3672784c",
+    "path": "skills/taste-skill",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/taste-skill",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/design-taste-frontend"
+  },
+  {
+    "repo": "vercel-labs/agent-skills",
+    "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+    "path": "skills/react-best-practices",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/react-best-practices",
+    "license": "MIT stated in README/frontmatter",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/react-best-practices"
+  },
+  {
+    "repo": "vercel-labs/agent-skills",
+    "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+    "path": "skills/web-design-guidelines",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/web-design-guidelines",
+    "license": "MIT stated in README/frontmatter",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/web-design-guidelines"
+  },
+  {
+    "repo": "vercel-labs/agent-skills",
+    "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+    "path": "skills/composition-patterns",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/composition-patterns",
+    "license": "MIT stated in README/frontmatter",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/composition-patterns"
+  },
+  {
+    "repo": "emilkowalski/skills",
+    "revision": "a81dbca07f2217b7103e510c0f13f8d5b017afc9",
+    "path": "skills/emil-design-eng",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/emil-design-eng",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/emil-design-eng"
+  },
+  {
+    "repo": "emilkowalski/skills",
+    "revision": "a81dbca07f2217b7103e510c0f13f8d5b017afc9",
+    "path": "skills/improve-animations",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/improve-animations",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/improve-animations"
+  },
+  {
+    "repo": "emilkowalski/skills",
+    "revision": "a81dbca07f2217b7103e510c0f13f8d5b017afc9",
+    "path": "skills/mobile-native",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/mobile-native",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/mobile-native"
+  },
+  {
+    "repo": "coreyhaines31/marketingskills",
+    "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+    "path": "skills/ai-seo",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/ai-seo",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/ai-seo"
+  },
+  {
+    "repo": "coreyhaines31/marketingskills",
+    "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+    "path": "skills/site-architecture",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/site-architecture",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/site-architecture"
+  },
+  {
+    "repo": "coreyhaines31/marketingskills",
+    "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+    "path": "skills/copywriting",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/copywriting",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/copywriting"
+  },
+  {
+    "repo": "coreyhaines31/marketingskills",
+    "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+    "path": "skills/copy-editing",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/copy-editing",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/copy-editing"
+  },
+  {
+    "repo": "coreyhaines31/marketingskills",
+    "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+    "path": "skills/analytics",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/analytics",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/analytics"
+  },
+  {
+    "repo": "gaguero/seo-agent-skills",
+    "revision": "43a9e14a6c7257af3996e158a238ac5968ab7ca5",
+    "path": "seo-quality-gates",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/seo-quality-gates",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-quality-gates"
+  },
+  {
+    "repo": "aeokit-dev/aeokit-skills",
+    "revision": "ad95582dc5a6182960c39b5a27327a7bec68c26b",
+    "path": "skills/aeo-observe",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/skills/aeo-observe",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/aeo-observe"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-audit",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-audit",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-audit"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-technical",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-technical",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-technical"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-page",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-page",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-page"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-sitemap",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-sitemap",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-sitemap"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-schema",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-schema",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-schema"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-images",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-images",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-images"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-content",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-content",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-content"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-geo",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-geo",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-geo"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-hreflang",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-hreflang",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-hreflang"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-google",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-google",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-google"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-cluster",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-cluster",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-cluster"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-sxo",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-sxo",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-sxo"
+  },
+  {
+    "repo": "AgriciDaniel/codex-seo",
+    "revision": "b9dd5c8fab722c7610184927a902ca689165d322",
+    "path": "plugins/ai-marketing-hub-seo/skills/seo-drift",
+    "staged": "/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/skills-staging/seo-package/skills/seo-drift",
+    "license": "MIT",
+    "scope": "project",
+    "status": "installed; readable; shared package layout preserved",
+    "installed_path": "/home/j0hn/Projects/My-Portfolio-v2/.agents/skills/seo-drift"
+  }
+]

@@ -1,10 +1,10 @@
 {
-  "routes": 34,
+  "routes": 37,
   "gaTagReferences": 0,
-  "localReferences": 1160,
-  "scriptFilesAcrossHomeAndCases": 15,
-  "totalScriptBytes": 813096,
-  "totalScriptGzipBytes": 247829,
+  "localReferences": 1930,
+  "scriptFilesAcrossHomeAndCases": 19,
+  "totalScriptBytes": 894339,
+  "totalScriptGzipBytes": 281010,
   "note": "Union of scripts referenced by all exported pages, not a Lighthouse score or one-page network measurement.",
   "scripts": [
     {
@@ -33,14 +33,14 @@
       "gzipBytes": 3514
     },
     {
-      "url": "/_next/static/chunks/39dwlei5sgcri.js",
-      "bytes": 66399,
-      "gzipBytes": 20125
+      "url": "/_next/static/chunks/1r2cab4tqpoj8.js",
+      "bytes": 69345,
+      "gzipBytes": 20999
     },
     {
-      "url": "/_next/static/chunks/3i671xy5h2ow-.js",
-      "bytes": 50897,
-      "gzipBytes": 15431
+      "url": "/_next/static/chunks/1okyfen-jz5p_.js",
+      "bytes": 51236,
+      "gzipBytes": 15708
     },
     {
       "url": "/_next/static/chunks/27azkg1dg9n1k.js",
@@ -53,14 +53,19 @@
       "gzipBytes": 1892
     },
     {
-      "url": "/_next/static/chunks/3otblcyeyla9g.js",
-      "bytes": 24552,
-      "gzipBytes": 6802
+      "url": "/_next/static/chunks/1-glbjn1zhbf0.js",
+      "bytes": 215,
+      "gzipBytes": 198
     },
     {
-      "url": "/_next/static/chunks/3cwdij_rz8wmm.js",
-      "bytes": 56828,
-      "gzipBytes": 17309
+      "url": "/_next/static/chunks/32orgzmfniieo.js",
+      "bytes": 42914,
+      "gzipBytes": 14262
+    },
+    {
+      "url": "/_next/static/chunks/0ayq0195ahw6m.js",
+      "bytes": 36588,
+      "gzipBytes": 8760
     },
     {
       "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
@@ -73,14 +78,29 @@
       "gzipBytes": 3702
     },
     {
-      "url": "/_next/static/chunks/3v8alm43ggrjc.js",
-      "bytes": 20257,
-      "gzipBytes": 5399
+      "url": "/_next/static/chunks/0uakoxm36woyz.js",
+      "bytes": 5236,
+      "gzipBytes": 2088
     },
     {
-      "url": "/_next/static/chunks/01e715ogt17h6.js",
-      "bytes": 19850,
-      "gzipBytes": 5229
+      "url": "/_next/static/chunks/3hp1syw1thcfr.js",
+      "bytes": 29476,
+      "gzipBytes": 11345
+    },
+    {
+      "url": "/_next/static/chunks/3-8moqvnmwqz4.js",
+      "bytes": 24354,
+      "gzipBytes": 9486
+    },
+    {
+      "url": "/_next/static/chunks/2wpnjnx15x7pg.js",
+      "bytes": 40482,
+      "gzipBytes": 15276
+    },
+    {
+      "url": "/_next/static/chunks/3_7gxv7sp9al2.js",
+      "bytes": 20180,
+      "gzipBytes": 5354
     }
   ]
 }

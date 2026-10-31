@@ -1,4 +1,3 @@
-"use client";
 import type { ReactNode } from "react";
 /** The page coordinator owns one-shot reveals; server-rendered content is always visible. */
 export default function Reveal({

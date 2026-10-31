@@ -1,0 +1,52 @@
+[
+  {
+    "id": "home",
+    "route": "/",
+    "name": "Home",
+    "title": "Freelance Web Developer Philippines | J0hnvexcoder",
+    "description": "Philippines-based freelance web developer for business websites, React and Next.js applications, technical SEO and remote collaboration. John Angelo De Joya.",
+    "heading": "From interface to infrastructure.",
+    "paragraphs": [
+      "John Angelo De Joya (J0hnvexcoder) is an independent freelance web developer based in Bulacan, Philippines, available for remote projects in the Philippines and internationally.",
+      "Business websites, professional portfolios, custom web applications, technical SEO, Linux infrastructure and automation connect the interface with the systems behind it."
+    ]
+  },
+  {
+    "id": "about",
+    "route": "/about/",
+    "name": "About",
+    "title": "About John Angelo De Joya — Developer in the Philippines",
+    "description": "Meet John Angelo De Joya, the Philippines-based developer behind J0hnvexcoder. Explore his web development experience, engineering approach and Linux practice.",
+    "heading": "The person behind the systems.",
+    "paragraphs": [
+      "I’m John Angelo De Joya, also known as J0hnvexcoder. I build websites and software from Bulacan, Philippines, with a practical interest in what happens beyond the interface.",
+      "My work spans responsive frontend development, custom applications, Python automation and hands-on Linux infrastructure. I connect those skills around the actual problem rather than selecting tools for their own sake.",
+      "Client delivery and independent projects inform each other. Contract web development taught me to work to a scope and timeline; my self-hosted environment gives me space to investigate deployment, networking, storage and monitoring.",
+      "I’m available for remote freelance projects and technical roles. I can discuss collaboration with teams in the Philippines, the United States, Australia, the United Kingdom, Singapore and other markets. I’m based in the Philippines; these are collaboration locations, not offices."
+    ]
+  },
+  {
+    "id": "work",
+    "route": "/work/",
+    "name": "Works",
+    "title": "Web Development Projects and Case Studies — J0hnvexcoder",
+    "description": "Explore 25 J0hnvexcoder projects: client websites, independent software, Linux tools and demonstration concepts, with genuine screenshots and documented scope.",
+    "heading": "The work is the evidence.",
+    "paragraphs": [
+      "Client websites, independent software and self-hosted tools. Real screenshots, engineering context and clear project scope.",
+      "Filter by category or search the complete collection. Project classifications distinguish client work from independent products and demonstrations; concept interfaces are not presented as commissioned client results."
+    ]
+  },
+  {
+    "id": "contact",
+    "route": "/contact/",
+    "name": "Contact",
+    "title": "Contact J0hnvexcoder — Discuss Your Web Development Project",
+    "description": "Discuss a business website, redesign, technical SEO or custom application with Philippines-based developer John Angelo De Joya. Remote inquiries are welcome.",
+    "heading": "Let’s discuss your project.",
+    "paragraphs": [
+      "Tell me what you’re building and what needs to improve. We’ll discuss the right scope and a practical next step.",
+      "Bulacan, Philippines · UTC+8. Available for remote projects. Budget and timeline are optional starting points, not a quote."
+    ]
+  }
+]

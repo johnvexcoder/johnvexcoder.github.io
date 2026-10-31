@@ -69,8 +69,11 @@ export default function PrivacySettings({
             fragments.
           </p>
           <p>
-            The contact form prepares a message in your email app; it does not
-            confirm delivery. Reviews use Web3Forms separately from analytics.
+            Sending an inquiry shares the details you enter with Formspree so I
+            can respond. Its hosted spam check may use Google reCAPTCHA, and
+            Formspree confirms acceptance after verification. Reviews use
+            Web3Forms and hCaptcha separately from analytics. Declining
+            analytics does not disable these requested form services.
           </p>
           <a
             className="text-link"

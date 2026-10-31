@@ -22,7 +22,10 @@ export const metadata: Metadata = {
     template: "%s | J0hnvexcoder",
   },
   description: homeSearchDescription,
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "text/markdown": "/markdown/home.md" },
+  },
   openGraph: {
     title: homeSearchTitle,
     type: "website",

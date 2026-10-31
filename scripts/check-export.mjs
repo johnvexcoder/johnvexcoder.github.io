@@ -3,14 +3,21 @@ import path from "node:path";
 import assert from "node:assert/strict";
 import zlib from "node:zlib";
 const root = path.resolve("out");
+const { fileName: resumeFileName } = JSON.parse(
+  await fs.readFile("content/resume.json", "utf8"),
+);
 const projects = JSON.parse(await fs.readFile("content/projects.json", "utf8"));
 const services = JSON.parse(
   await fs.readFile("content/service-routes.json", "utf8"),
 );
+const standalonePages = JSON.parse(
+  await fs.readFile("content/site-pages.json", "utf8"),
+).filter((page) => page.route !== "/");
 const routes = [
   "/",
   "/404/",
   "/services/",
+  ...standalonePages.map((page) => page.route),
   ...services.map((service) => service.route),
   ...projects.map((p) => `/work/${p.id}/`),
 ];
@@ -68,7 +75,7 @@ for (const file of [
   "social.png",
   "favicon.ico",
   "apple-touch-icon.png",
-  "resume.pdf",
+  resumeFileName,
 ])
   await fs.access(path.join(root, file));
 const errorPage = await fs.readFile(path.join(root, "404/index.html"), "utf8");
@@ -110,3 +117,59 @@ await fs.writeFile(
   JSON.stringify(result, null, 2) + "\n",
 );
 console.log(JSON.stringify({ ...result, scripts: undefined }, null, 2));
+
+// Canonical HTML owns indexing; generated Markdown is a synchronized public representation.
+const { publicDocuments, llmsDirectory } = await import(
+  "../lib/public-documents.ts"
+);
+const documents = publicDocuments();
+for (const doc of documents) {
+  assert.equal(
+    await fs.readFile(`out${doc.markdownPath}`, "utf8"),
+    doc.markdown,
+    `${doc.route}: stale Markdown mirror`,
+  );
+  for (const [, href] of doc.markdown.matchAll(
+    /\]\((https:\/\/johnvexcoder.github.io[^)]+)\)/g,
+  )) {
+    const pathname = new URL(href).pathname;
+    const filename = pathname.endsWith("/")
+      ? `out${pathname}index.html`
+      : `out${pathname}`;
+    assert.ok(
+      await fs.stat(filename).catch(() => false),
+      `${doc.markdownPath}: missing ${pathname}`,
+    );
+  }
+}
+assert.equal(
+  await fs.readFile("out/llms.txt", "utf8"),
+  llmsDirectory(),
+  "llms directory matches shared content",
+);
+async function deploymentFiles(dir) {
+  const rows = await fs.readdir(dir, { withFileTypes: true });
+  const result = [];
+  for (const row of rows) {
+    const file = path.join(dir, row.name);
+    if (row.isDirectory()) result.push(...(await deploymentFiles(file)));
+    else result.push(file);
+  }
+  return result;
+}
+for (const file of await deploymentFiles(root)) {
+  assert.ok(!file.endsWith(".map"), `Unexpected public source map: ${file}`);
+  if (/\.(js|css)$/.test(file))
+    assert.ok(
+      !/sourceMappingURL\s*=/.test(await fs.readFile(file, "utf8")),
+      `Unexpected public source map reference: ${file}`,
+    );
+}
+console.log(
+  `Verified ${documents.length} generated Markdown mirrors, their links and source-map-free deployment output.`,
+);
+
+assert.ok(
+  !(await fs.stat(path.join(root, "resume.pdf")).catch(() => false)),
+  "Obsolete resume.pdf must not be exported",
+);

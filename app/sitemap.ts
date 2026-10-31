@@ -1,3 +1,4 @@
+import { standalonePages } from "@/lib/public-pages";
 import type { MetadataRoute } from "next";
 import { servicePages } from "@/lib/services";
 import { projects } from "@/lib/content";
@@ -14,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     { url: absoluteUrl("/services/") },
+    ...standalonePages.map((page) => ({ url: absoluteUrl(page.route) })),
     ...servicePages.map((service) => ({ url: absoluteUrl(service.route) })),
     ...projects.map((p) => ({
       url: absoluteUrl(`/work/${p.id}/`),

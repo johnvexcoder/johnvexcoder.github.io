@@ -1,106 +1,148 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
-  prepareInquiry,
-  validateInquiry,
+  validateContact,
+  submitContact,
   selectedInquiryService,
-  inquiryServices,
+  changePrimaryService,
+  addInquiryService,
+  FORMSPREE_ENDPOINT,
 } from "../lib/inquiry.ts";
 import { safeEvent } from "../lib/analytics.ts";
-const base = {
-  name: "Ana María & Co",
-  email: "ana@example.test",
-  company: "",
-  website: "",
-  services: ["business-websites", "technical-seo"],
-  timeline: "1–3 months",
-  description:
-    "A café website & booking request.\nKeep # signs, + and 50% text intact.",
+const data = (values = {}) => {
+  const d = new FormData();
+  for (const [k, v] of Object.entries({
+    name: "Ana María",
+    email: "ana@example.test",
+    subject: "Website inquiry",
+    message: "A café website & booking project.\n日本語 🏠",
+    ...values,
+  }))
+    d.set(k, v);
+  return d;
 };
-test("multi-service inquiry round-trips special characters, line breaks and empty optional fields", () => {
-  const draft = prepareInquiry(base, "johnangelodejoya@gmail.com");
-  const url = new URL(draft.mailto);
-  assert.equal(url.protocol, "mailto:");
-  assert.equal(url.searchParams.get("body"), draft.body);
-  assert.equal(url.searchParams.get("subject"), draft.subject);
+test("compact form validates required fields and preserves international message text", () => {
+  const d = data();
+  assert.deepEqual(validateContact(d, "homepage"), {});
   assert.ok(
-    draft.body.includes(base.name) && draft.body.includes(base.description),
+    validateContact(
+      data({ email: "bad", subject: "", message: "" }),
+      "homepage",
+    ).email,
   );
-  assert.ok(
-    !draft.body.includes("Company:") &&
-      !draft.body.includes("Existing website:"),
+  assert.equal(
+    d.get("message"),
+    "A café website & booking project.\n日本語 🏠",
   );
-  for (const service of inquiryServices.filter((s) =>
-    base.services.includes(s.id),
-  ))
-    assert.ok(draft.body.includes(service.name));
-  assert.equal(draft.tooLong, false);
-  assert.deepEqual(validateInquiry(base), {});
 });
-test("optional company and website are included only when supplied, untrusted service values cannot preselect", () => {
-  const data = {
-    ...base,
-    company: "Example & Sons",
+test("detailed form accepts optional international planning fields and rejects unsafe website values", () => {
+  const d = data({
+    services: "website-redesign",
     website: "https://example.test/path?q=a&b=2",
-  };
-  assert.deepEqual(validateInquiry(data), {});
-  assert.match(prepareInquiry(data, "a@b.test").body, /Example & Sons/);
-  assert.equal(selectedInquiryService("technical-seo"), "technical-seo");
-  assert.equal(selectedInquiryService("visitor@example.test"), null);
-  assert.ok(
-    validateInquiry({ ...base, website: "javascript:alert(1)" }).website,
+    currency: "USD",
+    budget: "To discuss",
+  });
+  d.delete("subject");
+  assert.deepEqual(validateContact(d, "contact_page"), {});
+  d.set("website", "javascript:alert(1)");
+  assert.ok(validateContact(d, "contact_page").website);
+  d.delete("services");
+  assert.ok(validateContact(d, "contact_page").services);
+  assert.ok(validateContact(data({ _gotcha: "bot" }), "homepage").form);
+});
+test("only an explicit successful provider acceptance produces success; uncertain responses cannot", async () => {
+  let calls = 0;
+  const d = data({ form_source: "homepage" });
+  const good = await submitContact(d, async (url, options) => {
+    calls++;
+    assert.equal(url, FORMSPREE_ENDPOINT);
+    assert.equal(options.method, "POST");
+    assert.equal(options.body, d);
+    assert.equal(options.headers.Accept, "application/json");
+    return Response.json({ ok: true, next: "/thanks" }, { status: 200 });
+  });
+  assert.equal(calls, 1);
+  assert.equal(good.kind, "success");
+  assert.equal(
+    (
+      await submitContact(d, async () =>
+        Response.json({ ok: false }, { status: 200 }),
+      )
+    ).kind,
+    "error",
   );
-  assert.ok(
-    validateInquiry({
-      ...base,
-      name: " ",
-      email: "bad",
-      services: [],
-      description: " ",
-    }).name,
+  assert.equal(
+    (
+      await submitContact(d, async () =>
+        Response.json(
+          { errors: [{ field: "email", message: "Invalid email" }] },
+          { status: 400 },
+        ),
+      )
+    ).kind,
+    "error",
   );
 });
-test("long Unicode drafts select the complete copy fallback without truncating the inquiry", () => {
-  const message = "日本語のウェブサイト 🏠 ".repeat(100);
-  const draft = prepareInquiry({ ...base, description: message }, "a@b.test");
-  assert.equal(draft.tooLong, true);
-  assert.ok(draft.copyText.includes(message.trim()));
-});
-test("the existing contact key event accepts only fixed context, never inquiry personal details", () => {
-  assert.deepEqual(
-    safeEvent("contact_email_click", {
-      location: "contact",
-      name: base.name,
-      email: base.email,
-      message: base.description,
-      website: "https://example.test",
+test("hosted CAPTCHA challenge is distinct from success, quota and network failures", async () => {
+  const d = data();
+  assert.equal(
+    (
+      await submitContact(d, async () =>
+        Response.json({ error: "Please complete reCAPTCHA" }, { status: 400 }),
+      )
+    ).kind,
+    "verification",
+  );
+  assert.equal(
+    (
+      await submitContact(
+        d,
+        async () =>
+          new Response("<html>Verify</html>", {
+            headers: { "Content-Type": "text/html" },
+          }),
+      )
+    ).kind,
+    "verification",
+  );
+  const quota = await submitContact(d, async () =>
+    Response.json({ error: "Too many requests" }, { status: 429 }),
+  );
+  assert.equal(quota.kind, "error");
+  assert.match(quota.message, /limit/);
+  await assert.rejects(() =>
+    submitContact(d, async () => {
+      throw new TypeError("Network failure");
     }),
-    { location: "contact" },
   );
-  assert.equal(safeEvent("generate_lead", { name: base.name }), null);
 });
-
-test("compact selection distinguishes redesign, prevents duplicates and preserves additional choices", async () => {
-  const { changePrimaryService, addInquiryService } = await import(
-    "../lib/inquiry.ts"
+test("analytics allows only fixed form context and strips inquiry personal information", () => {
+  assert.deepEqual(
+    safeEvent("contact_submission_success", {
+      form_source: "contact_page",
+      name: "Ana",
+      email: "ana@example.test",
+      message: "private",
+    }),
+    { form_source: "contact_page" },
   );
-  assert.equal(inquiryServices.length, 9);
-  assert.equal(selectedInquiryService("website-redesign"), "website-redesign");
-  assert.equal(selectedInquiryService("other"), "other");
+  assert.deepEqual(
+    safeEvent("contact_submission_success", { form_source: "visitor text" }),
+    {},
+  );
+  assert.equal(safeEvent("generate_lead", { name: "Ana" }), null);
+});
+test("service selection retains additional choices, distinguishes redesign, and rejects arbitrary query text", () => {
   const initial = ["business-websites", "technical-seo"];
-  assert.deepEqual(addInquiryService(initial, "technical-seo"), initial);
+  assert.equal(
+    selectedInquiryService("website-performance"),
+    "website-performance",
+  );
+  assert.equal(selectedInquiryService("visitor@example.test"), null);
   assert.deepEqual(changePrimaryService(initial, "website-redesign"), [
     "website-redesign",
     "technical-seo",
   ]);
-  assert.deepEqual(changePrimaryService(initial, "technical-seo"), [
-    "technical-seo",
-  ]);
+  assert.deepEqual(addInquiryService(initial, "technical-seo"), initial);
   assert.deepEqual(initial, ["business-websites", "technical-seo"]);
-  const prepared = prepareInquiry(
-    { ...base, services: ["website-redesign", "technical-seo"] },
-    "a@b.test",
-  );
-  assert.match(prepared.subject, /Website Redesign/);
-  assert.match(prepared.body, /Technical SEO and Website Optimization/);
 });

@@ -7,29 +7,32 @@ export function useProjectLayout() {
   const before = useRef(new Map<string, DOMRect>());
   const animations = useRef(new Set<Animation>());
   const capture = (animate = true) => {
-    animations.current.forEach((animation) => animation.cancel());
-    animations.current.clear();
     before.current.clear();
     if (
       typeof Element.prototype.animate !== "function" ||
       !animate ||
       matchMedia("(prefers-reduced-motion: reduce)").matches
-    )
+    ) {
+      animations.current.forEach((animation) => animation.cancel());
+      animations.current.clear();
       return;
+    }
     list.current
-      ?.querySelectorAll<HTMLElement>("[data-ga-project]")
+      ?.querySelectorAll<HTMLElement>(":scope > [data-ga-project]")
       .forEach((row) => {
         const rect = row.getBoundingClientRect();
         if (rect.bottom >= 0 && rect.top <= innerHeight)
           before.current.set(row.dataset.gaProject!, rect);
       });
+    animations.current.forEach((animation) => animation.cancel());
+    animations.current.clear();
   };
   useLayoutEffect(() => {
     const listElement = list.current;
     if (!listElement || before.current.size === 0) return;
     // Read every destination before creating compositor animations.
     const moves = Array.from(
-      listElement.querySelectorAll<HTMLElement>("[data-ga-project]"),
+      listElement.querySelectorAll<HTMLElement>(":scope > [data-ga-project]"),
     ).map((row) => ({
       row,
       from: before.current.get(row.dataset.gaProject!),
@@ -44,10 +47,18 @@ export function useProjectLayout() {
         to.top > innerHeight
       )
         continue;
-      const y = from.top - to.top;
-      if (Math.abs(y) < 1 || Math.abs(y) > innerHeight * 0.7) continue;
+      const y = from.top - to.top,
+        x = from.left - to.left;
+      if (
+        (Math.abs(y) < 1 && Math.abs(x) < 1) ||
+        Math.abs(y) > innerHeight * 0.7
+      )
+        continue;
       const animation = row.animate(
-        [{ transform: `translateY(${y}px)` }, { transform: "translateY(0)" }],
+        [
+          { transform: `translate(${x}px, ${y}px)` },
+          { transform: "translate(0, 0)" },
+        ],
         {
           duration: 220,
           easing: "cubic-bezier(.23,1,.32,1)",

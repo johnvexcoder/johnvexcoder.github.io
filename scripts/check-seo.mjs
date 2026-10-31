@@ -14,9 +14,13 @@ const services = JSON.parse(
 const studies = JSON.parse(
   await fs.readFile("content/case-studies.json", "utf8"),
 );
+const standalonePages = JSON.parse(
+  await fs.readFile("content/site-pages.json", "utf8"),
+).filter((page) => page.route !== "/");
 const routes = [
   "/",
   "/services/",
+  ...standalonePages.map((page) => page.route),
   ...services.map((service) => service.route),
   ...projects.map((p) => `/work/${p.id}/`),
 ];
@@ -280,7 +284,7 @@ for (const [route, { nodes, ids }] of pages) {
     assert.equal(attributes(heroImage).loading, "eager");
     assert.equal(attributes(heroImage).fetchpriority, "high");
     assert.ok(attributes(heroImage).srcset.includes("portrait-320.webp"));
-  } else if (route.startsWith("/work/")) {
+  } else if (route.startsWith("/work/") && route !== "/work/") {
     const project = projects.find((p) => route === `/work/${p.id}/`);
     if (project.image) {
       const preview = nodes.find(

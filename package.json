@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1 --port 3003",
-    "build": "next build",
+    "build": "node scripts/prepare-work-thumbnails.mjs && node --experimental-strip-types scripts/prepare-public-content.mjs && next build",
     "start": "node scripts/serve.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
@@ -13,7 +13,9 @@
     "check:seo": "node scripts/check-seo.mjs",
     "check:export": "node scripts/check-export.mjs",
     "prepare:portrait": "node scripts/prepare-portrait.mjs",
-    "prepare:social": "node scripts/prepare-social.mjs"
+    "prepare:social": "node scripts/prepare-social.mjs",
+    "postbuild": "python3 scripts/check-sitemap.py",
+    "prepare:work-thumbnails": "node scripts/prepare-work-thumbnails.mjs"
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^2.2.0",

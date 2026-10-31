@@ -348,14 +348,18 @@ test("the existing email key event retains its exact name and is queued once per
   const contact = fs.readFileSync("components/Contact.tsx", "utf8");
   assert.equal(
     (contact.match(/data-ga-event="contact_email_click"/g) || []).length,
-    2, // Direct email and blank-email fallback are separate anchors.
+    1, // Direct email remains an explicit alternative to provider submission.
   );
 });
-test("contact email preparation is not claimed as successful delivery; review success is verified", () => {
+test("form and review success events follow verified provider acceptance", () => {
   const contact = fs.readFileSync("components/Contact.tsx", "utf8"),
     review = fs.readFileSync("components/ReviewForm.tsx", "utf8");
-  assert.ok(contact.includes("contact_email_prepare"));
-  assert.ok(!contact.includes("contact_form_submit"));
+  assert.ok(!contact.includes("contact_email_prepare"));
+  const inquiry = fs.readFileSync("components/InquiryForm.tsx", "utf8");
+  assert.ok(
+    inquiry.indexOf('track("contact_submission_success"') >
+      inquiry.indexOf('result.kind === "success"'),
+  );
   assert.ok(
     review.indexOf('track("review_submitted"') >
       review.indexOf("if (!response.ok || !result.success)"),

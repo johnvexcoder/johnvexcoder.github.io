@@ -11,120 +11,218 @@ import {
   isDemoAction,
 } from "@/lib/content";
 import Preview from "./Preview";
+import WorkThumbnail from "./WorkThumbnail";
 import Reveal from "./Reveal";
 import { useProjectLayout } from "@/hooks/useProjectLayout";
-export default function Projects() {
+export default function Projects({
+  directory = false,
+}: {
+  directory?: boolean;
+}) {
   const { list, capture } = useProjectLayout();
   const searchInput = useRef<HTMLInputElement>(null);
   const [category, setCategory] = useState("All"),
     [query, setQuery] = useState(""),
-    [featured, setFeatured] = useState(false);
+    [featured, setFeatured] = useState(false),
+    [kind, setKind] = useState("All projects");
   const matches = projects.filter(
     (p) =>
       (category === "All" || category === p.category) &&
+      (kind === "All projects" ||
+        (kind === "Client work"
+          ? p.classification === "Client work"
+          : kind === "Demonstrations"
+            ? p.status === "demo"
+            : kind === "Infrastructure & tools"
+              ? ["CLI", "Infrastructure"].includes(p.category)
+              : p.classification !== "Client work" && p.status !== "demo")) &&
       (!featured || p.featured) &&
       `${p.id} ${p.name} ${p.shortDescription} ${p.description} ${p.category} ${p.technologies.join(" ")}`
         .toLowerCase()
         .includes(query.trim().toLowerCase()),
   );
+  if (directory)
+    matches.sort(
+      (a, b) =>
+        Number(b.classification === "Client work") -
+          Number(a.classification === "Client work") ||
+        Number(!!b.image) - Number(!!a.image),
+    );
   const selected = ["homelab-os", "jenica-portfolio", "compressme"].map(
     (id) => projects.find((p) => p.id === id)!,
   );
   return (
     <section id="projects" className="section projects-section">
-      <Reveal className="section-heading">
-        <div>
-          <p className="eyebrow">03 / SELECTED BUILDS</p>
-          <h2>
-            Ideas. <span>Engineered.</span>
-          </h2>
-        </div>
-        <p>
-          Independent software, self-hosted products, and considered digital
-          interfaces. The work is the evidence.
-        </p>
-      </Reveal>
-      <div className="selected-builds">
-        {selected.map((p, i) => (
-          <Reveal className={`project-plate plate-${i}`} key={p.id}>
-            <div className="project-narrative">
-              <span className="project-index">
-                {p.logo && (
-                  <img
-                    className="project-logo"
-                    src={p.logo}
-                    width={22}
-                    height={22}
-                    alt=""
-                    loading="lazy"
-                  />
-                )}
-                0{i + 1} / {p.category}
-              </span>
-              <span className="project-status">
-                {p.classification === "Client work"
-                  ? "Client work"
-                  : statusLabel(p.status)}
-              </span>
-              <h3>{p.name}</h3>
-              <p>{p.shortDescription}</p>
-              <div className="technology-tags">
-                {p.technologies.slice(0, 5).map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
-              </div>
-              <Link
-                prefetch={false}
-                className="button secondary"
-                href={`/work/${p.id}/`}
-                data-ga-event="project_explore"
-                data-ga-project={p.id}
-                data-ga-action="Case study"
-                data-ga-location="featured-build"
-              >
-                Explore {p.name} <ArrowUpRight size={16} />
-              </Link>
-              <div className="project-direct">
-                {actions(p)
-                  .slice(0, 2)
-                  .map(([name, url]) => (
-                    <a
-                      key={name}
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-ga-event={
-                        isDemoAction(name)
-                          ? "project_demo"
-                          : "project_reference"
-                      }
-                      data-ga-project={p.id}
-                      data-ga-action={name}
-                      data-ga-location="featured-build"
-                    >
-                      {name}
-                      <ArrowUpRight size={12} />
-                    </a>
-                  ))}
-              </div>
+      {!directory && (
+        <>
+          <Reveal className="section-heading">
+            <div>
+              <p className="eyebrow">03 / SELECTED BUILDS</p>
+              <h2>
+                Ideas. <span>Engineered.</span>
+              </h2>
             </div>
-            <Preview project={p} large />
+            <p>
+              Independent software, self-hosted products, and considered digital
+              interfaces. The work is the evidence.
+            </p>
           </Reveal>
-        ))}
-      </div>
-      <div id="collection" className="project-collection">
-        <Reveal className="collection-heading">
-          <div>
-            <p className="eyebrow">THE COMPLETE COLLECTION</p>
-            <h3>
-              A little curiosity.
-              <br />A lot of building.
-            </h3>
+          <div className="selected-builds">
+            {selected.map((p, i) => (
+              <Reveal className={`project-plate plate-${i}`} key={p.id}>
+                <div className="project-narrative">
+                  <span className="project-index">
+                    {p.logo && (
+                      <img
+                        className="project-logo"
+                        src={p.logo}
+                        width={22}
+                        height={22}
+                        alt=""
+                        loading="lazy"
+                      />
+                    )}
+                    0{i + 1} / {p.category}
+                  </span>
+                  <span className="project-status">
+                    {p.classification === "Client work"
+                      ? "Client work"
+                      : statusLabel(p.status)}
+                  </span>
+                  <h3>{p.name}</h3>
+                  <p>{p.shortDescription}</p>
+                  <div className="technology-tags">
+                    {p.technologies.slice(0, 5).map((t) => (
+                      <span key={t}>{t}</span>
+                    ))}
+                  </div>
+                  <Link
+                    prefetch={false}
+                    className="button secondary"
+                    href={`/work/${p.id}/`}
+                    data-ga-event="project_explore"
+                    data-ga-project={p.id}
+                    data-ga-action="Case study"
+                    data-ga-location="featured-build"
+                  >
+                    Explore {p.name} <ArrowUpRight size={16} />
+                  </Link>
+                  <div className="project-direct">
+                    {actions(p)
+                      .slice(0, 2)
+                      .map(([name, url]) => (
+                        <a
+                          key={name}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-ga-event={
+                            isDemoAction(name)
+                              ? "project_demo"
+                              : "project_reference"
+                          }
+                          data-ga-project={p.id}
+                          data-ga-action={name}
+                          data-ga-location="featured-build"
+                        >
+                          {name}
+                          <ArrowUpRight size={12} />
+                        </a>
+                      ))}
+                  </div>
+                </div>
+                <Preview project={p} large />
+              </Reveal>
+            ))}
           </div>
-          <span>
-            {projects.length} projects / {categories.length - 1} categories
-          </span>
-        </Reveal>
+        </>
+      )}
+      <div id="collection" className="project-collection">
+        {!directory && (
+          <Reveal className="collection-heading">
+            <div>
+              <p className="eyebrow">THE COMPLETE COLLECTION</p>
+              <h2>
+                A little curiosity.
+                <br />A lot of building.
+              </h2>
+            </div>
+            <span>
+              {projects.length} projects / {categories.length - 1} categories
+            </span>
+          </Reveal>
+        )}
+        {directory && (
+          <div className="work-directory-heading">
+            <h2>Explore the collection</h2>
+            <p>{projects.length} projects</p>
+          </div>
+        )}
+        {directory && (
+          <div
+            className="work-kind-filters"
+            aria-label="Project classifications"
+          >
+            {[
+              "All projects",
+              "Client work",
+              "Independent applications",
+              "Demonstrations",
+              "Infrastructure & tools",
+            ].map((value) => (
+              <button
+                key={value}
+                aria-pressed={kind === value}
+                onClick={(event) => {
+                  capture(event.detail > 0);
+                  setKind(value);
+                }}
+              >
+                {value}
+              </button>
+            ))}
+          </div>
+        )}
+        {directory && (
+          <div className="work-mobile-filters">
+            <label htmlFor="work-kind-select">
+              Project type
+              <select
+                id="work-kind-select"
+                value={kind}
+                onChange={(e) => {
+                  capture(false);
+                  setKind(e.target.value);
+                }}
+              >
+                {[
+                  "All projects",
+                  "Client work",
+                  "Independent applications",
+                  "Demonstrations",
+                  "Infrastructure & tools",
+                ].map((value) => (
+                  <option key={value}>{value}</option>
+                ))}
+              </select>
+            </label>
+            <label htmlFor="work-category-select">
+              Category
+              <select
+                id="work-category-select"
+                value={category}
+                onChange={(e) => {
+                  capture(false);
+                  setCategory(e.target.value);
+                }}
+              >
+                {categories.map((value) => (
+                  <option key={value}>{value}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+        )}
         <div className="archive-toolbar">
           <div className="category-filters" aria-label="Project categories">
             {categories.map((c) => (
@@ -225,88 +323,161 @@ export default function Projects() {
         >
           {matches.length} {matches.length === 1 ? "project" : "projects"} shown
         </p>
-        <div ref={list} className="archive-list">
-          {matches.map((p, i) => (
-            <details
-              key={p.id}
-              className="archive-project"
-              data-ga-project={p.id}
-            >
-              <summary>
-                <span className="archive-number">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="archive-name">
-                  <span className="archive-title">
-                    {p.logo && (
-                      <img
-                        className="project-logo"
-                        src={p.logo}
-                        width={22}
-                        height={22}
-                        alt=""
-                        loading="lazy"
-                      />
-                    )}
-                    {p.name}
-                  </span>
-                  <small>{p.shortDescription}</small>
-                </span>
-                <span className="archive-category">{p.category}</span>
-                <span className="archive-status">
-                  {p.classification === "Client work"
-                    ? "Client work"
-                    : statusLabel(p.status)}
-                </span>
-                <span className="archive-expand" aria-hidden="true">
-                  +
-                </span>
-              </summary>
-              <div className="archive-expanded">
-                <Preview project={p} />
-                <div>
-                  <p>{p.description}</p>
-                  {p.disclaimer && <p className="disclaimer">{p.disclaimer}</p>}
-                  <div className="technology-tags">
-                    {p.technologies.map((t) => (
-                      <span key={t}>{t}</span>
-                    ))}
+        <div
+          ref={list}
+          className={`archive-list ${directory ? "work-grid" : ""}`}
+        >
+          {matches.map((p, i) =>
+            directory ? (
+              <article key={p.id} className="work-card" data-ga-project={p.id}>
+                <Link
+                  className="work-card-image"
+                  href={`/work/${p.id}/`}
+                  prefetch={false}
+                  aria-label={`Explore ${p.name} case study`}
+                >
+                  <WorkThumbnail project={p} priority={i < 3} />
+                </Link>
+                <div className="work-card-copy">
+                  <div className="work-card-meta">
+                    <span>
+                      {p.classification === "Client work"
+                        ? "Client work"
+                        : p.status === "demo"
+                          ? "Demonstration"
+                          : "Independent project"}
+                    </span>
+                    <span>{p.category}</span>
                   </div>
-                  <Link
-                    prefetch={false}
-                    className="text-link"
-                    href={`/work/${p.id}/`}
-                    data-ga-event="project_explore"
-                    data-ga-project={p.id}
-                    data-ga-action="Case study"
-                    data-ga-location="project-archive"
-                  >
-                    {p.name} case study <ArrowUpRight size={14} />
-                  </Link>
-                  {actions(p).map(([name, url]) => (
-                    <a
-                      key={name}
-                      className="text-link"
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-ga-event={
-                        isDemoAction(name)
-                          ? "project_demo"
-                          : "project_reference"
-                      }
+                  <h3>
+                    <Link
+                      href={`/work/${p.id}/`}
+                      prefetch={false}
+                      data-ga-event="project_explore"
                       data-ga-project={p.id}
-                      data-ga-action={name}
+                      data-ga-action="Case study"
                       data-ga-location="project-archive"
                     >
-                      {name}
-                      <ArrowUpRight size={13} />
-                    </a>
-                  ))}
+                      {p.name}
+                      <ArrowUpRight size={19} aria-hidden="true" />
+                    </Link>
+                  </h3>
+                  <p>{p.shortDescription}</p>
+                  <div className="work-card-tech">
+                    {p.technologies.slice(0, 4).join(" · ")}
+                  </div>
+                  <div className="work-card-actions">
+                    <Link href={`/work/${p.id}/`} prefetch={false}>
+                      Case study <ArrowUpRight size={14} aria-hidden="true" />
+                    </Link>
+                    {actions(p)
+                      .slice(0, 1)
+                      .map(([name, url]) => (
+                        <a
+                          key={name}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-ga-event={
+                            isDemoAction(name)
+                              ? "project_demo"
+                              : "project_reference"
+                          }
+                          data-ga-project={p.id}
+                          data-ga-action={name}
+                          data-ga-location="project-archive"
+                        >
+                          {name}
+                          <ArrowUpRight size={14} aria-hidden="true" />
+                        </a>
+                      ))}
+                  </div>
                 </div>
-              </div>
-            </details>
-          ))}
+              </article>
+            ) : (
+              <details
+                key={p.id}
+                className="archive-project"
+                data-ga-project={p.id}
+              >
+                <summary>
+                  <span className="archive-number">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="archive-name">
+                    <span className="archive-title">
+                      {p.logo && (
+                        <img
+                          className="project-logo"
+                          src={p.logo}
+                          width={22}
+                          height={22}
+                          alt=""
+                          loading="lazy"
+                        />
+                      )}
+                      {p.name}
+                    </span>
+                    <small>{p.shortDescription}</small>
+                  </span>
+                  <span className="archive-category">{p.category}</span>
+                  <span className="archive-status">
+                    {p.classification === "Client work"
+                      ? "Client work"
+                      : statusLabel(p.status)}
+                  </span>
+                  <span className="archive-expand" aria-hidden="true">
+                    +
+                  </span>
+                </summary>
+                <div className="archive-expanded">
+                  <Preview project={p} />
+                  <div>
+                    <p>{p.description}</p>
+                    {p.disclaimer && (
+                      <p className="disclaimer">{p.disclaimer}</p>
+                    )}
+                    <div className="technology-tags">
+                      {p.technologies.map((t) => (
+                        <span key={t}>{t}</span>
+                      ))}
+                    </div>
+                    <Link
+                      prefetch={false}
+                      className="text-link"
+                      href={`/work/${p.id}/`}
+                      data-ga-event="project_explore"
+                      data-ga-project={p.id}
+                      data-ga-action="Case study"
+                      data-ga-location="project-archive"
+                    >
+                      {p.name} case study <ArrowUpRight size={14} />
+                    </Link>
+                    {actions(p).map(([name, url]) => (
+                      <a
+                        key={name}
+                        className="text-link"
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-ga-event={
+                          isDemoAction(name)
+                            ? "project_demo"
+                            : "project_reference"
+                        }
+                        data-ga-project={p.id}
+                        data-ga-action={name}
+                        data-ga-location="project-archive"
+                      >
+                        {name}
+                        <ArrowUpRight size={13} />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </details>
+            ),
+          )}
         </div>
         {!matches.length && (
           <div className="archive-empty">
@@ -322,6 +493,7 @@ export default function Projects() {
                 setQuery("");
                 setCategory("All");
                 setFeatured(false);
+                setKind("All projects");
               }}
             >
               Reset filters

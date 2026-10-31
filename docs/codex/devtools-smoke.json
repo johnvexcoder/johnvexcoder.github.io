@@ -1,0 +1,1856 @@
+{
+  "checkedAt": "2026-10-31T17:12:41.065Z",
+  "server": {
+    "name": "chrome_devtools",
+    "title": "Chrome DevTools MCP server",
+    "version": "1.12.0"
+  },
+  "tools": [
+    {
+      "name": "analyze_heapsnapshot_contexts",
+      "description": "Loads and caches a memory heapsnapshot to identify and rank closure contexts holding dead captured fields—variables no remaining live closure can read. Scopes are ranked globally by the retained size of these dead values to provide a prioritizing heuristic, rather than an exact measure of reclaimable bytes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "retainedSize": {
+            "description": "Inclusive range for the dead-field score of a context (e.g. \"10KB\", \"1MB-2MB\", \"-1MB\", or \"1MB-\"). A single value is treated as a minimum.",
+            "type": "string"
+          },
+          "scopeInfoNodeId": {
+            "description": "Only return contexts declared by the scope with this ScopeInfo node id, as reported in the scope header of a previous call.",
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "pageIdx": {
+            "default": 0,
+            "description": "The zero-based page index. Defaults to 0 (the first page).",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageSize": {
+            "default": 50,
+            "description": "The maximum number of items to return per page. Defaults to 50.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "click",
+      "description": "Clicks on the provided element",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "uid": {
+            "type": "string",
+            "description": "The uid of an element on the page from the page content snapshot"
+          },
+          "dblClick": {
+            "description": "Set to true for double clicks. Default is false.",
+            "type": "boolean"
+          },
+          "includeSnapshot": {
+            "description": "Whether to include a snapshot in the response. Default is false.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId",
+          "uid"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "close_heapsnapshot",
+      "description": "Closes a previously loaded and cached memory heapsnapshot, freeing its memory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to the .heapsnapshot file to close."
+          }
+        },
+        "required": [
+          "filePath"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "close_page",
+      "description": "Closes the page by its index. The last open page cannot be closed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "The ID of the page to close. Call list_pages to list pages."
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "compare_heapsnapshots",
+      "description": "Loads and caches two memory heapsnapshots and returns the comparison. If classIndex is provided, returns detailed diff for that class, otherwise returns summary diff.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "baseFilePath": {
+            "type": "string",
+            "description": "A path to the base .heapsnapshot file (earlier snapshot)."
+          },
+          "currentFilePath": {
+            "type": "string",
+            "description": "A path to the current .heapsnapshot file (later snapshot)."
+          },
+          "classIndex": {
+            "description": "Optional 0-based index of the class in the summary list to filter results, showing individual objects.",
+            "type": "number"
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "pageIdx": {
+            "default": 0,
+            "description": "The zero-based page index. Defaults to 0 (the first page).",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageSize": {
+            "default": 50,
+            "description": "The maximum number of items to return per page. Defaults to 50.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "baseFilePath",
+          "currentFilePath"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "drag",
+      "description": "Drag an element onto another element",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "from_uid": {
+            "type": "string",
+            "description": "The uid of the element to drag"
+          },
+          "to_uid": {
+            "type": "string",
+            "description": "The uid of the element to drop into"
+          },
+          "includeSnapshot": {
+            "description": "Whether to include a snapshot in the response. Default is false.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId",
+          "from_uid",
+          "to_uid"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "emulate",
+      "description": "Emulates various features on the target page. Each call replaces all emulation settings (except extraHttpHeaders), so pass all desired settings in a single call.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "networkConditions": {
+            "description": "Throttle network. Omit to disable throttling.",
+            "type": "string",
+            "enum": [
+              "Offline",
+              "Slow 3G",
+              "Fast 3G",
+              "Slow 4G",
+              "Fast 4G"
+            ]
+          },
+          "cpuThrottlingRate": {
+            "description": "Represents the CPU slowdown factor. Omit or set the rate to 1 to disable throttling",
+            "type": "number",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "geolocation": {
+            "description": "Geolocation (`<latitude>,<longitude>`) to emulate. Latitude between -90 and 90. Longitude between -180 and 180. Omit to clear the geolocation override.",
+            "type": "string"
+          },
+          "userAgent": {
+            "description": "User agent to emulate. Omit or set to empty string to clear the user agent override.",
+            "type": "string"
+          },
+          "colorScheme": {
+            "description": "Emulate the dark or the light mode. Omit or set to \"auto\" to reset to the default.",
+            "type": "string",
+            "enum": [
+              "dark",
+              "light",
+              "auto"
+            ]
+          },
+          "forcedColors": {
+            "description": "Emulate the `forced-colors` CSS media feature. Omit or set to \"auto\" to reset to the default.",
+            "type": "string",
+            "enum": [
+              "active",
+              "none",
+              "auto"
+            ]
+          },
+          "prefersContrast": {
+            "description": "Emulate the `prefers-contrast` CSS media feature. Omit or set to \"auto\" to reset to the default.",
+            "type": "string",
+            "enum": [
+              "more",
+              "less",
+              "custom",
+              "no-preference",
+              "auto"
+            ]
+          },
+          "prefersReducedMotion": {
+            "description": "Emulate the `prefers-reduced-motion` CSS media feature. Omit or set to \"auto\" to reset to the default.",
+            "type": "string",
+            "enum": [
+              "reduce",
+              "no-preference",
+              "auto"
+            ]
+          },
+          "viewport": {
+            "description": "Emulate device viewports '<width>x<height>x<devicePixelRatio>[,mobile][,touch][,landscape]'. 'touch' and 'mobile' to emulate mobile devices. 'landscape' to emulate landscape mode. Omit to clear the viewport override.",
+            "type": "string"
+          },
+          "extraHttpHeaders": {
+            "description": "Extra HTTP headers as a JSON string object, e.g. {\"X-Custom\": \"value\", \"Authorization\": \"Bearer token\"}. Headers are included into every HTTP request originating from the page and persist across navigations until cleared. Pass an empty string to clear all extra headers.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "evaluate_script",
+      "description": "Evaluate JavaScript inside the target page. The source can be provided inline or loaded from a local file. Returns the response as JSON, so returned values have to be JSON-serializable.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "function": {
+            "description": "JavaScript source to execute in the target page. Provide either this or sourcePath, but not both. The source is interpreted according to format.\nExample without arguments: `() => document.title` or `async () => await fetch(\"example.com\")`.\nExample with arguments: `(el) => el.innerText`\n",
+            "type": "string"
+          },
+          "sourcePath": {
+            "description": "The absolute or relative path to a JavaScript file on the MCP server's local filesystem. Provide either this or function, but not both.",
+            "type": "string"
+          },
+          "format": {
+            "description": "How to interpret the source. \"function\" treats it as a function declaration and supports args. \"script\" evaluates it as classic JavaScript and does not support args. Defaults to \"function\". ECMAScript modules are not supported.",
+            "type": "string",
+            "enum": [
+              "function",
+              "script"
+            ]
+          },
+          "args": {
+            "description": "An optional list of arguments (element uids from the page content snapshot) to pass to the function.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "The uid of an element on the page from the page content snapshot"
+            }
+          },
+          "filePath": {
+            "description": "The absolute or relative path to a file to save the script output to. If omitted, the output is returned inline.",
+            "type": "string"
+          },
+          "dialogAction": {
+            "description": "Handle dialogs while execution. \"accept\", \"dismiss\", or string for response of window.prompt. Defaults to accept.",
+            "type": "string"
+          },
+          "waitForStableDom": {
+            "description": "Whether to wait for the DOM to settle. Pass false if the script only reads data. Defaults to true.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "fill",
+      "description": "Type text into an input, text area or select an option from a <select> element.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "uid": {
+            "type": "string",
+            "description": "The uid of an element on the page from the page content snapshot"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value to fill in. \"true\" or \"false\" for checkboxes and toggles, \"true\" for radio buttons."
+          },
+          "includeSnapshot": {
+            "description": "Whether to include a snapshot in the response. Default is false.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId",
+          "uid",
+          "value"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "fill_form",
+      "description": "Fill out multiple form elements (inputs, selects, checkboxes, radios) at once. ALWAYS prefer this tool over multiple individual 'fill' or 'click' calls when interacting with forms. It is significantly faster, more reliable, and reduces turn count. Example: Fill username, password, and check \"Remember Me\" in one call.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "uid": {
+                  "type": "string",
+                  "description": "The uid of the element to fill out"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "Value for the element. \"true\" or \"false\" for checkboxes and toggles, \"true\" for radio buttons."
+                }
+              },
+              "required": [
+                "uid",
+                "value"
+              ],
+              "description": "An element to fill out"
+            },
+            "description": "Elements from snapshot to fill out."
+          },
+          "includeSnapshot": {
+            "description": "Whether to include a snapshot in the response. Default is false.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId",
+          "elements"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "get_console_message",
+      "description": "Gets a console message by its ID. You can get all messages by calling list_console_messages.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "msgid": {
+            "type": "number",
+            "description": "The msgid of a console message on the page from the listed console messages"
+          }
+        },
+        "required": [
+          "pageId",
+          "msgid"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_css_styles",
+      "description": "Retrieve matched CSS rules, inline styles (element.style), inherited styles, custom properties, and cascade wrappers (@layer, @media, @container, @scope) for an element identified by its UID.\nRules are ordered from highest to lowest cascade precedence and include source line numbers (e.g. index:196). Active (winning) declarations have no prefix tag, while (losing) overridden declarations are prefixed with [overloaded].\nTreat the output as authoritative and complete.\nResults are paginated (10 rules per page by default); use pageIdx to page through the remaining rules. Requires a UID from take_snapshot.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "uid": {
+            "type": "string",
+            "description": "The uid of the element on the page from the page content snapshot to inspect CSS styles for"
+          },
+          "pageSize": {
+            "default": 10,
+            "description": "Maximum number of CSS rules to return per page. Defaults to 10.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageIdx": {
+            "default": 0,
+            "description": "Page number to return (0-based). Defaults to 0 (the first page).",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "pageId",
+          "uid"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_heapsnapshot_class_nodes",
+      "description": "Loads and caches a memory heapsnapshot and returns instances of a specific class with their IDs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "id": {
+            "type": "number",
+            "description": "The ID for the class, obtained from details."
+          },
+          "filterName": {
+            "description": "An optional filter to apply to the nodes.",
+            "type": "string",
+            "enum": [
+              "objectsRetainedByDetachedDomNodes",
+              "objectsRetainedByConsole",
+              "objectsRetainedByEventHandlers",
+              "objectsRetainedByContexts",
+              "sharedNativeContext",
+              "noNativeContext",
+              "attributedToSpecificNativeContext"
+            ]
+          },
+          "objectId": {
+            "description": "The object ID (nodeId) of the specific native context to filter by when filterName is attributedToSpecificNativeContext.",
+            "type": "number"
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "pageIdx": {
+            "default": 0,
+            "description": "The zero-based page index. Defaults to 0 (the first page).",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageSize": {
+            "default": 50,
+            "description": "The maximum number of items to return per page. Defaults to 50.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath",
+          "id"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_heapsnapshot_details",
+      "description": "Loads and caches a memory heapsnapshot and returns all available information including statistics, static data, and aggregated node information. Supports pagination for aggregates.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "filterName": {
+            "description": "An optional filter to apply to the aggregates.",
+            "type": "string",
+            "enum": [
+              "objectsRetainedByDetachedDomNodes",
+              "objectsRetainedByConsole",
+              "objectsRetainedByEventHandlers",
+              "objectsRetainedByContexts",
+              "sharedNativeContext",
+              "noNativeContext",
+              "attributedToSpecificNativeContext"
+            ]
+          },
+          "objectId": {
+            "description": "The object ID (nodeId) of the specific native context to filter by when filterName is attributedToSpecificNativeContext.",
+            "type": "number"
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "pageIdx": {
+            "default": 0,
+            "description": "The zero-based page index. Defaults to 0 (the first page).",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageSize": {
+            "default": 50,
+            "description": "The maximum number of items to return per page. Defaults to 50.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_heapsnapshot_dominators",
+      "description": "Loads and caches a memory heapsnapshot and returns the dominator chain for a specific node ID. This helps to identify which objects are keeping the target node alive.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "nodeId": {
+            "type": "number",
+            "description": "The node ID to get the dominator chain for."
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath",
+          "nodeId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_heapsnapshot_duplicate_strings",
+      "description": "Loads and caches a memory heapsnapshot and returns duplicate strings grouped by their value.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "pageIdx": {
+            "default": 0,
+            "description": "The zero-based page index. Defaults to 0 (the first page).",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageSize": {
+            "default": 50,
+            "description": "The maximum number of items to return per page. Defaults to 50.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_heapsnapshot_edges",
+      "description": "Loads and caches a memory heapsnapshot and returns outgoing edges (references) for a specific node ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "nodeId": {
+            "type": "number",
+            "description": "The node ID to get outgoing edges for."
+          },
+          "sortBy": {
+            "description": "Sort order for edges. Default is retainedSize.",
+            "type": "string",
+            "enum": [
+              "retainedSize",
+              "selfSize",
+              "name"
+            ]
+          },
+          "retainedSize": {
+            "description": "Inclusive retained size range (e.g. \"1MB-2MB\", \"-1MB\", or \"1MB-\") for target nodes. A single value is treated as a minimum. Currently, only the lower bound is applied.",
+            "type": "string"
+          },
+          "excludePrimitives": {
+            "description": "Whether to exclude primitive target nodes. Default is true.",
+            "type": "boolean"
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "pageIdx": {
+            "default": 0,
+            "description": "The zero-based page index. Defaults to 0 (the first page).",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageSize": {
+            "default": 50,
+            "description": "The maximum number of items to return per page. Defaults to 50.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath",
+          "nodeId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_heapsnapshot_object_details",
+      "description": "Loads and caches a memory heapsnapshot and returns detailed information about a specific object by its node ID, including size, type, distance, and DOM detachedness.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "nodeId": {
+            "type": "number",
+            "description": "The node ID to get object details for."
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath",
+          "nodeId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_heapsnapshot_retainers",
+      "description": "Loads and caches a memory heapsnapshot and returns retainers for a specific node ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "nodeId": {
+            "type": "number",
+            "description": "The node ID to get retainers for."
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "pageIdx": {
+            "default": 0,
+            "description": "The zero-based page index. Defaults to 0 (the first page).",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageSize": {
+            "default": 50,
+            "description": "The maximum number of items to return per page. Defaults to 50.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath",
+          "nodeId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_heapsnapshot_retaining_paths",
+      "description": "Loads and caches a memory heapsnapshot and returns retaining paths for a specific node ID. This helps to understand why a node is not being garbage collected.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "nodeId": {
+            "type": "number",
+            "description": "The node ID to get retaining paths for."
+          },
+          "maxDepth": {
+            "description": "The maximum depth to search for retaining paths.",
+            "type": "number"
+          },
+          "maxNodes": {
+            "description": "The maximum number of nodes to return.",
+            "type": "number"
+          },
+          "maxSiblings": {
+            "description": "The maximum number of siblings to return.",
+            "type": "number"
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath",
+          "nodeId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_heapsnapshot_summary",
+      "description": "Loads and caches a memory heapsnapshot and returns snapshot summary stats, including native contexts and their sizes, and retained by context summary.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_network_request",
+      "description": "Gets a network request by an optional reqid, if omitted returns the currently selected request in the DevTools Network panel. Useful for inspecting request headers (including 'Cookie') and response headers (including 'Set-Cookie' and directives).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "reqid": {
+            "description": "The reqid of the network request. If omitted returns the currently selected request in the DevTools Network panel.",
+            "type": "number"
+          },
+          "requestFilePath": {
+            "description": "The absolute or relative path to a .network-request file to save the request body to. If omitted, the body is returned inline.",
+            "type": "string"
+          },
+          "responseFilePath": {
+            "description": "The absolute or relative path to a .network-response file to save the response body to. If omitted, the body is returned inline.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "handle_dialog",
+      "description": "If a browser dialog was opened, use this command to handle it",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "accept",
+              "dismiss"
+            ],
+            "description": "Whether to dismiss or accept the dialog"
+          },
+          "promptText": {
+            "description": "Optional prompt text to enter into the dialog.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId",
+          "action"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "hover",
+      "description": "Hover over the provided element",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "uid": {
+            "type": "string",
+            "description": "The uid of an element on the page from the page content snapshot"
+          },
+          "includeSnapshot": {
+            "description": "Whether to include a snapshot in the response. Default is false.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId",
+          "uid"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "lighthouse_audit",
+      "description": "Get Lighthouse scores, failing audits, and the DOM nodes they flag for accessibility, SEO, best practices, and agentic browsing. Full reports are saved to disk. This excludes performance. For performance audits, run performance_start_trace",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "mode": {
+            "default": "navigation",
+            "description": "\"navigation\" reloads & audits. \"snapshot\" analyzes current state.",
+            "type": "string",
+            "enum": [
+              "navigation",
+              "snapshot"
+            ]
+          },
+          "device": {
+            "default": "desktop",
+            "description": "Device to emulate.",
+            "type": "string",
+            "enum": [
+              "desktop",
+              "mobile"
+            ]
+          },
+          "outputDirPath": {
+            "description": "Directory for reports. If omitted, uses temporary files.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "list_console_messages",
+      "description": "List all console messages for the target page since the last navigation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "pageSize": {
+            "description": "Maximum number of messages to return. When omitted, returns all messages.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageIdx": {
+            "description": "Page number to return (0-based). When omitted, returns the first page. Ignored unless pageSize is set.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "types": {
+            "description": "Filter messages to only return messages of the specified resource types. When omitted or empty, returns all messages.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "log",
+                "debug",
+                "info",
+                "error",
+                "warn",
+                "dir",
+                "dirxml",
+                "table",
+                "trace",
+                "clear",
+                "startGroup",
+                "startGroupCollapsed",
+                "endGroup",
+                "assert",
+                "profile",
+                "profileEnd",
+                "count",
+                "timeEnd",
+                "verbose",
+                "issue"
+              ]
+            }
+          },
+          "includePreservedMessages": {
+            "description": "Set to true to return the preserved messages over the last 3 navigations.",
+            "default": false,
+            "type": "boolean"
+          },
+          "includeStackTraces": {
+            "description": "Set to true to include the stack trace for each message when available. Increases the response size.",
+            "default": false,
+            "type": "boolean"
+          },
+          "serviceWorkerId": {
+            "description": "Filter messages by the service worker ID shown by list_pages (sw-N).",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "list_network_requests",
+      "description": "Lists the most recent requests for the target page since the last navigation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "pageSize": {
+            "description": "Maximum number of requests to return. When omitted, returns all requests.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageIdx": {
+            "description": "Page number to return (0-based). When omitted, returns the first page. Ignored unless pageSize is set.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "resourceTypes": {
+            "description": "Filter requests to only return requests of the specified resource types. When omitted or empty, returns all requests.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "document",
+                "stylesheet",
+                "image",
+                "media",
+                "font",
+                "script",
+                "texttrack",
+                "xhr",
+                "fetch",
+                "prefetch",
+                "eventsource",
+                "manifest",
+                "signedexchange",
+                "ping",
+                "cspviolationreport",
+                "preflight",
+                "fedcm",
+                "other"
+              ]
+            }
+          },
+          "includePreservedRequests": {
+            "description": "Set to true to return the preserved requests over the last 3 navigations.",
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "list_pages",
+      "description": "Get a list of pages open in the browser.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "navigate_page",
+      "description": "Go to a URL, or back, forward, or reload. Use project URL if not specified otherwise.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "type": {
+            "description": "Navigate the page by URL, back or forward in history, or reload.",
+            "type": "string",
+            "enum": [
+              "url",
+              "back",
+              "forward",
+              "reload"
+            ]
+          },
+          "url": {
+            "description": "Target URL (only type=url)",
+            "type": "string"
+          },
+          "ignoreCache": {
+            "description": "Whether to ignore cache on reload.",
+            "type": "boolean"
+          },
+          "handleBeforeUnload": {
+            "description": "Whether to auto accept or beforeunload dialogs triggered by this navigation. Default is accept.",
+            "type": "string",
+            "enum": [
+              "accept",
+              "dismiss"
+            ]
+          },
+          "initScript": {
+            "description": "A JavaScript script to be executed on each new document before any other scripts for the next navigation.",
+            "type": "string"
+          },
+          "timeout": {
+            "description": "Maximum wait time in milliseconds. If set to 0, the default timeout will be used.",
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "new_page",
+      "description": "Open a new tab and load a URL. Use project URL if not specified otherwise.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL to load in a new page."
+          },
+          "background": {
+            "description": "Whether to open the page in the background without bringing it to the front. Default is false (foreground).",
+            "type": "boolean"
+          },
+          "isolatedContext": {
+            "description": "If specified, the page is created in an isolated browser context with the given name. Pages in the same browser context share cookies and storage. Pages in different browser contexts are fully isolated (useful for clean-slate testing of cookies and authentication).",
+            "type": "string"
+          },
+          "timeout": {
+            "description": "Maximum wait time in milliseconds. If set to 0, the default timeout will be used.",
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "performance_analyze_insight",
+      "description": "Provides more detailed information on a specific Performance Insight of an insight set that was highlighted in the results of a trace recording.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "insightSetId": {
+            "type": "string",
+            "description": "The id for the specific insight set. Only use the ids given in the \"Available insight sets\" list."
+          },
+          "insightName": {
+            "type": "string",
+            "description": "The name of the Insight you want more information on. For example: \"DocumentLatency\" or \"LCPBreakdown\""
+          }
+        },
+        "required": [
+          "pageId",
+          "insightSetId",
+          "insightName"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "performance_start_trace",
+      "description": "Start a performance trace on the target webpage. Use to find frontend performance issues, Core Web Vitals (LCP, INP, CLS), and improve page load speed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "reload": {
+            "default": true,
+            "description": "Determines if, once tracing has started, the target page should be automatically reloaded. Navigate the page to the right URL using the navigate_page tool BEFORE starting the trace if reload or autoStop is set to true.",
+            "type": "boolean"
+          },
+          "autoStop": {
+            "default": true,
+            "description": "Determines if the trace recording should be automatically stopped.",
+            "type": "boolean"
+          },
+          "ignoreCache": {
+            "description": "Whether to bypass the HTTP cache when reloading the page, to measure a cold page load. Only applies if reload is true.",
+            "type": "boolean"
+          },
+          "filePath": {
+            "description": "The absolute file path, or a file path relative to the current working directory, to save the raw trace data. For example, trace.json.gz (compressed) or trace.json (uncompressed).",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "performance_stop_trace",
+      "description": "Stop the active performance trace recording on the target webpage.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "filePath": {
+            "description": "The absolute file path, or a file path relative to the current working directory, to save the raw trace data. For example, trace.json.gz (compressed) or trace.json (uncompressed).",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "press_key",
+      "description": "Press a key or key combination. Use this when other input methods like fill() cannot be used (e.g., keyboard shortcuts, navigation keys, or special key combinations).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "key": {
+            "type": "string",
+            "description": "A key or a combination (e.g., \"Enter\", \"Control+A\", \"Control++\", \"Control+Shift+R\"). Modifiers: Control, Shift, Alt, Meta"
+          },
+          "includeSnapshot": {
+            "description": "Whether to include a snapshot in the response. Default is false.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId",
+          "key"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "query_heapsnapshot_objects",
+      "description": "Loads and caches a memory heapsnapshot and queries objects matching specific filters (className, propertyName, nodeType, retainedSize, selfSize, isDetached, sortBy).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to read."
+          },
+          "className": {
+            "description": "Optional regex or text matching object class name.",
+            "type": "string"
+          },
+          "propertyName": {
+            "description": "Optional property name filter for outgoing reference edges.",
+            "type": "string"
+          },
+          "nodeType": {
+            "description": "Optional V8 node type filter (e.g. object, closure, string, array, code).",
+            "type": "string"
+          },
+          "retainedSize": {
+            "description": "Inclusive retained size range (e.g. \"1MB-2MB\", \"-1MB\", or \"1MB-\"). A single value is treated as a minimum.",
+            "type": "string"
+          },
+          "selfSize": {
+            "description": "Inclusive self size range (e.g. \"1MB-2MB\", \"-1MB\", or \"1MB-\"). A single value is treated as a minimum.",
+            "type": "string"
+          },
+          "isDetached": {
+            "description": "Whether to filter for detached DOM nodes.",
+            "type": "boolean"
+          },
+          "sortBy": {
+            "description": "Sort order for results. Default is retainedSize.",
+            "type": "string",
+            "enum": [
+              "retainedSize",
+              "selfSize",
+              "id"
+            ]
+          },
+          "pageIdx": {
+            "default": 0,
+            "description": "The zero-based page index. Defaults to 0 (the first page).",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pageSize": {
+            "default": 50,
+            "description": "The maximum number of items to return per page. Defaults to 50.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "maxNameLength": {
+            "description": "Maximum length of names before truncation. Defaults to 100.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "filePath"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "resize_page",
+      "description": "Resizes the page's window so that the page has specified dimension",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "width": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Page width"
+          },
+          "height": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Page height"
+          }
+        },
+        "required": [
+          "pageId",
+          "width",
+          "height"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "screencast_start",
+      "description": "Starts recording a screencast (video) of the target page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "filePath": {
+            "description": "Output file path (.mp4). Uses mkdtemp to generate a unique path if not provided.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "screencast_stop",
+      "description": "Stops the active screencast recording on the target page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "select_page",
+      "description": "Select a page as a context for future tool calls.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "The ID of the page to select. Call list_pages to get available pages."
+          },
+          "bringToFront": {
+            "description": "Whether to focus the page and bring it to the top.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "take_heapsnapshot",
+      "description": "Capture a heap snapshot of the target page. Use to analyze the memory distribution of JavaScript objects and debug memory leaks.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "filePath": {
+            "type": "string",
+            "description": "A path to a .heapsnapshot file to save the heapsnapshot to."
+          }
+        },
+        "required": [
+          "pageId",
+          "filePath"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "take_screenshot",
+      "description": "Take a screenshot of the page or element.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "format": {
+            "default": "png",
+            "description": "Type of format to save the screenshot as. Default is \"png\"",
+            "type": "string",
+            "enum": [
+              "png",
+              "jpeg",
+              "webp"
+            ]
+          },
+          "quality": {
+            "description": "Compression quality for JPEG and WebP formats (0-100). Higher values mean better quality but larger file sizes. Ignored for PNG format.",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "uid": {
+            "description": "The uid of an element on the page from the page content snapshot. If omitted, takes a page screenshot.",
+            "type": "string"
+          },
+          "fullPage": {
+            "description": "If set to true takes a screenshot of the full page instead of the currently visible viewport. Incompatible with uid.",
+            "type": "boolean"
+          },
+          "filePath": {
+            "description": "The absolute path, or a path relative to the current working directory, to save the screenshot to instead of attaching it to the response.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "take_snapshot",
+      "description": "Take a text snapshot of the target page based on the a11y tree. The snapshot lists page elements along with a unique\nidentifier (uid). Always use the latest snapshot. Prefer taking a snapshot over taking a screenshot. The snapshot indicates the element selected\nin the DevTools Elements panel (if any).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "verbose": {
+            "description": "Whether to include all possible information available in the full a11y tree. Default is false.",
+            "type": "boolean"
+          },
+          "filePath": {
+            "description": "The absolute path, or a path relative to the current working directory, to save the snapshot to instead of attaching it to the response.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "type_text",
+      "description": "Type text using keyboard into a previously focused input",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "text": {
+            "type": "string",
+            "description": "The text to type"
+          },
+          "submitKey": {
+            "description": "Optional key to press after typing. E.g., \"Enter\", \"Tab\", \"Escape\"",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pageId",
+          "text"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "upload_file",
+      "description": "Upload a file through a provided element.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "uid": {
+            "type": "string",
+            "description": "The uid of the file input element or an element that will open file chooser on the page from the page content snapshot"
+          },
+          "filePaths": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "One or more files paths to upload. File paths have to be local to the browser instance (not the MCP)."
+          },
+          "includeSnapshot": {
+            "description": "Whether to include a snapshot in the response. Default is false.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId",
+          "uid",
+          "filePaths"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "wait_for",
+      "description": "Wait for the specified text to appear on the selected page. By default, hidden text is also matched. Set visible to true to wait until the matched text is visible.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "number",
+            "description": "Targets a specific page by ID."
+          },
+          "text": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Non-empty list of texts. Resolves when any value appears on the page."
+          },
+          "timeout": {
+            "description": "Maximum wait time in milliseconds. If set to 0, the default timeout will be used.",
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "visible": {
+            "description": "If true, wait until the matching text is visible. By default, hidden text also counts.",
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pageId",
+          "text"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    }
+  ],
+  "initialized": true,
+  "page": {
+    "content": [
+      {
+        "type": "text",
+        "text": "## Pages\n1: about:blank\n2: Portfolio tooling smoke test (http://127.0.0.1:3120/) [selected]"
+      }
+    ]
+  },
+  "dom": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Script ran on page and returned:\n```json\n{\"title\":\"Portfolio tooling smoke test\",\"heading\":\"Portfolio tooling smoke test\",\"url\":\"http://127.0.0.1:3120/\"}\n```"
+      }
+    ]
+  },
+  "trace": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The raw trace data was saved to /home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/outputs/phase0/DevTools-Smoke-Trace.json.gz.\nThe performance trace has been stopped.\n## Summary of Performance trace findings:\nURL: http://127.0.0.1:3120/\nTrace bounds: {min: 10985596147µs, max: 10990681350µs}\nCPU throttling: 1x\nNetwork throttling: none\n\n# Available insight sets\n\nThe following is a list of insight sets. An insight set covers a specific part of the trace, split by navigations. The insights within each insight set are specific to that part of the trace. Be sure to consider the insight set id and bounds when calling functions. If no specific insight set or navigation is mentioned, assume the user is referring to the first one.\n\n## insight set id: NAVIGATION_0\n\nURL: http://127.0.0.1:3120/\nBounds: {min: 10985599739µs, max: 10990681350µs}\nMetrics (lab / observed):\n  - LCP: 167 ms, event: (eventKey: r-1537, ts: 10985767069), nodeId: 9\n  - LCP breakdown:\n    - TTFB: 4 ms, bounds: {min: 10985599739µs, max: 10985603837µs}\n    - Render delay: 163 ms, bounds: {min: 10985603837µs, max: 10985767069µs}\n  - CLS: 0.00\nMetrics (field / real users): n/a – no data for this page in CrUX\nAvailable insights:\n  - insight name: LCPBreakdown\n    description: Each [subpart has specific improvement strategies](https://developer.chrome.com/docs/performance/insights/lcp-breakdown). Ideally, most of the LCP time should be spent on loading the resources, not within delays.\n    relevant trace bounds: {min: 10985599739µs, max: 10985767069µs}\n    example question: Help me optimize my LCP score\n    example question: Which LCP subpart was most problematic?\n    example question: What can I do to reduce the LCP time for this page load?\n\n## Details on call tree & network request formats:\nInformation on performance traces may contain main thread activity represented as call frames and network requests.\n\nEach call frame is presented in the following format:\n\n'id;eventKey;name;duration;selfTime;urlIndex;childRange;[line];[column];[S]'\n\nKey definitions:\n\n* id: A unique numerical identifier for the call frame. Never mention this id in the output to the user.\n* eventKey: String that uniquely identifies this event in the flame chart.\n* name: A concise string describing the call frame (e.g., 'Evaluate Script', 'render', 'fetchData').\n* duration: The total execution time of the call frame, including its children.\n* selfTime: The time spent directly within the call frame, excluding its children's execution.\n* urlIndex: Index referencing the \"All URLs\" list. Empty if no specific script URL is associated.\n* childRange: Specifies the direct children of this node using their IDs. If empty ('' or 'S' at the end), the node has no children. If a single number (e.g., '4'), the node has one child with that ID. If in the format 'firstId-lastId' (e.g., '4-5'), it indicates a consecutive range of child IDs from 'firstId' to 'lastId', inclusive.\n* line: An optional field for a call frame's line number. This is where the function is defined.\n* column: An optional field for a call frame's column number. This is where the function is defined.\n* S: _Optional_. The letter 'S' terminates the line if that call frame was selected by the user.\n\nExample Call Tree:\n\n1;r-123;main;500;100;0;1;;\n2;r-124;update;200;50;;3;0;1;\n3;p-49575-15428179-2834-374;animate;150;20;0;4-5;0;1;S\n4;p-49575-15428179-3505-1162;calculatePosition;80;80;0;1;;\n5;p-49575-15428179-5391-2767;applyStyles;50;50;0;1;;\n\n\nNetwork requests are formatted like this:\n`urlIndex;eventKey;queuedTime;requestSentTime;downloadCompleteTime;processingCompleteTime;totalDuration;downloadDuration;mainThreadProcessingDuration;statusCode;mimeType;priority;initialPriority;finalPriority;renderBlocking;protocol;fromServiceWorker;initiators;redirects:[[redirectUrlIndex|startTime|duration]];responseHeaders:[header1Value|header2Value|...]`\n\n- `urlIndex`: Numerical index for the request's URL, referencing the \"All URLs\" list.\n- `eventKey`: String that uniquely identifies this request's trace event.\nTimings (all in milliseconds, relative to navigation start):\n- `queuedTime`: When the request was queued.\n- `requestSentTime`: When the request was sent.\n- `downloadCompleteTime`: When the download completed.\n- `processingCompleteTime`: When main thread processing finished.\nDurations (all in milliseconds):\n- `totalDuration`: Total time from the request being queued until its main thread processing completed.\n- `downloadDuration`: Time spent actively downloading the resource.\n- `mainThreadProcessingDuration`: Time spent on the main thread after the download completed.\n- `statusCode`: The HTTP status code of the response (e.g., 200, 404).\n- `mimeType`: The MIME type of the resource (e.g., \"text/html\", \"application/javascript\").\n- `priority`: The final network request priority (e.g., \"VeryHigh\", \"Low\").\n- `initialPriority`: The initial network request priority.\n- `finalPriority`: The final network request priority (redundant if `priority` is always final, but kept for clarity if `initialPriority` and `priority` differ).\n- `renderBlocking`: 't' if the request was render-blocking, 'f' otherwise.\n- `protocol`: The network protocol used (e.g., \"h2\", \"http/1.1\").\n- `fromServiceWorker`: 't' if the request was served from a service worker, 'f' otherwise.\n- `initiators`: A list (separated by ,) of URL indices for the initiator chain of this request. Listed in order starting from the root request to the request that directly loaded this one. This represents the network dependencies necessary to load this request. If there is no initiator, this is empty.\n- `redirects`: A comma-separated list of redirects, enclosed in square brackets. Each redirect is formatted as\n`[redirectUrlIndex|startTime|duration]`, where: `redirectUrlIndex`: Numerical index for the redirect's URL. `startTime`: The start time of the redirect in milliseconds, relative to navigation start. `duration`: The duration of the redirect in milliseconds.\n- `responseHeaders`: A list (separated by '|') of values for specific, pre-defined response headers, enclosed in square brackets.\nThe order of headers corresponds to an internal fixed list. If a header is not present, its value will be empty.\n"
+      }
+    ]
+  }
+}

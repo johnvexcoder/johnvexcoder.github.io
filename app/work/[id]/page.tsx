@@ -26,7 +26,10 @@ export async function generateMetadata({
     ? {
         title: projectSearchTitle(p),
         description: projectSearchDescription(p),
-        alternates: { canonical: `/work/${id}/` },
+        alternates: {
+          canonical: `/work/${id}/`,
+          types: { "text/markdown": `/markdown/work-${id}.md` },
+        },
         openGraph: {
           siteName: "J0hnvexcoder",
           locale: "en_PH",

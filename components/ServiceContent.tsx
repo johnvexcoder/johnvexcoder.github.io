@@ -1,7 +1,7 @@
 import ServiceInquiryLink from "./ServiceInquiryLink";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
-import Preview from "./Preview";
+import WorkThumbnail from "./WorkThumbnail";
 import { projects } from "@/lib/content";
 import { caseStudy } from "@/lib/case-studies";
 import { absoluteUrl } from "@/lib/seo";
@@ -120,7 +120,7 @@ export function ServiceExamples({
           const study = caseStudy(id);
           return (
             <article key={id} className="selected-work-card">
-              <Preview project={project} />
+              <WorkThumbnail project={project} />
               <Link prefetch={false} href={`/work/${id}/`}>
                 <div className="selected-work-copy">
                   <small>

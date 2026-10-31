@@ -31,7 +31,8 @@ export default function Footer() {
       <footer className="site-footer" data-motion-scene="footer">
         <div>
           <Link className="footer-brand" href="/#home">
-            J0hnvexcoder<span>CODE · SYSTEMS · SECURITY</span>
+            J0hnvexcoder
+            <span>Web development &amp; the systems behind it.</span>
           </Link>
           <Link
             className="text-link footer-top"
@@ -41,6 +42,30 @@ export default function Footer() {
             Back to top <ArrowUp size={13} />
           </Link>
         </div>
+        <div className="footer-availability">
+          <span>Bulacan, Philippines · UTC+8</span>
+          <a href={`mailto:${profile.email}`}>
+            Let’s discuss your project{" "}
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        </div>
+        <nav className="footer-pages" aria-label="Portfolio pages">
+          {[
+            ["About", "/about/"],
+            ["Works", "/work/"],
+            ["Services", "/services/"],
+            ["Contact", "/contact/"],
+            ["Homelab", "/#homelab"],
+            ["Experience", "/#experience"],
+            ["Skills", "/#skills"],
+            ["GitHub", "https://github.com/johnvexcoder"],
+            ["LinkedIn", "https://www.linkedin.com/in/johnvexcoder/"],
+          ].map(([name, href]) => (
+            <Link key={href} href={href} prefetch={false}>
+              {name}
+            </Link>
+          ))}
+        </nav>
         <div>
           <p>
             © 2026{" "}

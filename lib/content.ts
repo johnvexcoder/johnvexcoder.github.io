@@ -41,7 +41,7 @@ export const concepts = sourceConcepts;
 export const tagline = "I don't just fix what's broken. I build what lasts.";
 export const navigation = [
   ["Home", "home"],
-  ["Projects", "projects"],
+  ["Works", "projects"],
   ["Homelab", "homelab"],
   ["About", "about"],
   ["Experience", "experience"],

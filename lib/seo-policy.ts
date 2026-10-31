@@ -1,4 +1,5 @@
 import studies from "../content/case-studies.json" with { type: "json" };
+import pages from "../content/site-pages.json" with { type: "json" };
 export const confirmedSiteOrigin = "https://johnvexcoder.github.io";
 
 export function resolveSiteOrigin(value = confirmedSiteOrigin) {
@@ -28,10 +29,8 @@ export function resolveIndexing(value = "production") {
   return value === "production";
 }
 
-export const homeSearchTitle =
-  "J0hnvexcoder | Freelance Web Developer in Bulacan";
-export const homeSearchDescription =
-  "John Angelo De Joya (J0hnvexcoder), independent freelance web developer in Bulacan, Philippines. Business websites, portfolios, custom apps and technical SEO.";
+export const homeSearchTitle = pages[0].title;
+export const homeSearchDescription = pages[0].description;
 
 export const projectTopics: Record<string, string> = {
   "homelab-os": "Self-hosted infrastructure dashboard",

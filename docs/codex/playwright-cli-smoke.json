@@ -1,0 +1,73 @@
+[
+  {
+    "command": [
+      "open",
+      "http://127.0.0.1:3120/",
+      "--config=/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/work/phase0/playwright-cli.json"
+    ],
+    "exitCode": 0,
+    "output": "### Browser `portfolio-phase0` opened with pid 15.\n### Ran Playwright code\n```js\nawait page.goto('http://127.0.0.1:3120/');\n```\n### Page\n- Page URL: http://127.0.0.1:3120/\n- Page Title: Portfolio tooling smoke test\n### Snapshot\n- [Snapshot](work/phase0/playwright-artifacts/page-2026-10-31T17-19-27-160Z.yml)\n",
+    "error": ""
+  },
+  {
+    "command": [
+      "goto",
+      "http://127.0.0.1:3120/"
+    ],
+    "exitCode": 0,
+    "output": "### Ran Playwright code\n```js\nawait page.goto('http://127.0.0.1:3120/');\n```\n### Page\n- Page URL: http://127.0.0.1:3120/\n- Page Title: Portfolio tooling smoke test\n### Snapshot\n- [Snapshot](work/phase0/playwright-artifacts/page-2026-10-31T17-19-28-698Z.yml)\n",
+    "error": ""
+  },
+  {
+    "command": [
+      "fill",
+      "getByLabel('Name')",
+      "Local tool check"
+    ],
+    "exitCode": 0,
+    "output": "### Ran Playwright code\n```js\nawait page.getByLabel('Name').fill('Local tool check');\n```\n",
+    "error": ""
+  },
+  {
+    "command": [
+      "screenshot",
+      "--filename=/home/j0hn/Documents/Codex/2026-10-31/start-doing-this-now-on-my/outputs/phase0/Browser-Smoke.png"
+    ],
+    "exitCode": 0,
+    "output": "### Result\n- [Screenshot of viewport](outputs/phase0/Browser-Smoke.png)\n### Ran Playwright code\n```js\n// Screenshot viewport and save it as outputs/phase0/Browser-Smoke.png\nawait page.screenshot({\n  path: 'outputs/phase0/Browser-Smoke.png',\n  scale: 'css',\n  type: 'png'\n});\n```\n",
+    "error": ""
+  },
+  {
+    "command": [
+      "tracing-start"
+    ],
+    "exitCode": 0,
+    "output": "### Result\nTrace recording started\n- [Action log](work/phase0/playwright-artifacts/traces/trace-1793467173165.trace)\n- [Network log](work/phase0/playwright-artifacts/traces/trace-1793467173165.network)\n- [Resources](work/phase0/playwright-artifacts/traces/resources)\n",
+    "error": ""
+  },
+  {
+    "command": [
+      "goto",
+      "http://127.0.0.1:3120/"
+    ],
+    "exitCode": 0,
+    "output": "### Ran Playwright code\n```js\nawait page.goto('http://127.0.0.1:3120/');\n```\n### Page\n- Page URL: http://127.0.0.1:3120/\n- Page Title: Portfolio tooling smoke test\n### Snapshot\n- [Snapshot](work/phase0/playwright-artifacts/page-2026-10-31T17-19-35-016Z.yml)\n",
+    "error": ""
+  },
+  {
+    "command": [
+      "tracing-stop"
+    ],
+    "exitCode": 0,
+    "output": "### Result\nTrace recording stopped.\n- [Trace](work/phase0/playwright-artifacts/traces/trace-1793467173165.trace)\n- [Network log](work/phase0/playwright-artifacts/traces/trace-1793467173165.network)\n- [Resources](work/phase0/playwright-artifacts/traces/resources)\n",
+    "error": ""
+  },
+  {
+    "command": [
+      "close"
+    ],
+    "exitCode": 0,
+    "output": "Browser 'portfolio-phase0' closed\n\n",
+    "error": ""
+  }
+]

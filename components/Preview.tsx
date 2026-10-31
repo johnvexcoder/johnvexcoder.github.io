@@ -19,6 +19,7 @@ export default function Preview({
   const control = useRef<(hold?: string, release?: string) => void>(() => {});
   const [overflow, setOverflow] = useState(false),
     [explore, setExplore] = useState(false);
+  const holdsRef = useRef(new Set<string>());
   const reduced = useReducedMotion();
   useEffect(() => {
     const el = ref.current,
@@ -29,13 +30,16 @@ export default function Preview({
     let inView = false,
       maximum = 0,
       resumeAt = 0;
-    const holds = new Set<string>();
+    const holds = holdsRef.current;
     const position = () =>
       animation
         ? panPosition(maximum, Number(animation.currentTime || 0))
         : el.scrollTop;
     // Transfer the rendered transform to native scroll before manual input.
     const stop = () => {
+      // An idle preview already uses native scroll. Avoid rewriting its style and
+      // scroll position during every offscreen/initial ResizeObserver callback.
+      if (!animation) return;
       const current = position();
       animation?.cancel();
       animation = undefined;

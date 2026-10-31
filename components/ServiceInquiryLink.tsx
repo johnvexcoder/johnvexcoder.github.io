@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 export default function ServiceInquiryLink({
@@ -15,15 +14,9 @@ export default function ServiceInquiryLink({
       className={className}
       href={
         service
-          ? `/?service=${encodeURIComponent(service)}#contact`
-          : "/#contact"
+          ? `/contact/?service=${encodeURIComponent(service)}`
+          : "/contact/"
       }
-      onClick={() => {
-        if (service)
-          window.dispatchEvent(
-            new CustomEvent("portfolio-enquiry", { detail: service }),
-          );
-      }}
     >
       {label}
       <ArrowUpRight size={16} aria-hidden="true" />

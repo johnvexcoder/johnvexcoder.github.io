@@ -81,6 +81,7 @@ export default function ProfessionalSystem() {
         </div>
         <div
           className="professional-reader"
+          data-motion-scene="workflow"
           id="system-detail"
           aria-live="polite"
         >

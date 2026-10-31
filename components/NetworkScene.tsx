@@ -2,6 +2,7 @@
 import { useLayoutEffect, useRef } from "react";
 import {
   INTRO_DURATION,
+  INTRO_PHASES,
   networkGeometryCss,
   introPhase,
   networkPoints,
@@ -41,8 +42,8 @@ export default function NetworkScene({
       phase = "";
     const tick = (now: number) => {
       const elapsed = now - started;
-      const points = networkPoints(elapsed);
       if (!nativeGeometry) {
+        const points = networkPoints(elapsed);
         circles.forEach((circle, i) => {
           circle.setAttribute("cx", String(points[i][0]));
           circle.setAttribute("cy", String(points[i][1]));
@@ -75,8 +76,24 @@ export default function NetworkScene({
       if (elapsed < INTRO_DURATION && !document.hidden)
         frame = requestAnimationFrame(tick);
     };
-    frame = requestAnimationFrame(tick);
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    if (nativeGeometry) {
+      const elapsed = performance.now() - started;
+      svg
+        .closest(".hero")
+        ?.setAttribute("data-intro-phase", introPhase(elapsed));
+      for (const [at, next] of INTRO_PHASES)
+        if (at > elapsed)
+          timers.push(
+            setTimeout(
+              () =>
+                svg.closest(".hero")?.setAttribute("data-intro-phase", next),
+              at - elapsed,
+            ),
+          );
+    } else frame = requestAnimationFrame(tick);
     return () => {
+      timers.forEach(clearTimeout);
       cancelAnimationFrame(frame);
       circles.forEach((circle, i) => {
         circle.setAttribute("cx", String(after[i][0]));
