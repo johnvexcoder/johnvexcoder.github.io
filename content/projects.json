@@ -31,7 +31,11 @@
     ],
     "problemSolution": "A host list does not explain how virtual machines, containers and physical resources relate. The project addresses that visibility gap: it connects changing metrics with the systems they describe, so an administrator can inspect a host in context.",
     "classification": "Personal project",
-    "imageWithheld": true
+    "imageWithheld": true,
+    "serviceIds": [
+      "cms-solutions",
+      "custom-solutions"
+    ]
   },
   {
     "id": "homelab-agent",
@@ -43,7 +47,13 @@
     "logo": "/source/projects/nexora-icon.webp",
     "visualType": "service",
     "visualLabel": "Dedicated Nexora Lab telemetry service",
-    "technologies": ["TypeScript", "Node.js", "Linux", "Docker", "Proxmox"],
+    "technologies": [
+      "TypeScript",
+      "Node.js",
+      "Linux",
+      "Docker",
+      "Proxmox"
+    ],
     "status": "active",
     "github": "https://github.com/johnvexcoder/nexora-agent",
     "docs": "https://github.com/johnvexcoder/nexora-agent/blob/main/README.md",
@@ -51,9 +61,15 @@
     "demo": null,
     "openSource": true,
     "featured": true,
-    "facts": ["v2.0.0", "6 modular plugins"],
+    "facts": [
+      "v2.0.0",
+      "6 modular plugins"
+    ],
     "problemSolution": "A virtualization API cannot expose every local temperature sensor, service state or disk-health reading. The Agent fills those gaps while allowing unsupported collectors to remain unavailable without disabling the whole application.",
-    "classification": "Personal project"
+    "classification": "Personal project",
+    "serviceIds": [
+      "custom-solutions"
+    ]
   },
   {
     "id": "compressme",
@@ -65,7 +81,13 @@
     "imageFallback": "/source/projects/compressme/compressme-screenshot.png",
     "logo": "/source/projects/compressme/compressme-icon.webp",
     "logoFallback": "/source/projects/compressme/compressme-icon.png",
-    "technologies": ["Python", "PySide6", "Pillow", "CLI", "Desktop"],
+    "technologies": [
+      "Python",
+      "PySide6",
+      "Pillow",
+      "CLI",
+      "Desktop"
+    ],
     "status": "completed",
     "github": "https://github.com/johnvexcoder/CompressMe",
     "docs": "https://github.com/johnvexcoder/CompressMe/blob/main/README.md",
@@ -73,10 +95,17 @@
     "demo": null,
     "openSource": true,
     "featured": true,
-    "facts": ["Windows + Linux", "GUI + CLI", "Exact + perceptual dedupe"],
+    "facts": [
+      "Windows + Linux",
+      "GUI + CLI",
+      "Exact + perceptual dedupe"
+    ],
     "problemSolution": "Processing an image folder one file at a time makes it difficult to keep settings consistent or see which files failed. A repeatable batch workflow also needs to distinguish identical files from visually similar images.",
     "classification": "Personal project",
-    "imageAlt": "CompressMe desktop dashboard showing a compression queue and processing reports"
+    "imageAlt": "CompressMe desktop dashboard showing a compression queue and processing reports",
+    "serviceIds": [
+      "custom-solutions"
+    ]
   },
   {
     "id": "jenica-portfolio",
@@ -88,7 +117,12 @@
     "scrollImage": "/source/projects/jenica-portfolio/jenica-portfolio-scroll.webp",
     "imageFallback": "/source/projects/jenica-portfolio/jenica-portfolio-preview.webp",
     "logo": "/source/projects/jenica-portfolio/favicon.svg",
-    "technologies": ["Next.js", "React", "CSS", "Vercel"],
+    "technologies": [
+      "Next.js",
+      "React",
+      "CSS",
+      "Vercel"
+    ],
     "status": "active",
     "github": null,
     "docs": null,
@@ -103,7 +137,10 @@
     ],
     "problemSolution": "A résumé, certificates and a separate project story can be difficult to assess when presented independently. The website gives those materials a clear sequence while keeping résumé and contact access easy to find.",
     "classification": "Client work",
-    "imageAlt": "Jenica Salazar's portfolio homepage with her portrait and professional introduction"
+    "imageAlt": "Jenica Salazar's portfolio homepage with her portrait and professional introduction",
+    "serviceIds": [
+      "portfolio-websites"
+    ]
   },
   {
     "id": "movieflix",
@@ -132,10 +169,18 @@
     "demo": null,
     "openSource": true,
     "featured": true,
-    "facts": ["v1.0.0", "HTTP 206 streaming", "On-demand FFmpeg transcoding"],
+    "facts": [
+      "v1.0.0",
+      "HTTP 206 streaming",
+      "On-demand FFmpeg transcoding"
+    ],
     "problemSolution": "Media files need more than a directory listing: people need recognizable titles, artwork and playback that can seek through large files. Different codecs add another compatibility challenge.",
     "classification": "Personal project",
-    "imageAlt": "MovieFlix library homepage showing featured artwork and media rows"
+    "imageAlt": "MovieFlix library homepage showing featured artwork and media rows",
+    "serviceIds": [
+      "cms-solutions",
+      "custom-solutions"
+    ]
   },
   {
     "id": "donut-house",
@@ -172,7 +217,10 @@
     "problemSolution": "A custom box is more complicated than a single product purchase: choices need to remain understandable as items, quantities and options change. The design challenge is to carry those decisions from discovery into the cart without losing context.",
     "disclaimer": "Portfolio Commerce Concept — No real orders or payments",
     "classification": "Personal project",
-    "imageAlt": "Donut House storefront showing donut collections and custom box presentation"
+    "imageAlt": "Donut House storefront showing donut collections and custom box presentation",
+    "serviceIds": [
+      "business-websites"
+    ]
   },
   {
     "id": "jaron-portfolio",
@@ -184,7 +232,12 @@
     "scrollImage": "/source/projects/jaron-portfolio/jaron-portfolio-scroll.webp",
     "imageFallback": "/source/projects/jaron-portfolio/jaron-portfolio-preview.webp",
     "logo": "/source/projects/jaron-portfolio/favicon.svg",
-    "technologies": ["HTML", "CSS", "JavaScript", "Vercel"],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Vercel"
+    ],
     "status": "active",
     "github": null,
     "docs": null,
@@ -199,7 +252,10 @@
     ],
     "problemSolution": "A long professional record needs clear grouping so visitors can understand responsibilities and inspect relevant work. The site turns that material into a readable professional narrative rather than copying a résumé into one uninterrupted block.",
     "classification": "Client work",
-    "imageAlt": "Mark Jaron's portfolio introduction and engineering experience presentation"
+    "imageAlt": "Mark Jaron's portfolio introduction and engineering experience presentation",
+    "serviceIds": [
+      "portfolio-websites"
+    ]
   },
   {
     "id": "your-coffee",
@@ -211,7 +267,13 @@
     "scrollImage": "/source/projects/your-coffee/your-coffee-scroll.webp",
     "imageFallback": "/source/projects/your-coffee/your-coffee-preview.webp",
     "logo": null,
-    "technologies": ["HTML", "CSS", "JavaScript", "localStorage", "Vercel"],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "localStorage",
+      "Vercel"
+    ],
     "status": "demo",
     "github": null,
     "docs": null,
@@ -227,7 +289,10 @@
     "problemSolution": "A broad drink menu becomes harder to explore when customers also need to choose options. The interface brings discovery and customization together, while keeping the current order visible.",
     "disclaimer": "Portfolio Café Concept — No real orders or payments",
     "classification": "Personal project",
-    "imageAlt": "Your Coffee café homepage showing the drink menu and ordering presentation"
+    "imageAlt": "Your Coffee café homepage showing the drink menu and ordering presentation",
+    "serviceIds": [
+      "business-websites"
+    ]
   },
   {
     "id": "python-keybr",
@@ -237,7 +302,11 @@
     "description": "Python-Keybr is a Python terminal typing trainer inspired by keybr.com. Its curses interface provides practice, timing feedback and keyboard diagnostics without a browser.",
     "image": null,
     "logo": null,
-    "technologies": ["Python", "curses", "Terminal"],
+    "technologies": [
+      "Python",
+      "curses",
+      "Terminal"
+    ],
     "status": "completed",
     "github": "https://github.com/johnvexcoder/Python-Keybr",
     "docs": "https://github.com/johnvexcoder/Python-Keybr/blob/master/README.md",
@@ -245,9 +314,16 @@
     "demo": null,
     "openSource": true,
     "featured": false,
-    "facts": ["v1.2.0", "6 practice modes", "Adaptive letter unlocking"],
+    "facts": [
+      "v1.2.0",
+      "6 practice modes",
+      "Adaptive letter unlocking"
+    ],
     "problemSolution": "A terminal practice tool needs to show errors and progress without interrupting typing. The project also explores adaptive practice, where weaker letters receive attention and new letters unlock as confidence improves.",
-    "classification": "Personal project"
+    "classification": "Personal project",
+    "serviceIds": [
+      "custom-solutions"
+    ]
   },
   {
     "id": "distrozsh",
@@ -257,7 +333,12 @@
     "description": "DistroZSH is a lightweight Linux ZSH configuration with a distribution-aware prompt and selectable layouts. It provides a consistent shell setup without a shell framework or plugin manager.",
     "image": null,
     "logo": null,
-    "technologies": ["ZSH", "Bash", "Linux", "Terminal"],
+    "technologies": [
+      "ZSH",
+      "Bash",
+      "Linux",
+      "Terminal"
+    ],
     "status": "active",
     "github": "https://github.com/johnvexcoder/DistroZSH",
     "docs": "https://github.com/johnvexcoder/DistroZSH/blob/main/README.md",
@@ -265,9 +346,16 @@
     "demo": null,
     "openSource": true,
     "featured": false,
-    "facts": ["ZSH 5.9+", "21 distro themes", "Fully reversible installer"],
+    "facts": [
+      "ZSH 5.9+",
+      "21 distro themes",
+      "Fully reversible installer"
+    ],
     "problemSolution": "Shell customization can accumulate dependencies and changes that are difficult to undo. This project provides a defined configuration while adapting the prompt's appearance to the running distribution.",
-    "classification": "Personal project"
+    "classification": "Personal project",
+    "serviceIds": [
+      "custom-solutions"
+    ]
   },
   {
     "id": "starbucks-portal",
@@ -279,7 +367,12 @@
     "imageFallback": "/source/projects/starbucks-portal/startbucks-portal-screenshot.png",
     "logo": "/source/projects/starbucks-portal/starbucks-icon.webp",
     "logoFallback": "/source/projects/starbucks-portal/starbucks-icon.png",
-    "technologies": ["HTML", "CSS", "JavaScript", "UI/UX"],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "UI/UX"
+    ],
     "status": "demo",
     "github": null,
     "docs": null,
@@ -295,7 +388,10 @@
     "problemSolution": "A login interface needs understandable fields and clear feedback when input is incomplete or incorrect. This small project focuses on that interaction rather than account management.",
     "disclaimer": "Unofficial Concept Project — Live Demo",
     "classification": "Personal project",
-    "imageAlt": "Unofficial Starbucks-inspired login form with email and password fields"
+    "imageAlt": "Unofficial Starbucks-inspired login form with email and password fields",
+    "serviceIds": [
+      "custom-solutions"
+    ]
   },
   {
     "id": "smart-expense",
@@ -307,7 +403,12 @@
     "imageFallback": "/source/projects/smart-expenses/smart-expenses.png",
     "logo": "/source/projects/smart-expenses/smart-expense-icon.webp",
     "logoFallback": "/source/projects/smart-expenses/smart-expense-icon.png",
-    "technologies": ["JavaScript", "Chart.js", "Tailwind", "localStorage"],
+    "technologies": [
+      "JavaScript",
+      "Chart.js",
+      "Tailwind",
+      "localStorage"
+    ],
     "status": "demo",
     "github": null,
     "docs": null,
@@ -315,11 +416,18 @@
     "demo": "/demos/smart-expense/",
     "openSource": false,
     "featured": false,
-    "facts": ["Live demo", "localStorage (no database)", "Dark/light theme"],
+    "facts": [
+      "Live demo",
+      "localStorage (no database)",
+      "Dark/light theme"
+    ],
     "problemSolution": "A transaction list alone makes spending patterns hard to inspect. The dashboard connects each entry to category totals, summary cards and a chart that changes with the records.",
     "disclaimer": "Live Demo — Data stays in your browser",
     "classification": "Personal project",
-    "imageAlt": "Expense dashboard showing summary cards, a category chart and transaction table"
+    "imageAlt": "Expense dashboard showing summary cards, a category chart and transaction table",
+    "serviceIds": [
+      "custom-solutions"
+    ]
   },
   {
     "id": "monthsary",
@@ -332,7 +440,11 @@
     "imageFallback": "/source/projects/monthsary/monthsary-preview.webp",
     "logo": "/source/projects/monthsary/monthsary-icon.webp",
     "logoFallback": "/source/projects/monthsary/monthsary-icon.webp",
-    "technologies": ["HTML", "CSS", "JavaScript"],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
     "status": "active",
     "github": null,
     "docs": null,
@@ -348,7 +460,10 @@
     "problemSolution": "Personal memories deserve a coherent presentation rather than a disconnected set of files. The design challenge is to make the story easy to explore while keeping its intimate purpose intact.",
     "disclaimer": "Personal Project",
     "classification": "Personal project",
-    "imageAlt": "Monthsary anniversary website with a personal timeline and photo presentation"
+    "imageAlt": "Monthsary anniversary website with a personal timeline and photo presentation",
+    "serviceIds": [
+      "portfolio-websites"
+    ]
   },
   {
     "id": "johnvex-winops",
@@ -360,7 +475,12 @@
     "imageFallback": "/source/projects/winops/winops-preview.webp",
     "logo": "/source/projects/winops/winops-icon.webp",
     "logoFallback": "/source/projects/winops/winops-icon.webp",
-    "technologies": ["PowerShell", "Windows", "Security", "Automation"],
+    "technologies": [
+      "PowerShell",
+      "Windows",
+      "Security",
+      "Automation"
+    ],
     "status": "active",
     "github": "https://github.com/johnvexcoder/JohnVex-WinOps",
     "docs": "https://github.com/johnvexcoder/JohnVex-WinOps/blob/main/README.md",
@@ -368,11 +488,18 @@
     "demo": null,
     "openSource": true,
     "featured": true,
-    "facts": ["v3.0.0", "PowerShell 5.1", "Community/Pro/Enterprise"],
+    "facts": [
+      "v3.0.0",
+      "PowerShell 5.1",
+      "Community/Pro/Enterprise"
+    ],
     "problemSolution": "Ad-hoc maintenance scripts can make it difficult to understand what will change, what privileges are needed and what happened afterward. The toolkit gives those operations a defined planning and logging workflow.",
     "disclaimer": null,
     "classification": "Personal project",
-    "imageAlt": "JohnVex-WinOps administration interface showing diagnostic and operation options"
+    "imageAlt": "JohnVex-WinOps administration interface showing diagnostic and operation options",
+    "serviceIds": [
+      "custom-solutions"
+    ]
   },
   {
     "id": "jnglo",
@@ -382,7 +509,10 @@
     "description": "J&GLO is a fictional Next.js fashion storefront with product variants, collection pages and an interactive shopping bag. Its editorial presentation supports browsing and simulated shopping rather than live commerce.",
     "image": "/source/projects/jnglo/capture.webp",
     "scrollImage": "/source/projects/jnglo/capture.webp",
-    "technologies": ["Next.js", "Vercel"],
+    "technologies": [
+      "Next.js",
+      "Vercel"
+    ],
     "status": "demo",
     "github": null,
     "docs": null,
@@ -390,12 +520,18 @@
     "demo": "https://jnglo.vercel.app/",
     "openSource": false,
     "featured": false,
-    "facts": ["Live website demonstration", "Actual full-page source capture"],
+    "facts": [
+      "Live website demonstration",
+      "Actual full-page source capture"
+    ],
     "problemSolution": "Campaign imagery and a usable catalog have different jobs. The design challenge is to preserve the fashion identity while making variants, sizes and the current shopping bag understandable.",
     "sourceCapture": true,
     "disclaimer": "Portfolio store concept — no real orders or payments.",
     "classification": "Personal project",
-    "imageAlt": "J&GLO fictional fashion storefront with campaign imagery and garment collections"
+    "imageAlt": "J&GLO fictional fashion storefront with campaign imagery and garment collections",
+    "serviceIds": [
+      "business-websites"
+    ]
   },
   {
     "id": "arkosenyo",
@@ -405,7 +541,10 @@
     "description": "ARKOSENYO is a client architecture website development project presenting services, project records and image galleries. The published demonstration includes search and filtering for exploring the work.",
     "image": "/source/projects/arkosenyo/capture.webp",
     "scrollImage": "/source/projects/arkosenyo/capture.webp",
-    "technologies": ["Next.js", "Vercel"],
+    "technologies": [
+      "Next.js",
+      "Vercel"
+    ],
     "status": "demo",
     "github": null,
     "docs": null,
@@ -413,12 +552,18 @@
     "demo": "https://demo-arkosenyo.vercel.app/",
     "openSource": false,
     "featured": false,
-    "facts": ["Live website demonstration", "Actual full-page source capture"],
+    "facts": [
+      "Live website demonstration",
+      "Actual full-page source capture"
+    ],
     "problemSolution": "An architecture website needs to connect project discovery with services and a clear inquiry path. I organized the client’s project material so visitors can filter work, open its details and explore imagery without losing context.",
     "sourceCapture": true,
     "disclaimer": "Client website project — published demonstration; inquiry delivery and a separate production launch are not asserted.",
     "classification": "Client work",
-    "imageAlt": "ARKOSENYO redesign concept presenting architecture imagery and project discovery"
+    "imageAlt": "ARKOSENYO redesign concept presenting architecture imagery and project discovery",
+    "serviceIds": [
+      "business-websites"
+    ]
   },
   {
     "id": "taitechmarine",
@@ -428,7 +573,10 @@
     "description": "TAITECH Marine is a client marine-equipment business website redesign project. Its published demonstration combines equipment and service presentation with search, galleries and a structured request preview.",
     "image": "/source/projects/taitechmarine/capture.webp",
     "scrollImage": "/source/projects/taitechmarine/capture.webp",
-    "technologies": ["Next.js", "Vercel"],
+    "technologies": [
+      "Next.js",
+      "Vercel"
+    ],
     "status": "demo",
     "github": null,
     "docs": null,
@@ -436,12 +584,19 @@
     "demo": "https://demo-taitechmarine.vercel.app/",
     "openSource": false,
     "featured": false,
-    "facts": ["Live website demonstration", "Actual full-page source capture"],
+    "facts": [
+      "Live website demonstration",
+      "Actual full-page source capture"
+    ],
     "problemSolution": "Equipment and service inquiries need useful context. I connected category browsing with a request flow that asks relevant questions and lets visitors review their details before the demonstration confirmation.",
     "sourceCapture": true,
     "disclaimer": "Client website redesign — request preview only; no submission, scheduling or reserved availability is claimed.",
     "classification": "Client work",
-    "imageAlt": "TAITECH Marine redesign demonstration showing equipment and technical service presentation"
+    "imageAlt": "TAITECH Marine redesign demonstration showing equipment and technical service presentation",
+    "serviceIds": [
+      "business-websites",
+      "booking-systems"
+    ]
   },
   {
     "id": "shoesonthego",
@@ -465,12 +620,18 @@
     "demo": "https://shoesonthego.vercel.app/",
     "openSource": false,
     "featured": false,
-    "facts": ["Live noncommercial concept", "Interactive 3D footwear"],
+    "facts": [
+      "Live noncommercial concept",
+      "Interactive 3D footwear"
+    ],
     "problemSolution": "A product presentation needs to show form and detail while still letting visitors explore it themselves. The project tests how cinematic scrolling and direct manipulation can share one model.",
     "disclaimer": "Independent, noncommercial concept — no brand affiliation or product sales.",
     "sourceCapture": true,
     "classification": "Personal project",
-    "imageAlt": "Shoes on the Go 3D footwear presentation with model inspection controls"
+    "imageAlt": "Shoes on the Go 3D footwear presentation with model inspection controls",
+    "serviceIds": [
+      "custom-solutions"
+    ]
   },
   {
     "id": "archeon",
@@ -506,6 +667,224 @@
     "sourceCapture": true,
     "disclaimer": "Architecture visualization demo — Amihan House is an illustrative concept, not a completed commission. Project briefs are downloaded locally; no requests are sent.",
     "classification": "Personal project",
-    "imageAlt": "ARCHÉON Amihan House concept showing a construction stage and exploration controls"
+    "imageAlt": "ARCHÉON Amihan House concept showing a construction stage and exploration controls",
+    "serviceIds": [
+      "custom-solutions"
+    ]
+  },
+  {
+    "id": "bedrock",
+    "name": "Bedrock Events",
+    "category": "Web",
+    "classification": "Personal project",
+    "shortDescription": "An event-services website concept with a photographic gallery and a browser-local event brief.",
+    "description": "Bedrock Events is an independent website concept for presenting celebrations, event styling and production services. A photographic homepage guides visitors from service discovery and past-event imagery to a structured quotation brief.",
+    "image": "/source/projects/bedrock-full-preview.webp",
+    "scrollImage": "/source/projects/bedrock-full-preview.webp",
+    "imageAlt": "Bedrock Events full-page website showing celebration photography, event services and the local event-brief form",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://demo-bedrock.vercel.app/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Events & celebrations",
+      "Deployed demonstration"
+    ],
+    "problemSolution": "Event services combine visual work with practical planning details. A visitor needs to see the atmosphere of the work, understand the available service directions and collect the information needed for a conversation without mistaking a form preview for a confirmed booking.",
+    "disclaimer": "This is an independent concept, not an active booking website. Illustrative feedback on the demo is not used as a portfolio client testimonial. Event operations, real availability and delivery of inquiries are outside the verified scope.",
+    "serviceIds": [
+      "business-websites",
+      "booking-systems"
+    ],
+    "industry": "Events & celebrations"
+  },
+  {
+    "id": "aurvel",
+    "name": "AURVÉL",
+    "category": "Web",
+    "classification": "Personal project",
+    "shortDescription": "A fictional watch collection presented through editorial product pages and model comparison.",
+    "description": "AURVÉL is an original watch-collection concept organized around Nocturne, Meridian and Atelier. The website brings six proposed timepieces together through product imagery, collection navigation and a model-comparison path.",
+    "image": "/source/projects/aurvel-full-preview.webp",
+    "scrollImage": "/source/projects/aurvel-full-preview.webp",
+    "imageAlt": "AURVÉL full-page website showing the fictional Nocturne, Meridian and Atelier watch collections",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://demo-aurvel.vercel.app/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Watch collection & product design",
+      "Deployed demonstration"
+    ],
+    "problemSolution": "A product-led website needs to communicate differences between closely related designs without overwhelming the visual presentation. Here, the task is to connect collection identity with inspectable model details while keeping proposed specifications distinct from products offered for sale.",
+    "disclaimer": "No products are offered for sale. Design specifications are proposals; the portfolio makes no claims about manufactured watches, payment processing, order fulfillment or commercial sales.",
+    "serviceIds": [
+      "business-websites"
+    ],
+    "industry": "Watch collection & product design"
+  },
+  {
+    "id": "rajt-marine-services",
+    "name": "RAJ & T Marine Services",
+    "category": "Web",
+    "classification": "Personal project",
+    "shortDescription": "An unofficial marine-company redesign concept with vessel projects, capabilities and shipyard content.",
+    "description": "This unofficial RAJ & T Marine Services redesign concept organizes a marine-engineering company profile into a public-facing website. Vessel projects, capabilities, shipyard information and company resources give visitors several ways to inspect the subject matter.",
+    "image": "/source/projects/rajt-marine-services-full-preview.webp",
+    "scrollImage": "/source/projects/rajt-marine-services-full-preview.webp",
+    "imageAlt": "RAJ & T Marine Services full-page unofficial redesign showing vessel projects, engineering capabilities and shipyard sections",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Motion"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://demo-rajt-marine-services.vercel.app/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Marine engineering & shipbuilding",
+      "Deployed demonstration"
+    ],
+    "problemSolution": "A detailed company profile can be difficult to explore as one long document. The interface needs to organize vessel work, engineering capabilities and historical references into a clear navigation structure without presenting old company information or sample careers as current verified business facts.",
+    "disclaimer": "This is not presented as commissioned client work or an official company website. Historical profile details and current availability require company confirmation. Sample careers do not establish open vacancies.",
+    "serviceIds": [
+      "business-websites"
+    ],
+    "industry": "Marine engineering & shipbuilding"
+  },
+  {
+    "id": "aurevia",
+    "name": "Aurevia Journeys",
+    "category": "Web",
+    "classification": "Personal project",
+    "shortDescription": "A travel website concept connecting destination discovery, journey filters and sample itinerary planning.",
+    "description": "Aurevia Journeys is an original travel experience built around destination discovery and considered itineraries. Visitors can explore destinations, journey styles and editorial travel notes before continuing toward a sample trip-planning flow.",
+    "image": "/source/projects/aurevia-full-preview.webp",
+    "scrollImage": "/source/projects/aurevia-full-preview.webp",
+    "imageAlt": "Aurevia Journeys full-page travel website showing destination collections, journey cards and itinerary discovery",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Dexie",
+      "Zustand"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://aurevia-xi-ten.vercel.app/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Travel & itinerary discovery",
+      "Deployed demonstration"
+    ],
+    "problemSolution": "Travel discovery brings together destinations, dates, traveler counts and different styles of journey. The interface needs to keep those choices understandable while distinguishing illustrative rates and sample itineraries from a real travel reservation.",
+    "disclaimer": "This is a travel concept with sample planning data. No live tour inventory, supplier connection, payment settlement or real booking fulfillment is claimed. Browser storage does not provide shared multiuser records.",
+    "serviceIds": [
+      "business-websites",
+      "booking-systems",
+      "custom-solutions"
+    ],
+    "industry": "Travel & itinerary discovery"
+  },
+  {
+    "id": "voyara",
+    "name": "Voyara Operations",
+    "category": "Web",
+    "classification": "Personal project",
+    "shortDescription": "A browser-local travel operations workspace with reservations, CRM, finance and content-management interfaces.",
+    "description": "Voyara Operations is a travel-operations application demonstration. Its workspace brings reservations, customer relationships, departures, local financial records and content tools into one navigable interface backed by seeded browser-local data.",
+    "image": "/source/projects/voyara-full-preview.webp",
+    "scrollImage": "/source/projects/voyara-full-preview.webp",
+    "imageAlt": "Voyara Operations workspace overview showing local reservation reports, departures and customer-management navigation",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Dexie",
+      "Recharts"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://voyara-ruddy.vercel.app/overview",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Travel operations & CRM",
+      "Deployed demonstration"
+    ],
+    "problemSolution": "A reservation belongs to more than a list: it relates to travelers, departures, follow-ups and recorded payments. The project explores how those records can be inspected in context without confusing a local interface demonstration with a secure production operations platform.",
+    "disclaimer": "This is a browser-local demonstration with synthetic records. Role profiles are not production authentication, local payment entries are not transactions, and no backend synchronization or actual travel-company revenue is claimed.",
+    "serviceIds": [
+      "custom-solutions",
+      "cms-solutions",
+      "booking-systems"
+    ],
+    "industry": "Travel operations & CRM"
+  },
+  {
+    "id": "aurelia",
+    "name": "Aurelia Grand",
+    "category": "Web",
+    "classification": "Personal project",
+    "shortDescription": "A fictional hotel website with room discovery, stay selection and browser-local reservation planning.",
+    "description": "Aurelia Grand is an original, fictional Manila-inspired hotel and residences concept. Its public website connects room and suite discovery with dining, wellbeing, occasions and offers, supported by a sample stay-planning interface.",
+    "image": "/source/projects/aurelia-full-preview.webp",
+    "scrollImage": "/source/projects/aurelia-full-preview.webp",
+    "imageAlt": "Aurelia Grand full-page fictional hotel website showing rooms, stay selection, dining and hospitality offers",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Dexie",
+      "Zustand"
+    ],
+    "status": "demo",
+    "github": null,
+    "docs": null,
+    "release": null,
+    "demo": "https://aurelia-five-teal.vercel.app/",
+    "openSource": false,
+    "featured": false,
+    "facts": [
+      "Hospitality & stays",
+      "Deployed demonstration"
+    ],
+    "problemSolution": "A hospitality website must make room choices and dates easy to understand while retaining a strong visual sense of place. A working interface also needs clear boundaries between illustrative rates, sample stay records and a confirmed hotel reservation.",
+    "disclaimer": "No operating hotel, live room availability, payment settlement or confirmed guest reservation is claimed. Local stay records are not shared booking infrastructure and should not contain real guest data.",
+    "serviceIds": [
+      "business-websites",
+      "booking-systems",
+      "custom-solutions"
+    ],
+    "industry": "Hospitality & stays"
   }
 ]

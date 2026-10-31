@@ -47,6 +47,11 @@ export const metadata: Metadata = {
     images: ["/social.png"],
   },
   authors: [{ name: profile.name, url }],
+  icons: {
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
   robots: {
     index: isIndexable,
@@ -104,14 +109,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: introBootstrap }} />
         <link
           rel="preload"
-          href="/fonts/SignatureSans.woff2"
+          href="/fonts/SignatureSans-latin.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/fonts/SignatureMono.woff2"
+          href="/fonts/SignatureMono-latin.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"

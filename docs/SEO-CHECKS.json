@@ -1,14 +1,14 @@
 {
-  "checkedAt": "2026-10-13T13:05:04.179Z",
+  "checkedAt": "2026-10-31T10:40:29.192Z",
   "origin": "https://johnvexcoder.github.io",
   "indexingMode": "production",
-  "pages": 27,
-  "sitemapUrls": 27,
+  "pages": 33,
+  "sitemapUrls": 33,
   "imageSitemap": true,
-  "internalLinks": 1058,
-  "fragments": 754,
-  "imageCount": 71,
-  "schemaCount": 107,
+  "internalLinks": 1376,
+  "fragments": 935,
+  "imageCount": 103,
+  "schemaCount": 131,
   "checks": [
     {
       "route": "/",
@@ -224,6 +224,54 @@
       "description": "ARCHÉON presents an original house concept through nine construction stages, floor plans, camera controls and material choices. Briefs download locally.",
       "canonical": "https://johnvexcoder.github.io/work/archeon/",
       "image": "https://johnvexcoder.github.io/social/archeon.jpg",
+      "indexable": true
+    },
+    {
+      "route": "/work/bedrock/",
+      "title": "Bedrock Events — Event services website concept | J0hnvexcoder",
+      "description": "Bedrock Events by J0hnvexcoder: An event-services website concept with a photographic gallery and a browser-local event brief.",
+      "canonical": "https://johnvexcoder.github.io/work/bedrock/",
+      "image": "https://johnvexcoder.github.io/social/bedrock.jpg",
+      "indexable": true
+    },
+    {
+      "route": "/work/aurvel/",
+      "title": "AURVÉL — Watch collection website concept | J0hnvexcoder",
+      "description": "AURVÉL by J0hnvexcoder: A fictional watch collection presented through editorial product pages and model comparison.",
+      "canonical": "https://johnvexcoder.github.io/work/aurvel/",
+      "image": "https://johnvexcoder.github.io/social/aurvel.jpg",
+      "indexable": true
+    },
+    {
+      "route": "/work/rajt-marine-services/",
+      "title": "RAJ & T Marine Services — Marine website redesign concept | J0hnvexcoder",
+      "description": "RAJ & T Marine Services by J0hnvexcoder: An unofficial marine-company redesign concept with vessel projects, capabilities and shipyard content.",
+      "canonical": "https://johnvexcoder.github.io/work/rajt-marine-services/",
+      "image": "https://johnvexcoder.github.io/social/rajt-marine-services.jpg",
+      "indexable": true
+    },
+    {
+      "route": "/work/aurevia/",
+      "title": "Aurevia Journeys — Travel website and itinerary demo | J0hnvexcoder",
+      "description": "Aurevia Journeys by J0hnvexcoder: A travel website concept connecting destination discovery, journey filters and sample itinerary planning.",
+      "canonical": "https://johnvexcoder.github.io/work/aurevia/",
+      "image": "https://johnvexcoder.github.io/social/aurevia.jpg",
+      "indexable": true
+    },
+    {
+      "route": "/work/voyara/",
+      "title": "Voyara Operations — Travel operations workspace demo | J0hnvexcoder",
+      "description": "Voyara Operations by J0hnvexcoder: A browser-local travel operations workspace with reservations, CRM, finance and content-management interfaces.",
+      "canonical": "https://johnvexcoder.github.io/work/voyara/",
+      "image": "https://johnvexcoder.github.io/social/voyara.jpg",
+      "indexable": true
+    },
+    {
+      "route": "/work/aurelia/",
+      "title": "Aurelia Grand — Hotel website and stay-planning demo | J0hnvexcoder",
+      "description": "Aurelia Grand by J0hnvexcoder: A fictional hotel website with room discovery, stay selection and browser-local reservation planning.",
+      "canonical": "https://johnvexcoder.github.io/work/aurelia/",
+      "image": "https://johnvexcoder.github.io/social/aurelia.jpg",
       "indexable": true
     },
     {

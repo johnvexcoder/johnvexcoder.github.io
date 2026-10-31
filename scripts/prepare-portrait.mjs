@@ -7,7 +7,10 @@ const result = {
 };
 for (const width of [320, 480, 640]) {
   const file = `public/source/me/portrait-${width}.webp`;
-  await sharp(original).resize({ width }).webp({ lossless: true }).toFile(file);
+  await sharp(original)
+    .resize({ width })
+    .webp({ quality: 86, alphaQuality: 100, effort: 6 })
+    .toFile(file);
   const meta = await sharp(file).metadata();
   result.variants.push({
     file,

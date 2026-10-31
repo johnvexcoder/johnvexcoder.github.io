@@ -63,6 +63,9 @@ export default async function Work({
   const p = projects.find((p) => p.id === id);
   if (!p) notFound();
   const story = caseStudy(id);
+  const associatedServices = servicePages.filter((service) =>
+    p.serviceIds.includes(service.id),
+  );
   const index = projects.indexOf(p);
   const related = story.related
     .map((id) => projects.find((project) => project.id === id)!)
@@ -135,10 +138,17 @@ export default async function Work({
           }).replaceAll("<", "\\u003c"),
         }}
       />
-      <Link className="text-link" href="/#projects">
+      <Link prefetch={false} className="text-link" href="/#projects">
         <ArrowLeft size={14} />
         All projects
       </Link>
+      <nav className="case-breadcrumbs" aria-label="Breadcrumb">
+        <Link prefetch={false} href="/">
+          Portfolio
+        </Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{p.name}</span>
+      </nav>
       <header className="case-heading">
         <p className="eyebrow">
           {p.category} / {story.type}
@@ -227,33 +237,57 @@ export default async function Work({
             <ul>
               {related.map((project) => (
                 <li key={project.id}>
-                  <Link className="text-link" href={`/work/${project.id}/`}>
+                  <Link
+                    prefetch={false}
+                    className="text-link"
+                    href={`/work/${project.id}/`}
+                  >
                     {project.name}
                     <ArrowUpRight size={12} aria-hidden="true" />
                   </Link>
                 </li>
               ))}
             </ul>
-            <Link className="text-link" href={`/services/${story.service}/`}>
-              Explore{" "}
-              {
-                servicePages.find((service) => service.id === story.service)!
-                  .name
-              }{" "}
-              <ArrowUpRight size={12} aria-hidden="true" />
-            </Link>
+            <p className="eyebrow">RELATED SERVICES</p>
+            <ul>
+              {associatedServices.map((service) => (
+                <li key={service.id}>
+                  <Link
+                    prefetch={false}
+                    className="text-link"
+                    href={service.route}
+                  >
+                    {service.name}
+                    <ArrowUpRight size={12} aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
         </aside>
       </div>
+      <section className="service-cta">
+        <div>
+          <p className="eyebrow">HAVE SOMETHING IN MIND?</p>
+          <h2>Let’s shape your next build.</h2>
+          <p>
+            Share your audience, content and the workflow you need. We can
+            define the scope together.
+          </p>
+        </div>
+        <Link prefetch={false} className="button primary" href="/#contact">
+          Discuss a similar project <ArrowUpRight size={16} />
+        </Link>
+      </section>
       <nav className="case-pagination" aria-label="More projects">
-        <Link href={`/work/${prev.id}/`}>
+        <Link prefetch={false} href={`/work/${prev.id}/`}>
           <small>
             <ArrowLeft size={12} />
             Previous build
           </small>
           <strong>{prev.name}</strong>
         </Link>
-        <Link href={`/work/${next.id}/`}>
+        <Link prefetch={false} href={`/work/${next.id}/`}>
           <small>
             Next build
             <ArrowRight size={12} />

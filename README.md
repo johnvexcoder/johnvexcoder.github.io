@@ -1,3 +1,7 @@
+## Local enhancement — 31 October 2026
+
+Six additional demonstrations and case studies are integrated, with centralized service associations, responsive WebP previews, motion refinements and expanded SEO checks. The owner authorized commit, push and a live check on 31 October 2026 after local validation; publication status is recorded in the final implementation report. See `docs/PROJECT-INTEGRATION-2026-10-31.md`, `docs/DESIGN-SYSTEM.md`, `docs/DEVELOPMENT-TOOLS.md` and `docs/seo/IMPLEMENTATION-REPORT.md` for current scope, validation and remaining actions. The framework and lint configuration are patched to Next.js 16.4.3; GitHub Pages remains the deployment target.
+
 ## Current development source — 13 October 2026
 
 The authoritative standalone repository is `/home/j0hn/Projects/My-Portfolio-v2`. The deployed v2.1.0 baseline is `d9cea0a`; further SEO refinements are local and require separate publication approval. The prior production release `v2.0.1` and current `v2.1.0` are preserved. Migration, backups and detailed acceptance evidence are recorded in the owner’s local consolidation report, which is intentionally excluded from publication.

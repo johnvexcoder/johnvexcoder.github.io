@@ -29,6 +29,7 @@ export default function Testimonials() {
             <span>CLIENT FEEDBACK</span>
             <span
               className="review-stars"
+              role="img"
               aria-label={`${r.rating} out of 5 stars`}
             >
               {Array.from({ length: r.rating }, (_, i) => (

@@ -61,6 +61,11 @@ for (const [route, { nodes, ids }] of pages) {
     (n) => n.tagName === "link" && attributes(n).rel === "canonical",
   );
   assert.equal(canonicalTags.length, 1, `${route}: one canonical`);
+  assert.equal(
+    canonicalTags[0].parentNode?.tagName,
+    "head",
+    `${route}: canonical in initial head`,
+  );
   const canonical = attributes(canonicalTags[0]).href;
   assert.equal(
     canonical,
@@ -187,6 +192,26 @@ for (const [route, { nodes, ids }] of pages) {
       "testimonials",
     ])
       assert.ok(ids.has(id), id);
+    for (const id of [
+      "projects",
+      "homelab",
+      "system",
+      "testimonials",
+      "contact",
+    ]) {
+      let section = nodes.find((node) => attributes(node).id === id);
+      while (section) {
+        assert.ok(
+          !("hidden" in attributes(section)),
+          `${id}: content visible without hydration`,
+        );
+        assert.ok(
+          !/display:\s*none/.test(attributes(section).style || ""),
+          `${id}: no hidden streaming container`,
+        );
+        section = section.parentNode;
+      }
+    }
     const aboutText = text(nodes.find((n) => attributes(n).id === "about"));
     for (const alias of [
       "J0hnvexcoder",
@@ -265,6 +290,16 @@ for (const [route, { nodes, ids }] of pages) {
       );
       assert.equal(attributes(preview).loading, "eager");
       assert.equal(attributes(preview).fetchpriority, "high");
+    }
+    for (const serviceId of project.serviceIds) {
+      assert.ok(
+        nodes.some(
+          (n) =>
+            n.tagName === "a" &&
+            attributes(n).href === `/services/${serviceId}/`,
+        ),
+        `${route}: synchronized service ${serviceId}`,
+      );
     }
     const study = studies.find((study) => study.id === project.id);
     const articleText = text(nodes.find((n) => n.tagName === "article"));
@@ -370,6 +405,27 @@ for (const [route, { nodes, ids }] of pages) {
   }
   for (const node of nodes.filter((n) => n.tagName === "img")) {
     const attrs = attributes(node);
+    for (const candidate of (attrs.srcset || "")
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean)) {
+      const [source, descriptor] = candidate.split(/\s+/);
+      assert.match(
+        descriptor,
+        /^\d+w$/,
+        `${route}: responsive width descriptor`,
+      );
+      const url = new URL(source, origin);
+      if (url.origin === origin) {
+        const file = `out${decodeURIComponent(url.pathname)}`;
+        const dimensions = await sharp(file).metadata();
+        assert.equal(
+          dimensions.width,
+          Number(descriptor.slice(0, -1)),
+          `${route}: responsive width matches file`,
+        );
+      }
+    }
     imageCount++;
     assert.ok("alt" in attrs, `${route}: image without alt`);
     assert.ok(
@@ -411,6 +467,27 @@ assert.equal(
 );
 assert.ok((await fs.readFile("out/404.html", "utf8")).includes("noindex"));
 await fs.access("out/.nojekyll");
+const apple = await sharp("out/apple-touch-icon.png").metadata();
+assert.equal(apple.width, 180);
+assert.equal(apple.height, 180);
+const directory = await fs.readFile("out/llms.txt", "utf8");
+if (indexable)
+  for (const route of routes)
+    assert.ok(
+      new Set(
+        [...directory.matchAll(/\]\((https:[^)]+)\)/g)].map(
+          (match) => match[1],
+        ),
+      ).has(absolute(route)),
+      `${route}: public directory coverage`,
+    );
+for (const project of projects.filter((p) => p.scrollImage)) {
+  const dimensions = await sharp(`out${project.scrollImage}`).metadata();
+  assert.ok(
+    dimensions.width <= 16384 && dimensions.height <= 16384,
+    `${project.id}: reliable texture dimensions`,
+  );
+}
 const result = {
   checkedAt: new Date().toISOString(),
   origin,

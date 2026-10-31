@@ -12,7 +12,9 @@ import {
 } from "@/lib/content";
 import Preview from "./Preview";
 import Reveal from "./Reveal";
+import { useProjectLayout } from "@/hooks/useProjectLayout";
 export default function Projects() {
+  const { list, capture } = useProjectLayout();
   const searchInput = useRef<HTMLInputElement>(null);
   const [category, setCategory] = useState("All"),
     [query, setQuery] = useState(""),
@@ -72,6 +74,7 @@ export default function Projects() {
                 ))}
               </div>
               <Link
+                prefetch={false}
                 className="button secondary"
                 href={`/work/${p.id}/`}
                 data-ga-event="project_explore"
@@ -128,7 +131,10 @@ export default function Projects() {
               <button
                 key={c}
                 aria-pressed={category === c}
-                onClick={() => setCategory(c)}
+                onClick={(event) => {
+                  capture(event.detail > 0);
+                  setCategory(c);
+                }}
               >
                 {c}
               </button>
@@ -164,11 +170,15 @@ export default function Projects() {
                   onKeyDown={(e) => {
                     if (e.key === "Escape" && query) {
                       e.preventDefault();
+                      capture(false);
                       setQuery("");
                     }
                   }}
                   value={query}
-                  onChange={(e) => setQuery(e.target.value)}
+                  onChange={(e) => {
+                    capture(false);
+                    setQuery(e.target.value);
+                  }}
                 />
               </div>
               <div className="signature-search-end">
@@ -177,6 +187,7 @@ export default function Projects() {
                     type="button"
                     aria-label="Clear project search"
                     onClick={() => {
+                      capture(false);
                       setQuery("");
                       searchInput.current?.focus();
                     }}
@@ -198,7 +209,10 @@ export default function Projects() {
             <input
               type="checkbox"
               checked={featured}
-              onChange={(e) => setFeatured(e.target.checked)}
+              onChange={(e) => {
+                capture(false);
+                setFeatured(e.target.checked);
+              }}
             />
             Featured
           </label>
@@ -211,7 +225,7 @@ export default function Projects() {
         >
           {matches.length} {matches.length === 1 ? "project" : "projects"} shown
         </p>
-        <div className="archive-list">
+        <div ref={list} className="archive-list">
           {matches.map((p, i) => (
             <details
               key={p.id}
@@ -259,6 +273,7 @@ export default function Projects() {
                     ))}
                   </div>
                   <Link
+                    prefetch={false}
                     className="text-link"
                     href={`/work/${p.id}/`}
                     data-ga-event="project_explore"
@@ -303,6 +318,7 @@ export default function Projects() {
             <button
               className="button secondary"
               onClick={() => {
+                capture(false);
                 setQuery("");
                 setCategory("All");
                 setFeatured(false);

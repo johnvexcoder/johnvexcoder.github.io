@@ -1,0 +1,17 @@
+# Maintenance
+
+Before considering publication, run `npm ci`, `npm run typecheck`, `npm run lint`, `npm test`, `npm run build`, `npm run check:seo` and `npm run check:export`. The existing Pages workflow already runs the source/build/export checks; its deployment triggers and permissions remain unchanged. Never push to main without publication approval because that branch triggers deployment.
+
+For a new project, add its identity and serviceIds to `content/projects.json`, its evidence-backed narrative to `content/case-studies.json`, and a distinct topic to `lib/seo-policy.ts`. Use the established `/work/<id>/` path. Prepare measured WebP variants and a genuine 1200×630 sharing image. The existing dynamic static-parameter, metadata, sitemap, analytics allowlist and public-directory generators follow the registries. Service examples derive from project associations; do not reintroduce separate example arrays.
+
+Run `node scripts/prepare-project-previews.mjs` to regenerate the six supplied captures and responsive long previews. Originals must remain available. `npm run prepare:portrait` regenerates transparent responsive portrait variants. Inspect visible quality after changing compression. Optional `scripts/prepare-fonts.py` requires FontTools with WOFF support and regenerates checked-in font subsets; it is not required for a release build. `node scripts/prepare-brand-icons.mjs` derives both platform icons from the existing SVG. Do not rerun broad asset preparation casually: it regenerates other historical assets too.
+
+SEO checks now verify responsive candidate file widths, canonical placement in initial HTML, all associated service links, exact directory coverage, the Apple icon and safe image texture dimensions alongside the existing unique titles/descriptions, indexability, sitemap, internal-fragment and JSON-LD checks. A source change that breaks those contracts should fail the existing CI checks. Score thresholds are intentionally not hard-coded.
+
+After approved deployment, run `node scripts/audit-production.mjs` and inspect the saved per-route report, including HTTP redirects and unknown-route behavior. Verify every new case publicly, the sitemap, robots, canonical origin, Google verification and generated sharing images. Use Google Rich Results Test for supported features and Schema.org Validator for vocabulary. Local JSON shape checks do not establish rich-result eligibility.
+
+Monthly, follow SEARCH-CONSOLE-GUIDE.md: compare complete 28-day and three-month windows, query/page/country/device segments, index coverage, sitemap processing and field CWV where sufficient data exists. Keep private exports outside public source/assets. Update content around measured user need rather than keyword density. Avoid near-duplicate regional pages.
+
+For motion changes, retain one owner per animated element, visible pre-enhancement content, explicit interruption/cleanup and reduced-motion alternatives. Verify keyboard, touch, tab visibility, offscreen previews and all six screen widths. Run repeated Lighthouse measurements under the same serving/device settings and keep lab findings separate from field data.
+
+Keep the production origin, verification bytes, privacy consent and existing public URLs stable. GitHub Pages does not supply arbitrary application headers, server rewrites, APIs or general redirect rules; scope any future hosting feature separately.

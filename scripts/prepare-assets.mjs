@@ -18,7 +18,7 @@ for (const p of data) {
   }
 }
 await fs.writeFile("content/projects.json", JSON.stringify(data, null, 2));
-const dimensions = {};
+const dimensions = JSON.parse(await fs.readFile("content/media.json", "utf8"));
 for (const p of data)
   for (const key of [
     "image",
@@ -31,7 +31,7 @@ for (const p of data)
     if (!name?.startsWith("/source/")) continue;
     try {
       const meta = await sharp(`public${name}`).metadata();
-      dimensions[name] = { width: meta.width, height: meta.height };
+      dimensions[name] = { ...dimensions[name], width: meta.width, height: meta.height };
     } catch {}
   }
 await fs.writeFile("content/media.json", JSON.stringify(dimensions, null, 2));

@@ -57,8 +57,8 @@ test("five owner-confirmed recent projects use their exact live URLs and actual 
     shoesonthego: "https://shoesonthego.vercel.app/",
     archeon: "https://demo-archeon.vercel.app",
   };
-  assert.equal(projects.length, 19);
-  assert.equal(new Set(projects.map((p) => p.id)).size, 19);
+  assert.equal(projects.length, 25);
+  assert.equal(new Set(projects.map((p) => p.id)).size, 25);
   for (const [id, url] of Object.entries(urls)) {
     const p = projects.find((p) => p.id === id);
     assert.equal(p.demo, url);

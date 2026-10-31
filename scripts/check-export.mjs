@@ -66,6 +66,8 @@ for (const file of [
   "robots.txt",
   "sitemap.xml",
   "social.png",
+  "favicon.ico",
+  "apple-touch-icon.png",
   "resume.pdf",
 ])
   await fs.access(path.join(root, file));

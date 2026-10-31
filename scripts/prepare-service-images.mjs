@@ -1,17 +1,9 @@
 import fs from "node:fs/promises";
 import sharp from "sharp";
 const projects = JSON.parse(await fs.readFile("content/projects.json", "utf8"));
-const ids = [
-  "arkosenyo",
-  "taitechmarine",
-  "donut-house",
-  "archeon",
-  "shoesonthego",
-  "compressme",
-  "jenica-portfolio",
-  "jaron-portfolio",
-  "movieflix",
-];
+const ids = projects
+  .filter((project) => project.image && project.serviceIds?.length)
+  .map((project) => project.id);
 await fs.mkdir("public/services/work", { recursive: true });
 for (const id of ids) {
   const project = projects.find((p) => p.id === id);

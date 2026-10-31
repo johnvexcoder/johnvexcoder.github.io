@@ -23,65 +23,89 @@ export default function Preview({
   useEffect(() => {
     const el = ref.current,
       image = img.current;
-    if (!el || !image) return;
-    let frame = 0,
-      timer: ReturnType<typeof setTimeout> | undefined;
+    if (!el || !image || typeof image.animate !== "function") return;
+    let animation: Animation | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
     let inView = false,
-      phase = 0,
-      previous = 0,
       maximum = 0,
-      until = 0;
+      resumeAt = 0;
     const holds = new Set<string>();
+    const position = () =>
+      animation
+        ? panPosition(maximum, Number(animation.currentTime || 0))
+        : el.scrollTop;
+    // Transfer the rendered transform to native scroll before manual input.
     const stop = () => {
-      cancelAnimationFrame(frame);
-      frame = 0;
-      previous = 0;
-    };
-    const eligible = () =>
-      inView &&
-      !document.hidden &&
-      !reduced &&
-      !!project.scrollImage &&
-      maximum > 20 &&
-      !holds.size;
-    const tick = (time: number) => {
-      frame = 0;
-      if (!eligible() || time < until) {
-        previous = 0;
-        return;
-      }
-      phase += previous ? Math.min(time - previous, 60) : 0;
-      previous = time;
-      el.scrollTop = panPosition(maximum, phase);
-      frame = requestAnimationFrame(tick);
+      const current = position();
+      animation?.cancel();
+      animation = undefined;
+      image.style.willChange = "";
+      el.scrollTop = current;
     };
     const schedule = () => {
       clearTimeout(timer);
-      if (!eligible()) {
+      if (
+        !inView ||
+        document.hidden ||
+        reduced ||
+        !project.scrollImage ||
+        maximum <= 20 ||
+        holds.size
+      ) {
         stop();
         return;
       }
-      const wait = until - performance.now();
+      if (animation) return;
+      const wait = resumeAt - performance.now();
       if (wait > 0) {
-        stop();
-        timer = setTimeout(schedule, wait + 10);
-      } else if (!frame) frame = requestAnimationFrame(tick);
+        timer = setTimeout(schedule, wait);
+        return;
+      }
+      const current = el.scrollTop;
+      const travel = Math.max(12000, (maximum / 42) * 1000);
+      const duration = travel * 2 + 3200;
+      el.scrollTop = 0;
+      image.style.willChange = "transform";
+      animation = image.animate(
+        [
+          { transform: "translateY(0)", offset: 0 },
+          { transform: "translateY(0)", offset: 1600 / duration },
+          {
+            transform: `translateY(${-maximum}px)`,
+            offset: (1600 + travel) / duration,
+          },
+          {
+            transform: `translateY(${-maximum}px)`,
+            offset: (3200 + travel) / duration,
+          },
+          { transform: "translateY(0)", offset: 1 },
+        ],
+        { duration, iterations: Infinity, easing: "linear" },
+      );
+      animation.currentTime = current > 0 ? panPhase(maximum, current) : 0;
     };
     control.current = (hold, release) => {
-      if (hold) holds.add(hold);
-      if (release) holds.delete(release);
       stop();
-      phase = panPhase(maximum, el.scrollTop);
-      until = performance.now() + 6000;
+      if (hold === "return") {
+        el.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+      } else {
+        // Interrupt an in-progress native return before the next inspection.
+        el.scrollTo({ top: el.scrollTop, behavior: "instant" });
+        if (hold) holds.add(hold);
+        if (release) holds.delete(release);
+      }
+      resumeAt = performance.now() + 1200;
       schedule();
     };
     const measure = () => {
-      const old = maximum;
-      maximum = project.scrollImage
-        ? Math.max(0, el.scrollHeight - el.clientHeight)
+      const next = project.scrollImage
+        ? Math.max(0, image.offsetHeight - el.clientHeight)
         : 0;
+      if (maximum !== next) {
+        stop();
+        maximum = next;
+      }
       setOverflow(maximum > 20);
-      if (old !== maximum) phase = panPhase(maximum, el.scrollTop);
       schedule();
     };
     const resize = new ResizeObserver(measure);
@@ -89,14 +113,13 @@ export default function Preview({
     resize.observe(image);
     const observer = new IntersectionObserver(
       ([entry]) => {
-        inView = entry.isIntersecting;
+        inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
         schedule();
       },
-      { threshold: 0.1 },
+      { threshold: [0, 0.25] },
     );
     observer.observe(el);
-    const visibility = () => schedule();
-    document.addEventListener("visibilitychange", visibility);
+    document.addEventListener("visibilitychange", schedule);
     image.addEventListener("load", measure);
     measure();
     return () => {
@@ -105,7 +128,7 @@ export default function Preview({
       resize.disconnect();
       observer.disconnect();
       image.removeEventListener("load", measure);
-      document.removeEventListener("visibilitychange", visibility);
+      document.removeEventListener("visibilitychange", schedule);
       control.current = () => {};
     };
   }, [project.id, project.scrollImage, reduced]);
@@ -134,9 +157,16 @@ export default function Preview({
         </small>
       </div>
     );
-  const size = (media as Record<string, { width: number; height: number }>)[
-    project.scrollImage || project.image
-  ];
+  const size = (
+    media as Record<
+      string,
+      {
+        width: number;
+        height: number;
+        sources?: { src: string; width: number }[];
+      }
+    >
+  )[project.scrollImage || project.image];
   return (
     <div
       className={`preview ${large ? "large" : ""} ${explore ? "exploring" : ""}`}
@@ -157,10 +187,11 @@ export default function Preview({
         role="region"
         aria-label={`${project.name} screenshot preview${overflow ? ", scroll to explore" : ""}`}
         onPointerEnter={(e) => {
-          if (e.pointerType === "mouse") control.current("hover");
+          if (e.pointerType === "mouse") control.current(undefined, "hover");
         }}
         onPointerLeave={(e) => {
-          if (e.pointerType === "mouse") control.current(undefined, "hover");
+          if (e.pointerType === "mouse")
+            if (!explore) control.current("return");
         }}
         onFocus={() => control.current("focus")}
         onBlur={() => control.current(undefined, "focus")}
@@ -173,6 +204,14 @@ export default function Preview({
         <img
           ref={img}
           src={project.scrollImage || project.image}
+          srcSet={size?.sources
+            ?.map((source) => `${source.src} ${source.width}w`)
+            .join(", ")}
+          sizes={
+            large
+              ? "(max-width: 760px) calc(100vw - 44px), (max-width: 1100px) 90vw, 60vw"
+              : "(max-width: 760px) calc(100vw - 44px), 45vw"
+          }
           alt={
             project.imageAlt || `${project.name} — ${project.shortDescription}`
           }
@@ -189,7 +228,7 @@ export default function Preview({
           }}
         />
       </div>
-      {overflow && (
+      {project.scrollImage && (
         <div className="preview-tools">
           <span>
             {reduced
@@ -198,7 +237,7 @@ export default function Preview({
                 ? "Manual exploration"
                 : "Automatic page preview"}
           </span>
-          {!reduced && (
+          {overflow && (
             <button
               onClick={() => {
                 const next = !explore;
@@ -210,9 +249,23 @@ export default function Preview({
               }}
               aria-pressed={explore}
             >
-              {explore ? "Return to automatic" : "Explore screenshot"}
+              {explore
+                ? reduced
+                  ? "Finish exploring"
+                  : "Return to automatic"
+                : "Explore screenshot"}
               <ArrowDown size={12} />
             </button>
+          )}
+          {large && (
+            <a
+              href={project.scrollImage}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open full ${project.name} screenshot`}
+            >
+              Full screenshot <ArrowUp size={12} />
+            </a>
           )}
           {explore && (
             <button

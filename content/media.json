@@ -25,7 +25,21 @@
   },
   "/source/projects/jenica-portfolio/jenica-portfolio-scroll.webp": {
     "width": 1440,
-    "height": 6916
+    "height": 6916,
+    "sources": [
+      {
+        "src": "/source/projects/jenica-portfolio/jenica-portfolio-scroll-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/jenica-portfolio/jenica-portfolio-scroll-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/jenica-portfolio/jenica-portfolio-scroll.webp",
+        "width": 1440
+      }
+    ]
   },
   "/source/projects/jenica-portfolio/favicon.svg": {
     "width": 64,
@@ -37,7 +51,21 @@
   },
   "/source/projects/movieflix/movieflix-scroll.webp": {
     "width": 1120,
-    "height": 7093
+    "height": 7093,
+    "sources": [
+      {
+        "src": "/source/projects/movieflix/movieflix-scroll-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/movieflix/movieflix-scroll-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/movieflix/movieflix-scroll.webp",
+        "width": 1120
+      }
+    ]
   },
   "/source/projects/movieflix/movieflix-ss.png": {
     "width": 1366,
@@ -53,7 +81,21 @@
   },
   "/source/projects/donut-house/donut-house-scroll.webp": {
     "width": 1366,
-    "height": 8557
+    "height": 8557,
+    "sources": [
+      {
+        "src": "/source/projects/donut-house/donut-house-scroll-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/donut-house/donut-house-scroll-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/donut-house/donut-house-scroll.webp",
+        "width": 1366
+      }
+    ]
   },
   "/source/projects/jaron-portfolio/jaron-portfolio-preview.webp": {
     "width": 1440,
@@ -61,7 +103,21 @@
   },
   "/source/projects/jaron-portfolio/jaron-portfolio-scroll.webp": {
     "width": 1440,
-    "height": 10166
+    "height": 10166,
+    "sources": [
+      {
+        "src": "/source/projects/jaron-portfolio/jaron-portfolio-scroll-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/jaron-portfolio/jaron-portfolio-scroll-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/jaron-portfolio/jaron-portfolio-scroll.webp",
+        "width": 1440
+      }
+    ]
   },
   "/source/projects/jaron-portfolio/favicon.svg": {
     "width": 64,
@@ -73,7 +129,21 @@
   },
   "/source/projects/your-coffee/your-coffee-scroll.webp": {
     "width": 1366,
-    "height": 3290
+    "height": 3290,
+    "sources": [
+      {
+        "src": "/source/projects/your-coffee/your-coffee-scroll-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/your-coffee/your-coffee-scroll-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/your-coffee/your-coffee-scroll.webp",
+        "width": 1366
+      }
+    ]
   },
   "/source/projects/starbucks-portal/startbucks-portal-screenshot.webp": {
     "width": 1600,
@@ -113,7 +183,17 @@
   },
   "/source/projects/monthsary/monthsary-scroll.webp": {
     "width": 700,
-    "height": 14237
+    "height": 14237,
+    "sources": [
+      {
+        "src": "/source/projects/monthsary/monthsary-scroll-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/monthsary/monthsary-scroll.webp",
+        "width": 700
+      }
+    ]
   },
   "/source/projects/monthsary/monthsary-icon.webp": {
     "width": 256,
@@ -129,22 +209,332 @@
   },
   "/source/projects/jnglo/capture.webp": {
     "width": 1120,
-    "height": 4200
+    "height": 4200,
+    "sources": [
+      {
+        "src": "/source/projects/jnglo/capture-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/jnglo/capture-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/jnglo/capture.webp",
+        "width": 1120
+      }
+    ]
   },
   "/source/projects/arkosenyo/capture.webp": {
     "width": 1120,
-    "height": 5716
+    "height": 5716,
+    "sources": [
+      {
+        "src": "/source/projects/arkosenyo/capture-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/arkosenyo/capture-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/arkosenyo/capture.webp",
+        "width": 1120
+      }
+    ]
   },
   "/source/projects/taitechmarine/capture.webp": {
     "width": 1120,
-    "height": 5894
+    "height": 5894,
+    "sources": [
+      {
+        "src": "/source/projects/taitechmarine/capture-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/taitechmarine/capture-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/taitechmarine/capture.webp",
+        "width": 1120
+      }
+    ]
   },
   "/source/projects/shoesonthego/capture.webp": {
     "width": 1120,
-    "height": 630
+    "height": 630,
+    "sources": [
+      {
+        "src": "/source/projects/shoesonthego/capture-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/shoesonthego/capture-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/shoesonthego/capture.webp",
+        "width": 1120
+      }
+    ]
   },
   "/source/projects/archeon/capture.webp": {
     "width": 1120,
-    "height": 630
+    "height": 630,
+    "sources": [
+      {
+        "src": "/source/projects/archeon/capture-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/archeon/capture-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/archeon/capture.webp",
+        "width": 1120
+      }
+    ]
+  },
+  "/source/projects/bedrock-full-preview.webp": {
+    "width": 1120,
+    "height": 6332,
+    "sources": [
+      {
+        "src": "/source/projects/bedrock-full-preview-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/bedrock-full-preview-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/bedrock-full-preview.webp",
+        "width": 1120
+      }
+    ]
+  },
+  "/source/projects/aurvel-full-preview.webp": {
+    "width": 1120,
+    "height": 4231,
+    "sources": [
+      {
+        "src": "/source/projects/aurvel-full-preview-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/aurvel-full-preview-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/aurvel-full-preview.webp",
+        "width": 1120
+      }
+    ]
+  },
+  "/source/projects/rajt-marine-services-full-preview.webp": {
+    "width": 1120,
+    "height": 6117,
+    "sources": [
+      {
+        "src": "/source/projects/rajt-marine-services-full-preview-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/rajt-marine-services-full-preview-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/rajt-marine-services-full-preview.webp",
+        "width": 1120
+      }
+    ]
+  },
+  "/source/projects/aurevia-full-preview.webp": {
+    "width": 1120,
+    "height": 4154,
+    "sources": [
+      {
+        "src": "/source/projects/aurevia-full-preview-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/aurevia-full-preview-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/aurevia-full-preview.webp",
+        "width": 1120
+      }
+    ]
+  },
+  "/source/projects/voyara-full-preview.webp": {
+    "width": 1120,
+    "height": 1133,
+    "sources": [
+      {
+        "src": "/source/projects/voyara-full-preview-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/voyara-full-preview-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/voyara-full-preview.webp",
+        "width": 1120
+      }
+    ]
+  },
+  "/source/projects/aurelia-full-preview.webp": {
+    "width": 1120,
+    "height": 5097,
+    "sources": [
+      {
+        "src": "/source/projects/aurelia-full-preview-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/aurelia-full-preview-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/source/projects/aurelia-full-preview.webp",
+        "width": 1120
+      }
+    ]
+  },
+  "/source/projects/jenica-portfolio/jenica-portfolio-scroll-480.webp": {
+    "width": 480,
+    "height": 2305
+  },
+  "/source/projects/jenica-portfolio/jenica-portfolio-scroll-960.webp": {
+    "width": 960,
+    "height": 4611
+  },
+  "/source/projects/movieflix/movieflix-scroll-480.webp": {
+    "width": 480,
+    "height": 3040
+  },
+  "/source/projects/movieflix/movieflix-scroll-960.webp": {
+    "width": 960,
+    "height": 6080
+  },
+  "/source/projects/donut-house/donut-house-scroll-480.webp": {
+    "width": 480,
+    "height": 3007
+  },
+  "/source/projects/donut-house/donut-house-scroll-960.webp": {
+    "width": 960,
+    "height": 6014
+  },
+  "/source/projects/jaron-portfolio/jaron-portfolio-scroll-480.webp": {
+    "width": 480,
+    "height": 3389
+  },
+  "/source/projects/jaron-portfolio/jaron-portfolio-scroll-960.webp": {
+    "width": 960,
+    "height": 6777
+  },
+  "/source/projects/your-coffee/your-coffee-scroll-480.webp": {
+    "width": 480,
+    "height": 1156
+  },
+  "/source/projects/your-coffee/your-coffee-scroll-960.webp": {
+    "width": 960,
+    "height": 2312
+  },
+  "/source/projects/monthsary/monthsary-scroll-480.webp": {
+    "width": 480,
+    "height": 9763
+  },
+  "/source/projects/jnglo/capture-480.webp": {
+    "width": 480,
+    "height": 1800
+  },
+  "/source/projects/jnglo/capture-960.webp": {
+    "width": 960,
+    "height": 3600
+  },
+  "/source/projects/arkosenyo/capture-480.webp": {
+    "width": 480,
+    "height": 2450
+  },
+  "/source/projects/arkosenyo/capture-960.webp": {
+    "width": 960,
+    "height": 4899
+  },
+  "/source/projects/taitechmarine/capture-480.webp": {
+    "width": 480,
+    "height": 2526
+  },
+  "/source/projects/taitechmarine/capture-960.webp": {
+    "width": 960,
+    "height": 5052
+  },
+  "/source/projects/shoesonthego/capture-480.webp": {
+    "width": 480,
+    "height": 270
+  },
+  "/source/projects/shoesonthego/capture-960.webp": {
+    "width": 960,
+    "height": 540
+  },
+  "/source/projects/archeon/capture-480.webp": {
+    "width": 480,
+    "height": 270
+  },
+  "/source/projects/archeon/capture-960.webp": {
+    "width": 960,
+    "height": 540
+  },
+  "/source/projects/bedrock-full-preview-480.webp": {
+    "width": 480,
+    "height": 2714
+  },
+  "/source/projects/bedrock-full-preview-960.webp": {
+    "width": 960,
+    "height": 5427
+  },
+  "/source/projects/aurvel-full-preview-480.webp": {
+    "width": 480,
+    "height": 1813
+  },
+  "/source/projects/aurvel-full-preview-960.webp": {
+    "width": 960,
+    "height": 3627
+  },
+  "/source/projects/rajt-marine-services-full-preview-480.webp": {
+    "width": 480,
+    "height": 2622
+  },
+  "/source/projects/rajt-marine-services-full-preview-960.webp": {
+    "width": 960,
+    "height": 5243
+  },
+  "/source/projects/aurevia-full-preview-480.webp": {
+    "width": 480,
+    "height": 1780
+  },
+  "/source/projects/aurevia-full-preview-960.webp": {
+    "width": 960,
+    "height": 3561
+  },
+  "/source/projects/voyara-full-preview-480.webp": {
+    "width": 480,
+    "height": 486
+  },
+  "/source/projects/voyara-full-preview-960.webp": {
+    "width": 960,
+    "height": 971
+  },
+  "/source/projects/aurelia-full-preview-480.webp": {
+    "width": 480,
+    "height": 2184
+  },
+  "/source/projects/aurelia-full-preview-960.webp": {
+    "width": 960,
+    "height": 4369
   }
 }

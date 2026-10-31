@@ -53,6 +53,12 @@ export const projectTopics: Record<string, string> = {
   taitechmarine: "Client marine equipment website",
   shoesonthego: "Interactive 3D product showcase",
   archeon: "Interactive 3D architecture visualization",
+  bedrock: "Event services website concept",
+  aurvel: "Watch collection website concept",
+  "rajt-marine-services": "Marine website redesign concept",
+  aurevia: "Travel website and itinerary demo",
+  voyara: "Travel operations workspace demo",
+  aurelia: "Hotel website and stay-planning demo",
 };
 
 export function projectSearchTitle(project: { id: string; name: string }) {

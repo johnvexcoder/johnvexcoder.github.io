@@ -6,7 +6,7 @@ const projects = read("content/projects.json");
 const studies = read("content/case-studies.json");
 const services = read("content/services.json");
 test("every existing project has an evidence-backed case and valid service/related destinations", () => {
-  assert.equal(studies.length, 19);
+  assert.equal(studies.length, projects.length);
   assert.deepEqual(
     new Set(studies.map((s) => s.id)),
     new Set(projects.map((p) => p.id)),
@@ -18,7 +18,7 @@ test("every existing project has an evidence-backed case and valid service/relat
     assert.ok(study.features.length >= 3);
     assert.ok(study.decisions.length > 150);
   }
-  assert.equal(new Set(studies.map((s) => s.meta)).size, 19);
+  assert.equal(new Set(studies.map((s) => s.meta)).size, projects.length);
 });
 test("seven services routes combine redesign and exclude thin or unsupported client-result pages", () => {
   assert.deepEqual(
@@ -37,12 +37,16 @@ test("seven services routes combine redesign and exclude thin or unsupported cli
     assert.ok(service.faq.length >= 2);
     assert.ok(service.scope.length >= 4);
     assert.ok(service.distinctSection.length > 150);
-    for (const id of service.examples)
+    for (const id of projects
+      .filter((p) => p.serviceIds.includes(service.id))
+      .map((p) => p.id))
       assert.ok(projects.some((p) => p.id === id));
   }
   assert.deepEqual(
-    services.pages.find((p) => p.id === "booking-systems").examples,
-    ["taitechmarine"],
+    projects
+      .filter((p) => p.serviceIds.includes("booking-systems"))
+      .map((p) => p.id),
+    ["taitechmarine", "bedrock", "aurevia", "voyara", "aurelia"],
   );
   assert.equal(new Set(services.pages.map((p) => p.description)).size, 6);
 });

@@ -1,8 +1,7 @@
-/* eslint-disable @next/next/no-img-element -- Static export uses pre-generated responsive WebP variants without an image server. */
 import ServiceInquiryLink from "./ServiceInquiryLink";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
-import media from "@/content/media.json";
+import Preview from "./Preview";
 import { projects } from "@/lib/content";
 import { caseStudy } from "@/lib/case-studies";
 import { absoluteUrl } from "@/lib/seo";
@@ -121,47 +120,8 @@ export function ServiceExamples({
           const study = caseStudy(id);
           return (
             <article key={id} className="selected-work-card">
-              <Link href={`/work/${id}/`}>
-                <div className="selected-work-image">
-                  {project.image &&
-                  !["homelab-os", "homelab-agent"].includes(id) ? (
-                    <img
-                      src={`/services/work/${id}-960.webp`}
-                      srcSet={`/services/work/${id}-480.webp 480w, /services/work/${id}-960.webp 960w`}
-                      sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1100px) 45vw, 30vw"
-                      loading="lazy"
-                      decoding="async"
-                      width={
-                        (
-                          media as Record<
-                            string,
-                            { width: number; height: number }
-                          >
-                        )[project.image]?.width || 1600
-                      }
-                      height={
-                        (
-                          media as Record<
-                            string,
-                            { width: number; height: number }
-                          >
-                        )[project.image]?.height || 900
-                      }
-                      alt={study.alt || `${project.name} interface screenshot`}
-                    />
-                  ) : (
-                    <div className="selected-work-illustration">
-                      <span>J0 / SYSTEMS</span>
-                      <strong>{project.name}</strong>
-                      <span>
-                        {id === "homelab-os"
-                          ? "Telemetry → application → dashboard"
-                          : "Application architecture"}
-                      </span>
-                      <small>Illustration · private capture withheld</small>
-                    </div>
-                  )}
-                </div>
+              <Preview project={project} />
+              <Link prefetch={false} href={`/work/${id}/`}>
                 <div className="selected-work-copy">
                   <small>
                     {study.classification} /{" "}
@@ -197,7 +157,7 @@ export function ServiceExamples({
         })}
       </div>
       {!ids.length && (
-        <Link className="text-link" href="/#projects">
+        <Link prefetch={false} className="text-link" href="/#projects">
           Explore the current project collection <ArrowRight size={15} />
         </Link>
       )}
@@ -221,7 +181,7 @@ export function ServiceNavigation({ current }: { current: string }) {
 }
 export function ServiceBackLink() {
   return (
-    <Link className="text-link" href="/services/">
+    <Link prefetch={false} className="text-link" href="/services/">
       <ArrowLeft size={14} /> All services & solutions
     </Link>
   );

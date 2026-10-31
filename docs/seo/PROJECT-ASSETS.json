@@ -1,0 +1,44 @@
+[
+  {
+    "id": "bedrock",
+    "originalBytes": 5707117,
+    "webpBytes": 457010,
+    "width": 1120,
+    "height": 6332
+  },
+  {
+    "id": "aurvel",
+    "originalBytes": 3096651,
+    "webpBytes": 261142,
+    "width": 1120,
+    "height": 4231
+  },
+  {
+    "id": "rajt-marine-services",
+    "originalBytes": 3657057,
+    "webpBytes": 339212,
+    "width": 1120,
+    "height": 6117
+  },
+  {
+    "id": "aurevia",
+    "originalBytes": 4299548,
+    "webpBytes": 369844,
+    "width": 1120,
+    "height": 4154
+  },
+  {
+    "id": "voyara",
+    "originalBytes": 265732,
+    "webpBytes": 62672,
+    "width": 1120,
+    "height": 1133
+  },
+  {
+    "id": "aurelia",
+    "originalBytes": 7471532,
+    "webpBytes": 594798,
+    "width": 1120,
+    "height": 5097
+  }
+]

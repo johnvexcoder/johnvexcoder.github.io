@@ -1,13 +1,13 @@
 @font-face {
   font-family: Signature;
-  src: url("/fonts/SignatureSans.woff2") format("woff2");
+  src: url("/fonts/SignatureSans-latin.woff2") format("woff2");
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
 }
 @font-face {
   font-family: SignatureMono;
-  src: url("/fonts/SignatureMono.woff2") format("woff2");
+  src: url("/fonts/SignatureMono-latin.woff2") format("woff2");
   font-weight: 100 900;
   font-display: swap;
 }
@@ -36,7 +36,7 @@
   --surface2: #e0e6ee;
   --text: #142031;
   --soft: #46576e;
-  --muted: #64758b;
+  --muted: #536177;
   --line: #14203125;
   --blue: #235c9e;
   --cyan: #176e81;
@@ -7229,3 +7229,116 @@ html:not([data-intro-boot="playing"])
     min-height: 2.6em;
   }
 }
+
+/* Screenshot previews share one visibility-aware compositor animation. */
+.preview-window { overflow-y: hidden; }
+.exploring .preview-window,
+.preview-window:focus { overflow-y: auto; }
+.preview-window > img { display: block; }
+.preview-tools { min-height: 44px; flex-wrap: wrap; }
+.preview-tools :is(button, a) {
+  min-height: 32px; display: inline-flex; align-items: center; gap: 6px;
+  color: var(--soft); font: 9px var(--mono); padding: 4px;
+}
+.preview-tools :is(button, a):hover { color: var(--blue); }
+.selected-work-card > .preview { border-radius: 8px 8px 0 0; border-bottom: 1px solid var(--line); }
+.selected-work-card .preview-window { height: 260px; }
+.selected-work-card > a { display: block; }
+.case-breadcrumbs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; color: var(--muted); font: 10px var(--mono); }
+.case-breadcrumbs a:hover { color: var(--blue); }
+@media (max-width: 760px) {
+  .preview-tools :is(button, a) { min-height: 44px; }
+  .selected-work-card .preview-window { height: 230px; }
+}
+
+/* Preserve the editorial palette; let state and movement explain interaction. */
+:root {
+  --motion-feedback: 160ms;
+  --motion-layout: 220ms;
+  --motion-enter: 420ms;
+  --ease-arrive: cubic-bezier(.22, 1, .36, 1);
+}
+.reading-progress { display: none; }
+@supports (animation-timeline: scroll()) {
+  .reading-progress {
+    display: block; position: absolute; inset: auto 0 0; height: 2px;
+    background: var(--blue); transform-origin: left; pointer-events: none;
+    animation: reading-progress linear both; animation-timeline: scroll(root);
+  }
+  @keyframes reading-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+:is(.category-filters button, .preview-tools button, .text-link, .button) {
+  touch-action: manipulation;
+}
+.category-filters button { transition: color var(--motion-feedback), background var(--motion-feedback), border-color var(--motion-feedback); }
+.archive-project summary { transition: background var(--motion-feedback), color var(--motion-feedback); }
+.archive-project summary:focus-visible { outline-offset: -3px; }
+.archive-expand { transition: transform var(--motion-layout) var(--ease-arrive); }
+.archive-project[open] .archive-expand { transform: rotate(45deg); }
+.case-capabilities li { text-wrap: pretty; }
+:is(.case-heading h1, .service-detail-hero h1, .section-heading h2) { text-wrap: balance; }
+@media (hover: hover) and (pointer: fine) {
+  .service-card .service-card-top svg { transition: transform var(--motion-layout) var(--ease-arrive); }
+  .service-card:hover .service-card-top svg { transform: translateY(-2px) rotate(-4deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress { display: none; animation: none; }
+  .archive-expand, .service-card .service-card-top svg { transition: none; transform: none; }
+}
+
+/* The network keeps its story; identity and actions are present from first paint. */
+:is(.hero[data-intro="playing"], html[data-intro-boot="playing"] .hero) .hero-portrait {
+  animation: portrait-arrive 720ms var(--ease-arrive) both;
+}
+:is(.hero[data-intro="playing"], html[data-intro-boot="playing"] .hero) .hero-wordmark {
+  animation: centered-identity-arrive 600ms var(--ease-arrive) both;
+}
+:is(.hero[data-intro="playing"], html[data-intro-boot="playing"] .hero) :is(.hero-copy, .hero-stage-foot, .hero-meta) {
+  animation: identity-arrive 480ms var(--ease-arrive) both;
+}
+:is(.hero[data-intro="playing"], html[data-intro-boot="playing"] .hero) .hero-summary {
+  animation: supporting-arrive 440ms 60ms var(--ease-arrive) both;
+}
+:is(.hero[data-intro="playing"], html[data-intro-boot="playing"] .hero) .hero-actions > :first-child {
+  animation: supporting-arrive 360ms 100ms var(--ease-arrive) both;
+}
+:is(.hero[data-intro="playing"], html[data-intro-boot="playing"] .hero) .hero-actions > :nth-child(2) {
+  animation: supporting-arrive 360ms 145ms var(--ease-arrive) both;
+}
+@keyframes portrait-arrive {
+  from { opacity: 1; transform: translate(-50%, 16px) scale(.985); }
+  to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+@keyframes centered-identity-arrive {
+  from { opacity: 1; transform: translate(-50%, 10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+@keyframes identity-arrive {
+  from { opacity: 1; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes supporting-arrive {
+  from { opacity: .72; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+  :is(.hero[data-intro="playing"], html[data-intro-boot="playing"] .hero) :is(.hero-copy, .hero-portrait, .hero-wordmark) {
+    animation-duration: 380ms;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.hero[data-intro="playing"], html[data-intro-boot="playing"] .hero) :is(.hero-copy, .hero-stage-foot, .hero-meta, .hero-portrait, .hero-wordmark, .hero-summary, .hero-actions > *) {
+    animation: none;
+  }
+}
+
+/* Keep workflow text legible; only its small signal line pulses. */
+.work-sequence > div { animation: none; opacity: 1; }
+.work-sequence i { animation: workflow-signal 6s linear infinite; }
+.work-sequence > div:nth-child(2) i { animation-delay: -4.5s; }
+.work-sequence > div:nth-child(3) i { animation-delay: -3s; }
+.work-sequence > div:nth-child(4) i { animation-delay: -1.5s; }
+@keyframes workflow-signal { 0%, 20%, 100% { opacity: .35; } 30%, 45% { opacity: 1; } }
+.site-footer p a { text-decoration: underline; text-underline-offset: .22em; }
+@media (prefers-reduced-motion: reduce) { .work-sequence i { animation: none; } }
+:root[data-theme="light"] .category-filters button[aria-pressed="true"] { color: #fff; }

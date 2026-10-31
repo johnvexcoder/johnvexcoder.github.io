@@ -63,7 +63,8 @@ export default function Header() {
   return (
     <>
       <header className="site-header">
-        <Link className="brand" href="/#home" aria-label="J0hnvexcoder home">
+        <div className="reading-progress" aria-hidden="true" />
+        <Link className="brand" href="/#home">
           <span className="brand-mark">J0</span>
           <span>
             <strong>J0hnvexcoder</strong>

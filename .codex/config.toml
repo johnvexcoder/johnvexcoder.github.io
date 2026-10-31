@@ -1,0 +1,9 @@
+# Project-scoped tools. No credentials or browser profiles are stored here.
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+startup_timeout_sec = 30
+
+[mcp_servers.playwright]
+command = "npx"
+args = ["-y", "@playwright/mcp@0.0.83", "--headless", "--isolated"]
+startup_timeout_sec = 60

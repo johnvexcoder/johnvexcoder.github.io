@@ -1,0 +1,195 @@
+{
+  "checkedAt": "2026-10-31T10:02:59.707Z",
+  "results": [
+    {
+      "route": "/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/services/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/services/business-websites/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/services/technical-seo/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/services/cms-solutions/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/services/portfolio-websites/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/services/booking-systems/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/services/custom-solutions/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/homelab-os/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/homelab-agent/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/compressme/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/jenica-portfolio/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/movieflix/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/donut-house/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/jaron-portfolio/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/your-coffee/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/python-keybr/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/distrozsh/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/starbucks-portal/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/smart-expense/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/monthsary/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/johnvex-winops/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/jnglo/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/arkosenyo/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/taitechmarine/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/shoesonthego/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/archeon/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/bedrock/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/aurvel/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/rajt-marine-services/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/aurevia/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/voyara/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/work/aurelia/",
+      "status": 200,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "theme": "light",
+      "violations": []
+    },
+    {
+      "route": "/services/business-websites/",
+      "theme": "light",
+      "violations": []
+    },
+    {
+      "route": "/work/bedrock/",
+      "theme": "light",
+      "violations": []
+    }
+  ],
+  "errors": [],
+  "widths": [
+    375,
+    430,
+    768,
+    1024,
+    1440,
+    1920
+  ],
+  "reducedMotionManualPreview": true
+}

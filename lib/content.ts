@@ -28,8 +28,12 @@ export type Project = {
   problemSolution: string;
   disclaimer?: string;
   sourceCapture?: boolean;
+  serviceIds: string[];
+  industry?: string;
 };
 export const projects = sourceProjects as Project[];
+export const projectsForService = (serviceId: string) =>
+  projects.filter((project) => project.serviceIds.includes(serviceId));
 export const categories = ["All", ...new Set(projects.map((p) => p.category))];
 export const profile = sourceProfile;
 export const reviews = sourceReviews;

@@ -5,7 +5,7 @@
     "description": "Web development services by John Angelo De Joya, a freelance developer in Bulacan, Philippines. Business websites, technical SEO, custom CMS and applications.",
     "h1": "Services and Solutions",
     "headline": "A clear website. A system that works.",
-    "intro": "I’m John Angelo De Joya, the independent freelance developer behind J0hnvexcoder. Based in Bulacan, I work directly with clients across the Philippines on business websites, content tools and custom web applications.",
+    "intro": "I’m John Angelo De Joya, the independent freelance developer behind J0hnvexcoder. Based in Bulacan, I work directly with clients across the Philippines on business websites, content tools and custom web applications. Remote project enquiries are welcome; scope, communication and handover are agreed directly.",
     "scopeNote": "A company website, a reservation request and an operational booking platform have different requirements. I help define the appropriate scope before development, including content, integrations, administration and ongoing care.",
     "primaryTopic": "web development services Philippines",
     "relatedTerms": [
@@ -42,7 +42,6 @@
         "Performance review and agreed deployment/domain assistance"
       ],
       "distinctSection": "Redesigning an existing site: inventory the current content and URLs, retain useful material, clarify the new structure, and plan any necessary redirects before launch. The implementation follows the access and platform available; a migration is scoped separately when it requires substantial changes.",
-      "examples": ["arkosenyo", "taitechmarine", "donut-house"],
       "faq": [
         [
           "Can you improve an existing website?",
@@ -53,7 +52,7 @@
           "Only when an actual payment and order workflow is agreed. Existing storefront demonstrations do not establish that a live payment system is already integrated."
         ]
       ],
-      "evidence": "ARKOSENYO and TAITECH Marine are confirmed client projects with published website demonstrations. Donut House is a fictional storefront. The case studies distinguish implemented interfaces from unverified delivery integrations."
+      "evidence": "Confirmed client websites appear alongside independent event, marine, product, travel and hospitality concepts. Each case study distinguishes commissioned work from demonstrations and records its verified limits."
     },
     {
       "id": "technical-seo",
@@ -72,7 +71,6 @@
         "Search Console monitoring and agreed reports when access is provided"
       ],
       "distinctSection": "Verification matters: use the production build and crawlable HTML to check what is actually published. Repeatable before/after checks are more useful than a promised score. Search rankings, traffic and leads are not guaranteed; content, competition and search systems also affect results.",
-      "examples": [],
       "portfolioEvidence": "This portfolio's static export, metadata, canonical, internal-link and structured-data checks provide a concrete implementation example. They are not evidence of ranking gains or a client SEO campaign.",
       "faq": [
         [
@@ -102,7 +100,6 @@
         "Optional request records, references, statuses, attachments and notifications"
       ],
       "distinctSection": "The administration model is scoped before the interface: who can edit, what needs review, which records are retained and what integrations are necessary. The CMS extends a website or application; it does not make unrelated business processes automatic by default.",
-      "examples": ["movieflix", "homelab-os"],
       "faq": [
         [
           "Can my team update the site without editing code?",
@@ -113,7 +110,7 @@
           "No. A simpler content platform or source-managed site may be sufficient. The choice follows the editorial workflow and long-term maintenance needs."
         ]
       ],
-      "evidence": "MovieFlix and Nexora demonstrate administration and data-management patterns in different applications. They are not completed client website CMS deployments."
+      "evidence": "Voyara provides a browser-local content administration example with page, media and navigation tools. It does not demonstrate server-enforced authentication or shared publishing infrastructure."
     },
     {
       "id": "portfolio-websites",
@@ -131,7 +128,6 @@
         "Agreed visual direction, animation and interaction depth"
       ],
       "distinctSection": "The visual treatment should follow the work. A highly animated creative portfolio and a concise professional profile serve different visitors. Content, imagery, permissions and interaction requirements are agreed before the design expands.",
-      "examples": ["jenica-portfolio", "jaron-portfolio"],
       "portfolioEvidence": "J0hnvexcoder's own portfolio demonstrates a more interactive personal presentation; it is distinct from the two professional portfolio examples.",
       "faq": [
         [
@@ -162,7 +158,6 @@
         "Notifications, changes and cancellation rules when included"
       ],
       "distinctSection": "Before building, define what is reservable, who can change availability, when a request becomes a confirmed booking and which existing systems must connect. Payments, third-party calendars and complex operational rules are separate requirements to establish, not assumed integrations.",
-      "examples": ["taitechmarine"],
       "faq": [
         [
           "Is a reservation request a confirmed booking?",
@@ -173,7 +168,7 @@
           "It is an available separately scoped platform requirement. Inventory, staff controls and confirmation rules must be agreed and validated before it is described as operational."
         ]
       ],
-      "evidence": "TAITECH Marine’s client request preview demonstrates conditional form design. It is not an operational booking engine: submission, live availability and confirmed reservations require separate implementation."
+      "evidence": "TAITECH Marine illustrates an inquiry workflow. Bedrock, Aurevia, Voyara and Aurelia demonstrate different local planning or reservation interfaces; none is presented as evidence of live availability, payment settlement or confirmed fulfillment."
     },
     {
       "id": "custom-solutions",
@@ -192,7 +187,6 @@
         "Validation and deployment/maintenance planning appropriate to the system"
       ],
       "distinctSection": "I agree on scope, feasibility, delivery timeline and support requirements before development. A dashboard, file-processing tool and interactive 3D experience need different architectures and acceptance checks. A prototype is only described as operational after its required integrations are implemented and tested.",
-      "examples": ["compressme", "archeon", "shoesonthego"],
       "faq": [
         [
           "Can a prototype become an operational application?",

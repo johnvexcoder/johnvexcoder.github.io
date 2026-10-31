@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import content from "@/content/services.json";
 import { absoluteUrl } from "./seo";
+import { projectsForService } from "./content";
 export const serviceContent = content;
-export const servicePages = content.pages;
+export const servicePages = content.pages.map((page) => ({
+  ...page,
+  examples: projectsForService(page.id).map((project) => project.id),
+}));
 export function serviceMetadata(page: {
   title: string;
   description: string;
