@@ -70,6 +70,13 @@ export function publicDocuments() {
       services.main.intro,
       "",
       ...services.pages.map((s) => `- ${link(s.name, s.route)} — ${s.summary}`),
+      "",
+      "## Questions about working together",
+      ...services.main.faq.flatMap(([question, answer]) => [
+        `### ${question}`,
+        answer,
+        "",
+      ]),
     ].join("\n"),
   });
   for (const s of services.pages)
@@ -89,13 +96,28 @@ export function publicDocuments() {
         "## The approach",
         s.solution,
         "",
+        "## Scope and delivery",
+        s.distinctSection,
+        "",
+        ...s.scope.map((item) => `- ${item}`),
+        "",
+        "## Questions about this service",
+        ...s.faq.flatMap(([question, answer]) => [
+          `### ${question}`,
+          answer,
+          "",
+        ]),
         "## Related project evidence",
+        s.evidence,
+        "",
         ...projects
           .filter((p) => p.serviceIds.includes(s.id))
           .map(
             (p) =>
               `- ${link(p.name, `/work/${p.id}/`)} — ${p.shortDescription}`,
           ),
+        "",
+        ...s.contextLinks.map((related) => link(related.label, related.route)),
         "",
         link("Discuss a project", "/contact/"),
       ].join("\n"),
@@ -111,6 +133,10 @@ export function publicDocuments() {
         `# ${project.name}`,
         "",
         `Classification: ${project.classification}`,
+        ...(study?.subtitle ? [study.subtitle] : []),
+        ...(study
+          ? [`Project type: ${study.type}`, `Status: ${study.status}`]
+          : []),
         project.shortDescription,
         "",
         ...(study

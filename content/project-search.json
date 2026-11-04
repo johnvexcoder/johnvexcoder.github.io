@@ -1,0 +1,309 @@
+[
+  {
+    "id": "atlas-enterprise",
+    "name": "Atlas Enterprise",
+    "category": "Software",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "IndexedDB",
+      "CSS",
+      "SVG charts",
+      "React Hook Form",
+      "Zod",
+      "Radix UI",
+      "Lucide"
+    ]
+  },
+  {
+    "id": "homelab-os",
+    "name": "Nexora Lab",
+    "category": "Infrastructure",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Express",
+      "WebSocket",
+      "Tailwind",
+      "ECharts",
+      "SQLite",
+      "Docker"
+    ]
+  },
+  {
+    "id": "homelab-agent",
+    "name": "Nexora Agent",
+    "category": "Infrastructure",
+    "technologies": [
+      "TypeScript",
+      "Node.js",
+      "Linux",
+      "Docker",
+      "Proxmox"
+    ]
+  },
+  {
+    "id": "compressme",
+    "name": "CompressMe",
+    "category": "Software",
+    "technologies": [
+      "Python",
+      "PySide6",
+      "Pillow",
+      "CLI",
+      "Desktop"
+    ]
+  },
+  {
+    "id": "jenica-portfolio",
+    "name": "Jenica Salazar's Portfolio",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "React",
+      "CSS",
+      "Vercel"
+    ]
+  },
+  {
+    "id": "movieflix",
+    "name": "MovieFlix",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Redis",
+      "SQLite",
+      "FFmpeg",
+      "Docker",
+      "TMDB"
+    ]
+  },
+  {
+    "id": "donut-house",
+    "name": "Donut House",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Zustand",
+      "Zod",
+      "Vercel"
+    ]
+  },
+  {
+    "id": "jaron-portfolio",
+    "name": "Mark Jaron's Portfolio",
+    "category": "Web",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Vercel"
+    ]
+  },
+  {
+    "id": "your-coffee",
+    "name": "Your Coffee",
+    "category": "Web",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "localStorage",
+      "Vercel"
+    ]
+  },
+  {
+    "id": "python-keybr",
+    "name": "Python-Keybr",
+    "category": "CLI",
+    "technologies": [
+      "Python",
+      "curses",
+      "Terminal"
+    ]
+  },
+  {
+    "id": "distrozsh",
+    "name": "DistroZSH",
+    "category": "CLI",
+    "technologies": [
+      "ZSH",
+      "Bash",
+      "Linux",
+      "Terminal"
+    ]
+  },
+  {
+    "id": "starbucks-portal",
+    "name": "Starbucks Login",
+    "category": "Web",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "UI/UX"
+    ]
+  },
+  {
+    "id": "smart-expense",
+    "name": "Smart Expense Visualizer",
+    "category": "Web",
+    "technologies": [
+      "JavaScript",
+      "Chart.js",
+      "Tailwind",
+      "localStorage"
+    ]
+  },
+  {
+    "id": "monthsary",
+    "name": "Monthsary",
+    "category": "Web",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  },
+  {
+    "id": "johnvex-winops",
+    "name": "JohnVex-WinOps",
+    "category": "Infrastructure",
+    "technologies": [
+      "PowerShell",
+      "Windows",
+      "Security",
+      "Automation"
+    ]
+  },
+  {
+    "id": "jnglo",
+    "name": "J&GLO",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "Vercel"
+    ]
+  },
+  {
+    "id": "arkosenyo",
+    "name": "ARKOSENYO",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "Vercel"
+    ]
+  },
+  {
+    "id": "taitechmarine",
+    "name": "TAITECH Marine",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "Vercel"
+    ]
+  },
+  {
+    "id": "shoesonthego",
+    "name": "Shoes on the Go",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "Three.js",
+      "React Three Fiber",
+      "GSAP",
+      "Vercel"
+    ]
+  },
+  {
+    "id": "archeon",
+    "name": "ARCHÉON",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Three.js",
+      "React Three Fiber",
+      "GSAP",
+      "Vercel"
+    ]
+  },
+  {
+    "id": "bedrock",
+    "name": "Bedrock Events",
+    "category": "Web",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS"
+    ]
+  },
+  {
+    "id": "aurvel",
+    "name": "AURVÉL",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
+    ]
+  },
+  {
+    "id": "rajt-marine-services",
+    "name": "RAJ & T Marine Services",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Motion"
+    ]
+  },
+  {
+    "id": "aurevia",
+    "name": "Aurevia Journeys",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Dexie",
+      "Zustand"
+    ]
+  },
+  {
+    "id": "voyara",
+    "name": "Voyara Operations",
+    "category": "Web",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Dexie",
+      "Recharts"
+    ]
+  },
+  {
+    "id": "aurelia",
+    "name": "Aurelia Grand",
+    "category": "Web",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Dexie",
+      "Zustand"
+    ]
+  }
+]

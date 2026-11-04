@@ -34,7 +34,7 @@
       "label": "Interface",
       "code": "01",
       "title": "The part people experience.",
-      "copy": "Responsive websites, portfolios, business sites, and thoughtful interfaces shaped around usability and maintainability.",
+      "copy": "Responsive frontend interfaces and UI/UX implementation for websites and applications, with clear navigation, accessible controls and maintainable components.",
       "tech": [
         "HTML",
         "CSS",
@@ -51,7 +51,7 @@
       "label": "Application",
       "code": "02",
       "title": "From interaction to logic.",
-      "copy": "Full-stack applications, Python software, APIs, data handling, and command-line tools that solve practical problems.",
+      "copy": "Full-stack web applications, backend APIs, database integration and administration tools. CRM, CMS and business workflows are scoped around the records and actions people need.",
       "tech": [
         "TypeScript",
         "Node.js",
@@ -69,7 +69,7 @@
       "label": "Infrastructure",
       "code": "03",
       "title": "Give the software a home.",
-      "copy": "Hands-on Linux administration, containerized deployments, virtualization, and self-hosted service configuration.",
+      "copy": "Linux servers, containers, virtualization and deployment workflows that give websites and self-hosted applications an appropriate runtime.",
       "tech": [
         "Linux",
         "Docker",
@@ -86,7 +86,7 @@
       "label": "Operations",
       "code": "04",
       "title": "Understand what happens next.",
-      "copy": "Networking, monitoring, automation, technical troubleshooting, and ongoing information security studies.",
+      "copy": "Workflow automation, operational visibility, networking, monitoring and technical troubleshooting, supported by hands-on projects and clearly identified learning work.",
       "tech": [
         "Git",
         "GitHub",

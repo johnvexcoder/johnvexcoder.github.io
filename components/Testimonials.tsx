@@ -26,7 +26,7 @@ export default function Testimonials() {
       {reviews.map((r, i) => (
         <article className="testimonial-card" key={i}>
           <div className="testimonial-top">
-            <span>CLIENT FEEDBACK</span>
+            <span>SHARED FEEDBACK</span>
             <span
               className="review-stars"
               role="img"
@@ -65,9 +65,9 @@ export default function Testimonials() {
     <section id="testimonials" className="section testimonials">
       <Reveal className="section-heading">
         <div>
-          <p className="eyebrow">09 / CLIENT FEEDBACK</p>
+          <p className="eyebrow">09 / SHARED FEEDBACK</p>
           <h2>
-            What clients <span>say.</span>
+            What people <span>say.</span>
           </h2>
         </div>
         <p>
@@ -83,7 +83,7 @@ export default function Testimonials() {
         ref={viewport}
         tabIndex={0}
         role="region"
-        aria-label="Client feedback"
+        aria-label="Shared feedback"
         aria-describedby="feedback-instructions"
         className={`testimonial-viewport ${reduced ? "motion-reduced" : ""}`}
       >

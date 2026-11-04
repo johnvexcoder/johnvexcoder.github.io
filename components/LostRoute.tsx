@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ArrowLeft, Search, Compass } from "lucide-react";
-import { projects } from "@/lib/content";
+import projects from "@/content/project-search.json";
 export default function LostRoute() {
   const [query, setQuery] = useState(""),
     [ping, setPing] = useState(false);

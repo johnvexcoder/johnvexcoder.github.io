@@ -1,4 +1,18 @@
 {
+  "atlas-enterprise": {
+    "width": 768,
+    "height": 480,
+    "sources": [
+      {
+        "src": "/preview-thumbnails/atlas-enterprise-384.webp",
+        "width": 384
+      },
+      {
+        "src": "/preview-thumbnails/atlas-enterprise-768.webp",
+        "width": 768
+      }
+    ]
+  },
   "compressme": {
     "width": 768,
     "height": 480,

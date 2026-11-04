@@ -6,8 +6,8 @@ export async function prepareSocial() {
   const width = 1200;
   const height = 630;
   const layers = [];
-  const sans = "public/fonts/AdwaitaSans.ttf";
-  const mono = "public/fonts/AdwaitaMono.ttf";
+  const sans = "assets/fonts/AdwaitaSans.ttf";
+  const mono = "assets/fonts/AdwaitaMono.ttf";
   async function text(value, x, y, size, color, options = {}) {
     const font = options.mono ? "Adwaita Mono" : "Adwaita Sans";
     const markup = `<span foreground="${color}"${options.tracking ? ` letter_spacing="${options.tracking * 1024}"` : ""}>${value}</span>`;

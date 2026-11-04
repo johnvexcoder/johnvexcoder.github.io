@@ -102,6 +102,7 @@ export default function Preview({
       schedule();
     };
     const measure = () => {
+      if (!inView) return;
       const next = project.scrollImage
         ? Math.max(0, image.offsetHeight - el.clientHeight)
         : 0;
@@ -118,7 +119,8 @@ export default function Preview({
     const observer = new IntersectionObserver(
       ([entry]) => {
         inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
-        schedule();
+        if (inView) measure();
+        else schedule();
       },
       { threshold: [0, 0.25] },
     );
@@ -266,7 +268,7 @@ export default function Preview({
               href={project.scrollImage}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Open full ${project.name} screenshot`}
+              aria-label={`Full screenshot — ${project.name}`}
             >
               Full screenshot <ArrowUp size={12} />
             </a>

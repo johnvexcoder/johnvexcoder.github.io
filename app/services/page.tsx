@@ -2,15 +2,8 @@ import PremiumPageMotion from "@/components/PremiumPageMotion";
 /* eslint-disable @next/next/no-img-element -- Static export uses pre-generated responsive WebP variants without an image server. */
 import ServiceInquiryLink from "@/components/ServiceInquiryLink";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Code2,
-  Search,
-  Layers,
-  UserRound,
-  CalendarDays,
-  Workflow,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { serviceIcon } from "@/lib/service-icons";
 import { serviceContent, servicePages, serviceMetadata } from "@/lib/services";
 import {
   ServiceCTA,
@@ -18,7 +11,6 @@ import {
   ServiceSchema,
 } from "@/components/ServiceContent";
 export const metadata = serviceMetadata(serviceContent.main);
-const icons = [Code2, Search, Layers, UserRound, CalendarDays, Workflow];
 export default function ServicesPage() {
   const { main, care } = serviceContent;
   return (
@@ -42,10 +34,7 @@ export default function ServicesPage() {
           <span className="service-proof-label">
             Personal project · ARCHÉON
           </span>
-          <Link
-            href="/work/archeon/"
-            aria-label="Explore the ARCHÉON architecture visualization case study"
-          >
+          <Link href="/work/archeon/">
             <img
               src="/services/work/archeon-960.webp"
               srcSet="/services/work/archeon-480.webp 480w, /services/work/archeon-960.webp 960w"
@@ -72,8 +61,8 @@ export default function ServicesPage() {
           <p>{main.scopeNote}</p>
         </div>
         <div className="service-grid">
-          {servicePages.map((page, i) => {
-            const Icon = icons[i];
+          {servicePages.map((page) => {
+            const Icon = serviceIcon(page.id);
             return (
               <Link key={page.id} className="service-card" href={page.route}>
                 <Icon
@@ -92,8 +81,8 @@ export default function ServicesPage() {
         </div>
       </section>
       <ServiceExamples
-        ids={["taitechmarine", "jenica-portfolio", "archeon"]}
-        evidence="Two confirmed client websites and an original personal 3D demonstration. I explain what each project implements, how it works and which integrations are not verified."
+        ids={["atlas-enterprise", "jenica-portfolio", "taitechmarine"]}
+        evidence="A personal operations demonstration and two confirmed client website projects. Each case study explains its implemented features, project status and integration limits."
       />
       <section className="service-process">
         <h2>Define it before building it.</h2>
@@ -135,20 +124,7 @@ export default function ServicesPage() {
       </section>
       <section className="service-faq">
         <h2>A few useful distinctions.</h2>
-        {[
-          [
-            "Is each solution tailored to my company?",
-            "Yes. Content, administration, integrations and operational requirements are defined around the company’s needs. Existing examples show capabilities rather than a fixed package to copy.",
-          ],
-          [
-            "Can you redesign a website I already have?",
-            "Yes. Redesign is included under Business Website Development and Redesign. Useful existing content and URLs are reviewed before deciding what changes.",
-          ],
-          [
-            "Does a working demo mean a complete business system?",
-            "No. An interactive frontend, a manually confirmed request and an operational platform have different requirements. The scope and validation must make those boundaries clear.",
-          ],
-        ].map(([q, a]) => (
+        {main.faq.map(([q, a]) => (
           <details key={q}>
             <summary>
               {q}

@@ -1,5 +1,112 @@
 [
   {
+    "id": "atlas-enterprise",
+    "type": "Personal Project / Interactive Software Demonstration",
+    "subtitle": "Multi-Industry Enterprise Operations Simulation",
+    "meta": "Atlas Enterprise is a browser-local operations simulation with five fictional industries, CRM, reporting and event history. Explore its implementation and limits.",
+    "overview": "Atlas Enterprise is an interactive enterprise operations demonstration for five fictional companies. It extends the earlier Voyara travel-operations concept into retail, hospitality, travel, restaurant and professional-services workspaces, with connected records saved in the browser.",
+    "problemHeading": "Connected work needs more than separate dashboards.",
+    "problem": "Customer relationships, sales activity, stock, tasks and reporting describe different parts of the same work. Separate mockups can show each area without explaining how a change affects the others. Atlas explores a coherent operations interface across several fictional industries, rather than presenting independent screens or real business results.",
+    "decisionHeading": "One local journal behind each company.",
+    "approach": "The implementation uses Next.js, React and strict TypeScript with a static export. Native IndexedDB stores separate, versioned company event journals; lightweight preferences use localStorage. Shared domain handlers and selectors connect records and reporting. Forms use React Hook Form and Zod; charts use SVG, and the interface uses custom CSS, Radix primitives and Lucide icons.",
+    "decisions": "Each fictional company has its own industry configuration and local history. Source operations append validated events, while shared projections feed customer histories, operational records and reports. The live demonstration was inspected across all five workspaces; a newly created fictional relationship survived reload without a network write. These checks support a browser-local application, not a hosted backend or proof that every workflow has been independently certified.",
+    "features": [
+      "Five fictional company workspaces and a cross-company portfolio overview",
+      "Customer registers with a tested local relationship save and reload",
+      "Sales, illustrative finance, projects, tasks and workforce interfaces",
+      "Procurement, inventory and document-administration views",
+      "Industry-specific retail, hotel, travel, restaurant and services operations in the available source",
+      "Source-derived reports, company search, notifications and inspectable event history",
+      "Paused-by-default simulation controls and browser-local history persistence"
+    ],
+    "result": "The deployed demonstration opens five fictional company workspaces with working dashboard, CRM and administration views. A new fictional customer relationship remained after reload during verification. The screenshots show the actual application, including its company picker, retail dashboard, customer records and operational views.",
+    "tradeoff": "All companies, people, payments and operating records are fictional. Finance is illustrative, roles are simulated interface controls, and local persistence is not secure server-side authorization, statutory accounting, real payment processing or cross-device synchronization. No production ERP, enterprise customer, business revenue or paid integration is claimed.",
+    "status": "Deployed interactive demonstration; browser-local fictional data. Production enterprise use is outside the verified scope.",
+    "demonstrates": "Application information architecture, connected business-domain interfaces, native browser persistence, administration workflows, reusable components and responsive interaction design.",
+    "service": "custom-solutions",
+    "related": ["voyara", "homelab-os", "movieflix"],
+    "alt": "Atlas Enterprise retail dashboard for the fictional Meridian Supply company, showing simulated collections, customer records and activity",
+    "classification": "Personal project",
+    "layout": "editorial",
+    "gallery": [
+      {
+        "alt": "Atlas Enterprise company picker listing five fictional industry workspaces",
+        "caption": "Company selection — five fictional industries.",
+        "image": "/source/projects/atlas-enterprise/atlas-company-selection.webp",
+        "width": 1440,
+        "height": 1315,
+        "sources": [
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-company-selection-480.webp",
+            "width": 480
+          },
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-company-selection-768.webp",
+            "width": 768
+          },
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-company-selection-1280.webp",
+            "width": 1280
+          },
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-company-selection.webp",
+            "width": 1440
+          }
+        ]
+      },
+      {
+        "alt": "Atlas Enterprise customer register with fictional contacts and relationship records",
+        "caption": "CRM — fictional company-scoped customer relationships.",
+        "image": "/source/projects/atlas-enterprise/atlas-customers.webp",
+        "width": 1440,
+        "height": 1260,
+        "sources": [
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-customers-480.webp",
+            "width": 480
+          },
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-customers-768.webp",
+            "width": 768
+          },
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-customers-1280.webp",
+            "width": 1280
+          },
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-customers.webp",
+            "width": 1440
+          }
+        ]
+      },
+      {
+        "alt": "Atlas Enterprise retail operations screen with simulated sales and inventory controls",
+        "caption": "Retail operations — simulated company activity.",
+        "image": "/source/projects/atlas-enterprise/atlas-operations.webp",
+        "width": 1440,
+        "height": 1106,
+        "sources": [
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-operations-480.webp",
+            "width": 480
+          },
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-operations-768.webp",
+            "width": 768
+          },
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-operations-1280.webp",
+            "width": 1280
+          },
+          {
+            "src": "/source/projects/atlas-enterprise/atlas-operations.webp",
+            "width": 1440
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "homelab-os",
     "type": "Personal infrastructure application; release-candidate work",
     "meta": "Nexora Lab brings host metrics, Proxmox guests, Docker workloads and alerts into a self-hosted dashboard. Explore its architecture and release limits.",
@@ -16,10 +123,7 @@
     "status": "Open-source release-candidate work. Clean-host acceptance and high-availability operation are not verified.",
     "demonstrates": "Real-time frontend/backend integration, infrastructure data modelling, access controls and recovery-aware application design.",
     "service": "custom-solutions",
-    "related": [
-      "homelab-agent",
-      "movieflix"
-    ],
+    "related": ["atlas-enterprise", "homelab-agent", "movieflix"],
     "alt": "Nexora Lab dashboard showing host status, resource metrics and infrastructure health",
     "decisions": "Keeping collection behind the backend gives the interface one reporting model instead of separate rendering logic for each host integration. WebSocket updates carry changing values without repeatedly requesting an entire dashboard; persisted records serve a different purpose from live telemetry.",
     "classification": "Personal project",
@@ -44,10 +148,7 @@
     "status": "Open-source tool under active development. Runtime support must be checked against the documented host requirements.",
     "demonstrates": "Modular Node.js/TypeScript engineering, resilient telemetry collection and clear protocol boundaries.",
     "service": "custom-solutions",
-    "related": [
-      "homelab-os",
-      "johnvex-winops"
-    ],
+    "related": ["homelab-os", "johnvex-winops"],
     "alt": null,
     "decisions": "A plugin boundary lets a missing sensor tool affect one collector rather than the whole reporting process. Centralizing transport in Agent Core also keeps retry and identity behavior consistent across plugins. Capability reporting distinguishes unavailable data from a misleading zero reading.",
     "classification": "Personal project",
@@ -72,10 +173,7 @@
     "status": "Public source and releases are available. The README lists Windows and Linux support; macOS and Android are not presented as completed supported platforms.",
     "demonstrates": "Shared application logic, desktop interface development, file processing and useful operational reporting.",
     "service": "custom-solutions",
-    "related": [
-      "python-keybr",
-      "johnvex-winops"
-    ],
+    "related": ["python-keybr", "johnvex-winops"],
     "alt": "CompressMe desktop dashboard showing a compression queue and processing reports",
     "decisions": "Sharing the compression engine between the desktop interface and CLI keeps the processing rules consistent for interactive and repeatable batch work. Exact hashes answer whether files are identical; perceptual comparison answers a different question about visual similarity. Keeping those paths separate avoids treating every similar image as a duplicate.",
     "classification": "Personal project",
@@ -86,13 +184,13 @@
   {
     "id": "jenica-portfolio",
     "type": "Client work · Professional portfolio",
-    "meta": "Jenica Salazar’s client portfolio website connects professional experience, certificates, selected work and résumé access. Explore the Next.js implementation.",
-    "overview": "Jenica Salazar’s client portfolio website brings her professional background, experience and MovieFlix founder story into a responsive Next.js presentation.",
+    "meta": "Jenica Salazar’s portfolio by J0hnvexcoder presents her experience as Founder & CEO of MovieFlix. Explore the responsive Next.js client website and its scope.",
+    "overview": "I developed Jenica Salazar’s responsive portfolio website to present her experience, qualifications and role as Founder & CEO of MovieFlix. This website project is distinct from the separately documented MovieFlix application.",
     "problem": "A résumé, certificates and a separate project story can be difficult to assess when presented independently. The website gives those materials a clear sequence while keeping résumé and contact access easy to find.",
     "approach": "Next.js and React organize the page into background, experience, skills, certificates and project sections. Supplied portraits use responsive image delivery, while metadata and Person structured data support a consistent public identity.",
     "features": [
       "Professional background, experience and certificate sections",
-      "MovieFlix founder story and résumé access",
+      "MovieFlix Founder & CEO profile and résumé access",
       "Responsive layouts and contact alternatives"
     ],
     "result": "The published website is accessible. Source review confirms the portfolio sections and a contact path that can use a server-side provider when configured, with an email-app fallback. Successful email delivery was not tested in this audit.",
@@ -100,10 +198,7 @@
     "status": "Confirmed client work. Published professional portfolio; server-delivered contact behavior requires separate verification.",
     "demonstrates": "Content hierarchy, responsive personal branding, image delivery and accurate contact behavior.",
     "service": "portfolio-websites",
-    "related": [
-      "jaron-portfolio",
-      "movieflix"
-    ],
+    "related": ["jaron-portfolio", "movieflix"],
     "alt": "Jenica Salazar's portfolio homepage with her portrait and professional introduction",
     "decisions": "Separating experience, qualifications and project context makes different kinds of evidence easier to inspect. Responsive image delivery avoids sending the largest portrait to every screen. A contact fallback gives visitors an alternative when the server-side message provider is unavailable, but requires distinct feedback for a prepared email and a delivered message.",
     "classification": "Client work",
@@ -128,10 +223,7 @@
     "status": "Public code with a privately hosted runtime. The public links provide source and documentation; the runtime endpoint stays private.",
     "demonstrates": "Media-processing integration, streaming route design, stateful application architecture and administration interfaces.",
     "service": "custom-solutions",
-    "related": [
-      "homelab-os",
-      "jenica-portfolio"
-    ],
+    "related": ["atlas-enterprise", "homelab-os", "jenica-portfolio"],
     "alt": "MovieFlix library homepage showing featured artwork and media rows",
     "decisions": "Byte-range responses allow supported players to request a portion of a file when seeking instead of restarting a full download. Codec inspection informs whether direct delivery is appropriate or processing is needed. Library metadata and playback are separate concerns, so richer browsing does not depend on changing the source media files.",
     "classification": "Personal project",
@@ -156,10 +248,7 @@
     "status": "Portfolio commerce concept. No real orders, payments or delivery service.",
     "demonstrates": "Connected interaction design, structured state management, validation and reusable commerce logic.",
     "service": "business-websites",
-    "related": [
-      "your-coffee",
-      "jnglo"
-    ],
+    "related": ["your-coffee", "jnglo"],
     "alt": "Donut House storefront showing donut collections and custom box presentation",
     "decisions": "A shared cart store keeps selections consistent between the product page, box builder and checkout. Moving calculations into helpers makes quantities and totals easier to check independently of the layout. Input validation handles incomplete selections before they enter the demonstration checkout; it does not turn browser state into a trusted order record.",
     "classification": "Personal project",
@@ -184,10 +273,7 @@
     "status": "Confirmed client work. Published professional portfolio with an email-app contact workflow; it does not submit an inquiry to a server.",
     "demonstrates": "Editorial organization, framework-free responsive development and transparent contact UX.",
     "service": "portfolio-websites",
-    "related": [
-      "jenica-portfolio",
-      "monthsary"
-    ],
+    "related": ["jenica-portfolio", "monthsary"],
     "alt": "Mark Jaron's portfolio introduction and engineering experience presentation",
     "decisions": "Static delivery suits a presentation site whose content changes through source edits. Semantic sections establish a readable hierarchy without a framework runtime. The contact workflow uses the visitor’s email application, so the interface can prepare an inquiry without claiming a server received it.",
     "classification": "Client work",
@@ -212,10 +298,7 @@
     "status": "Portfolio café concept. No real orders or payments; personal checkout details are not transmitted.",
     "demonstrates": "Static application architecture, state persistence and customer-facing interaction design.",
     "service": "business-websites",
-    "related": [
-      "donut-house",
-      "jnglo"
-    ],
+    "related": ["donut-house", "jnglo"],
     "alt": "Your Coffee café homepage showing the drink menu and ordering presentation",
     "decisions": "Hash-based routes let the static host serve one application while preserving browser back and forward navigation. Keeping the cart in browser storage retains selections between visits without an account. Limiting persistence to cart state also avoids storing checkout details as though they were submitted orders.",
     "classification": "Personal project",
@@ -240,10 +323,7 @@
     "status": "Public terminal tool. The adaptive concept is credited to keybr.com; this is an independent implementation.",
     "demonstrates": "Terminal interface design, input handling, local persistence and adaptive application logic.",
     "service": "custom-solutions",
-    "related": [
-      "distrozsh",
-      "compressme"
-    ],
+    "related": ["distrozsh", "compressme"],
     "alt": null,
     "decisions": "Immediate keystroke feedback belongs in the terminal loop, while accumulated statistics inform later practice. Per-letter and bigram records let adaptive sessions respond to specific weaknesses rather than only an overall score. A separate diagnostic mode makes input behavior inspectable without interrupting a practice session.",
     "classification": "Personal project",
@@ -268,10 +348,7 @@
     "status": "Public configuration project under active development.",
     "demonstrates": "Shell scripting, environment detection and maintainable developer tooling.",
     "service": "custom-solutions",
-    "related": [
-      "python-keybr",
-      "johnvex-winops"
-    ],
+    "related": ["python-keybr", "johnvex-winops"],
     "alt": null,
     "decisions": "Distribution detection changes presentation while the prompt functions retain a common structure. A documented uninstall path treats shell configuration as a reversible change. Avoiding a framework dependency reduces the setup required, although terminal capabilities still need to be checked.",
     "classification": "Personal project",
@@ -296,10 +373,7 @@
     "status": "Unofficial, noncommissioned practice project with no Starbucks affiliation.",
     "demonstrates": "Accessible form presentation and concise frontend validation behavior.",
     "service": "custom-solutions",
-    "related": [
-      "smart-expense",
-      "your-coffee"
-    ],
+    "related": ["smart-expense", "your-coffee"],
     "alt": "Unofficial Starbucks-inspired login form with email and password fields",
     "decisions": "Preventing the browser’s default submission keeps this exercise within its static demo boundary. Field checks and explicit error states make the interaction understandable. The success state demonstrates feedback design only; authentication belongs on a trusted server in an operational system.",
     "classification": "Personal project",
@@ -324,10 +398,7 @@
     "status": "Interactive browser demo; not a financial-accounting service. The published version loads UI libraries from CDNs.",
     "demonstrates": "Data-driven interface updates, local state persistence and visual reporting.",
     "service": "custom-solutions",
-    "related": [
-      "compressme",
-      "starbucks-portal"
-    ],
+    "related": ["compressme", "starbucks-portal"],
     "alt": "Expense dashboard showing summary cards, a category chart and transaction table",
     "decisions": "A chart provides an overview, while the table preserves access to individual entries. Recalculating summaries from the records keeps the chart and totals aligned after deletion. Browser storage enables continuity on one device without introducing an account or implying a remote backup.",
     "classification": "Personal project",
@@ -352,10 +423,7 @@
     "status": "Published personal project. Preserve its purpose and avoid commercial framing.",
     "demonstrates": "Personal storytelling, responsive media presentation and time-based interface behavior.",
     "service": "portfolio-websites",
-    "related": [
-      "jaron-portfolio",
-      "jenica-portfolio"
-    ],
+    "related": ["jaron-portfolio", "jenica-portfolio"],
     "alt": "Monthsary anniversary website with a personal timeline and photo presentation",
     "decisions": "The counter, timeline and galleries give different entry points into the same personal story. Lightweight browser interactions support reading and exploration without needing an account. The case study stays focused on presentation rather than reproducing additional private content.",
     "classification": "Personal project",
@@ -380,10 +448,7 @@
     "status": "Public administration toolkit with edition boundaries described in its documentation.",
     "demonstrates": "PowerShell automation, explicit operational controls and auditable application behavior.",
     "service": "custom-solutions",
-    "related": [
-      "homelab-agent",
-      "compressme"
-    ],
+    "related": ["homelab-agent", "compressme"],
     "alt": "JohnVex-WinOps administration interface showing diagnostic and operation options",
     "decisions": "An allowlisted catalog makes the available operations explicit before execution. Planning and risk acceptance precede changes, while verification and logs describe what happened afterward. Operation-specific journals provide a recovery path where implemented instead of promising universal rollback.",
     "classification": "Personal project",
@@ -408,10 +473,7 @@
     "status": "Published fictional storefront demo. Contact and newsletter responses are local previews, not delivered submissions.",
     "demonstrates": "Product interaction design, reusable state logic and editorial frontend presentation.",
     "service": "business-websites",
-    "related": [
-      "donut-house",
-      "your-coffee"
-    ],
+    "related": ["donut-house", "your-coffee"],
     "alt": "J&GLO fictional fashion storefront with campaign imagery and garment collections",
     "decisions": "Product routes preserve room for the campaign presentation while cart helpers handle variants, quantities and totals. Validating persisted state prevents stale browser data from being accepted blindly when the catalog changes. The shared provider connects those behaviors without making individual presentation components responsible for storage.",
     "classification": "Personal project",
@@ -436,12 +498,9 @@
     "status": "Client website project. The available link is a website demonstration; a separate production launch is not asserted.",
     "demonstrates": "Content modelling, editorial website design, accessible galleries and responsive delivery.",
     "service": "business-websites",
-    "related": [
-      "taitechmarine",
-      "archeon"
-    ],
-    "alt": "ARKOSENYO redesign concept presenting architecture imagery and project discovery",
-    "decisions": "Structured records let project lists, filters and detail routes use the same content model. Keeping an inquiry as a draft avoids suggesting a server accepted it. The model is suitable for a source-managed concept; adding editorial permissions and publishing workflows would be a separate CMS implementation.",
+    "related": ["taitechmarine", "archeon"],
+    "alt": "ARKOSENYO client website demonstration showing its architecture services and project presentation",
+    "decisions": "Structured records let project lists, filters and detail routes use the same content model. Keeping an inquiry as a draft avoids suggesting a server accepted it. The model is suitable for a source-managed website; adding editorial permissions and publishing workflows would be a separate CMS implementation.",
     "classification": "Client work",
     "layout": "editorial",
     "problemHeading": "Make architecture projects easier to explore.",
@@ -463,11 +522,8 @@
     "tradeoff": "The request flow demonstrates conditional fields and review states. Operational submission, scheduling, notifications and administration would need their own implemented integrations and acceptance checks.",
     "status": "Client website project. The request preview does not send an inquiry, book a meeting or reserve availability.",
     "demonstrates": "Structured business content, conditional form design and responsive industrial presentation.",
-    "service": "business-websites",
-    "related": [
-      "arkosenyo",
-      "archeon"
-    ],
+    "service": "website-redesign",
+    "related": ["arkosenyo", "archeon"],
     "alt": "TAITECH Marine redesign demonstration showing equipment and technical service presentation",
     "decisions": "Conditional questions keep irrelevant fields out of a request path. A review step lets a visitor inspect and edit the assembled information before seeing the preview confirmation. This demonstrates form design without pretending that availability, scheduling or message delivery exists behind it.",
     "classification": "Client work",
@@ -492,10 +548,7 @@
     "status": "Personal, noncommercial concept with no manufacturer affiliation, store or checkout. Preserve the original asset attribution.",
     "demonstrates": "Real-time 3D frontend engineering, camera choreography and interaction ownership.",
     "service": "custom-solutions",
-    "related": [
-      "archeon",
-      "jnglo"
-    ],
+    "related": ["archeon", "jnglo"],
     "alt": "Shoes on the Go 3D footwear presentation with model inspection controls",
     "decisions": "A persistent canvas avoids rebuilding the scene between narrative chapters. Separating scroll direction from direct manipulation lets visitors inspect the same object without losing the presentation structure. Camera presets and touch controls provide alternatives when dragging is inconvenient.",
     "classification": "Personal project",
@@ -520,10 +573,7 @@
     "status": "Original frontend demonstration. Amihan House is not a completed commission; no server-side brief storage or submission occurs.",
     "demonstrates": "Original component-based 3D modelling, scroll choreography, progressive loading and clear form boundaries.",
     "service": "custom-solutions",
-    "related": [
-      "shoesonthego",
-      "arkosenyo"
-    ],
+    "related": ["shoesonthego", "arkosenyo"],
     "alt": "ARCHÉON Amihan House concept showing a construction stage and exploration controls",
     "decisions": "Stage and floor information in the component model connects construction chapters with the plan interface. Rendering repeated shapes together reduces repeated draw work, while loading the 3D section near its use avoids making it the first requirement for reading the page. Local brief download keeps the form useful within an explicitly frontend-only boundary.",
     "classification": "Personal project",
@@ -548,10 +598,7 @@
     "status": "Deployed demonstration. See verified scope and limitations below.",
     "demonstrates": "Visual business website composition, gallery presentation and a clearly bounded inquiry interface.",
     "service": "business-websites",
-    "related": [
-      "aurelia",
-      "rajt-marine-services"
-    ],
+    "related": ["aurelia", "rajt-marine-services"],
     "alt": "Bedrock Events full-page website showing celebration photography, event services and the local event-brief form",
     "decisions": "The visual gallery and quotation brief serve different tasks: imagery helps visitors explore a direction, while explicit form fields organize the event requirements. Keeping the brief on the device makes the demonstration useful without suggesting that an inquiry has been sent to an event provider.",
     "classification": "Personal project",
@@ -576,10 +623,7 @@
     "status": "Deployed demonstration. See verified scope and limitations below.",
     "demonstrates": "Product catalog architecture, editorial art direction and clear comparison-oriented navigation.",
     "service": "business-websites",
-    "related": [
-      "jnglo",
-      "aurelia"
-    ],
+    "related": ["jnglo", "aurelia"],
     "alt": "AURVÉL full-page website showing the fictional Nocturne, Meridian and Atelier watch collections",
     "decisions": "Collections give the visitor an initial design direction; the individual watch details and comparison route provide a closer inspection. The project explicitly identifies the watches and specifications as design proposals, so the presentation does not imply inventory, checkout or a trading watch business.",
     "classification": "Personal project",
@@ -603,11 +647,8 @@
     "tradeoff": "This is not presented as commissioned client work or an official company website. Historical profile details and current availability require company confirmation. Sample careers do not establish open vacancies.",
     "status": "Deployed demonstration. See verified scope and limitations below.",
     "demonstrates": "Business website redesign, technical content hierarchy and transparent handling of source boundaries.",
-    "service": "business-websites",
-    "related": [
-      "taitechmarine",
-      "bedrock"
-    ],
+    "service": "website-redesign",
+    "related": ["taitechmarine", "bedrock"],
     "alt": "RAJ & T Marine Services full-page unofficial redesign showing vessel projects, engineering capabilities and shipyard sections",
     "decisions": "Vessel examples and capability categories supply different entry points into the company profile. Historical source notes remain visible next to the relevant material, and the careers presentation identifies its listings as demonstrations. Those boundaries are part of the information architecture rather than hidden qualifications.",
     "classification": "Personal project",
@@ -632,10 +673,7 @@
     "status": "Deployed demonstration. See verified scope and limitations below.",
     "demonstrates": "Travel content architecture, linked discovery flows and scoped reservation-interface development.",
     "service": "business-websites",
-    "related": [
-      "aurelia",
-      "voyara"
-    ],
+    "related": ["aurelia", "voyara"],
     "alt": "Aurevia Journeys full-page travel website showing destination collections, journey cards and itinerary discovery",
     "decisions": "Destination inspiration and practical trip choices are kept connected through journey cards and the search controls. Browser-local sample planning lets the demonstration illustrate a workflow without claiming live inventory, a payment gateway or confirmed reservations with travel suppliers.",
     "classification": "Personal project",
@@ -660,10 +698,7 @@
     "status": "Deployed demonstration. See verified scope and limitations below.",
     "demonstrates": "Application information architecture, relational browser storage, reporting interfaces and content-administration workflows.",
     "service": "custom-solutions",
-    "related": [
-      "aurevia",
-      "homelab-os"
-    ],
+    "related": ["atlas-enterprise", "aurevia", "homelab-os"],
     "alt": "Voyara Operations workspace overview showing local reservation reports, departures and customer-management navigation",
     "decisions": "A relational local data model allows the demonstration to connect bookings, departures and customer activity across views. Explicit local-workspace labeling and sample roles distinguish interface access controls from server-enforced authorization. Seeded dashboard totals are demonstration data, not business performance evidence.",
     "classification": "Personal project",
@@ -688,10 +723,7 @@
     "status": "Deployed demonstration. See verified scope and limitations below.",
     "demonstrates": "Hospitality website architecture, room-content presentation and clearly scoped stay-selection interfaces.",
     "service": "business-websites",
-    "related": [
-      "aurevia",
-      "bedrock"
-    ],
+    "related": ["aurevia", "bedrock"],
     "alt": "Aurelia Grand full-page fictional hotel website showing rooms, stay selection, dining and hospitality offers",
     "decisions": "Room content and stay-selection controls are presented together so a visitor can connect a room type with the intended dates and occupancy. The fictional-hotel designation and illustrative-rate notices prevent the booking presentation from implying a real operating property or live inventory connection.",
     "classification": "Personal project",

@@ -6,6 +6,11 @@ export const inquiryServices = [
   { id: "custom-solutions", name: "Custom application" },
   { id: "booking-systems", name: "Booking and Reservation Systems" },
   { id: "cms-solutions", name: "Custom CMS Development" },
+  { id: "crm-development", name: "Custom CRM Development" },
+  {
+    id: "admin-dashboard-development",
+    name: "Admin Dashboard & Internal Tools Development",
+  },
   { id: "portfolio-websites", name: "Portfolio website" },
   { id: "website-care", name: "Website care and maintenance" },
   { id: "other", name: "Other inquiry" },

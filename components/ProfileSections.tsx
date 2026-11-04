@@ -1,18 +1,10 @@
-import {
-  ArrowUpRight,
-  Code2,
-  Search,
-  Layers,
-  UserRound,
-  CalendarDays,
-  Workflow,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { serviceIcon } from "@/lib/service-icons";
 import { profile, skills, tagline } from "@/lib/content";
 import Link from "next/link";
 import services from "@/content/service-routes.json";
 import Reveal from "./Reveal";
 import SkillIcon from "./SkillIcon";
-const serviceIcons = [Code2, Search, Layers, UserRound, CalendarDays, Workflow];
 export function Skills() {
   return (
     <section id="skills" className="section skills-section">
@@ -131,7 +123,7 @@ export function Services() {
             id === "custom-solutions"
               ? "Maintenance or automation"
               : "Website project";
-          const Icon = serviceIcons[i];
+          const Icon = serviceIcon(id);
           return (
             <Reveal key={name} className="service">
               <span className="service-number">0{i + 1}</span>
@@ -221,8 +213,9 @@ export function About() {
           <p className="lead">
             I’m John Angelo De Joya, also known as John De Joya. I publish my
             work as J0hnvexcoder, using the handle johnvexcoder. Based in
-            Bulacan, Philippines, I work across full-stack application
-            development, Linux, and self-hosted infrastructure.
+            Bulacan, Philippines, I build websites and full-stack applications,
+            from UI/UX and frontend interfaces to backend APIs, databases,
+            administration tools and Linux infrastructure.
           </p>
           <p>
             My formal degree is in Hospitality Management — but my technical

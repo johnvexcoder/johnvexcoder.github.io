@@ -40,7 +40,7 @@ export default function Hero() {
         <div className="hero-portrait">
           <img
             src="/source/me/portrait.webp"
-            srcSet="/source/me/portrait-320.webp 320w, /source/me/portrait-480.webp 480w, /source/me/portrait-640.webp 640w, /source/me/portrait.webp 960w"
+            srcSet="/source/me/portrait-320.webp 320w, /source/me/portrait-480.webp 480w, /source/me/portrait-512.webp 512w, /source/me/portrait-640.webp 640w, /source/me/portrait.webp 960w"
             alt="John Angelo De Joya, J0hnvexcoder, holding his laptop"
             width={960}
             height={1200}
@@ -115,7 +115,7 @@ export default function Hero() {
       </div>
       <div className="hero-copy">
         <p className="eyebrow">
-          WEB DEVELOPER · FULL-STACK · LINUX & INFRASTRUCTURE
+          FULL-STACK WEB DEVELOPMENT · UI/UX · INFRASTRUCTURE
         </p>
         <h1 id="hero-title">
           From interface
@@ -123,9 +123,9 @@ export default function Hero() {
           <span>to infrastructure.</span>
         </h1>
         <p className="hero-summary">
-          Practical software and the self-hosted systems behind it.
+          Websites, full-stack applications and practical business systems.
           <br />
-          From the browser interface to the Linux server.
+          From user-focused interfaces to APIs, databases and deployment.
         </p>
         <div className="hero-actions">
           <a className="button primary" href="#projects">

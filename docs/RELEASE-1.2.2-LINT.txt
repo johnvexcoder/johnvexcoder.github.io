@@ -1,4 +1,0 @@
-
-> johnvexcoder-signature-portfolio-v2@1.2.2 lint
-> eslint .
-

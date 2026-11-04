@@ -37,10 +37,17 @@ export default function SceneMotion() {
       // All geometry reads precede any writes, including pointer resets.
       const measures = [...visible]
         .filter((el) => story.has(el))
-        .map((el) => ({ el, rect: el.getBoundingClientRect() }));
+        .map((el) => ({
+          el,
+          // Touch layouts keep hero drift at zero, so no hero geometry is needed.
+          rect:
+            fine.matches || !el.matches(".hero")
+              ? el.getBoundingClientRect()
+              : null,
+        }));
       const pointerRect = pointerTarget?.getBoundingClientRect();
       for (const { el, rect } of measures) {
-        if (el.matches(".assembly-bridge")) {
+        if (el.matches(".assembly-bridge") && rect) {
           const state = assemblyState(
             (innerHeight * 0.96 - rect.top) / (innerHeight * 0.64),
           );
@@ -51,7 +58,7 @@ export default function SceneMotion() {
           write(
             el,
             "--hero-drift",
-            fine.matches
+            fine.matches && rect
               ? `${Math.min(innerHeight, Math.max(0, -rect.top)) * 0.08}px`
               : "0px",
           );

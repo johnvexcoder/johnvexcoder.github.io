@@ -5222,7 +5222,7 @@ input[type="radio"] {
 .skill-tooltip {
   position: absolute;
   bottom: calc(100% + 9px);
-  left: 50%;
+  left: calc(50% + var(--skill-tooltip-offset, 0px));
   translate: -50% 5px;
   padding: 5px 9px;
   border: 1px solid var(--line);
@@ -5358,7 +5358,8 @@ input[type="radio"] {
     translate: none !important;
   }
   .skill-tooltip {
-    left: 0;
+    left: calc(50% + var(--skill-tooltip-offset, 0px));
+    transform: translateX(-50%);
   }
 }
 /* Beyond the Fix: one timeline changes the underlying hero topology itself. */
@@ -8788,35 +8789,49 @@ html:not([data-intro-boot="playing"])
   }
 }
 
-/* Evidence cards follow their actual image + copy hierarchy, with natural text tracks. */
+/* Each evidence row follows its tallest card; copy stays complete at every width. */
 .service-work-list {
   grid-auto-rows: auto;
-  align-items: start;
+  align-items: stretch;
+}
+.selected-work-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  grid-row: auto;
 }
 .selected-work-card > .work-thumbnail {
-  flex-shrink: 0;
+  flex: 0 0 auto;
   border-radius: 0;
   width: 100%;
+  aspect-ratio: 16 / 10;
 }
 .selected-work-card > a {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .selected-work-copy {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 22px;
 }
 .selected-work-copy > small {
   display: block;
+  min-height: 3.2em;
   font:
     13px/1.6 Signature,
     sans-serif;
 }
 .selected-work-copy h3 {
+  min-height: 2.5em;
   margin: 12px 0;
   font-size: 23px;
   line-height: 1.25;
 }
 .selected-work-copy p {
+  flex: 1;
   margin: 0 0 16px;
   font-size: 15px;
   line-height: 1.7;
@@ -8825,8 +8840,55 @@ html:not([data-intro-boot="playing"])
   font-size: 13px;
 }
 .selected-work-copy .text-link {
-  margin-top: 14px;
+  margin-top: auto;
+  padding-top: 14px;
   font-size: 13px;
+}
+@media (max-width: 760px) {
+  .selected-work-copy > small,
+  .selected-work-copy h3 {
+    min-height: 0;
+  }
+}
+.case-heading .case-subtitle {
+  color: var(--blue);
+  font-size: 18px;
+}
+.case-gallery {
+  margin: 48px 0;
+}
+.case-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+.case-gallery figure {
+  margin: 0;
+  min-width: 0;
+}
+.case-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.case-gallery figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+@media (max-width: 1100px) {
+  .case-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .case-gallery-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 .brand-mark.brand-icon {
   display: block;

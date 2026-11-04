@@ -173,3 +173,31 @@ assert.ok(
   !(await fs.stat(path.join(root, "resume.pdf")).catch(() => false)),
   "Obsolete resume.pdf must not be exported",
 );
+
+// Audited output must identify the same committed source as the framework build.
+const { execFileSync } = await import("node:child_process");
+const revision = execFileSync("git", ["rev-parse", "HEAD"], {
+  encoding: "utf8",
+}).trim();
+const release = JSON.parse(
+  await fs.readFile(path.join(root, "release.json"), "utf8"),
+);
+const { version } = JSON.parse(await fs.readFile("package.json", "utf8"));
+assert.equal(release.version, version);
+assert.equal(release.source_commit, revision);
+assert.equal(release.canonical_origin, "https://johnvexcoder.github.io");
+assert.equal((await fs.readFile(".next/BUILD_ID", "utf8")).trim(), revision);
+for (const file of await deploymentFiles(root)) {
+  const relative = path.relative(root, file);
+  assert.ok(
+    !/(^|\/)(?:AGENTS\.md|\.git|\.github|\.agents|\.codex|docs|assets|node_modules)(?:\/|$)/.test(
+      relative,
+    ),
+    `Nonproduction file: ${relative}`,
+  );
+  assert.ok(
+    !/\.(?:tsx?|py|ya?ml|key|pem)$/.test(relative),
+    `Build-only file: ${relative}`,
+  );
+}
+console.log(`Release ${version} output verified against source ${revision}.`);

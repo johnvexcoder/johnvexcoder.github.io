@@ -20,14 +20,17 @@ test("every existing project has an evidence-backed case and valid service/relat
   }
   assert.equal(new Set(studies.map((s) => s.meta)).size, projects.length);
 });
-test("seven services routes combine redesign and exclude thin or unsupported client-result pages", () => {
+test("ten service routes separate new builds, redesign, content, relationships and operations", () => {
   assert.deepEqual(
     [services.main.route, ...services.pages.map((p) => p.route)],
     [
       "/services/",
       "/services/business-websites/",
+      "/services/website-redesign/",
       "/services/technical-seo/",
       "/services/cms-solutions/",
+      "/services/crm-development/",
+      "/services/admin-dashboard-development/",
       "/services/portfolio-websites/",
       "/services/booking-systems/",
       "/services/custom-solutions/",
@@ -48,7 +51,7 @@ test("seven services routes combine redesign and exclude thin or unsupported cli
       .map((p) => p.id),
     ["taitechmarine", "bedrock", "aurevia", "voyara", "aurelia"],
   );
-  assert.equal(new Set(services.pages.map((p) => p.description)).size, 6);
+  assert.equal(new Set(services.pages.map((p) => p.description)).size, 9);
 });
 test("public content withholds the private runtime, pricing, quotation documents and added personal details", () => {
   const publicCopy = JSON.stringify({ projects, studies, services });
@@ -105,7 +108,13 @@ test("service names stay consistent across page, homepage and inquiry catalogs",
     assert.equal(route.summary, page.summary);
     assert.equal(route.title, page.title);
   }
-  for (const id of ["cms-solutions", "technical-seo", "booking-systems"])
+  for (const id of [
+    "cms-solutions",
+    "technical-seo",
+    "booking-systems",
+    "crm-development",
+    "admin-dashboard-development",
+  ])
     assert.equal(
       inquiryServices.find((s) => s.id === id).name,
       services.pages.find((s) => s.id === id).name,
@@ -114,4 +123,46 @@ test("service names stay consistent across page, homepage and inquiry catalogs",
     services.pages.find((s) => s.id === "cms-solutions").name,
     "Custom CMS Development",
   );
+});
+
+test("curated service evidence has unique valid projects and agrees with reverse case-study links", () => {
+  for (const service of services.pages) {
+    assert.equal(
+      new Set(service.selectedProjects).size,
+      service.selectedProjects.length,
+    );
+    for (const id of service.selectedProjects) {
+      const project = projects.find((p) => p.id === id);
+      assert.ok(project, id);
+      assert.ok(
+        project.serviceIds.includes(service.id),
+        `${id} must link back to ${service.id}`,
+      );
+    }
+  }
+  const atlas = projects.find((p) => p.id === "atlas-enterprise");
+  assert.ok(!atlas.serviceIds.includes("technical-seo"));
+  assert.ok(!atlas.serviceIds.includes("website-redesign"));
+});
+
+test("Atlas remains a fictional local demonstration with real responsive screenshot assets", async () => {
+  const atlas = projects.find((p) => p.id === "atlas-enterprise");
+  const study = studies.find((s) => s.id === atlas.id);
+  assert.equal(atlas.classification, "Personal project");
+  assert.equal(atlas.demo, "https://atlas-enterprise-one.vercel.app/");
+  assert.equal(atlas.github, null);
+  assert.match(study.tradeoff, /fictional/);
+  assert.match(study.tradeoff, /server-side authorization/);
+  assert.ok(atlas.technologies.includes("IndexedDB"));
+  for (const planned of ["Dexie", "Tailwind CSS"])
+    assert.ok(!atlas.technologies.includes(planned));
+  assert.equal(study.gallery.length, 3);
+  const sharp = (await import("sharp")).default;
+  for (const view of study.gallery) {
+    const dimensions = await sharp("public" + view.image).metadata();
+    assert.equal(view.width, dimensions.width);
+    assert.equal(view.height, dimensions.height);
+    for (const source of view.sources)
+      assert.ok(fs.existsSync("public" + source.src));
+  }
 });

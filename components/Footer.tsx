@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight, ArrowUp, Terminal, ShieldCheck } from "lucide-react";
 import Dialog from "./Dialog";
 import PrivacySettings from "./PrivacySettings";
-import { profile } from "@/lib/content";
+import profile from "@/content/profile.json";
 export default function Footer() {
   const [open, setOpen] = useState(false),
     [privacy, setPrivacy] = useState(false),

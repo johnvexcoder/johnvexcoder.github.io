@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-04",
+  "scope": "Additional local SVGs for existing Skills & Expertise; no runtime icon packages added",
+  "sources": [
+    {
+      "name": "vite",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/vite/vite-original.svg",
+      "sha256": "4f1efe20dcae967dfe94ee5cab513caf5be12b9b1fe5ac9d0e73e352addcd678",
+      "bytes": 171,
+      "upstream": "Devicon",
+      "used_by": null
+    },
+    {
+      "name": "gsap",
+      "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/gsap.svg",
+      "sha256": "3a5839e0dbee31a3291d7c16454dec2601467a0f502cfded0e477dc811f5ae6a",
+      "bytes": 4728,
+      "upstream": "Simple Icons",
+      "used_by": null
+    },
+    {
+      "name": "threejs",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/threejs/threejs-original.svg",
+      "sha256": "e4ee5630ae19950b31603bd894d1a6e99fe8f5c2cf7aa4ce6e8ca6214f63c077",
+      "bytes": 3735,
+      "upstream": "Devicon",
+      "used_by": null
+    },
+    {
+      "name": "express",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg",
+      "sha256": "27ec7e3d21d59102c046a96277877abf78aa9d7ad244277345d9c395486d42d4",
+      "bytes": 914,
+      "upstream": "Devicon",
+      "used_by": null
+    },
+    {
+      "name": "php",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-plain.svg",
+      "sha256": "4af2f7e8e00d9285e6fe2427c0bf4ec6e0b652390110cab6e7e931c0ee20b62c",
+      "bytes": 1286,
+      "upstream": "Devicon",
+      "used_by": null
+    },
+    {
+      "name": "mysql",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg",
+      "sha256": "f73fa5d6b9da33fbf540ff96f5360c24b6d29d883ecfe6fcaecf89a8d3456067",
+      "bytes": 2765,
+      "upstream": "Devicon",
+      "used_by": null
+    },
+    {
+      "name": "debian",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/debian/debian-plain.svg",
+      "sha256": "832341037e209f9c33198d1175fb0d4e68d48c5bbc2ae6c8dd47d64a62a0e145",
+      "bytes": 4056,
+      "upstream": "Devicon",
+      "used_by": null
+    },
+    {
+      "name": "ubuntu",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/ubuntu/ubuntu-plain.svg",
+      "sha256": "54b03ba21f74a2199a97318f09bd2826178af6cfc5e864bec499c853ae43f750",
+      "bytes": 1190,
+      "upstream": "Devicon",
+      "used_by": null
+    },
+    {
+      "name": "cloudflare",
+      "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/cloudflare.svg",
+      "sha256": "408096d99907fd99e0863cb5d73f77a72537c6a85fd8d5e2704178a83a891f08",
+      "bytes": 1178,
+      "upstream": "Simple Icons",
+      "used_by": null
+    },
+    {
+      "name": "netlify",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/netlify/netlify-plain.svg",
+      "sha256": "f93f80294e4407fc876155f8822d062b6d739cc26a5274b291161e2a1eedd383",
+      "bytes": 701,
+      "upstream": "Devicon",
+      "used_by": null
+    },
+    {
+      "name": "hostinger",
+      "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/hostinger.svg",
+      "sha256": "59eae501e770f8e6618132721ac92942b1b01ec3f67b629189c30ba9a64e9b98",
+      "bytes": 351,
+      "upstream": "Simple Icons",
+      "used_by": null
+    },
+    {
+      "name": "vscode",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-plain.svg",
+      "sha256": "f32260c35adeb7a6c0936342f1e28be66e33dc9de111dd684e1c32a9c8ca2f1f",
+      "bytes": 551,
+      "upstream": "Devicon",
+      "used_by": null
+    },
+    {
+      "name": "codex",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/codex/codex-plain.svg",
+      "sha256": "bf930292df47399b78d5da114851026d0fad1faf956405e8d9cc8d63fea21e5b",
+      "bytes": 1443,
+      "upstream": "Devicon",
+      "used_by": [
+        "Codex"
+      ]
+    },
+    {
+      "name": "claude",
+      "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/claude.svg",
+      "sha256": "2d6fda79eb18ddccca35b799eeb3cece0dfabc22520ce3b10abd25668df9fa93",
+      "bytes": 1921,
+      "upstream": "Simple Icons",
+      "used_by": null
+    },
+    {
+      "name": "opencode",
+      "url": "https://raw.githubusercontent.com/anomalyco/opencode/ce8ca3084eacc6b11eac950cf0002a77a547abae/packages/ui/src/assets/icons/provider/opencode.svg",
+      "sha256": "018a85654f13635373dc283ecc27928fa4e001c06cde47f7efa1cbcab567b51c",
+      "bytes": 276,
+      "upstream": "OpenCode official provider icon",
+      "used_by": null
+    },
+    {
+      "name": "playwright",
+      "url": "https://raw.githubusercontent.com/devicons/devicon/master/icons/playwright/playwright-plain.svg",
+      "sha256": "2d7ec3edf5dd794fc5e0983413edf192228933c360f02225a01c50b64f901fad",
+      "bytes": 1802,
+      "upstream": "Devicon",
+      "used_by": null
+    },
+    {
+      "name": "chatgpt",
+      "url": "https://cdn.jsdelivr.net/npm/simple-icons@14.0.0/icons/openai.svg",
+      "sha256": "2b4a04ddc2395b20d168694d3850ce2050a702c4a0cdeb4d8b31b9a970481a8c",
+      "bytes": 1570,
+      "upstream": "Simple Icons, pinned 14.0.0 OpenAI blossom",
+      "used_by": [
+        "ChatGPT"
+      ]
+    }
+  ]
+}

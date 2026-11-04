@@ -11,8 +11,8 @@ for folder, pattern in [("content", "*.json"), ("components", "*.tsx"), ("app", 
         characters.update(map(ord, file.read_text()))
 report = []
 for name in ["SignatureSans", "SignatureMono"]:
-    original = Path(f"public/fonts/{name}.woff2")
-    output = original.with_name(name + "-latin.woff2")
+    original = Path(f"assets/fonts/{name}.woff2")
+    output = Path(f"public/fonts/{name}-latin.woff2")
     font = TTFont(original)
     available = set(font.getBestCmap())
     options = subset.Options()

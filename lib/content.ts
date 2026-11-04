@@ -11,6 +11,7 @@ export type Project = {
   description: string;
   image: string | null;
   imageAlt?: string;
+  previewLabel?: string;
   imageWithheld?: boolean;
   scrollImage?: string;
   imageFallback?: string;
@@ -39,16 +40,7 @@ export const profile = sourceProfile;
 export const reviews = sourceReviews;
 export const concepts = sourceConcepts;
 export const tagline = "I don't just fix what's broken. I build what lasts.";
-export const navigation = [
-  ["Home", "home"],
-  ["Works", "projects"],
-  ["Homelab", "homelab"],
-  ["About", "about"],
-  ["Experience", "experience"],
-  ["Skills", "skills"],
-  ["Services", "services"],
-  ["Contact", "contact"],
-];
+export { navigation } from "./navigation";
 export const contacts = [
   ["Email", "mailto:johnangelodejoya@gmail.com", "johnangelodejoya@gmail.com"],
   [
@@ -88,32 +80,80 @@ export const services = [
   ],
 ];
 export const skills = {
-  Development: [
-    "HTML",
-    "CSS",
+  "Frontend Development": [
+    "HTML5",
+    "CSS3",
     "JavaScript",
-    "Next.js",
-    "React",
     "TypeScript",
-    "Node.js",
-    "Python",
-    "Java",
-    "WordPress",
+    "React",
+    "Next.js",
     "Tailwind CSS",
-    "Framer Motion",
-    "Zustand",
+    "Vite",
+    "WordPress",
+    "GSAP",
+    "Three.js",
   ],
-  Infrastructure: [
+  "Backend & APIs": [
+    "Node.js",
+    "Express.js",
+    "Python",
+    "PHP",
+    "Java",
+    "REST API",
+    "WebSockets",
+    "Authentication",
+  ],
+  "UI/UX & Design": [
+    "UI/UX Design",
+    "Responsive Design",
+    "Design Systems",
+    "Motion (Framer Motion)",
+  ],
+  "Databases & Data": [
+    "PostgreSQL",
+    "MySQL",
+    "SQLite",
+    "Redis",
+    "IndexedDB",
+    "Zustand",
+    "Zod",
+    "localStorage",
+  ],
+  "Servers & Infrastructure": [
     "Linux",
     "Docker",
     "Proxmox",
     "Nginx",
-    "Networking",
+    "Debian",
+    "Ubuntu",
     "Tailscale",
     "Bash",
+    "Networking",
   ],
-  Data: ["SQLite", "PostgreSQL", "Redis", "Zod", "localStorage"],
-  Tools: ["Git", "GitHub", "Vercel"],
+  "Hosting & Cloud": [
+    "Cloudflare",
+    "Vercel",
+    "Netlify",
+    "Hostinger",
+    "GitHub Pages",
+  ],
+  "Business Systems": [
+    "Admin Dashboards",
+    "CRM",
+    "CMS",
+    "Internal Tools",
+    "Business Applications",
+  ],
+  "Development & AI Tools": [
+    "Git",
+    "GitHub",
+    "VS Code",
+    "ChatGPT",
+    "Codex",
+    "Claude",
+    "OpenCode",
+    "Playwright",
+  ],
 };
 export function actions(p: Project) {
   return [

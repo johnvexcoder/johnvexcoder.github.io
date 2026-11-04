@@ -37,11 +37,13 @@ jobs:
         run: npm ci
       - name: Check source
         run: |
+          npm run check:hygiene
           npm run lint
           npm test
       - name: Build and validate the static export
         run: |
           npm run build
+          npm run typecheck
           npm run check:seo
           npm run check:export
           cmp public/google1c03abb64b8da92a.html out/google1c03abb64b8da92a.html

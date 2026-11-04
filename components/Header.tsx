@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, Search, ArrowUpRight, Sun, Moon, Github } from "lucide-react";
-import { navigation } from "@/lib/content";
+import { navigation } from "@/lib/navigation";
 import Dialog from "./Dialog";
 export default function Header() {
   const pathname = usePathname();
@@ -45,7 +45,7 @@ export default function Header() {
     <>
       <header className="site-header">
         <div className="reading-progress" aria-hidden="true" />
-        <Link className="brand" href="/#home">
+        <Link prefetch={false} className="brand" href="/#home">
           <img
             className="brand-mark brand-icon"
             src="/icon.svg"

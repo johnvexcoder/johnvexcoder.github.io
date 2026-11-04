@@ -11,6 +11,7 @@ import {
   isDemoAction,
 } from "@/lib/content";
 import Preview from "./Preview";
+import ProjectLogo from "./ProjectLogo";
 import WorkThumbnail from "./WorkThumbnail";
 import Reveal from "./Reveal";
 import { useProjectLayout } from "@/hooks/useProjectLayout";
@@ -72,17 +73,8 @@ export default function Projects({
               <Reveal className={`project-plate plate-${i}`} key={p.id}>
                 <div className="project-narrative">
                   <span className="project-index">
-                    {p.logo && (
-                      <img
-                        className="project-logo"
-                        src={p.logo}
-                        width={22}
-                        height={22}
-                        alt=""
-                        loading="lazy"
-                      />
-                    )}
-                    0{i + 1} / {p.category}
+                    {p.logo && <ProjectLogo src={p.logo} />}0{i + 1} /{" "}
+                    {p.category}
                   </span>
                   <span className="project-status">
                     {p.classification === "Client work"
@@ -334,7 +326,6 @@ export default function Projects({
                   className="work-card-image"
                   href={`/work/${p.id}/`}
                   prefetch={false}
-                  aria-label={`Explore ${p.name} case study`}
                 >
                   <WorkThumbnail project={p} priority={i < 3} />
                 </Link>
@@ -406,16 +397,7 @@ export default function Projects({
                   </span>
                   <span className="archive-name">
                     <span className="archive-title">
-                      {p.logo && (
-                        <img
-                          className="project-logo"
-                          src={p.logo}
-                          width={22}
-                          height={22}
-                          alt=""
-                          loading="lazy"
-                        />
-                      )}
+                      {p.logo && <ProjectLogo src={p.logo} />}
                       {p.name}
                     </span>
                     <small>{p.shortDescription}</small>

@@ -2,11 +2,11 @@
   "main": {
     "route": "/services/",
     "title": "Web Development Services in the Philippines | J0hnvexcoder",
-    "description": "Web development services by John Angelo De Joya, a freelance developer in Bulacan, Philippines. Business websites, technical SEO, custom CMS and applications.",
+    "description": "Web development services by J0hnvexcoder: new websites, redesign, technical SEO, CMS, CRM, admin dashboards and custom full-stack applications.",
     "h1": "Services and Solutions",
-    "headline": "A clear website. A system that works.",
-    "intro": "I’m John Angelo De Joya, the independent freelance developer behind J0hnvexcoder. Based in Bulacan, I work directly with clients across the Philippines on business websites, content tools and custom web applications. Remote project enquiries are welcome; scope, communication and handover are agreed directly.",
-    "scopeNote": "A company website, a reservation request and an operational booking platform have different requirements. I help define the appropriate scope before development, including content, integrations, administration and ongoing care.",
+    "headline": "Websites, applications and the systems behind them.",
+    "intro": "I’m John Angelo De Joya, the independent freelance developer behind J0hnvexcoder in Bulacan, Philippines. I provide web development services for businesses in the Philippines and remote teams, spanning frontend interfaces, backend APIs, databases and infrastructure. The services below distinguish new builds, redesign, content publishing, customer relationships and operational tools; scope and collaboration are agreed directly.",
+    "scopeNote": "Choose the main workflow, then define the required content, access, integrations and delivery checks. Published examples retain their client, personal-project or demonstration classifications.",
     "primaryTopic": "web development services Philippines",
     "relatedTerms": [
       "freelance website development",
@@ -15,7 +15,7 @@
     ],
     "sections": [
       "Introduction and Discuss Your Project action",
-      "Six service areas with useful detail links",
+      "Nine service areas with useful detail links",
       "Selected work with accurate project-type labels",
       "How a project is scoped and delivered",
       "Website Care and Maintenance",
@@ -23,36 +23,125 @@
       "Discuss Your Project"
     ],
     "ctaLabel": "Discuss Your Project",
-    "ctaTarget": "/#contact"
+    "ctaTarget": "/#contact",
+    "faq": [
+      [
+        "Is each solution tailored to my company?",
+        "Yes. Content, administration, integrations and operational requirements are defined around the company’s needs. Existing examples show capabilities rather than a fixed package to copy."
+      ],
+      [
+        "Can you redesign a website I already have?",
+        "Yes. Website Redesign is a dedicated service for improving an existing website. Useful content and URLs are reviewed before deciding what changes."
+      ],
+      [
+        "Does a working demo mean a complete business system?",
+        "No. An interactive frontend, a manually confirmed request and an operational platform have different requirements. The scope and validation must make those boundaries clear."
+      ]
+    ]
   },
   "pages": [
     {
       "id": "business-websites",
       "route": "/services/business-websites/",
-      "name": "Business Website Development and Redesign",
+      "name": "Business Website Development",
       "title": "Business Website Development Philippines | J0hnvexcoder",
-      "description": "Business website development and redesign for companies in the Philippines. Responsive service pages, project galleries and clear contact paths by J0hnvexcoder.",
-      "summary": "I build responsive company websites and redesign existing sites around clear services, useful content and an accessible contact path.",
-      "problem": "A business website should help someone understand the company and decide what to do next. Missing information, unclear navigation or difficult mobile layouts can get in the way. A redesign starts by examining what is already useful, what needs correction and which existing pages should be retained.",
-      "solution": "I build responsive business websites that make it easier for customers to understand your services, explore your work and contact you. The agreed scope can include company pages, products or menus, galleries and location information. Basic SEO setup and deployment readiness are planned alongside the interface; the number of pages follows the content you need to explain.",
+      "description": "New business website development in the Philippines: planning, responsive pages, clear navigation, content, contact forms and launch checks by J0hnvexcoder.",
+      "summary": "I build new business websites around your services, audience and content, with responsive layouts and a clear path to contact you.",
+      "problem": "A new business website needs to explain the company clearly before someone makes contact. The starting point is the audience, the information customers need and the business requirements—not an arbitrary page count or a borrowed design. A useful first website gives that content a coherent structure.",
+      "solution": "I plan and develop new company websites with agreed service pages, content, navigation and contact paths. The work can include galleries, products or menus, responsive interfaces, basic technical SEO and separately scoped forms or integrations. The website is tested against the agreed requirements before launch and handover.",
       "scope": [
-        "Company, service, product or menu presentation",
-        "Responsive layouts, galleries and contact/location information",
-        "Page titles, descriptions, headings and basic indexability setup",
-        "Performance review and agreed deployment/domain assistance"
+        "Website requirements, page planning and content structure",
+        "Responsive business pages and accessible navigation",
+        "Agreed contact forms, galleries and integrations",
+        "Metadata, canonical URLs and launch-readiness checks",
+        "Content handover and separately agreed maintenance"
       ],
-      "distinctSection": "Redesigning an existing site: inventory the current content and URLs, retain useful material, clarify the new structure, and plan any necessary redirects before launch. The implementation follows the access and platform available; a migration is scoped separately when it requires substantial changes.",
+      "distinctSection": "For a new website, we first identify the audience, required content and actions visitors should complete. You provide company information, brand assets and the access needed for agreed integrations. Implementation, testing and handover follow that scope. If an existing website needs modernization, the separate Website Redesign service covers assessment, URL preservation and migration planning.",
       "faq": [
         [
-          "Can you improve an existing website?",
-          "Yes. The starting point is an inventory of the current site, its content and the access available. The agreed work may be a focused improvement or a broader redesign."
+          "What do you need before building a business website?",
+          "Company and service information, brand assets, useful examples, content ownership and access to agreed domains or integrations. Missing content and additional functionality are identified when defining the scope."
         ],
         [
-          "Does this include online payments?",
-          "Only when an actual payment and order workflow is agreed. Existing storefront demonstrations do not establish that a live payment system is already integrated."
+          "What if I already have a website?",
+          "Website Redesign & Modernization is a separate service for assessing and improving an existing site. The Business Website Development page focuses on a new build."
+        ],
+        [
+          "Does a new website include payments or a custom backend?",
+          "Only when explicitly scoped and implemented. A storefront demonstration or working frontend does not establish a live payment or backend integration."
+        ],
+        [
+          "What affects the scope of a new business website?",
+          "Page types, content readiness, galleries or catalogs, forms and integrations determine the implementation and testing effort. These requirements are agreed before a proposal."
+        ],
+        [
+          "What should I prepare for a new website and its handover?",
+          "Prepare company and service content, brand assets and authorized domain or hosting access where relevant. Planning, implementation, testing and handover follow the agreed requirements; source files, account access, content ownership, third-party licenses and ongoing support should be clarified in that scope."
         ]
       ],
-      "evidence": "Confirmed client websites appear alongside independent event, marine, product, travel and hospitality concepts. Each case study distinguishes commissioned work from demonstrations and records its verified limits."
+      "evidence": "Client website projects and clearly labeled independent concepts demonstrate content structure, responsive interfaces and contact paths. Demonstration sites do not establish live orders, payments or inquiry delivery.",
+      "selectedProjects": [
+        "arkosenyo",
+        "jnglo"
+      ],
+      "contextLinks": [
+        {
+          "route": "/services/website-redesign/",
+          "label": "Already have a website? Explore Website Redesign & Modernization."
+        }
+      ]
+    },
+    {
+      "id": "website-redesign",
+      "route": "/services/website-redesign/",
+      "name": "Website Redesign & Modernization",
+      "title": "Website Redesign Services & Modernization | J0hnvexcoder",
+      "description": "Modernize an existing website with clearer UI/UX, responsive layouts, accessibility and performance work, while planning content and SEO preservation.",
+      "summary": "My website redesign services improve existing websites while preserving useful content, reviewing current URLs and clarifying what needs to change.",
+      "problem": "An existing website may have useful content and established URLs while its interface, navigation or mobile behavior no longer meets current needs. Starting again without an inventory can lose material or break existing paths. Redesign begins by understanding the site and deciding what should be retained.",
+      "solution": "The work can include an existing-site assessment, UI/UX modernization, responsive redesign, content and navigation restructuring, accessibility review and measured performance improvements. Forms and integrations are reviewed against their real behavior. Any platform or hosting migration is a separate scoped decision, not an automatic part of a visual refresh.",
+      "scope": [
+        "Existing pages, content, URLs and integration inventory",
+        "UI/UX modernization and responsive implementation",
+        "Mobile usability, navigation and accessibility checks",
+        "Content retention, canonical review and redirect planning when URLs must change",
+        "Form and integration review, regression testing and handover",
+        "Optional platform migration and ongoing support scoped separately"
+      ],
+      "distinctSection": "We identify the current site’s useful pages and problems, agree the changes, then implement and test the revised experience. Provide the existing URL, goals, known issues, content and brand assets, plus authorized access to the current platform, analytics or integrations when relevant. The handover records what changed, how content is maintained and which support is agreed. Rankings, conversions and business outcomes are not guaranteed.",
+      "faq": [
+        [
+          "Will you preserve my existing URLs and SEO?",
+          "Useful content and current URLs are inventoried before changes. Existing URLs are retained where possible; necessary changes need an explicit redirect plan and validation. This process cannot guarantee rankings."
+        ],
+        [
+          "Can the website move to another platform or host?",
+          "A migration can be assessed and scoped separately. It requires its own access, content, integration and verification plan; it is not presumed necessary for every redesign."
+        ],
+        [
+          "What happens after the redesign?",
+          "Testing and handover are included in the agreed scope. Monitoring, content updates and ongoing support are defined separately, with no unconfirmed availability or response-time promise."
+        ],
+        [
+          "What affects the scope of a website redesign?",
+          "The existing platform, content volume, current URLs, integration behavior and accessibility or performance defects affect the work. A visual refresh and a platform migration need different inventories and verification."
+        ],
+        [
+          "What should a redesign handover clarify?",
+          "Agree the retained and changed pages, necessary redirect rules, integration checks and access needed to maintain the result. Source files, account ownership, third-party licenses and future care are scope decisions; no ranking or response-time commitment is implied."
+        ]
+      ],
+      "evidence": "TAITECH Marine is a client redesign published as a demonstration; its request preview is not verified live inquiry delivery or reserved availability. RAJ&T is a separate independent concept, not commissioned company work.",
+      "selectedProjects": [
+        "taitechmarine",
+        "rajt-marine-services"
+      ],
+      "contextLinks": [
+        {
+          "route": "/services/business-websites/",
+          "label": "Starting a new site? Explore Business Website Development."
+        }
+      ]
     },
     {
       "id": "technical-seo",
@@ -60,7 +149,7 @@
       "name": "Technical SEO and Website Optimization",
       "title": "Technical SEO Services Philippines | J0hnvexcoder",
       "description": "Technical SEO services for websites in the Philippines: audits, metadata, crawlability, canonical URLs, structured data and practical performance improvements.",
-      "summary": "I review how your website is discovered and loaded, then address crawlability, metadata and performance issues backed by actual findings.",
+      "summary": "Technical SEO optimization starts with how your website is discovered and loaded. I address crawlability, metadata and performance issues backed by actual findings.",
       "problem": "A visually complete website can still have missing metadata, confusing canonical URLs, broken links or pages search engines cannot reliably discover. Slow assets and mobile usability issues can also make the same content harder for people to use.",
       "solution": "My technical SEO work starts with the published website and the access available. I review how pages are structured, discovered and loaded, then prioritize demonstrated issues with titles, headings, internal links, canonical URLs, indexing directives or structured data. Performance work follows the same approach: measure the relevant pages and address the causes within the agreed scope.",
       "scope": [
@@ -80,26 +169,37 @@
         [
           "Do you guarantee rankings?",
           "No. The service provides scoped technical work and transparent findings, not a guaranteed position, traffic increase or sales result."
+        ],
+        [
+          "What defines the scope of a technical SEO review?",
+          "URL and template coverage, rendering behavior, crawl controls, media, deployment and available Search Console or analytics access determine the checks. The review separates confirmed defects, measurement limits and Google-side processing states."
+        ],
+        [
+          "What access is useful, and how are SEO changes verified?",
+          "Share the preferred domain, priority URLs and relevant source or deployment access; read-only Search Console access is useful when available. Agree the local fixes, compare responses and page content before and after implementation, and check deployed outputs separately from Google’s stored indexing records."
         ]
       ],
-      "evidence": "This portfolio provides an inspectable example: page metadata, canonical URLs, crawlable case-study links and structured data. It does not establish a ranking gain or a client campaign result."
+      "evidence": "This portfolio is the inspectable implementation example: generated sitemaps and canonicals, structured service and project data, crawlable internal links and reproducible local checks. These establish the implemented delivery workflow; Google processing is verified separately, and no client campaign or ranking gain is claimed.",
+      "selectedProjects": [],
+      "contextLinks": []
     },
     {
       "id": "cms-solutions",
       "route": "/services/cms-solutions/",
       "name": "Custom CMS Development",
       "title": "Custom CMS Development Philippines | J0hnvexcoder",
-      "description": "Custom CMS development for businesses in the Philippines. Tailored content editing, admin dashboards and separately scoped catalog or record-management tools.",
-      "summary": "I build content editing and administration tools around the pages, images and records your business needs to manage.",
+      "description": "Custom CMS development for website content, media, catalogs and editorial workflows. Define editing permissions, publishing controls and handover requirements.",
+      "summary": "I build content-management interfaces for website text, media, catalogs and publishing workflows, with permissions and delivery defined around your editors.",
       "problem": "When every small content update requires a developer, a website can become difficult to maintain. A product catalog or request workflow needs more than an editable text field: the team needs clear records, permissions and publishing controls.",
-      "solution": "I develop content management tools that let your business update agreed website text, images and relevant SEO fields without editing code. The administration interface follows what you need to manage and who is allowed to change it. Product catalogs, request records, publishing approvals and notifications are separate capabilities to define before development.",
+      "solution": "A custom CMS is organized around the content your team needs to maintain: structured text, images, media, catalogs and agreed SEO fields. Editing roles, publishing approvals and the connection to the public website are designed for that workflow. Customer relationship management and general operational dashboards are separate subjects, even when one project combines them.",
       "scope": [
-        "Agreed administrator access and content/media controls",
-        "Database-backed text, images and relevant SEO fields",
-        "Optional product/service catalogs with publishing controls",
-        "Optional request records, references, statuses, attachments and notifications"
+        "Structured website text, images and media administration",
+        "Product or service catalogs and content organization",
+        "Agreed editing permissions and publishing controls",
+        "Editorial review, publishing and relevant SEO fields",
+        "Content maintenance guidance and scoped migration or integration"
       ],
-      "distinctSection": "The administration model is scoped before the interface: who can edit, what needs review, which records are retained and what integrations are necessary. The CMS extends a website or application; it does not make unrelated business processes automatic by default.",
+      "distinctSection": "Begin with a content inventory: the page types, reusable fields, media and people who maintain them. Confirm how drafts, approval and publication should work, then define the data and access model. The published demonstrations show local document/content administration or personal media-management software; they do not prove a completed client publishing backend or secure production role system.",
       "faq": [
         [
           "Can my team update the site without editing code?",
@@ -108,9 +208,144 @@
         [
           "Does every project need a custom CMS?",
           "No. A simpler content platform or source-managed site may be sufficient. The choice follows the editorial workflow and long-term maintenance needs."
+        ],
+        [
+          "What affects the scope of a custom CMS?",
+          "Content types, media, catalogs, editorial roles, approval rules, migration and the connection to the public website determine the work. Backend delivery and production permissions must be specified independently of a content-editor demonstration."
+        ],
+        [
+          "What should editors prepare before CMS development?",
+          "Prepare an inventory of content, example fields, media and the people responsible for editing and approval. Define publication checks and handover guidance, then agree access, source files, ownership, licenses and ongoing maintenance within the scope."
         ]
       ],
-      "evidence": "Voyara provides a browser-local content administration example with page, media and navigation tools. It does not demonstrate server-enforced authentication or shared publishing infrastructure."
+      "evidence": "Atlas demonstrates local document administration, Voyara includes browser-local content tools, and MovieFlix provides a personal media-catalog application. Their case studies distinguish interface demonstrations from backend and deployment evidence.",
+      "selectedProjects": [
+        "atlas-enterprise",
+        "voyara",
+        "movieflix"
+      ],
+      "contextLinks": [
+        {
+          "route": "/services/crm-development/",
+          "label": "Managing customer relationships? Explore Custom CRM Development."
+        },
+        {
+          "route": "/services/admin-dashboard-development/",
+          "label": "Managing operations? Explore Admin Dashboards & Internal Tools."
+        }
+      ]
+    },
+    {
+      "id": "crm-development",
+      "route": "/services/crm-development/",
+      "name": "Custom CRM Development",
+      "title": "Custom CRM Development Philippines | J0hnvexcoder",
+      "description": "Custom CRM development for customer records, leads, sales pipelines and follow-up workflows. Define reporting, access and integration needs around your business.",
+      "summary": "I develop customer-management interfaces around contact records, leads, follow-ups and the history your team needs to understand a relationship.",
+      "problem": "Customer information can become difficult to use when contacts, leads, notes and follow-ups are spread across separate files or tools. A CRM should make the next useful action and the history behind it easier to find, without collecting data the workflow does not need.",
+      "solution": "A custom CRM can bring customer and contact records, lead tracking, sales stages, follow-up tasks and reporting into one agreed workflow. Fields, statuses and access follow how your team works. Data import, existing-system connections, API integrations and backend delivery are separately defined and verified within the project scope.",
+      "scope": [
+        "Customer/contact records and agreed relationship history",
+        "Lead tracking, sales-pipeline stages and follow-up workflows",
+        "Search, filters and relationship reporting interfaces",
+        "Agreed administration and access requirements",
+        "Separately scoped data import, API and existing-system integrations"
+      ],
+      "distinctSection": "Start by describing who uses the records, what a lead or customer means in your process and which follow-ups matter. Provide example fields, statuses, reporting needs and existing systems without exposing real customer data in public demonstrations. Atlas and Voyara illustrate fictional/browser-local CRM behavior; they are not evidence of live customer deployments, secure server-side roles or synchronized production databases.",
+      "faq": [
+        [
+          "How is a CRM different from a CMS?",
+          "A CRM manages customer relationships, leads and follow-ups. A CMS manages website content and publishing. They can be integrated, but their primary users and records are different."
+        ],
+        [
+          "Can it connect to tools we already use?",
+          "Integration feasibility, authorized access, API behavior and data handling must be reviewed before those connections are included in the scope. A simulated interface does not prove an existing live integration."
+        ],
+        [
+          "Are the portfolio CRM examples production customer systems?",
+          "No. Atlas and Voyara use fictional or synthetic records stored locally in the browser. Their case studies explain what is interactive and what would require a production backend."
+        ],
+        [
+          "What affects the scope of a custom CRM?",
+          "Record types, lead stages, follow-up rules, import requirements, reporting and existing-system integrations affect implementation and testing. Data access and backend requirements are agreed separately from a browser-local CRM interface."
+        ],
+        [
+          "What should a CRM project clarify before handover?",
+          "Describe the users, example fields, relationship history and acceptance checks without relying on public real-customer records. Agree the implemented workflows, data import/export, account access, source files, ownership and ongoing support in the project scope."
+        ]
+      ],
+      "evidence": "Atlas provides a tested browser-local relationship save/reload and company-scoped CRM views. Voyara demonstrates travel customer-management interfaces with synthetic records. Neither is a live customer-data deployment.",
+      "selectedProjects": [
+        "atlas-enterprise",
+        "voyara"
+      ],
+      "contextLinks": [
+        {
+          "route": "/services/cms-solutions/",
+          "label": "For website content and publishing, explore Custom CMS Development."
+        },
+        {
+          "route": "/services/admin-dashboard-development/",
+          "label": "For operational records and internal workflows, explore Admin Dashboards & Internal Tools."
+        }
+      ]
+    },
+    {
+      "id": "admin-dashboard-development",
+      "route": "/services/admin-dashboard-development/",
+      "name": "Admin Dashboard & Internal Tools Development",
+      "title": "Admin Dashboards & Internal Tools Development | J0hnvexcoder",
+      "description": "Custom admin dashboards and internal tools for operational records, inventory, reporting and system activity, with API and database integration scoped as needed.",
+      "summary": "I build administration interfaces and internal tools around the records, workflows and operational visibility a team needs.",
+      "problem": "Teams need to inspect records, understand current activity and carry out routine tasks without moving between disconnected screens. A useful dashboard connects its summaries to the underlying records and actions rather than presenting attractive counters with no working workflow.",
+      "solution": "The work can include administration panels, user and record-management interfaces, operational reporting, inventory views, internal tasks and system-monitoring screens. Role-specific interface design is planned around the people using it. APIs, persistent databases, authentication and production integrations are separately scoped engineering work—not features established by a frontend demonstration.",
+      "scope": [
+        "Custom administration panels and record-management interfaces",
+        "Operational dashboards and source-linked reporting",
+        "Inventory, internal tasks and workflow tools",
+        "Role-specific interface design and agreed access requirements",
+        "System monitoring and activity views where supported",
+        "Separately scoped APIs, databases and existing-system integrations"
+      ],
+      "distinctSection": "Identify the records and decisions the dashboard must support, then define the actions, permissions and source data behind each view. Provide workflow examples, current tools and the operational reports users rely on. Atlas and Voyara demonstrate fictional local administration; Nexora Lab demonstrates a release-candidate infrastructure interface with a separate backend and agent architecture. None is an unqualified enterprise-production credential.",
+      "faq": [
+        [
+          "What makes an internal tool different from a public website?",
+          "An internal tool centers on records, tasks and operational decisions for a defined group of users. Its data, access and integration requirements need to be specified independently of the visual interface."
+        ],
+        [
+          "Does a dashboard include a backend and database?",
+          "Only when included in the agreed implementation. A browser-local demonstration, a self-hosted personal tool and a production multiuser application have different delivery and verification requirements."
+        ],
+        [
+          "Can a dashboard also include CRM or CMS features?",
+          "Yes, when that combination matches the workflow. Customer relationship management and website-content publishing retain their own distinct scope and requirements."
+        ],
+        [
+          "What affects the scope of an admin dashboard?",
+          "The records and actions, operational reports, role-specific interfaces, inventory workflows and API or database connections determine the work. A monitoring view and a multiuser management system require different implementation and verification."
+        ],
+        [
+          "What should internal-tool handover cover?",
+          "Agree the supported tasks, data sources, access model and acceptance checks before implementation. Handover requirements can include operation and maintenance notes, source files and account access; ownership, third-party licenses and ongoing support need their own explicit scope."
+        ]
+      ],
+      "evidence": "Atlas demonstrates connected local operations, Nexora Lab documents a release-candidate self-hosted monitoring application, and Voyara demonstrates travel administration. Each case preserves its actual data, backend and deployment limits.",
+      "selectedProjects": [
+        "atlas-enterprise",
+        "homelab-os",
+        "voyara"
+      ],
+      "contextLinks": [
+        {
+          "route": "/services/crm-development/",
+          "label": "For customer records and leads, explore Custom CRM Development."
+        },
+        {
+          "route": "/services/cms-solutions/",
+          "label": "For website content and editorial workflows, explore Custom CMS Development."
+        }
+      ]
     },
     {
       "id": "portfolio-websites",
@@ -137,9 +372,22 @@
         [
           "Do I need all my projects on the homepage?",
           "No. A focused selection can lead into individual case studies, with supporting work organized in an archive."
+        ],
+        [
+          "What affects the scope of a portfolio website?",
+          "The project collection, case-study depth, résumé or certificate material, media, contact behavior and editing needs affect the work. Content readiness and permission to publish the supplied material also shape the scope."
+        ],
+        [
+          "What should I prepare for portfolio development?",
+          "Prepare approved project descriptions, images, qualifications and professional contact details. Planning, implementation and testing lead to the agreed handover; confirm content ownership, source files, domain access, third-party licenses and future updates before finalizing the scope."
         ]
       ],
-      "evidence": "Jenica Salazar’s Portfolio and Mark Jaron’s Portfolio are confirmed client projects, published with permission. The case studies explain the delivered presentation and each contact workflow; career outcomes are not inferred."
+      "evidence": "Jenica Salazar’s Portfolio and Mark Jaron’s Portfolio are confirmed client projects, published with permission. The case studies explain the delivered presentation and each contact workflow; career outcomes are not inferred.",
+      "selectedProjects": [
+        "jenica-portfolio",
+        "jaron-portfolio"
+      ],
+      "contextLinks": []
     },
     {
       "id": "booking-systems",
@@ -147,7 +395,7 @@
       "name": "Booking and Reservation Systems",
       "title": "Booking System Development Philippines | J0hnvexcoder",
       "description": "Booking system development for Philippine businesses, from reservation requests to separately scoped availability, confirmation and administration workflows.",
-      "summary": "I develop reservation-request or booking workflows around your availability, confirmation and administration requirements.",
+      "summary": "Booking system development starts with your availability, confirmation and administration requirements, whether you need a reservation-request workflow or a connected platform.",
       "problem": "Collecting a preferred date is different from reserving an available slot. A booking workflow needs a clear owner for availability, confirmation, cancellations and changes; otherwise the website can create expectations the business cannot fulfill.",
       "solution": "For a request-based website, customers provide the required details and preferences, then the business reviews and confirms manually. An operational platform can instead maintain a booking calendar, agreed inventory or capacity, administration controls and automated confirmations. The appropriate model is defined before development.",
       "scope": [
@@ -166,17 +414,31 @@
         [
           "Can you build real-time availability?",
           "It is an available separately scoped platform requirement. Inventory, staff controls and confirmation rules must be agreed and validated before it is described as operational."
+        ],
+        [
+          "What affects the scope of a booking system?",
+          "Availability rules, request versus confirmed-booking states, staff workflows, existing systems and any payment or notification integration affect the work. Live inventory, settlement and fulfillment require explicit implementation and acceptance checks."
+        ],
+        [
+          "What should be agreed before booking-system handover?",
+          "Provide example booking rules, statuses, cancellation behavior and the systems involved. Agree which workflows are implemented and tested, who controls accounts and content, which source files or operating notes are needed, and what maintenance or support is included."
         ]
       ],
-      "evidence": "TAITECH Marine illustrates an inquiry workflow. Bedrock, Aurevia, Voyara and Aurelia demonstrate different local planning or reservation interfaces; none is presented as evidence of live availability, payment settlement or confirmed fulfillment."
+      "evidence": "TAITECH Marine illustrates an inquiry workflow. Bedrock, Aurevia, Voyara and Aurelia demonstrate different local planning or reservation interfaces; none is presented as evidence of live availability, payment settlement or confirmed fulfillment.",
+      "selectedProjects": [
+        "voyara",
+        "aurevia",
+        "aurelia"
+      ],
+      "contextLinks": []
     },
     {
       "id": "custom-solutions",
       "route": "/services/custom-solutions/",
       "name": "Custom Web Applications and Business Solutions",
       "title": "Custom Web Applications Philippines | J0hnvexcoder",
-      "description": "Custom web application development in the Philippines for agreed workflows, dashboards, integrations and interactive experiences. Scope and feasibility come first.",
-      "summary": "I build focused web applications for specific workflows, data and interactions, with feasibility and support agreed before development.",
+      "description": "Custom full-stack web applications for business workflows, backend APIs, database integration and administration interfaces, with scope and delivery verified.",
+      "summary": "I build full-stack web applications and custom business systems around agreed workflows, from frontend interfaces to backend APIs, databases and administration tools.",
       "problem": "Some projects need to connect information, guide a multi-step task or expose an interaction that a conventional content page cannot provide. The useful starting point is the task itself, including who uses it and how success is verified.",
       "solution": "I develop custom web applications around the task your business needs to complete. That may involve a dashboard, integration, records workflow or interactive product presentation. I define the users, data, permissions and expected behavior before selecting technologies. A frontend prototype and an operational application remain different deliverables, with different acceptance checks.",
       "scope": [
@@ -186,7 +448,7 @@
         "Interactive 3D or product presentation when it serves the experience",
         "Validation and deployment/maintenance planning appropriate to the system"
       ],
-      "distinctSection": "I agree on scope, feasibility, delivery timeline and support requirements before development. A dashboard, file-processing tool and interactive 3D experience need different architectures and acceptance checks. A prototype is only described as operational after its required integrations are implemented and tested.",
+      "distinctSection": "Choose the architecture around the actual task: the users, records, actions, integrations and deployment constraints. Frontend, API and database responsibilities are specified before implementation. Use the dedicated CMS, CRM and Admin Dashboard pages for those primary workflows; this page covers broader application work and combinations that need a tailored scope.",
       "faq": [
         [
           "Can a prototype become an operational application?",
@@ -195,9 +457,32 @@
         [
           "How is the scope decided?",
           "By reviewing the intended users, workflow, existing systems, necessary integrations and a clear acceptance plan before development."
+        ],
+        [
+          "What affects the scope of a custom web application?",
+          "Users and roles, connected records, workflow rules, APIs, database responsibilities, integrations and deployment constraints determine the work. Requirements and acceptance checks are defined before committing to an architecture or delivery schedule."
+        ],
+        [
+          "What information helps with application planning and handover?",
+          "Describe the current process, example records and actions, existing systems and expected results. Agree implementation stages, verification and handover materials, including source files and access where scoped; clarify ownership, licenses, hosting and future maintenance separately."
         ]
       ],
-      "evidence": "These examples span tools, release-candidate infrastructure work and frontend demonstrations. Each case study identifies what is implemented and what has not been exercised in a live operating environment."
+      "evidence": "Atlas illustrates browser-local business workflows, Nexora Lab documents a release-candidate infrastructure application, and MovieFlix provides personal backend, database and media-processing evidence. They are not interchangeable production-delivery claims.",
+      "selectedProjects": [
+        "atlas-enterprise",
+        "homelab-os",
+        "movieflix"
+      ],
+      "contextLinks": [
+        {
+          "route": "/services/crm-development/",
+          "label": "Customer relationships: Custom CRM Development."
+        },
+        {
+          "route": "/services/admin-dashboard-development/",
+          "label": "Operations and internal workflows: Admin Dashboards & Internal Tools."
+        }
+      ]
     }
   ],
   "care": {

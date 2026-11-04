@@ -32,7 +32,11 @@ export default async function ServiceDetail({
   const page = servicePages.find((page) => page.id === slug);
   if (!page) notFound();
   const titles: Record<string, string> = {
-    "business-websites": "Retain what works. Improve what doesn’t.",
+    "business-websites": "Plan the new website around its audience.",
+    "website-redesign": "Retain useful content. Plan the changes.",
+    "crm-development": "Start with the customer relationship.",
+    "admin-dashboard-development":
+      "Connect the overview to the underlying work.",
     "technical-seo": "Check what is actually published.",
     "cms-solutions": "Start with the editing workflow.",
     "portfolio-websites": "Let the work guide the presentation.",
@@ -71,13 +75,13 @@ export default async function ServiceDetail({
             <p className="eyebrow">03 / THE APPROACH</p>
             <h2>{titles[slug]}</h2>
             <p>{page.distinctSection}</p>
-            {slug === "business-websites" && (
-              <ServiceInquiryLink
-                service="website-redesign"
-                label="Discuss a website redesign"
-                className="text-link"
-              />
-            )}
+            {page.contextLinks.map((link) => (
+              <p key={link.route}>
+                <Link className="text-link" href={link.route}>
+                  {link.label} <ArrowUpRight size={14} aria-hidden="true" />
+                </Link>
+              </p>
+            ))}
           </section>
         </div>
         <aside className="service-scope">

@@ -125,17 +125,18 @@ export function ServiceExamples({
                 <div className="selected-work-copy">
                   <small>
                     {study.classification} /{" "}
-                    {id === "compressme"
-                      ? "Desktop & CLI utility"
-                      : id === "homelab-os"
-                        ? "Release-candidate system"
-                        : id === "homelab-agent"
-                          ? "Linux telemetry tool"
-                          : id === "movieflix"
-                            ? "Private application"
-                            : project.status === "demo"
-                              ? "Website demonstration"
-                              : "Published website"}
+                    {project.previewLabel ||
+                      (id === "compressme"
+                        ? "Desktop & CLI utility"
+                        : id === "homelab-os"
+                          ? "Release-candidate system"
+                          : id === "homelab-agent"
+                            ? "Linux telemetry tool"
+                            : id === "movieflix"
+                              ? "Private application"
+                              : project.status === "demo"
+                                ? "Website demonstration"
+                                : "Published website")}
                   </small>
                   <h3>
                     {project.name}

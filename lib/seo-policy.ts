@@ -33,6 +33,7 @@ export const homeSearchTitle = pages[0].title;
 export const homeSearchDescription = pages[0].description;
 
 export const projectTopics: Record<string, string> = {
+  "atlas-enterprise": "Multi-industry operations simulation",
   "homelab-os": "Self-hosted infrastructure dashboard",
   "homelab-agent": "Linux telemetry agent",
   compressme: "Python image compression tool",

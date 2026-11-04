@@ -1,11 +1,51 @@
 {
   "/source/projects/nexora-icon.webp": {
     "width": 320,
-    "height": 292
+    "height": 292,
+    "sources": [
+      {
+        "src": "/source/projects/nexora-icon-32.webp",
+        "width": 32
+      },
+      {
+        "src": "/source/projects/nexora-icon-48.webp",
+        "width": 48
+      },
+      {
+        "src": "/source/projects/nexora-icon-72.webp",
+        "width": 72
+      },
+      {
+        "src": "/source/projects/nexora-icon-96.webp",
+        "width": 96
+      },
+      {
+        "src": "/source/projects/nexora-icon.webp",
+        "width": 320
+      }
+    ]
   },
   "/source/projects/compressme/compressme-screenshot.webp": {
     "width": 1600,
-    "height": 863
+    "height": 863,
+    "sources": [
+      {
+        "src": "/source/projects/compressme/compressme-screenshot-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/compressme/compressme-screenshot-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/source/projects/compressme/compressme-screenshot-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/source/projects/compressme/compressme-screenshot.webp",
+        "width": 1600
+      }
+    ]
   },
   "/source/projects/compressme/compressme-screenshot.png": {
     "width": 1366,
@@ -13,7 +53,29 @@
   },
   "/source/projects/compressme/compressme-icon.webp": {
     "width": 256,
-    "height": 256
+    "height": 256,
+    "sources": [
+      {
+        "src": "/source/projects/compressme/compressme-icon-32.webp",
+        "width": 32
+      },
+      {
+        "src": "/source/projects/compressme/compressme-icon-48.webp",
+        "width": 48
+      },
+      {
+        "src": "/source/projects/compressme/compressme-icon-72.webp",
+        "width": 72
+      },
+      {
+        "src": "/source/projects/compressme/compressme-icon-96.webp",
+        "width": 96
+      },
+      {
+        "src": "/source/projects/compressme/compressme-icon.webp",
+        "width": 256
+      }
+    ]
   },
   "/source/projects/compressme/compressme-icon.png": {
     "width": 1024,
@@ -30,6 +92,10 @@
       {
         "src": "/source/projects/jenica-portfolio/jenica-portfolio-scroll-480.webp",
         "width": 480
+      },
+      {
+        "src": "/source/projects/jenica-portfolio/jenica-portfolio-scroll-768.webp",
+        "width": 768
       },
       {
         "src": "/source/projects/jenica-portfolio/jenica-portfolio-scroll-960.webp",
@@ -536,5 +602,141 @@
   "/source/projects/aurelia-full-preview-960.webp": {
     "width": 960,
     "height": 4369
+  },
+  "/source/projects/atlas-enterprise/atlas-enterprise-capture.webp": {
+    "width": 1440,
+    "height": 1381,
+    "sources": [
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-enterprise-capture-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-enterprise-capture-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-enterprise-capture-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-enterprise-capture.webp",
+        "width": 1440
+      }
+    ]
+  },
+  "/source/projects/atlas-enterprise/atlas-company-selection.webp": {
+    "width": 1440,
+    "height": 1315,
+    "sources": [
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-company-selection-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-company-selection-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-company-selection-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-company-selection.webp",
+        "width": 1440
+      }
+    ]
+  },
+  "/source/projects/atlas-enterprise/atlas-customers.webp": {
+    "width": 1440,
+    "height": 1260,
+    "sources": [
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-customers-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-customers-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-customers-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-customers.webp",
+        "width": 1440
+      }
+    ]
+  },
+  "/source/projects/atlas-enterprise/atlas-operations.webp": {
+    "width": 1440,
+    "height": 1106,
+    "sources": [
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-operations-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-operations-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-operations-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/source/projects/atlas-enterprise/atlas-operations.webp",
+        "width": 1440
+      }
+    ]
+  },
+  "/source/projects/nexora-icon-32.webp": {
+    "width": 32,
+    "height": 29
+  },
+  "/source/projects/nexora-icon-48.webp": {
+    "width": 48,
+    "height": 44
+  },
+  "/source/projects/nexora-icon-72.webp": {
+    "width": 72,
+    "height": 66
+  },
+  "/source/projects/nexora-icon-96.webp": {
+    "width": 96,
+    "height": 88
+  },
+  "/source/projects/compressme/compressme-icon-32.webp": {
+    "width": 32,
+    "height": 32
+  },
+  "/source/projects/compressme/compressme-icon-48.webp": {
+    "width": 48,
+    "height": 48
+  },
+  "/source/projects/compressme/compressme-icon-72.webp": {
+    "width": 72,
+    "height": 72
+  },
+  "/source/projects/compressme/compressme-icon-96.webp": {
+    "width": 96,
+    "height": 96
+  },
+  "/source/projects/compressme/compressme-screenshot-480.webp": {
+    "width": 480,
+    "height": 259
+  },
+  "/source/projects/compressme/compressme-screenshot-768.webp": {
+    "width": 768,
+    "height": 414
+  },
+  "/source/projects/compressme/compressme-screenshot-1280.webp": {
+    "width": 1280,
+    "height": 690
+  },
+  "/source/projects/jenica-portfolio/jenica-portfolio-scroll-768.webp": {
+    "width": 768,
+    "height": 3689
   }
 }

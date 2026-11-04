@@ -11,6 +11,7 @@ export default function ServiceInquiryLink({
 }) {
   return (
     <Link
+      prefetch={false}
       className={className}
       href={
         service

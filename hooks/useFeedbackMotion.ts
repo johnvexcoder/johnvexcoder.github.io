@@ -54,6 +54,7 @@ export function useFeedbackMotion(
       resumeTimer = setTimeout(() => release("grace"), 1800);
     };
     const measure = () => {
+      if (!inView) return;
       const fraction = width ? currentOffset() / width : 0;
       animation?.cancel();
       animation = null;
@@ -145,10 +146,14 @@ export function useFeedbackMotion(
                 Math.min(380, viewport.clientWidth * 0.8),
       );
     };
-    const observer = new IntersectionObserver(([entry]) => {
-      inView = entry.isIntersecting;
-      sync();
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        if (inView) measure();
+        sync();
+      },
+      { rootMargin: "240px 0px" },
+    );
     observer.observe(viewport);
     const resize = new ResizeObserver(measure);
     resize.observe(group);

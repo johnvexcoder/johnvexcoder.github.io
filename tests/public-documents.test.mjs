@@ -2,11 +2,11 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { publicDocuments, llmsDirectory } from "../lib/public-documents.ts";
 import { publicPages } from "../lib/public-pages.ts";
-test("all 36 canonical HTML pages have one shared-source Markdown mirror", () => {
+test("all 40 canonical HTML pages have one shared-source Markdown mirror", () => {
   const docs = publicDocuments();
-  assert.equal(docs.length, 36);
-  assert.equal(new Set(docs.map((d) => d.route)).size, 36);
-  assert.equal(new Set(docs.map((d) => d.markdownPath)).size, 36);
+  assert.equal(docs.length, 40);
+  assert.equal(new Set(docs.map((d) => d.route)).size, 40);
+  assert.equal(new Set(docs.map((d) => d.markdownPath)).size, 40);
   for (const doc of docs) {
     assert.ok(doc.markdown.startsWith("# "));
     assert.ok(

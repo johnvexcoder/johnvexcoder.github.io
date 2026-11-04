@@ -252,7 +252,7 @@ for (const [route, { nodes, ids }] of pages) {
     );
     assert.equal(
       nodes.filter((n) => attributes(n).class?.includes("skill-icon")).length,
-      28,
+      58,
     );
     const aboutImage = nodes.find(
       (n) =>

@@ -2,23 +2,44 @@
   {
     "id": "business-websites",
     "route": "/services/business-websites/",
-    "name": "Business Website Development and Redesign",
+    "name": "Business Website Development",
     "title": "Business Website Development Philippines | J0hnvexcoder",
-    "summary": "I build responsive company websites and redesign existing sites around clear services, useful content and an accessible contact path."
+    "summary": "I build new business websites around your services, audience and content, with responsive layouts and a clear path to contact you."
+  },
+  {
+    "id": "website-redesign",
+    "route": "/services/website-redesign/",
+    "name": "Website Redesign & Modernization",
+    "title": "Website Redesign Services & Modernization | J0hnvexcoder",
+    "summary": "My website redesign services improve existing websites while preserving useful content, reviewing current URLs and clarifying what needs to change."
   },
   {
     "id": "technical-seo",
     "route": "/services/technical-seo/",
     "name": "Technical SEO and Website Optimization",
     "title": "Technical SEO Services Philippines | J0hnvexcoder",
-    "summary": "I review how your website is discovered and loaded, then address crawlability, metadata and performance issues backed by actual findings."
+    "summary": "Technical SEO optimization starts with how your website is discovered and loaded. I address crawlability, metadata and performance issues backed by actual findings."
   },
   {
     "id": "cms-solutions",
     "route": "/services/cms-solutions/",
     "name": "Custom CMS Development",
     "title": "Custom CMS Development Philippines | J0hnvexcoder",
-    "summary": "I build content editing and administration tools around the pages, images and records your business needs to manage."
+    "summary": "I build content-management interfaces for website text, media, catalogs and publishing workflows, with permissions and delivery defined around your editors."
+  },
+  {
+    "id": "crm-development",
+    "route": "/services/crm-development/",
+    "name": "Custom CRM Development",
+    "title": "Custom CRM Development Philippines | J0hnvexcoder",
+    "summary": "I develop customer-management interfaces around contact records, leads, follow-ups and the history your team needs to understand a relationship."
+  },
+  {
+    "id": "admin-dashboard-development",
+    "route": "/services/admin-dashboard-development/",
+    "name": "Admin Dashboard & Internal Tools Development",
+    "title": "Admin Dashboards & Internal Tools Development | J0hnvexcoder",
+    "summary": "I build administration interfaces and internal tools around the records, workflows and operational visibility a team needs."
   },
   {
     "id": "portfolio-websites",
@@ -32,13 +53,13 @@
     "route": "/services/booking-systems/",
     "name": "Booking and Reservation Systems",
     "title": "Booking System Development Philippines | J0hnvexcoder",
-    "summary": "I develop reservation-request or booking workflows around your availability, confirmation and administration requirements."
+    "summary": "Booking system development starts with your availability, confirmation and administration requirements, whether you need a reservation-request workflow or a connected platform."
   },
   {
     "id": "custom-solutions",
     "route": "/services/custom-solutions/",
     "name": "Custom Web Applications and Business Solutions",
     "title": "Custom Web Applications Philippines | J0hnvexcoder",
-    "summary": "I build focused web applications for specific workflows, data and interactions, with feasibility and support agreed before development."
+    "summary": "I build full-stack web applications and custom business systems around agreed workflows, from frontend interfaces to backend APIs, databases and administration tools."
   }
 ]

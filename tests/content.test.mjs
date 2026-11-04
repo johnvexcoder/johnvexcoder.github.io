@@ -57,8 +57,8 @@ test("five owner-confirmed recent projects use their exact live URLs and actual 
     shoesonthego: "https://shoesonthego.vercel.app/",
     archeon: "https://demo-archeon.vercel.app",
   };
-  assert.equal(projects.length, 25);
-  assert.equal(new Set(projects.map((p) => p.id)).size, 25);
+  assert.equal(projects.length, 26);
+  assert.equal(new Set(projects.map((p) => p.id)).size, 26);
   for (const [id, url] of Object.entries(urls)) {
     const p = projects.find((p) => p.id === id);
     assert.equal(p.demo, url);
@@ -94,8 +94,8 @@ test("assets referenced by projects, reviews, fonts and résumé exist", () => {
   for (const f of [
     `public/${read("content/resume.json").fileName}`,
     "public/social.png",
-    "public/fonts/SignatureSans.woff2",
-    "public/fonts/SignatureMono.woff2",
+    "assets/fonts/SignatureSans.woff2",
+    "assets/fonts/SignatureMono.woff2",
   ])
     assert.ok(fs.existsSync(f), f);
 });

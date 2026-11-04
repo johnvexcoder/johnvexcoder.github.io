@@ -157,6 +157,7 @@ export default async function Work({
           {p.category} / {story.type}
         </p>
         <h1>{p.name}</h1>
+        {story.subtitle && <p className="case-subtitle">{story.subtitle}</p>}
         <p>{story.overview}</p>
         <div className="case-actions">
           {actions(p).map(([n, url]) => (
@@ -185,6 +186,40 @@ export default async function Work({
         large
         priority
       />
+      {story.gallery && story.gallery.length > 0 && (
+        <section className="case-gallery" aria-labelledby="case-gallery-title">
+          <p className="eyebrow">ACTUAL APPLICATION VIEWS</p>
+          <h2 id="case-gallery-title">Inside the demonstration.</h2>
+          <div className="case-gallery-grid">
+            {story.gallery.map((view) => (
+              <figure key={view.image}>
+                <a
+                  href={view.image}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Full screenshot — ${view.caption}`}
+                >
+                  {/* Static export: pre-generated responsive screenshots. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={view.image}
+                    srcSet={view.sources
+                      .map((source) => `${source.src} ${source.width}w`)
+                      .join(", ")}
+                    sizes="(max-width:760px) calc(100vw - 44px), (max-width:1100px) 44vw, 30vw"
+                    width={view.width}
+                    height={view.height}
+                    alt={view.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>{view.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
       <div className="case-story">
         <div>
           <section>
