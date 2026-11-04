@@ -1,14 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
+import { useState, useEffect, useRef } from "react";
 import { ArrowUpRight, Check } from "lucide-react";
 import config from "@/content/review-config.json";
 import { track } from "@/lib/analytics";
-import Dialog from "./Dialog";
-const HCaptcha = dynamic(() => import("@hcaptcha/react-hcaptcha"), {
-  ssr: false,
-  loading: () => <p className="captcha-note">Preparing verification…</p>,
-});
+import ReviewDialog from "./ReviewDialog";
+import FormCaptcha from "./FormCaptcha";
+import { prepareForm, submitWeb3Form } from "@/lib/form-submission";
 export default function ReviewForm({
   open,
   onClose,
@@ -16,25 +13,27 @@ export default function ReviewForm({
   open: boolean;
   onClose: () => void;
 }) {
-  const [token, setToken] = useState(""),
-    [status, setStatus] = useState(""),
+  const [status, setStatus] = useState(""),
     [busy, setBusy] = useState(false),
     [sent, setSent] = useState(false),
     [count, setCount] = useState(0);
   const [captchaKey, setCaptchaKey] = useState(0);
+  const [challengeOpen, setChallengeOpen] = useState(false);
+  const token = useRef("");
+  const inFlight = useRef(false);
   useEffect(() => {
-    setToken("");
+    token.current = "";
     setStatus("");
   }, [open]);
   return (
-    <Dialog open={open} onClose={onClose} title="Share your experience">
+    <ReviewDialog open={open} onClose={onClose} challengeOpen={challengeOpen}>
       {sent ? (
         <div className="review-success" role="status">
           <Check size={32} />
           <h3>Thank you for your feedback.</h3>
           <p>
-            Your review was sent for approval. It will be published only after
-            review.
+            Your review was accepted for approval. It will be published only
+            after review.
           </p>
           <button className="button primary" onClick={onClose}>
             Close
@@ -45,34 +44,30 @@ export default function ReviewForm({
           className="review-form"
           onSubmit={async (e) => {
             e.preventDefault();
-            if (busy) return;
-            if (!token) {
+            if (inFlight.current) return;
+            if (!token.current) {
               setStatus("Please complete the verification before submitting.");
               return;
             }
             const form = e.currentTarget;
+            inFlight.current = true;
             setBusy(true);
             setStatus("Sending your review…");
-            const data = new FormData(form);
-            data.set(
-              "access_key",
+            const data = prepareForm(
+              new FormData(form),
               process.env.NEXT_PUBLIC_REVIEW_ACCESS_KEY || config.accessKey,
+              token.current,
+              "review",
             );
             data.set("subject", "New Client Review — J0hnvexcoder Portfolio");
-            data.set("h-captcha-response", token);
             try {
-              const response = await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                body: data,
-                headers: { Accept: "application/json" },
-              });
-              const result = await response.json();
-              if (!response.ok || !result.success)
-                throw new Error(
-                  response.status === 429
-                    ? "Please wait before trying again."
-                    : "Your review could not be sent. Please try again.",
-                );
+              const result = await submitWeb3Form(data);
+              if (result.kind !== "success") {
+                setStatus(result.message);
+                return;
+              }
+              form.reset();
+              setCount(0);
               track("review_submitted", {
                 service: String(data.get("project_service") || ""),
               });
@@ -83,9 +78,11 @@ export default function ReviewForm({
                   ? error.message
                   : "Unable to send. Please check your connection.",
               );
-              setCaptchaKey((k) => k + 1);
-              setToken("");
             } finally {
+              token.current = "";
+              setCaptchaKey((k) => k + 1);
+              setChallengeOpen(false);
+              inFlight.current = false;
               setBusy(false);
             }
           }}
@@ -186,22 +183,27 @@ export default function ReviewForm({
             aria-hidden="true"
           />
           {open && (
-            <div className="captcha">
-              <HCaptcha
-                key={captchaKey}
-                sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-                reCaptchaCompat={false}
-                theme="dark"
-                onVerify={setToken}
-                onExpire={() => setToken("")}
-                onError={() => {
-                  setToken("");
-                  setStatus(
-                    "Verification is unavailable. Please try again, or email your feedback.",
-                  );
-                }}
-              />
-            </div>
+            <FormCaptcha
+              resetKey={captchaKey}
+              onVerify={(value) => {
+                token.current = value;
+                setStatus("");
+              }}
+              onExpire={() => {
+                token.current = "";
+                setStatus(
+                  "Verification expired. Please complete it again before submitting.",
+                );
+              }}
+              onError={() => {
+                token.current = "";
+                setStatus(
+                  "Verification is unavailable. Retry verification, or email your feedback.",
+                );
+              }}
+              onOpen={() => setChallengeOpen(true)}
+              onClose={() => setChallengeOpen(false)}
+            />
           )}
           <p className="form-status" role="status">
             {status}
@@ -210,6 +212,19 @@ export default function ReviewForm({
             {busy ? "Sending…" : "Submit review"}
             <ArrowUpRight size={16} />
           </button>
+          {status && !busy && (
+            <button
+              type="button"
+              className="button secondary"
+              onClick={() => {
+                token.current = "";
+                setCaptchaKey((k) => k + 1);
+                setStatus("Complete a fresh verification, then submit again.");
+              }}
+            >
+              Retry verification
+            </button>
+          )}
           <p className="form-note">
             Sent through Web3Forms. Your email is used only to verify or follow
             up on your review. Nothing is automatically added to the public
@@ -217,6 +232,6 @@ export default function ReviewForm({
           </p>
         </form>
       )}
-    </Dialog>
+    </ReviewDialog>
   );
 }

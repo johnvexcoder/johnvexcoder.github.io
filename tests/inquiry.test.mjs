@@ -2,12 +2,16 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   validateContact,
-  submitContact,
+  prepareContact,
   selectedInquiryService,
   changePrimaryService,
   addInquiryService,
-  FORMSPREE_ENDPOINT,
 } from "../lib/inquiry.ts";
+import {
+  submitWeb3Form,
+  prepareForm,
+  WEB3FORMS_ENDPOINT,
+} from "../lib/form-submission.ts";
 import { safeEvent } from "../lib/analytics.ts";
 const data = (values = {}) => {
   const d = new FormData();
@@ -50,71 +54,168 @@ test("detailed form accepts optional international planning fields and rejects u
   assert.ok(validateContact(d, "contact_page").services);
   assert.ok(validateContact(data({ _gotcha: "bot" }), "homepage").form);
 });
-test("only an explicit successful provider acceptance produces success; uncertain responses cannot", async () => {
-  let calls = 0;
-  const d = data({ form_source: "homepage" });
-  const good = await submitContact(d, async (url, options) => {
-    calls++;
-    assert.equal(url, FORMSPREE_ENDPOINT);
-    assert.equal(options.method, "POST");
-    assert.equal(options.body, d);
-    assert.equal(options.headers.Accept, "application/json");
-    return Response.json({ ok: true, next: "/thanks" }, { status: 200 });
+test("contact payload preserves every field and all selected services, with independent workflow subjects", () => {
+  const d = data({
+    form_source: "contact_page",
+    company: "Café",
+    budget: "1000–2000",
+    currency: "PHP",
+    timeline: "Flexible",
+    additional_requirements: "日本語",
+    website: "https://example.test",
   });
-  assert.equal(calls, 1);
-  assert.equal(good.kind, "success");
+  d.append("services", "technical-seo");
+  d.append("services", "website-redesign");
+  const p = prepareContact(d, "public-test-key", "mock-token-local-only");
+  assert.equal(p.get("access_key"), "public-test-key");
+  assert.equal(p.get("replyto"), "ana@example.test");
+  assert.equal(p.get("workflow"), "contact");
+  assert.equal(p.get("subject"), "New Contact Inquiry — Website inquiry");
+  assert.equal(p.get("inquiry_subject"), "Website inquiry");
   assert.equal(
-    (
-      await submitContact(d, async () =>
-        Response.json({ ok: false }, { status: 200 }),
-      )
-    ).kind,
-    "error",
+    p.get("services"),
+    "Technical SEO and Website Optimization, Website redesign",
   );
+  assert.equal(p.get("service_ids"), "technical-seo, website-redesign");
+  for (const k of [
+    "name",
+    "email",
+    "message",
+    "company",
+    "budget",
+    "currency",
+    "timeline",
+    "additional_requirements",
+    "website",
+    "form_source",
+  ])
+    assert.equal(p.get(k), d.get(k));
+  assert.deepEqual(d.getAll("services"), ["technical-seo", "website-redesign"]);
+  d.delete("subject");
+  assert.match(
+    prepareContact(d, "key", "token").get("subject"),
+    /^New Project Inquiry/,
+  );
+  const review = prepareForm(
+    data({
+      rating: "5 out of 5 stars",
+      permission_to_publish: "Yes — permission granted",
+    }),
+    "key",
+    "token",
+    "review",
+  );
+  assert.equal(review.get("workflow"), "review");
+  assert.equal(review.get("rating"), "5 out of 5 stars");
+  assert.equal(review.get("permission_to_publish"), "Yes — permission granted");
+});
+test("Web3Forms success needs HTTP success and the boolean success flag; no automatic retries", async () => {
+  const d = prepareContact(data(), "key", "mock-token-local-only");
+  let calls = 0;
   assert.equal(
     (
-      await submitContact(d, async () =>
-        Response.json(
-          { errors: [{ field: "email", message: "Invalid email" }] },
-          { status: 400 },
-        ),
+      await submitWeb3Form(d, async (url, options) => {
+        calls++;
+        assert.equal(url, WEB3FORMS_ENDPOINT);
+        assert.equal(options.method, "POST");
+        assert.equal(options.body, d);
+        assert.equal(options.headers.Accept, "application/json");
+        assert.equal(options.redirect, "error");
+        assert.ok(options.signal);
+        return Response.json({
+          success: true,
+          body: { message: "Email sent successfully!" },
+        });
+      })
+    ).kind,
+    "success",
+  );
+  assert.equal(calls, 1);
+  for (const value of [false, "true", 1, undefined])
+    assert.equal(
+      (await submitWeb3Form(d, async () => Response.json({ success: value })))
+        .kind,
+      "error",
+    );
+  assert.equal(
+    (
+      await submitWeb3Form(d, async () =>
+        Response.json({ success: true }, { status: 400 }),
       )
     ).kind,
     "error",
   );
 });
-test("hosted CAPTCHA challenge is distinct from success, quota and network failures", async () => {
-  const d = data();
+test("missing tokens and honeypots do not send; failures stay errors with useful retry guidance", async () => {
+  let calls = 0;
+  const noSend = async () => {
+    calls++;
+    throw Error("must not send");
+  };
+  assert.equal((await submitWeb3Form(data(), noSend)).kind, "error");
   assert.equal(
     (
-      await submitContact(d, async () =>
-        Response.json({ error: "Please complete reCAPTCHA" }, { status: 400 }),
+      await submitWeb3Form(
+        data({ "h-captcha-response": "mock-token", botcheck: "on" }),
+        noSend,
       )
     ).kind,
-    "verification",
+    "error",
   );
-  assert.equal(
-    (
-      await submitContact(
-        d,
-        async () =>
-          new Response("<html>Verify</html>", {
-            headers: { "Content-Type": "text/html" },
-          }),
-      )
-    ).kind,
-    "verification",
-  );
-  const quota = await submitContact(d, async () =>
-    Response.json({ error: "Too many requests" }, { status: 429 }),
-  );
-  assert.equal(quota.kind, "error");
-  assert.match(quota.message, /limit/);
-  await assert.rejects(() =>
-    submitContact(d, async () => {
-      throw new TypeError("Network failure");
-    }),
-  );
+  assert.equal(calls, 0);
+  const d = prepareContact(data(), "key", "mock-token-local-only");
+  const cases = [
+    [
+      () =>
+        Response.json(
+          { success: false, message: "hCaptcha failed" },
+          { status: 400 },
+        ),
+      /fresh verification/,
+    ],
+    [
+      () =>
+        Response.json(
+          { success: false, body: { message: "captcha expired" } },
+          { status: 400 },
+        ),
+      /fresh verification/,
+    ],
+    [() => Response.json({ success: false }, { status: 429 }), /limit/],
+    [() => Response.json({ statusCode: 500 }, { status: 500 }), /unavailable/],
+    [
+      () =>
+        new Response("<html>Error</html>", {
+          headers: { "Content-Type": "text/html" },
+        }),
+      /unexpected response/,
+    ],
+    [
+      () =>
+        new Response("{broken", {
+          headers: { "Content-Type": "application/json" },
+        }),
+      /couldn’t confirm/,
+    ],
+    [
+      () => {
+        throw new TypeError("Network failure");
+      },
+      /couldn’t confirm/,
+    ],
+    [
+      () => {
+        throw new DOMException("Expired", "TimeoutError");
+      },
+      /couldn’t confirm/,
+    ],
+  ];
+  for (const [reply, pattern] of cases) {
+    const r = await submitWeb3Form(d, async () => reply());
+    assert.equal(r.kind, "error");
+    assert.match(r.message, pattern);
+    assert.equal(d.get("name"), "Ana María");
+  }
 });
 test("analytics allows only fixed form context and strips inquiry personal information", () => {
   assert.deepEqual(

@@ -2,22 +2,18 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { ArrowUpRight, LoaderCircle, CheckCircle2 } from "lucide-react";
 import {
-  FORMSPREE_ENDPOINT,
   inquiryServices,
   inquiryTimelines,
   selectedInquiryService,
   validateContact,
-  submitContact,
+  prepareContact,
   type ContactSource,
 } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
-export default function InquiryForm({
-  source,
-  transport = "hosted",
-}: {
-  source: ContactSource;
-  transport?: "hosted" | "ajax";
-}) {
+import { submitWeb3Form, WEB3FORMS_ENDPOINT } from "@/lib/form-submission";
+import config from "@/content/review-config.json";
+import FormCaptcha from "./FormCaptcha";
+export default function InquiryForm({ source }: { source: ContactSource }) {
   const detailed = source === "contact_page";
   const id = useId();
   const formRef = useRef<HTMLFormElement>(null);
@@ -26,10 +22,13 @@ export default function InquiryForm({
   const [status, setStatus] = useState("");
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
-  const [verify, setVerify] = useState(false);
+  const token = useRef("");
+  const [captchaKey, setCaptchaKey] = useState(0);
+  const [ready, setReady] = useState(false);
   const [services, setServices] = useState<string[]>([]);
   useEffect(() => {
     if (formRef.current) formRef.current.noValidate = true;
+    setReady(true);
     if (!detailed) return;
     const value = selectedInquiryService(
       new URLSearchParams(location.search).get("service"),
@@ -44,15 +43,6 @@ export default function InquiryForm({
       "website-care",
     ].includes(value),
   );
-  useEffect(() => {
-    const restore = () => {
-      inFlight.current = false;
-      setSending(false);
-      setStatus("");
-    };
-    window.addEventListener("pageshow", restore);
-    return () => window.removeEventListener("pageshow", restore);
-  }, []);
   const input = (
     name: string,
     label: string,
@@ -113,9 +103,9 @@ export default function InquiryForm({
     <form
       ref={formRef}
       className={`inquiry-form ${detailed ? "inquiry-detailed" : "inquiry-compact"}`}
-      action={FORMSPREE_ENDPOINT}
+      action={WEB3FORMS_ENDPOINT}
       method="post"
-      data-submission-transport={transport}
+      data-submission-transport="ajax"
       aria-busy={sending}
       onInput={(event) => {
         const field = event.target as HTMLInputElement;
@@ -133,17 +123,23 @@ export default function InquiryForm({
         const form = event.currentTarget;
         const data = validate(form);
         if (!data) return;
-        inFlight.current = true;
-        setSending(true);
-        if (transport === "hosted") {
-          setStatus("Continuing to secure verification…");
-          HTMLFormElement.prototype.submit.call(form);
+        if (!token.current) {
+          setStatus("Please complete the verification before sending.");
+          form.querySelector<HTMLElement>(".captcha")?.focus();
           return;
         }
+        inFlight.current = true;
+        setSending(true);
         setStatus("Sending your message…");
-        setVerify(false);
         try {
-          const result = await submitContact(data);
+          const payload = prepareContact(
+            data,
+            process.env.NEXT_PUBLIC_CONTACT_ACCESS_KEY ||
+              process.env.NEXT_PUBLIC_REVIEW_ACCESS_KEY ||
+              config.accessKey,
+            token.current,
+          );
+          const result = await submitWeb3Form(payload);
           if (result.kind === "success") {
             setSent(true);
             setStatus(
@@ -154,21 +150,27 @@ export default function InquiryForm({
             track("contact_submission_success", { form_source: source });
           } else {
             setStatus(result.message);
-            setVerify(result.kind === "verification");
-            if (result.kind === "error" && result.fields)
-              setErrors(result.fields);
           }
         } catch {
           setStatus(
             "We couldn’t confirm that your message was accepted. Your entries are still here. Check your connection, or email me before sending again.",
           );
         } finally {
+          token.current = "";
+          setCaptchaKey((key) => key + 1);
           inFlight.current = false;
           setSending(false);
         }
       }}
     >
       <input type="hidden" name="form_source" value={source} />
+      <input
+        className="honeypot"
+        type="checkbox"
+        name="botcheck"
+        tabIndex={-1}
+        aria-hidden="true"
+      />
       <div className="inquiry-honeypot" aria-hidden="true">
         <label htmlFor={`${id}-website-check`}>Leave this field empty</label>
         <input
@@ -182,7 +184,7 @@ export default function InquiryForm({
       {sent ? (
         <div className="inquiry-success" role="status">
           <CheckCircle2 size={26} />
-          <h2>Message received.</h2>
+          <h2>Message accepted.</h2>
           <p>{status}</p>
           <button
             type="button"
@@ -342,14 +344,33 @@ export default function InquiryForm({
               </p>
             </details>
           )}
+          <FormCaptcha
+            resetKey={captchaKey}
+            onVerify={(value) => {
+              token.current = value;
+              setStatus("");
+            }}
+            onExpire={() => {
+              token.current = "";
+              setStatus(
+                "Verification expired. Please complete it again before sending.",
+              );
+            }}
+            onError={() => {
+              token.current = "";
+              setStatus(
+                "Verification is unavailable. Retry verification, or contact me by email.",
+              );
+            }}
+          />
           <p className="inquiry-privacy">
-            You’ll finish sending through Formspree’s secure spam check. Your
-            details are used to reply to this inquiry. Leave out passwords and
+            Sent through Web3Forms with hCaptcha spam protection. Your details
+            are used to reply to this inquiry. Leave out passwords and
             confidential information.
           </p>
           {status && (
             <p
-              className={verify ? "inquiry-status" : "inquiry-error"}
+              className={sending ? "inquiry-status" : "inquiry-error"}
               role={sending ? "status" : "alert"}
             >
               {status}
@@ -359,7 +380,7 @@ export default function InquiryForm({
             <button
               className="button primary"
               type="submit"
-              disabled={sending || verify}
+              disabled={sending || !ready}
             >
               {sending ? (
                 <>
@@ -368,7 +389,7 @@ export default function InquiryForm({
                     size={16}
                     aria-hidden="true"
                   />
-                  {transport === "hosted" ? "Continuing…" : "Sending…"}
+                  Sending…
                 </>
               ) : (
                 <>
@@ -376,25 +397,25 @@ export default function InquiryForm({
                 </>
               )}
             </button>
-            {verify && (
+            {status && !sending && (
               <button
                 type="button"
                 className="button secondary"
                 onClick={() => {
-                  const form = formRef.current;
-                  if (form && validate(form) && !inFlight.current) {
-                    inFlight.current = true;
-                    setSending(true);
-                    HTMLFormElement.prototype.submit.call(form);
-                  }
+                  token.current = "";
+                  setCaptchaKey((key) => key + 1);
+                  setStatus("Complete a fresh verification, then send again.");
                 }}
               >
-                Continue to secure verification ↗
+                Retry verification
               </button>
             )}
           </div>
           <noscript>
-            <p>You’ll continue to Formspree to verify and send your message.</p>
+            <p>
+              Enable JavaScript to use this form, or email
+              johnangelodejoya@gmail.com.
+            </p>
           </noscript>
         </>
       )}

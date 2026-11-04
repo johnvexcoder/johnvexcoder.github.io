@@ -53,7 +53,7 @@ export function publicDocuments() {
             "## Project inquiries",
             "",
             `Email: ${profile.email}`,
-            "The contact page accepts project type, optional company/website, budget/currency, desired timeline and project description. Formspree processes inquiries and may require hosted verification.",
+            "The contact page accepts project type, optional company/website, budget/currency, desired timeline and project description. Web3Forms processes inquiries with hCaptcha spam verification.",
             "",
           ]
         : []),

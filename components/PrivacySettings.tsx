@@ -69,10 +69,9 @@ export default function PrivacySettings({
             fragments.
           </p>
           <p>
-            Sending an inquiry shares the details you enter with Formspree so I
-            can respond. Its hosted spam check may use Google reCAPTCHA, and
-            Formspree confirms acceptance after verification. Reviews use
-            Web3Forms and hCaptcha separately from analytics. Declining
+            Sending an inquiry or review shares the details you enter with
+            Web3Forms so I can respond or review your feedback. Both forms use
+            hCaptcha for spam protection, separately from analytics. Declining
             analytics does not disable these requested form services.
           </p>
           <a

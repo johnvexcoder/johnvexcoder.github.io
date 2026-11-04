@@ -1,3 +1,4 @@
+import { prepareForm } from "./form-submission.ts";
 export const inquiryServices = [
   { id: "business-websites", name: "Business website" },
   { id: "website-redesign", name: "Website redesign" },
@@ -33,7 +34,7 @@ export const addInquiryService = (current: string[], value: string) =>
     ? [...current, value]
     : current;
 export type ContactSource = "homepage" | "contact_page";
-export const FORMSPREE_ENDPOINT = "https://formspree.io/f/myeenkka";
+
 export function validateContact(data: FormData, source: ContactSource) {
   const errors: Record<string, string> = {};
   const get = (key: string) => String(data.get(key) || "").trim();
@@ -70,75 +71,33 @@ export function validateContact(data: FormData, source: ContactSource) {
     errors.form = "Please leave the extra verification field empty.";
   return errors;
 }
-export type ContactResult =
-  | { kind: "success" }
-  | { kind: "verification"; message: string }
-  | { kind: "error"; message: string; fields?: Record<string, string> };
-/** Only explicit provider acceptance can produce success. Never retry an uncertain send automatically. */
-export async function submitContact(
+export function prepareContact(
   data: FormData,
-  request: typeof fetch = fetch,
-): Promise<ContactResult> {
-  const response = await request(FORMSPREE_ENDPOINT, {
-    method: "POST",
-    body: data,
-    headers: { Accept: "application/json" },
-    signal: AbortSignal.timeout(25000),
-  });
-  const type = response.headers.get("content-type") || "";
-  if (!type.includes("json"))
-    return {
-      kind: "verification",
-      message:
-        "Continue to the secure verification page to finish sending your message.",
-    };
-  const body: unknown = await response.json();
-  const record =
-    body && typeof body === "object" ? (body as Record<string, unknown>) : {};
-  if (response.ok && record.ok === true) return { kind: "success" };
-  const rows = Array.isArray(record.errors) ? record.errors : [];
-  const messages = rows.map((e) =>
-    e && typeof e === "object"
-      ? String((e as Record<string, unknown>).message || "")
-      : "",
+  accessKey: string,
+  token: string,
+) {
+  const payload = prepareForm(data, accessKey, token, "contact");
+  const subject = String(data.get("subject") || "").trim();
+  payload.set(
+    "subject",
+    subject
+      ? `New Contact Inquiry — ${subject}`
+      : "New Project Inquiry — J0hnvexcoder Portfolio",
   );
-  const summary = [record.error, ...messages]
-    .filter((v) => typeof v === "string")
-    .join(" ");
-  if (/captcha|verification|challenge/i.test(summary))
-    return {
-      kind: "verification",
-      message:
-        "Formspree needs a spam check before it can accept your message. Continue securely to complete it.",
-    };
-  if (response.status === 429)
-    return {
-      kind: "error",
-      message:
-        "The form is temporarily at its sending limit. Please try later or contact me by email.",
-    };
-  const fields: Record<string, string> = {};
-  for (const row of rows) {
-    if (row && typeof row === "object") {
-      const e = row as Record<string, unknown>;
-      if (
-        typeof e.field === "string" &&
-        ["name", "email", "subject", "message", "website", "services"].includes(
-          e.field,
-        )
-      )
-        fields[e.field] =
-          typeof e.message === "string"
-            ? e.message.slice(0, 200)
-            : "Please check this field.";
-    }
+  if (subject) payload.set("inquiry_subject", subject);
+  const ids = data
+    .getAll("services")
+    .map(String)
+    .filter((id) => selectedInquiryService(id));
+  if (ids.length) {
+    payload.set(
+      "services",
+      ids
+        .map((id) => inquiryServices.find((s) => s.id === id)!.name)
+        .join(", "),
+    );
+    payload.set("service_ids", ids.join(", "));
   }
-  return {
-    kind: "error",
-    message:
-      response.status >= 500
-        ? "The message service is temporarily unavailable. Your entries are still here; please try later or use email."
-        : "Your message was not accepted. Check the highlighted fields or contact me by email.",
-    fields,
-  };
+  payload.delete("_gotcha");
+  return payload;
 }
