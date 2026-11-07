@@ -5,7 +5,7 @@ import Link from "next/link";
 import services from "@/content/service-routes.json";
 import Reveal from "./Reveal";
 import SkillIcon from "./SkillIcon";
-import MotionControls from "./MotionControls";
+import ExperienceTimelineMotion from "./ExperienceTimelineMotion";
 export function Skills() {
   return (
     <section id="skills" className="section skills-section">
@@ -58,10 +58,7 @@ export function Experience() {
       </Reveal>
       <div className="experience-layout">
         <div className="timeline experience-network">
-          <MotionControls kind="experience" />
-          <div className="experience-wire" aria-hidden="true">
-            <i className="experience-pulse" />
-          </div>
+          <ExperienceTimelineMotion />
           {profile.experience.map((e) => (
             <Reveal key={`${e.date}-${e.place}`} className="timeline-entry">
               <span>{e.date}</span>
