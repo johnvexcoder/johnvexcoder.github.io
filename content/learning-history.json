@@ -1,0 +1,79 @@
+[
+  {
+    "period": "2025–2026",
+    "provider": "Skillshare",
+    "focus": "Backend Development & API Integration",
+    "category": "Computer Science coursework",
+    "description": "Developed practical backend and API integration skills, covering server-side programming, databases, authentication and secure connections between applications and external services.",
+    "skills": [
+      "Backend development",
+      "Server-side programming",
+      "RESTful APIs",
+      "Database management",
+      "Authentication",
+      "Secure data exchange",
+      "Third-party service integration",
+      "Full-stack application integration"
+    ]
+  },
+  {
+    "period": "2023–2024",
+    "provider": "Skillshare",
+    "focus": "API Development & Integration",
+    "category": "Computer Science coursework",
+    "description": "Focused on RESTful API development, JSON, authentication and third-party integrations, including payment services, database connections and workflow automation.",
+    "skills": [
+      "API development",
+      "RESTful APIs",
+      "JSON",
+      "API integration",
+      "Payment gateway integration",
+      "Authentication",
+      "Database connections",
+      "Backend services",
+      "Workflow automation"
+    ]
+  },
+  {
+    "period": "2023",
+    "provider": "Hack The Box",
+    "focus": "Cybersecurity Training",
+    "category": "Free online coursework",
+    "description": "Explored cybersecurity concepts through free Hack The Box training and self-directed practical learning.",
+    "skills": ["General cybersecurity learning and practice"]
+  },
+  {
+    "period": "2021–2022",
+    "provider": "Skillshare",
+    "focus": "WordPress Development",
+    "category": "Coursework",
+    "description": "Built a foundation in WordPress development, including themes, plugins, CMS customization, responsive design, performance optimization and troubleshooting.",
+    "skills": [
+      "WordPress development",
+      "Website design",
+      "Theme management",
+      "WordPress plugins",
+      "Website customization",
+      "Content Management Systems",
+      "Responsive design",
+      "Performance optimization",
+      "Troubleshooting"
+    ]
+  },
+  {
+    "period": "2020",
+    "provider": "Skillshare",
+    "focus": "Full-Stack Web Development Foundations",
+    "category": "Computer Science coursework",
+    "description": "Studied full-stack web development fundamentals and applied frontend, backend and database concepts to build a first full-stack website.",
+    "skills": [
+      "Full-stack web development",
+      "Frontend development",
+      "Backend development",
+      "Database fundamentals",
+      "Programming fundamentals",
+      "Problem-solving",
+      "Project development"
+    ]
+  }
+]

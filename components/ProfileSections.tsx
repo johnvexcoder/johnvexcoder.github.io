@@ -6,6 +6,7 @@ import services from "@/content/service-routes.json";
 import Reveal from "./Reveal";
 import SkillIcon from "./SkillIcon";
 import ExperienceTimelineMotion from "./ExperienceTimelineMotion";
+import LearningHistory from "./LearningHistory";
 export function Skills() {
   return (
     <section id="skills" className="section skills-section">
@@ -261,24 +262,7 @@ export function About() {
                 <span>{d}</span>
               </div>
             ))}
-            <details className="coursework-record">
-              <summary>
-                Independent coursework <span>No certification claim</span>
-              </summary>
-              <ul>
-                <li>
-                  Skillshare — Computer Science coursework (2020; 2023–2024;
-                  2025–2026)
-                </li>
-                <li>
-                  Skillshare — WordPress Development coursework (2021–2022)
-                </li>
-                <li>
-                  Hack The Box — Cybersecurity Training, free coursework (2023).
-                  No certification.
-                </li>
-              </ul>
-            </details>
+            <LearningHistory />
           </div>
           <p className="personal-note">
             Away from the keyboard: DJing, EDM and music production, cooking,
