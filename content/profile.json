@@ -4,28 +4,52 @@
   "email": "johnangelodejoya@gmail.com",
   "experience": [
     {
-      "date": "JUN — SEP 2026",
-      "title": "Web Development / Information Technology",
-      "place": "HundredFold Digital",
-      "copy": "Provided web development and IT support. Maintained the organization’s technical environment."
+      "date": "OCT 2026 — PRESENT",
+      "title": "Full-Stack Web Developer",
+      "place": "TAITECH Marine Services",
+      "copy": "Developing and maintaining the company website, responsive service pages, technical SEO and performance. Building a custom CMS and providing ongoing technical support; the CMS is not presented as deployed."
     },
     {
-      "date": "APR — MAY 2026",
-      "title": "Web Development",
-      "place": "Freelance · Contract Client",
-      "copy": "Delivered contract web development on a fixed timeline. Implemented and deployed client-requested features."
+      "date": "OCT 2026 — PRESENT",
+      "title": "Full-Stack Web Developer",
+      "place": "Private Client (NDA)",
+      "copy": "Delivered a responsive custom website from planning and UI/UX through development, testing and deployment. Continuing private maintenance and technical support under confidentiality obligations."
     },
     {
-      "date": "DEC 2025 — MAR 2026",
-      "title": "Web Development",
-      "place": "Freelance · Private Client",
-      "copy": "Built and shipped an end-to-end web project. Managed the full delivery lifecycle for a private client."
+      "date": "MAY 2021 — PRESENT",
+      "title": "Web Developer",
+      "place": "Private Client",
+      "copy": "Completed and delivered the initial website project in five months, covering planning, UI and full-stack development. The engagement continues through website maintenance and support."
     },
     {
-      "date": "AUG — OCT 2025",
-      "title": "Web Development / Networking",
-      "place": "Freelance · Client",
-      "copy": "Delivered web development for freelance clients. Handled networking and deployment tasks."
+      "date": "OCT — NOV 2026",
+      "title": "Web Developer",
+      "place": "Jenica’s Portfolio",
+      "copy": "Designed and delivered a responsive personal portfolio with accessible navigation, polished UI/UX and interactive project presentation."
+    },
+    {
+      "date": "SEP 2026",
+      "title": "Web Developer",
+      "place": "Mark Jaron’s Portfolio",
+      "copy": "Built a responsive personal portfolio focused on clear project presentation, modern UI/UX, accessibility and performance."
+    },
+    {
+      "date": "MAR — AUG 2026",
+      "title": "WordPress / Full-Stack Developer, UI/UX & IT Support",
+      "place": "HundredFold Digital Solution",
+      "copy": "Worked on-site for six months on WordPress, frontend/backend projects, UI/UX, technical SEO and IT support. Left to pursue independent freelance development."
+    },
+    {
+      "date": "FEB 2024 — SEP 2025",
+      "title": "Web Developer",
+      "place": "Web Solution · India client projects",
+      "copy": "Delivered multiple remote web projects for private clients in India, from requirements and UI/UX to development, testing and deployment."
+    },
+    {
+      "date": "AUG — OCT 2023",
+      "title": "Web Developer",
+      "place": "Web Solution · Freelance projects",
+      "copy": "Delivered freelance web development, networking and deployment work."
     }
   ],
   "capabilities": [

@@ -76,7 +76,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     name: profile.name,
     alternateName: [profile.alias, "johnvexcoder", "John De Joya"],
     jobTitle: [
-      "Web Developer",
+      "Freelance Full-Stack Web Developer",
       "Software Developer",
       "Systems & Automation Practitioner",
     ],
@@ -86,8 +86,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     image: {
       "@type": "ImageObject",
       url: absoluteUrl("/social.png"),
-      width: 1200,
-      height: 630,
       caption: "John Angelo De Joya, J0hnvexcoder",
     },
     sameAs: [
@@ -95,9 +93,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       "https://www.linkedin.com/in/johnvexcoder/",
       "https://x.com/johnvexcoder",
       "https://t.me/j0hnvexcoder",
+      "https://www.upwork.com/freelancers/~0139e1651f7aab54b3",
     ],
     knowsAbout: [
       "Web Development",
+      "Technical SEO",
       "Python",
       "Linux",
       "Docker",

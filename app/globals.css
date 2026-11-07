@@ -7218,13 +7218,31 @@ html:not([data-intro-boot="playing"])
 .selected-work-card > a {
   display: block;
 }
-.case-breadcrumbs {
+/* Shared breadcrumb geometry; keep page-specific placement below. */
+.case-breadcrumbs,
+.editorial-breadcrumb {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
+  align-items: baseline;
+  gap: 0 calc(var(--space) * 1.5);
   color: var(--muted);
-  font: 10px var(--mono);
+  font: 13px/1.6 Signature, Arial, sans-serif;
+}
+:is(.case-breadcrumbs, .editorial-breadcrumb) > :is(a, span) {
+  padding-block: calc(var(--space) / 2);
+  font: inherit;
+}
+:is(.case-breadcrumbs, .editorial-breadcrumb) > a,
+:is(.case-breadcrumbs, .editorial-breadcrumb) > [aria-hidden="true"] {
+  flex: 0 0 auto;
+}
+:is(.case-breadcrumbs, .editorial-breadcrumb) > [aria-current="page"] {
+  flex: 1 1 0;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+.case-breadcrumbs {
+  margin-top: 20px;
 }
 .case-breadcrumbs a:hover {
   color: var(--blue);
@@ -7386,8 +7404,13 @@ html:not([data-intro-boot="playing"])
   }
 }
 @media (max-width: 600px) {
+  /* Keep the eagerly loaded LCP portrait at its final position on mobile. */
   :is(.hero[data-intro="playing"], html[data-intro-boot="playing"] .hero)
-    :is(.hero-copy, .hero-portrait, .hero-wordmark) {
+    .hero-portrait {
+    animation: none;
+  }
+  :is(.hero[data-intro="playing"], html[data-intro-boot="playing"] .hero)
+    :is(.hero-copy, .hero-wordmark) {
     animation-duration: 380ms;
   }
 }
@@ -7475,14 +7498,7 @@ html:not([data-intro-boot="playing"])
   padding-bottom: 64px;
 }
 .editorial-breadcrumb {
-  display: flex;
-  gap: 12px;
-  color: var(--muted);
-  font-size: 13px;
   margin-bottom: 28px;
-}
-.editorial-breadcrumb a {
-  padding: 4px 0;
 }
 .editorial-hero {
   display: grid;

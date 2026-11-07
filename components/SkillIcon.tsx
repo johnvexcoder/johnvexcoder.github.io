@@ -85,26 +85,66 @@ function positionTooltip(element: HTMLButtonElement) {
   const clamped = Math.max(12 + half, Math.min(innerWidth - 12 - half, center));
   element.style.setProperty("--skill-tooltip-offset", `${clamped - center}px`);
 }
-export default function SkillIcon({ name }: { name: string }) {
+export default function SkillIcon({
+  name,
+  decorative = false,
+  tabIndex,
+  managed = false,
+}: {
+  name: string;
+  decorative?: boolean;
+  tabIndex?: number;
+  managed?: boolean;
+}) {
   const [pinned, setPinned] = useState(false);
   const logo = logos[name];
   const Generic = concepts[name] || Database;
+  if (decorative)
+    return (
+      <span className="skill-icon" aria-hidden="true" data-tool={name}>
+        {logo ? (
+          <span
+            className="skill-glyph"
+            style={{ maskImage: `url(/icons/skills/${logo}.svg)` }}
+          />
+        ) : (
+          <Generic size={24} />
+        )}
+        <span className="skill-tooltip" aria-hidden="true">
+          {name}
+        </span>
+      </span>
+    );
   return (
     <button
+      tabIndex={tabIndex}
       type="button"
       className="skill-icon"
       aria-label={name}
-      aria-pressed={pinned}
-      onPointerEnter={(event) => positionTooltip(event.currentTarget)}
-      onFocus={(event) => positionTooltip(event.currentTarget)}
-      onClick={(event) => {
-        positionTooltip(event.currentTarget);
-        setPinned(!pinned);
-      }}
-      onBlur={() => setPinned(false)}
-      onKeyDown={(event) => {
-        if (event.key === "Escape") setPinned(false);
-      }}
+      data-tool={managed ? name : undefined}
+      aria-pressed={managed ? undefined : pinned}
+      onPointerEnter={
+        managed ? undefined : (event) => positionTooltip(event.currentTarget)
+      }
+      onFocus={
+        managed ? undefined : (event) => positionTooltip(event.currentTarget)
+      }
+      onClick={
+        managed
+          ? undefined
+          : (event) => {
+              positionTooltip(event.currentTarget);
+              setPinned(!pinned);
+            }
+      }
+      onBlur={managed ? undefined : () => setPinned(false)}
+      onKeyDown={
+        managed
+          ? undefined
+          : (event) => {
+              if (event.key === "Escape") setPinned(false);
+            }
+      }
     >
       {logo ? (
         <span

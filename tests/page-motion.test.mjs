@@ -10,7 +10,7 @@ function motionHarness({ reduced = false, available = true } = {}) {
   let effect, observer;
   const element = (kind) => ({
     tagName: kind === "title" ? "H1" : "P",
-    parentElement: { children: [] },
+    parentElement: { children: [], closest: () => null },
     contains: () => false,
     closest: () => null,
     setAttribute() {},
@@ -65,10 +65,26 @@ function motionHarness({ reduced = false, available = true } = {}) {
   const context = {
     exports: {},
     require: (name) =>
-      name === "react"
-        ? { useEffect: (fn) => (effect = fn) }
-        : { usePathname: () => "/services/" },
+      name === "react/jsx-runtime"
+        ? { jsx: () => null }
+        : name === "./FAQMotion"
+          ? { default: () => null }
+          : name === "react"
+            ? { useEffect: (fn) => (effect = fn) }
+            : { usePathname: () => "/services/" },
+    navigator: { connection: { saveData: false } },
+    window: {
+      requestIdleCallback: (fn) => {
+        fn();
+        return 1;
+      },
+      cancelIdleCallback() {},
+      clearTimeout() {},
+    },
     document: {
+      hidden: false,
+      addEventListener() {},
+      removeEventListener() {},
       querySelector: (selector) => (selector === ".site-footer" ? null : root),
       activeElement: null,
     },
@@ -115,17 +131,19 @@ test("reduced motion skips entrances and scroll animations, while native FAQ rem
   h.cleanup();
   assert.equal(h.observer.disconnected, true);
 });
-test("hero stagger and card choreography are bounded, one-shot and cancelled on unmount", () => {
+test("critical hero text stays still and grouped card entrances run once with complete cleanup", () => {
   const h = motionHarness();
-  assert.equal(h.calls.length, 2);
-  assert.equal(h.calls[0].options.delay, 0);
-  assert.equal(h.calls[1].options.delay, 45);
+  assert.equal(
+    h.calls.length,
+    0,
+    "critical text receives no entrance animation",
+  );
   h.observer.fn([
     { isIntersecting: true, target: h.card },
     { isIntersecting: true, target: h.card },
   ]);
-  assert.equal(h.calls.length, 3);
-  assert.equal(h.calls.at(-1).options.duration, 420);
+  assert.equal(h.calls.length, 1);
+  assert.ok(h.calls.at(-1).options.duration <= 400);
   h.cleanup();
   assert.ok(h.calls.every((a) => a.cancelled));
   assert.equal(h.observer.disconnected, true);
@@ -133,6 +151,8 @@ test("hero stagger and card choreography are bounded, one-shot and cancelled on 
 });
 test("changing to reduced motion cancels ongoing effects immediately", () => {
   const h = motionHarness();
+  h.observer.fn([{ isIntersecting: true, target: h.card }]);
+  assert.equal(h.calls.length, 1);
   h.preference.matches = true;
   h.preferenceListeners.change();
   assert.ok(h.calls.every((a) => a.cancelled));

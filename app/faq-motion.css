@@ -1,0 +1,46 @@
+/* Preserve native disclosure controls and use one treatment on the hub and all details. */
+.service-faq summary {
+  transition:
+    color 190ms ease,
+    text-shadow 190ms ease;
+}
+.service-faq details[open] > summary,
+.service-faq summary:focus-visible {
+  color: var(--blue);
+}
+.service-faq summary > span {
+  transition:
+    transform 230ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 190ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .service-faq summary:hover {
+    color: var(--blue);
+    text-shadow: 0 0 14px #78bfff48;
+  }
+}
+@supports selector(details::details-content) {
+  @supports (interpolate-size: allow-keywords) {
+    .service-faq details::details-content {
+      interpolate-size: allow-keywords;
+      block-size: 0;
+      overflow: clip;
+      opacity: 0;
+      transition:
+        block-size 270ms cubic-bezier(0.22, 1, 0.36, 1),
+        content-visibility 270ms allow-discrete,
+        opacity 190ms ease;
+    }
+    .service-faq details[open]::details-content {
+      block-size: auto;
+      opacity: 1;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-faq summary,
+  .service-faq summary > span,
+  .service-faq details::details-content {
+    transition: none;
+  }
+}

@@ -101,6 +101,33 @@ export function publicDocuments() {
         "",
         ...s.scope.map((item) => `- ${item}`),
         "",
+        `## ${s.engineering.heading}`,
+        s.engineering.intro,
+        ...s.engineering.steps.flatMap(([title, copy]) => [
+          `### ${title}`,
+          copy,
+          "",
+        ]),
+        "### What helps us start",
+        s.engineering.inputs,
+        "### Boundaries to agree",
+        s.engineering.considerations,
+        "### What you receive",
+        ...s.engineering.deliverables.map((item) => `- ${item}`),
+        ...(s.portfolioCase
+          ? [
+              "",
+              `## ${s.portfolioCase.heading}`,
+              s.portfolioCase.problem,
+              s.portfolioCase.baseline,
+              ...s.portfolioCase.actions.map((item) => `- ${item}`),
+              ...s.portfolioCase.results.map(
+                ([value, label]) => `- ${value} ${label}`,
+              ),
+              s.portfolioCase.limits,
+            ]
+          : []),
+        "",
         "## Questions about this service",
         ...s.faq.flatMap(([question, answer]) => [
           `### ${question}`,

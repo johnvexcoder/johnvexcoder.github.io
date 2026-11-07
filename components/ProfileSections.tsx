@@ -5,6 +5,7 @@ import Link from "next/link";
 import services from "@/content/service-routes.json";
 import Reveal from "./Reveal";
 import SkillIcon from "./SkillIcon";
+import MotionControls from "./MotionControls";
 export function Skills() {
   return (
     <section id="skills" className="section skills-section">
@@ -56,12 +57,22 @@ export function Experience() {
         </p>
       </Reveal>
       <div className="experience-layout">
-        <div className="timeline">
+        <div className="timeline experience-network">
+          <MotionControls kind="experience" />
+          <div className="experience-wire" aria-hidden="true">
+            <i className="experience-pulse" />
+          </div>
           {profile.experience.map((e) => (
-            <Reveal key={e.date} className="timeline-entry">
+            <Reveal key={`${e.date}-${e.place}`} className="timeline-entry">
               <span>{e.date}</span>
               <div>
-                <h3>{e.title}</h3>
+                <i className="timeline-marker" aria-hidden="true" />
+                <h3 data-title={e.title}>
+                  {e.title}
+                  <span className="timeline-title-glow" aria-hidden="true">
+                    {e.title}
+                  </span>
+                </h3>
                 <strong>{e.place}</strong>
                 <p>{e.copy}</p>
               </div>
@@ -117,7 +128,7 @@ export function Services() {
           complexity.
         </p>
       </Reveal>
-      <div className="services-list">
+      <div className="services-list premium-services">
         {services.map(({ id, name, summary: copy, route }, i) => {
           const enquiry =
             id === "custom-solutions"
@@ -125,31 +136,36 @@ export function Services() {
               : "Website project";
           const Icon = serviceIcon(id);
           return (
-            <Reveal key={name} className="service">
+            <Reveal key={name} className="service premium-service">
               <span className="service-number">0{i + 1}</span>
               <Icon size={26} />
-              <h3>{name}</h3>
+              <Link
+                className="service-stretched-link service-card-primary"
+                href={route}
+              >
+                <h3>{name}</h3>
+                <span className="service-learn-more text-link">
+                  Learn More <ArrowUpRight size={15} aria-hidden="true" />
+                </span>
+              </Link>
               <p>{copy}</p>
-              <div className="service-home-actions">
-                <Link className="text-link" href={route}>
-                  Explore service <ArrowUpRight size={15} />
-                </Link>
+              <div className="service-home-actions service-card-actions">
                 <a
-                  className="text-link"
+                  className="button primary service-contact-button"
                   href={`/contact/?service=${id}`}
+                  aria-label={`Contact Me about ${name}`}
                   data-ga-event="service_enquiry"
                   data-ga-service={enquiry}
                   data-ga-location="services"
                 >
-                  Discuss your project
-                  <ArrowUpRight size={15} />
+                  Contact Me <ArrowUpRight size={15} aria-hidden="true" />
                 </a>
               </div>
             </Reveal>
           );
         })}
       </div>
-      <div className="services-home-footer">
+      <div className="services-home-footer premium-care">
         <Link className="text-link" href="/services/">
           Explore Services and Solutions <ArrowUpRight size={15} />
         </Link>
@@ -248,6 +264,24 @@ export function About() {
                 <span>{d}</span>
               </div>
             ))}
+            <details className="coursework-record">
+              <summary>
+                Independent coursework <span>No certification claim</span>
+              </summary>
+              <ul>
+                <li>
+                  Skillshare — Computer Science coursework (2020; 2023–2024;
+                  2025–2026)
+                </li>
+                <li>
+                  Skillshare — WordPress Development coursework (2021–2022)
+                </li>
+                <li>
+                  Hack The Box — Cybersecurity Training, free coursework (2023).
+                  No certification.
+                </li>
+              </ul>
+            </details>
           </div>
           <p className="personal-note">
             Away from the keyboard: DJing, EDM and music production, cooking,

@@ -1,4 +1,6 @@
 import PremiumPageMotion from "@/components/PremiumPageMotion";
+import TechnologyMarquee from "@/components/TechnologyMarquee";
+import { premiumStyles } from "@/lib/premium-styles";
 import AssemblyBridge from "@/components/AssemblyBridge";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -17,6 +19,7 @@ import { absoluteUrl, homeSearchDescription } from "@/lib/seo";
 export default function Home() {
   return (
     <>
+      <style>{premiumStyles}</style>
       <PremiumPageMotion density="home" />
       <script
         type="application/ld+json"
@@ -33,8 +36,6 @@ export default function Home() {
             primaryImageOfPage: {
               "@type": "ImageObject",
               url: absoluteUrl("/social.png"),
-              width: 1200,
-              height: 630,
             },
           }).replaceAll("<", "\\u003c"),
         }}
@@ -56,31 +57,38 @@ export default function Home() {
         }}
       />
       <Hero />
-      <section id="introduction" className="introduction section">
-        <Reveal>
-          <p className="eyebrow">02 / AN INDEPENDENT TECHNICAL PRACTICE</p>
-          <h2>
-            The interface is
-            <br />
-            only the <span>beginning.</span>
-          </h2>
-        </Reveal>
-        <Reveal>
-          <p>
-            I’m John Angelo De Joya (J0hnvexcoder), an independent freelance web
-            developer based in Bulacan, Philippines, available for remote
-            projects locally and internationally. I build business websites,
-            professional portfolios and custom web applications.
-          </p>
-          <p>
-            I also improve existing websites through redesign and technical SEO.
-            My work connects the interface with the systems behind it, including
-            automation and Linux infrastructure.
-          </p>
-          <a className="text-link" href="/about/">
-            Meet the person behind the work <span aria-hidden="true">→</span>
-          </a>
-        </Reveal>
+      <section
+        id="introduction"
+        className="introduction section premium-introduction"
+      >
+        <TechnologyMarquee direction="right" />
+        <div className="introduction-content">
+          <Reveal>
+            <p className="eyebrow">02 / AN INDEPENDENT TECHNICAL PRACTICE</p>
+            <h2>
+              The interface is
+              <br />
+              only the <span>beginning.</span>
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p>
+              I’m John Angelo De Joya (J0hnvexcoder), an independent freelance
+              web developer based in Bulacan, Philippines, available for remote
+              projects locally and internationally. I build business websites,
+              professional portfolios and custom web applications.
+            </p>
+            <p>
+              I also improve existing websites through redesign and technical
+              SEO. My work connects the interface with the systems behind it,
+              including automation and Linux infrastructure.
+            </p>
+            <a className="text-link" href="/about/">
+              Meet the person behind the work <span aria-hidden="true">→</span>
+            </a>
+          </Reveal>
+        </div>
+        <TechnologyMarquee direction="left" />
       </section>
       <AssemblyBridge />
       <Projects />

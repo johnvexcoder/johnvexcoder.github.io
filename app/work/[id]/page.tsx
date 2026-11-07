@@ -1,3 +1,4 @@
+import { projectBreadcrumbs } from "@/lib/structured-data";
 import PremiumPageMotion from "@/components/PremiumPageMotion";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -93,8 +94,6 @@ export default async function Work({
                 primaryImageOfPage: {
                   "@type": "ImageObject",
                   url: absoluteUrl(projectSocialImage(p)),
-                  width: 1200,
-                  height: 630,
                 },
                 mainEntity: { "@id": absoluteUrl(`/work/${id}/#project`) },
                 isPartOf: { "@id": absoluteUrl("/#website") },
@@ -107,6 +106,7 @@ export default async function Work({
                 description: story.overview,
                 url: absoluteUrl(`/work/${id}/`),
                 creator: { "@id": absoluteUrl("/#person") },
+                mainEntityOfPage: { "@id": absoluteUrl(`/work/${id}/`) },
                 genre: [p.category, story.classification],
                 about: p.technologies.map((name) => ({
                   "@type": "Thing",
@@ -122,20 +122,11 @@ export default async function Work({
               {
                 "@type": "BreadcrumbList",
                 "@id": absoluteUrl(`/work/${id}/#breadcrumbs`),
-                itemListElement: [
-                  {
-                    "@type": "ListItem",
-                    position: 1,
-                    name: "Portfolio",
-                    item: absoluteUrl("/"),
-                  },
-                  {
-                    "@type": "ListItem",
-                    position: 2,
-                    name: p.name,
-                    item: absoluteUrl(`/work/${id}/`),
-                  },
-                ],
+                itemListElement: projectBreadcrumbs(
+                  p.name,
+                  `/work/${id}/`,
+                  absoluteUrl("/"),
+                ),
               },
             ],
           }).replaceAll("<", "\\u003c"),

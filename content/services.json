@@ -77,19 +77,53 @@
         [
           "What should I prepare for a new website and its handover?",
           "Prepare company and service content, brand assets and authorized domain or hosting access where relevant. Planning, implementation, testing and handover follow the agreed requirements; source files, account access, content ownership, third-party licenses and ongoing support should be clarified in that scope."
+        ],
+        [
+          "When does a custom business website make sense?",
+          "A custom build follows your service structure, brand, content and customer actions rather than inheriting a fixed page layout. We agree which page types, responsive behavior and integrations are needed. An existing content platform may still be appropriate; custom design does not automatically require a custom backend."
         ]
       ],
       "evidence": "Client website projects and clearly labeled independent concepts demonstrate content structure, responsive interfaces and contact paths. Demonstration sites do not establish live orders, payments or inquiry delivery.",
-      "selectedProjects": [
-        "arkosenyo",
-        "jnglo"
-      ],
+      "selectedProjects": ["arkosenyo", "jnglo"],
       "contextLinks": [
         {
           "route": "/services/website-redesign/",
           "label": "Already have a website? Explore Website Redesign & Modernization."
         }
-      ]
+      ],
+      "heroDetail": "For businesses that need to explain their services clearly and give visitors a practical next step. Content structure, responsive behavior and contact requirements are agreed before the build.",
+      "visualCaption": "Responsive website blueprint: navigation, service content and a contact action adapt from desktop to mobile. Original illustrative interface.",
+      "portfolioCase": null,
+      "engineering": {
+        "heading": "Plan the content. Engineer the website.",
+        "intro": "A new company website needs an understandable structure and dependable contact paths. The implementation follows those requirements rather than a fixed page count.",
+        "steps": [
+          [
+            "Define the information",
+            "Map your services, audience questions and the actions each page should support. Confirm who supplies and approves company content."
+          ],
+          [
+            "Build a responsive system",
+            "Implement reusable page patterns, navigation and contact behavior, then check mobile and desktop reading and interaction."
+          ],
+          [
+            "Verify and hand over",
+            "Check the exported pages, metadata, links and agreed forms. Document source access, content updates and remaining hosting dependencies."
+          ]
+        ],
+        "inputs": "Approved company and service information, brand assets, public contact details and authorized domain or platform access where needed.",
+        "considerations": "A source-managed site, content platform or custom application can suit different maintenance needs. Backend features, payments and external systems require their own agreed implementation.",
+        "tech": [
+          "Semantic HTML & CSS",
+          "Responsive components",
+          "Static or CMS delivery"
+        ],
+        "deliverables": [
+          "Agreed page and content structure",
+          "Responsive website and integration checks",
+          "Launch checks and maintenance handover"
+        ]
+      }
     },
     {
       "id": "website-redesign",
@@ -132,16 +166,46 @@
         ]
       ],
       "evidence": "TAITECH Marine is a client redesign published as a demonstration; its request preview is not verified live inquiry delivery or reserved availability. RAJ&T is a separate independent concept, not commissioned company work.",
-      "selectedProjects": [
-        "taitechmarine",
-        "rajt-marine-services"
-      ],
+      "selectedProjects": ["taitechmarine", "rajt-marine-services"],
       "contextLinks": [
         {
           "route": "/services/business-websites/",
           "label": "Starting a new site? Explore Business Website Development."
         }
-      ]
+      ],
+      "heroDetail": "For an existing website with useful content but unclear navigation, dated presentation or mobile friction. Modernization starts with an inventory so valuable pages and working features survive.",
+      "visualCaption": "Illustrative before-and-after comparison: a revised hierarchy and responsive components retain the useful content. No performance or business result is implied.",
+      "portfolioCase": null,
+      "engineering": {
+        "heading": "Modernize with a preservation plan.",
+        "intro": "Redesign should resolve demonstrated usability problems while respecting existing content, URLs and integrations. A visual refresh does not automatically require a new platform.",
+        "steps": [
+          [
+            "Inventory what exists",
+            "Record pages, URLs, content, forms and integrations. Separate measured problems from preferences and identify material to retain."
+          ],
+          [
+            "Refine the experience",
+            "Improve navigation, responsive hierarchy and component consistency around the agreed user tasks. Review accessibility and loading behavior."
+          ],
+          [
+            "Check the migration boundary",
+            "Retest retained functions and link paths. Document any separately approved URL or hosting migration and its verification needs."
+          ]
+        ],
+        "inputs": "The existing site, priority problems, approved content and authorized platform access. Read-only analytics or Search Console can help establish the starting evidence.",
+        "considerations": "Retaining a URL is different from guaranteeing its rankings. Hosting changes, redirects and third-party integrations need explicit scope and validation.",
+        "tech": [
+          "Content & URL inventory",
+          "Responsive UI/UX",
+          "Regression checks"
+        ],
+        "deliverables": [
+          "Prioritized redesign scope",
+          "Updated components and retained-content inventory",
+          "Before/after checks and handover notes"
+        ]
+      }
     },
     {
       "id": "technical-seo",
@@ -159,7 +223,7 @@
         "PageSpeed/Core Web Vitals review and practical fixes within available access",
         "Search Console monitoring and agreed reports when access is provided"
       ],
-      "distinctSection": "Verification matters: use the production build and crawlable HTML to check what is actually published. Repeatable before/after checks are more useful than a promised score. Search rankings, traffic and leads are not guaranteed; content, competition and search systems also affect results.",
+      "distinctSection": "Verification matters: use the production build and crawlable HTML to check what is actually published. Repeatable before/after checks are more useful than a promised score. Search rankings, traffic and leads are not guaranteed; content, competition and search systems also affect results. Based in Bulacan, Philippines, I welcome local and remote technical SEO projects.",
       "portfolioEvidence": "This portfolio's static export, metadata, canonical, internal-link and structured-data checks provide a concrete implementation example. They are not evidence of ranking gains or a client SEO campaign.",
       "faq": [
         [
@@ -177,11 +241,65 @@
         [
           "What access is useful, and how are SEO changes verified?",
           "Share the preferred domain, priority URLs and relevant source or deployment access; read-only Search Console access is useful when available. Agree the local fixes, compare responses and page content before and after implementation, and check deployed outputs separately from Google’s stored indexing records."
+        ],
+        [
+          "Can the work include accessibility improvements and structured data implementation?",
+          "Where agreed, accessibility improvements address practical issues such as labels, keyboard navigation and page structure, with checks against the affected interactions. Structured data implementation uses relevant JSON-LD grounded in the visible content and verified facts. Syntax, content agreement and current search-feature eligibility are checked separately. These tasks do not imply an accessibility certification, guaranteed rich results or higher rankings."
         ]
       ],
       "evidence": "This portfolio is the inspectable implementation example: generated sitemaps and canonicals, structured service and project data, crawlable internal links and reproducible local checks. These establish the implemented delivery workflow; Google processing is verified separately, and no client campaign or ranking gain is claimed.",
       "selectedProjects": [],
-      "contextLinks": []
+      "contextLinks": [],
+      "heroDetail": "For websites with discovery, metadata, accessibility or loading issues that need diagnosis and verified fixes. The work separates what the site publishes from what Google currently reports.",
+      "visualCaption": "Technical review model: crawl access, page meaning, canonical intent, structured facts and loading behavior lead to priorities and retesting. Illustration only; no live scan or ranking claim.",
+      "portfolioCase": {
+        "label": "LOCAL IMPLEMENTATION RECORD / 6 NOVEMBER 2026",
+        "heading": "This portfolio is an inspectable delivery example.",
+        "problem": "The service pages needed clearer explanations of integrations, workflow responsibilities and delivery evidence while retaining the published v2.1.3 search intent.",
+        "baseline": "The completed keyword-expansion review compared the release content with a preserved local export. The subsequent form fixes were kept separate from the content changes.",
+        "actions": [
+          "Mapped 45 supplied keyword suggestions to existing pages; retained the original ten assignments.",
+          "Added six useful service FAQs and one contextual CMS link without changing URLs, metadata or structured-data definitions.",
+          "Verified initial HTML, internal links, canonical controls, generated Markdown and desktop/mobile interaction."
+        ],
+        "results": [
+          ["40", "canonical pages checked"],
+          ["69", "automated tests passed"],
+          ["6", "service FAQs added"]
+        ],
+        "limits": "These are recorded results from the completed local keyword-expansion phase. The service hero and motion upgrade remains unpublished. Local checks do not establish Google indexing, ranking gains, inquiry delivery or field Core Web Vitals."
+      },
+      "engineering": {
+        "heading": "From a finding to a verified change.",
+        "intro": "Technical SEO is a delivery workflow: capture the starting evidence, prioritize the affected pages, implement scoped corrections and verify the result. Clear answerable content supports readers and search systems without special AI markup.",
+        "steps": [
+          [
+            "Establish the baseline",
+            "Inspect agreed templates, responses, crawlable HTML, metadata, internal links and available search evidence. Record coverage and measurement limits."
+          ],
+          [
+            "Implement the priorities",
+            "Correct demonstrated metadata, canonical, linking or structured-data defects. Profile loading problems before changing code; implement consent-aware measurement when scoped."
+          ],
+          [
+            "Retest and explain",
+            "Compare the build and relevant deployed behavior, deliver a resolved/unresolved backlog and document how future reports will be read. Google-side processing remains a separate observation."
+          ]
+        ],
+        "inputs": "Priority URLs, the preferred public domain and authorized source/deployment access. Read-only Search Console or analytics access is useful; missing access is recorded rather than guessed.",
+        "considerations": "Host-level controls, indexing decisions, field-data sample size and third-party form delivery cannot be proved by a local build. Measurement requires agreed consent behavior and account configuration.",
+        "tech": [
+          "Static HTML & link checks",
+          "JSON-LD fact agreement",
+          "Lighthouse & browser traces",
+          "Consent-aware event measurement"
+        ],
+        "deliverables": [
+          "Baseline audit and prioritized findings",
+          "Scoped corrections with before/after evidence",
+          "Measurement plan, validation and handover report"
+        ]
+      }
     },
     {
       "id": "cms-solutions",
@@ -216,14 +334,14 @@
         [
           "What should editors prepare before CMS development?",
           "Prepare an inventory of content, example fields, media and the people responsible for editing and approval. Define publication checks and handover guidance, then agree access, source files, ownership, licenses and ongoing maintenance within the scope."
+        ],
+        [
+          "What does CMS workflow development cover?",
+          "Define how content moves from draft to review and publication, who can approve each step and which fields must be complete before a page goes live. The workflow can include media checks and agreed SEO fields alongside the connection to the public website. Acceptance checks cover editing, approval and publication separately, so an editor interface is not mistaken for a complete publishing system."
         ]
       ],
       "evidence": "Atlas demonstrates local document administration, Voyara includes browser-local content tools, and MovieFlix provides a personal media-catalog application. Their case studies distinguish interface demonstrations from backend and deployment evidence.",
-      "selectedProjects": [
-        "atlas-enterprise",
-        "voyara",
-        "movieflix"
-      ],
+      "selectedProjects": ["atlas-enterprise", "voyara", "movieflix"],
       "contextLinks": [
         {
           "route": "/services/crm-development/",
@@ -233,7 +351,40 @@
           "route": "/services/admin-dashboard-development/",
           "label": "Managing operations? Explore Admin Dashboards & Internal Tools."
         }
-      ]
+      ],
+      "heroDetail": "For teams that need to manage website content, media or catalogs without treating every update as a development task. The workflow defines who writes, reviews and publishes.",
+      "visualCaption": "Editorial workflow example: an editor drafts structured content, an approver reviews it and a publisher releases it with permission checks. Not a connected publishing system.",
+      "portfolioCase": null,
+      "engineering": {
+        "heading": "Design the publishing workflow, not just the editor.",
+        "intro": "Content management systems should reflect the content model and editorial responsibilities. A useful implementation connects approved records to the public website and makes publication states understandable.",
+        "steps": [
+          [
+            "Model the content",
+            "Identify page types, fields, media, catalogs and existing records. Agree which content belongs in the CMS and which changes still require development."
+          ],
+          [
+            "Define editorial control",
+            "Specify editing roles, validation, draft states and approval rules. Design the connection between stored content and published pages."
+          ],
+          [
+            "Test the complete journey",
+            "Check editing, review and publication against the agreed access model. Document migrations, source ownership and editorial handover."
+          ]
+        ],
+        "inputs": "Example content, field requirements, media and named editorial responsibilities. Use fictional or redacted records when evaluating the workflow.",
+        "considerations": "A browser-local content interface does not establish secure server-side permissions or a live publishing backend. The platform and integration are selected for the actual editorial requirements.",
+        "tech": [
+          "Structured content models",
+          "Editorial permissions",
+          "Publishing integration"
+        ],
+        "deliverables": [
+          "Content and role model",
+          "Agreed editing/publishing workflow",
+          "Acceptance checks and editor guidance"
+        ]
+      }
     },
     {
       "id": "crm-development",
@@ -272,13 +423,14 @@
         [
           "What should a CRM project clarify before handover?",
           "Describe the users, example fields, relationship history and acceptance checks without relying on public real-customer records. Agree the implemented workflows, data import/export, account access, source files, ownership and ongoing support in the project scope."
+        ],
+        [
+          "Which CRM tasks should be automated?",
+          "Start with the lead-tracking and sales-pipeline steps your team repeats, such as assigning a lead, scheduling a follow-up or changing a stage. CRM workflow automation needs agreed triggers, permissions and approval rules, plus checks for duplicate actions and failed notifications. Automations and connected systems are included only when explicitly scoped and tested."
         ]
       ],
       "evidence": "Atlas provides a tested browser-local relationship save/reload and company-scoped CRM views. Voyara demonstrates travel customer-management interfaces with synthetic records. Neither is a live customer-data deployment.",
-      "selectedProjects": [
-        "atlas-enterprise",
-        "voyara"
-      ],
+      "selectedProjects": ["atlas-enterprise", "voyara"],
       "contextLinks": [
         {
           "route": "/services/cms-solutions/",
@@ -288,7 +440,40 @@
           "route": "/services/admin-dashboard-development/",
           "label": "For operational records and internal workflows, explore Admin Dashboards & Internal Tools."
         }
-      ]
+      ],
+      "heroDetail": "For teams that need customer records, lead tracking, sales stages and follow-ups in one understandable workflow. Data fields, responsibilities and integrations follow the way the team works.",
+      "visualCaption": "Fictional CRM example: an inquiry becomes a contact record, receives an owner and moves toward an agreed follow-up. No live customer data or CRM connection.",
+      "portfolioCase": null,
+      "engineering": {
+        "heading": "Connect the record with the next useful action.",
+        "intro": "A custom CRM should clarify relationship history and responsibility. Automation is useful only when the trigger, action and failure behavior are defined alongside the people using the records.",
+        "steps": [
+          [
+            "Map the relationship",
+            "Define contacts, leads, sales-pipeline stages and the history users need. Identify the minimum information necessary for each task."
+          ],
+          [
+            "Connect the workflow",
+            "Design record views, filters, ownership and follow-up rules. Review API access, imports and notification requirements before including integrations."
+          ],
+          [
+            "Verify the data boundaries",
+            "Test agreed save/reload behavior, permissions, imports and automation failures. Document which features are implemented and what needs production infrastructure."
+          ]
+        ],
+        "inputs": "Redacted example records, field and status definitions, user responsibilities and existing-system requirements. Real customer data should not appear in public demonstrations.",
+        "considerations": "A sales-pipeline interface and a secure multiuser CRM are different deliverables. Hosting, authentication, background jobs and third-party connections need explicit implementation and tests.",
+        "tech": [
+          "Relationship data models",
+          "Lead & follow-up workflows",
+          "Scoped API integration"
+        ],
+        "deliverables": [
+          "Record, stage and ownership model",
+          "Agreed CRM views and workflow behavior",
+          "Integration/access checks and handover"
+        ]
+      }
     },
     {
       "id": "admin-dashboard-development",
@@ -328,14 +513,14 @@
         [
           "What should internal-tool handover cover?",
           "Agree the supported tasks, data sources, access model and acceptance checks before implementation. Handover requirements can include operation and maintenance notes, source files and account access; ownership, third-party licenses and ongoing support need their own explicit scope."
+        ],
+        [
+          "Can an inventory reporting dashboard automate business processes?",
+          "An inventory reporting dashboard connects agreed stock records and movement history to the summaries a team uses. Business process automation is scoped around specific actions, such as flagging a stock threshold or preparing a review task. Define the source data, trigger, permissions and approval steps, then test incorrect inputs, repeated actions and failures. Reporting screens alone do not establish a working automation or production integration."
         ]
       ],
       "evidence": "Atlas demonstrates connected local operations, Nexora Lab documents a release-candidate self-hosted monitoring application, and Voyara demonstrates travel administration. Each case preserves its actual data, backend and deployment limits.",
-      "selectedProjects": [
-        "atlas-enterprise",
-        "homelab-os",
-        "voyara"
-      ],
+      "selectedProjects": ["atlas-enterprise", "homelab-os", "voyara"],
       "contextLinks": [
         {
           "route": "/services/crm-development/",
@@ -345,7 +530,40 @@
           "route": "/services/cms-solutions/",
           "label": "For website content and editorial workflows, explore Custom CMS Development."
         }
-      ]
+      ],
+      "heroDetail": "For teams that need operational records, inventory reports and internal tasks connected to the decisions they make. Summaries should lead back to the source records and permitted actions.",
+      "visualCaption": "Operational dashboard illustration: sample inventory counts, reporting bars, records and an activity queue. All values are fictional; no live operational system.",
+      "portfolioCase": null,
+      "engineering": {
+        "heading": "Make operational data usable.",
+        "intro": "Admin panel development starts with the people, records and actions behind the screen. Reporting and business process automation are scoped from real operational needs rather than decorative counters.",
+        "steps": [
+          [
+            "Identify decisions and records",
+            "Agree which inventory, activity and operational records users need, where they come from and what a useful report must explain."
+          ],
+          [
+            "Design the permitted actions",
+            "Build views, filters and role-specific interfaces around the workflow. Define data sources, API contracts and automation approvals separately from the layout."
+          ],
+          [
+            "Validate tasks and exceptions",
+            "Test agreed actions, inconsistent inputs, repeated operations and recovery paths. Document backend, authentication and hosting requirements."
+          ]
+        ],
+        "inputs": "Sample operational records, workflow steps, reporting examples and authorized information about current systems. Agree which users can view or change each record.",
+        "considerations": "A frontend dashboard does not by itself include persistent storage, production roles or connected inventory. Those responsibilities are specified and verified when included.",
+        "tech": [
+          "Operational data views",
+          "Reporting & inventory",
+          "Access and action boundaries"
+        ],
+        "deliverables": [
+          "Record/action and reporting specification",
+          "Agreed dashboard and internal-tool behavior",
+          "Exception checks and operating guidance"
+        ]
+      }
     },
     {
       "id": "portfolio-websites",
@@ -383,11 +601,41 @@
         ]
       ],
       "evidence": "Jenica Salazar’s Portfolio and Mark Jaron’s Portfolio are confirmed client projects, published with permission. The case studies explain the delivered presentation and each contact workflow; career outcomes are not inferred.",
-      "selectedProjects": [
-        "jenica-portfolio",
-        "jaron-portfolio"
-      ],
-      "contextLinks": []
+      "selectedProjects": ["jenica-portfolio", "jaron-portfolio"],
+      "contextLinks": [],
+      "heroDetail": "For professionals who need their work, experience and technical decisions presented clearly. A portfolio pairs an original visual direction with evidence a visitor can actually inspect.",
+      "visualCaption": "Original portfolio composition: a selected project leads into its implementation context, technology and contact path. Sample artwork, not a new client project.",
+      "portfolioCase": null,
+      "engineering": {
+        "heading": "Give the work its context.",
+        "intro": "Professional portfolio website development is more than arranging thumbnails. The page hierarchy should help a visitor understand the project, the contribution and the evidence behind the result.",
+        "steps": [
+          [
+            "Select the evidence",
+            "Choose approved projects, experience, qualifications and images. Confirm the contribution, publication permissions and contact information."
+          ],
+          [
+            "Shape the presentation",
+            "Create responsive layouts and case-study patterns that suit the work. Choose interaction depth and technology for the actual content and maintenance needs."
+          ],
+          [
+            "Verify and hand over",
+            "Check project links, contact behavior, readable mobile layouts and sharing metadata. Explain how the portfolio can be updated after handover."
+          ]
+        ],
+        "inputs": "Approved project descriptions, role/contribution details, media rights and professional contact information. Client permission and factual qualifications remain essential.",
+        "considerations": "Next.js can suit a statically delivered portfolio; it is a platform choice, not a promise of search or career results. Animation must preserve access to the work.",
+        "tech": [
+          "Case-study content patterns",
+          "Responsive presentation",
+          "Next.js where appropriate"
+        ],
+        "deliverables": [
+          "Portfolio structure and visual direction",
+          "Responsive project/case-study presentation",
+          "Content, link and contact verification"
+        ]
+      }
     },
     {
       "id": "booking-systems",
@@ -425,12 +673,41 @@
         ]
       ],
       "evidence": "TAITECH Marine illustrates an inquiry workflow. Bedrock, Aurevia, Voyara and Aurelia demonstrate different local planning or reservation interfaces; none is presented as evidence of live availability, payment settlement or confirmed fulfillment.",
-      "selectedProjects": [
-        "voyara",
-        "aurevia",
-        "aurelia"
-      ],
-      "contextLinks": []
+      "selectedProjects": ["voyara", "aurevia", "aurelia"],
+      "contextLinks": [],
+      "heroDetail": "For businesses that need a clearer path from an availability request to a confirmed reservation. The scope distinguishes a request form, manual review and a connected booking platform.",
+      "visualCaption": "Illustrative reservation journey: choose a sample date, review details and apply confirmation rules. This visual does not check availability or make a reservation.",
+      "portfolioCase": null,
+      "engineering": {
+        "heading": "Define when a request becomes a reservation.",
+        "intro": "Booking system development needs explicit availability, confirmation and administration rules. The visible calendar is one part of a workflow whose data and operational boundaries must be agreed.",
+        "steps": [
+          [
+            "Agree the booking rules",
+            "Define what can be reserved, availability sources, required details and whether confirmation is manual or automatic."
+          ],
+          [
+            "Build the request journey",
+            "Implement selection, validation and administration within the agreed scope. Review payment, notification and external-calendar requirements separately."
+          ],
+          [
+            "Check conflicts and confirmation",
+            "Test unavailable dates, duplicate requests, cancellations and the confirmation path. Document which records are persisted and what remains a provider dependency."
+          ]
+        ],
+        "inputs": "Availability and cancellation rules, required record fields and authorized access to any existing calendar or provider. Use sample reservations for public demonstrations.",
+        "considerations": "A reservation-request interface is not proof of synchronized availability, payment settlement or an accepted booking. Each connected behavior needs its own implementation and verification.",
+        "tech": [
+          "Availability & status rules",
+          "Request validation",
+          "Scoped calendar integration"
+        ],
+        "deliverables": [
+          "Availability and confirmation specification",
+          "Agreed request/admin workflow",
+          "Conflict checks and operational handover"
+        ]
+      }
     },
     {
       "id": "custom-solutions",
@@ -465,14 +742,14 @@
         [
           "What information helps with application planning and handover?",
           "Describe the current process, example records and actions, existing systems and expected results. Agree implementation stages, verification and handover materials, including source files and access where scoped; clarify ownership, licenses, hosting and future maintenance separately."
+        ],
+        [
+          "Can you build a database-driven website or connect existing systems?",
+          "API and database integration start with the systems you already use, the records that need to move and who is allowed to read or change them. We review available APIs, data formats and access before agreeing the connection. The scope defines field mapping, validation, error handling and read/write checks; a frontend prototype alone does not include a connected database or backend."
         ]
       ],
       "evidence": "Atlas illustrates browser-local business workflows, Nexora Lab documents a release-candidate infrastructure application, and MovieFlix provides personal backend, database and media-processing evidence. They are not interchangeable production-delivery claims.",
-      "selectedProjects": [
-        "atlas-enterprise",
-        "homelab-os",
-        "movieflix"
-      ],
+      "selectedProjects": ["atlas-enterprise", "homelab-os", "movieflix"],
       "contextLinks": [
         {
           "route": "/services/crm-development/",
@@ -481,8 +758,45 @@
         {
           "route": "/services/admin-dashboard-development/",
           "label": "Operations and internal workflows: Admin Dashboards & Internal Tools."
+        },
+        {
+          "route": "/services/cms-solutions/",
+          "label": "Website content and editorial workflows: Custom CMS Development."
         }
-      ]
+      ],
+      "heroDetail": "For workflows that need more than a content page: connected records, business rules, authentication or API and database integration. The application is designed around the task before the technology.",
+      "visualCaption": "Application architecture model: frontend, API/backend, authentication, persistent data and agreed integrations have distinct responsibilities. Proposed structure, not deployed connections.",
+      "portfolioCase": null,
+      "engineering": {
+        "heading": "Make the architecture follow the task.",
+        "intro": "Full-stack application development connects the interface with validated backend behavior and persistent data. The scope identifies who can do what, which systems must connect and how acceptance will be tested.",
+        "steps": [
+          [
+            "Define the working contract",
+            "Map users, records, tasks and required integrations. Establish the acceptance checks that distinguish a prototype from an operational application."
+          ],
+          [
+            "Connect the responsibilities",
+            "Design frontend, API, authentication and database boundaries. Review existing-system access, data mapping and failure handling before connecting services."
+          ],
+          [
+            "Verify the complete workflow",
+            "Test agreed end-to-end behavior and exceptions. Document deployment constraints, source access and maintenance responsibilities alongside the implementation."
+          ]
+        ],
+        "inputs": "Workflow examples, record shapes, access requirements, existing-system documentation and deployment constraints. Share redacted examples rather than private operational data.",
+        "considerations": "Database-driven websites, internal tools and broader business systems have different boundaries. Use the dedicated CRM, CMS or Admin Dashboard scope when it best describes the primary task.",
+        "tech": [
+          "Frontend / API contracts",
+          "Authentication boundaries",
+          "Persistent data & integration"
+        ],
+        "deliverables": [
+          "Workflow and architecture specification",
+          "Agreed full-stack behavior and integrations",
+          "Acceptance evidence and deployment handover"
+        ]
+      }
     }
   ],
   "care": {

@@ -59,7 +59,7 @@ export default function AboutPage() {
         </div>
         <ol>
           {profile.experience.map((e) => (
-            <li key={e.date}>
+            <li key={`${e.date}-${e.place}`}>
               <p className="experience-date">{e.date}</p>
               <div>
                 <h3>{e.title}</h3>

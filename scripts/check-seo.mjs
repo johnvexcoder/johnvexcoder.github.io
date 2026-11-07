@@ -251,9 +251,24 @@ for (const [route, { nodes, ids }] of pages) {
       ),
     );
     assert.equal(
-      nodes.filter((n) => attributes(n).class?.includes("skill-icon")).length,
+      [...walk(nodes.find((n) => attributes(n).id === "skills"))].filter((n) =>
+        attributes(n).class?.split(" ").includes("skill-icon"),
+      ).length,
       58,
     );
+    const repeats = nodes.filter((n) =>
+      attributes(n).class?.split(" ").includes("marquee-copy"),
+    );
+    assert.equal(repeats.length, 2, "Two decorative marquee repeats");
+    for (const repeat of repeats) {
+      assert.equal(attributes(repeat)["aria-hidden"], "true");
+      assert.ok(
+        ![...walk(repeat)].some((n) =>
+          ["button", "a", "input"].includes(n.tagName),
+        ),
+        "Decorative repeats must not add keyboard stops",
+      );
+    }
     const aboutImage = nodes.find(
       (n) =>
         n.tagName === "img" &&
@@ -347,10 +362,11 @@ for (const [route, { nodes, ids }] of pages) {
     const breadcrumb = graph.find((n) => n["@type"] === "BreadcrumbList");
     assert.deepEqual(
       breadcrumb.itemListElement.map((n) => n.position),
-      [1, 2],
+      [1, 2, 3],
     );
     assert.equal(breadcrumb.itemListElement[0].item, absolute("/"));
-    assert.equal(breadcrumb.itemListElement[1].item, canonical);
+    assert.equal(breadcrumb.itemListElement[1].item, absolute("/work/"));
+    assert.equal(breadcrumb.itemListElement[2].item, canonical);
     assert.ok(
       nodes.some((n) => attributes(n)["aria-label"] === "Related work"),
     );
@@ -360,6 +376,13 @@ for (const [route, { nodes, ids }] of pages) {
     assert.ok(breadcrumb, `${route}: service breadcrumbs`);
     assert.equal(breadcrumb.itemListElement.at(-1).item, canonical);
     if (route === "/services/") {
+      const catalog = graph.find((n) => n["@type"] === "ItemList");
+      assert.equal(catalog?.numberOfItems, 9);
+      assert.equal(catalog.itemListElement.length, 9);
+      assert.deepEqual(
+        catalog.itemListElement.map((n) => n.item["@id"]),
+        services.map((s) => absolute(`${s.route}#service`)),
+      );
       for (const service of services)
         assert.ok(
           nodes.some(

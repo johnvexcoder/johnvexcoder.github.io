@@ -35,6 +35,7 @@ export default function GoogleAnalytics() {
         location: data.gaLocation,
         network: data.gaNetwork,
         service: data.gaService,
+        service_id: data.gaServiceId,
       });
     };
     const onToggle = (event: Event) => {

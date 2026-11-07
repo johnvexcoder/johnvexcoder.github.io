@@ -11,7 +11,7 @@ import {
 } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
 import { submitWeb3Form, WEB3FORMS_ENDPOINT } from "@/lib/form-submission";
-import config from "@/content/review-config.json";
+import config from "@/content/contact-config.json";
 import FormCaptcha from "./FormCaptcha";
 export default function InquiryForm({ source }: { source: ContactSource }) {
   const detailed = source === "contact_page";
@@ -143,7 +143,7 @@ export default function InquiryForm({ source }: { source: ContactSource }) {
           if (result.kind === "success") {
             setSent(true);
             setStatus(
-              "Your message has been accepted. Thank you — I’ll reply by email.",
+              "Your inquiry has been submitted successfully. I’ll review the details and get back to you soon.",
             );
             form.reset();
             setServices([]);
@@ -184,7 +184,7 @@ export default function InquiryForm({ source }: { source: ContactSource }) {
       {sent ? (
         <div className="inquiry-success" role="status">
           <CheckCircle2 size={26} />
-          <h2>Message accepted.</h2>
+          <h2>Thank You for Reaching Out!</h2>
           <p>{status}</p>
           <button
             type="button"

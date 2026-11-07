@@ -68,9 +68,11 @@ export default function EditorialPage({
         inLanguage: "en-PH",
         isPartOf: { "@id": absoluteUrl("/#website") },
         about: { "@id": absoluteUrl("/#person") },
+        breadcrumb: { "@id": absoluteUrl(`${page.route}#breadcrumbs`) },
       },
       {
         "@type": "BreadcrumbList",
+        "@id": absoluteUrl(`${page.route}#breadcrumbs`),
         itemListElement: [
           {
             "@type": "ListItem",

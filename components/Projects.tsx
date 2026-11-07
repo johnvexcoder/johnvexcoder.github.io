@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Search, X } from "lucide-react";
 import {
+  type Project,
   projects,
   categories,
   concepts,
@@ -21,6 +22,9 @@ export default function Projects({
   directory?: boolean;
 }) {
   const { list, capture } = useProjectLayout();
+  const [expanded, setExpanded] = useState(false);
+  const collection = useRef<HTMLDetailsElement>(null);
+  const collectionIntent = useRef(false);
   const searchInput = useRef<HTMLInputElement>(null);
   const [category, setCategory] = useState("All"),
     [query, setQuery] = useState(""),
@@ -48,6 +52,136 @@ export default function Projects({
         Number(b.classification === "Client work") -
           Number(a.classification === "Client work") ||
         Number(!!b.image) - Number(!!a.image),
+    );
+  const renderProject = (p: Project, i: number) =>
+    directory ? (
+      <article key={p.id} className="work-card" data-ga-project={p.id}>
+        <Link
+          className="work-card-image"
+          href={`/work/${p.id}/`}
+          prefetch={false}
+        >
+          <WorkThumbnail project={p} priority={i === 0} />
+        </Link>
+        <div className="work-card-copy">
+          <div className="work-card-meta">
+            <span>
+              {p.classification === "Client work"
+                ? "Client work"
+                : p.status === "demo"
+                  ? "Demonstration"
+                  : "Independent project"}
+            </span>
+            <span>{p.category}</span>
+          </div>
+          <h3>
+            <Link
+              href={`/work/${p.id}/`}
+              prefetch={false}
+              data-ga-event="project_explore"
+              data-ga-project={p.id}
+              data-ga-action="Case study"
+              data-ga-location="project-archive"
+            >
+              {p.name}
+              <ArrowUpRight size={19} aria-hidden="true" />
+            </Link>
+          </h3>
+          <p>{p.shortDescription}</p>
+          <div className="work-card-tech">
+            {p.technologies.slice(0, 4).join(" · ")}
+          </div>
+          <div className="work-card-actions">
+            <Link href={`/work/${p.id}/`} prefetch={false}>
+              Case study <ArrowUpRight size={14} aria-hidden="true" />
+            </Link>
+            {actions(p)
+              .slice(0, 1)
+              .map(([name, url]) => (
+                <a
+                  key={name}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-ga-event={
+                    isDemoAction(name) ? "project_demo" : "project_reference"
+                  }
+                  data-ga-project={p.id}
+                  data-ga-action={name}
+                  data-ga-location="project-archive"
+                >
+                  {name}
+                  <ArrowUpRight size={14} aria-hidden="true" />
+                </a>
+              ))}
+          </div>
+        </div>
+      </article>
+    ) : (
+      <details key={p.id} className="archive-project" data-ga-project={p.id}>
+        <summary>
+          <span className="archive-number">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <span className="archive-name">
+            <span className="archive-title">
+              {p.logo && <ProjectLogo src={p.logo} />}
+              {p.name}
+            </span>
+            <small>{p.shortDescription}</small>
+          </span>
+          <span className="archive-category">{p.category}</span>
+          <span className="archive-status">
+            {p.classification === "Client work"
+              ? "Client work"
+              : statusLabel(p.status)}
+          </span>
+          <span className="archive-expand" aria-hidden="true">
+            +
+          </span>
+        </summary>
+        <div className="archive-expanded">
+          <Preview project={p} />
+          <div>
+            <p>{p.description}</p>
+            {p.disclaimer && <p className="disclaimer">{p.disclaimer}</p>}
+            <div className="technology-tags">
+              {p.technologies.map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link
+              prefetch={false}
+              className="text-link"
+              href={`/work/${p.id}/`}
+              data-ga-event="project_explore"
+              data-ga-project={p.id}
+              data-ga-action="Case study"
+              data-ga-location="project-archive"
+            >
+              {p.name} case study <ArrowUpRight size={14} />
+            </Link>
+            {actions(p).map(([name, url]) => (
+              <a
+                key={name}
+                className="text-link"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-ga-event={
+                  isDemoAction(name) ? "project_demo" : "project_reference"
+                }
+                data-ga-project={p.id}
+                data-ga-action={name}
+                data-ga-location="project-archive"
+              >
+                {name}
+                <ArrowUpRight size={13} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </details>
     );
   const selected = ["homelab-os", "jenica-portfolio", "compressme"].map(
     (id) => projects.find((p) => p.id === id)!,
@@ -129,7 +263,10 @@ export default function Projects({
           </div>
         </>
       )}
-      <div id="collection" className="project-collection">
+      <div
+        id="collection"
+        className={`project-collection ${directory ? "" : "home-collection"}`}
+      >
         {!directory && (
           <Reveal className="collection-heading">
             <div>
@@ -313,152 +450,93 @@ export default function Projects({
           aria-live="polite"
           aria-atomic="true"
         >
-          {matches.length} {matches.length === 1 ? "project" : "projects"} shown
+          {directory ? (
+            <>
+              {matches.length} {matches.length === 1 ? "project" : "projects"}{" "}
+              shown
+            </>
+          ) : (
+            <>
+              {expanded ? matches.length : Math.min(3, matches.length)} of{" "}
+              {matches.length} {matches.length === 1 ? "project" : "projects"}{" "}
+              shown
+            </>
+          )}
         </p>
         <div
           ref={list}
           className={`archive-list ${directory ? "work-grid" : ""}`}
         >
-          {matches.map((p, i) =>
-            directory ? (
-              <article key={p.id} className="work-card" data-ga-project={p.id}>
-                <Link
-                  className="work-card-image"
-                  href={`/work/${p.id}/`}
-                  prefetch={false}
+          {directory ? (
+            matches.map(renderProject)
+          ) : (
+            <>
+              {matches.slice(0, 3).map(renderProject)}
+              {matches.length > 3 && (
+                <details
+                  ref={(element) => {
+                    collection.current = element;
+                    if (element) element.dataset.enhanced = "";
+                  }}
+                  open={expanded}
+                  className="collection-more"
+                  onToggle={(event) => {
+                    const disclosure = event.currentTarget;
+                    disclosure.dataset.enhanced = "";
+                    setExpanded(disclosure.open);
+                    if (disclosure.open && collectionIntent.current) {
+                      disclosure
+                        .querySelector<HTMLElement>(
+                          "#collection-remaining .archive-project > summary",
+                        )
+                        ?.focus({ preventScroll: true });
+                    }
+                    collectionIntent.current = false;
+                  }}
                 >
-                  <WorkThumbnail project={p} priority={i < 3} />
-                </Link>
-                <div className="work-card-copy">
-                  <div className="work-card-meta">
-                    <span>
-                      {p.classification === "Client work"
-                        ? "Client work"
-                        : p.status === "demo"
-                          ? "Demonstration"
-                          : "Independent project"}
+                  <summary
+                    aria-controls="collection-remaining"
+                    onClick={() => {
+                      collectionIntent.current = !collection.current?.open;
+                    }}
+                  >
+                    <span className="collection-more-label">
+                      Show More <span aria-hidden="true">+</span>
                     </span>
-                    <span>{p.category}</span>
-                  </div>
-                  <h3>
-                    <Link
-                      href={`/work/${p.id}/`}
-                      prefetch={false}
-                      data-ga-event="project_explore"
-                      data-ga-project={p.id}
-                      data-ga-action="Case study"
-                      data-ga-location="project-archive"
-                    >
-                      {p.name}
-                      <ArrowUpRight size={19} aria-hidden="true" />
-                    </Link>
-                  </h3>
-                  <p>{p.shortDescription}</p>
-                  <div className="work-card-tech">
-                    {p.technologies.slice(0, 4).join(" · ")}
-                  </div>
-                  <div className="work-card-actions">
-                    <Link href={`/work/${p.id}/`} prefetch={false}>
-                      Case study <ArrowUpRight size={14} aria-hidden="true" />
-                    </Link>
-                    {actions(p)
-                      .slice(0, 1)
-                      .map(([name, url]) => (
-                        <a
-                          key={name}
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          data-ga-event={
-                            isDemoAction(name)
-                              ? "project_demo"
-                              : "project_reference"
-                          }
-                          data-ga-project={p.id}
-                          data-ga-action={name}
-                          data-ga-location="project-archive"
-                        >
-                          {name}
-                          <ArrowUpRight size={14} aria-hidden="true" />
-                        </a>
-                      ))}
-                  </div>
-                </div>
-              </article>
-            ) : (
-              <details
-                key={p.id}
-                className="archive-project"
-                data-ga-project={p.id}
-              >
-                <summary>
-                  <span className="archive-number">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="archive-name">
-                    <span className="archive-title">
-                      {p.logo && <ProjectLogo src={p.logo} />}
-                      {p.name}
+                    <span className="collection-less-label">
+                      Show Less <span aria-hidden="true">−</span>
                     </span>
-                    <small>{p.shortDescription}</small>
-                  </span>
-                  <span className="archive-category">{p.category}</span>
-                  <span className="archive-status">
-                    {p.classification === "Client work"
-                      ? "Client work"
-                      : statusLabel(p.status)}
-                  </span>
-                  <span className="archive-expand" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <div className="archive-expanded">
-                  <Preview project={p} />
-                  <div>
-                    <p>{p.description}</p>
-                    {p.disclaimer && (
-                      <p className="disclaimer">{p.disclaimer}</p>
-                    )}
-                    <div className="technology-tags">
-                      {p.technologies.map((t) => (
-                        <span key={t}>{t}</span>
-                      ))}
-                    </div>
-                    <Link
-                      prefetch={false}
-                      className="text-link"
-                      href={`/work/${p.id}/`}
-                      data-ga-event="project_explore"
-                      data-ga-project={p.id}
-                      data-ga-action="Case study"
-                      data-ga-location="project-archive"
-                    >
-                      {p.name} case study <ArrowUpRight size={14} />
-                    </Link>
-                    {actions(p).map(([name, url]) => (
-                      <a
-                        key={name}
-                        className="text-link"
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-ga-event={
-                          isDemoAction(name)
-                            ? "project_demo"
-                            : "project_reference"
-                        }
-                        data-ga-project={p.id}
-                        data-ga-action={name}
-                        data-ga-location="project-archive"
-                      >
-                        {name}
-                        <ArrowUpRight size={13} />
-                      </a>
-                    ))}
+                  </summary>
+                  <div id="collection-remaining">
+                    {matches.slice(3).map((p, i) => renderProject(p, i + 3))}
                   </div>
-                </div>
-              </details>
-            ),
+                  {expanded && (
+                    <button
+                      type="button"
+                      className="button secondary collection-collapse"
+                      aria-controls="collection-remaining"
+                      onClick={() => {
+                        const disclosure = collection.current;
+                        if (!disclosure) return;
+                        disclosure.open = false;
+                        setExpanded(false);
+                        const summary =
+                          disclosure.querySelector<HTMLElement>(
+                            ":scope > summary",
+                          );
+                        summary?.focus({ preventScroll: true });
+                        summary?.scrollIntoView({
+                          block: "center",
+                          behavior: "instant",
+                        });
+                      }}
+                    >
+                      Show Less
+                    </button>
+                  )}
+                </details>
+              )}
+            </>
           )}
         </div>
         {!matches.length && (

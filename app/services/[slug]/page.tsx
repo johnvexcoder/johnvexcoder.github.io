@@ -1,3 +1,7 @@
+import "@/app/faq-motion.css";
+import "@/app/service-experience.css";
+import ServiceIllustration from "@/components/ServiceIllustration";
+import PortfolioSEORecord from "@/components/PortfolioSEORecord";
 import PremiumPageMotion from "@/components/PremiumPageMotion";
 import { notFound } from "next/navigation";
 import ServiceInquiryLink from "@/components/ServiceInquiryLink";
@@ -54,10 +58,33 @@ export default async function ServiceDetail({
       />
       <ServiceBackLink />
       <header className="service-detail-hero">
-        <p className="eyebrow">SERVICES & SOLUTIONS / J0HNVEXCODER</p>
-        <h1>{page.name}</h1>
-        <p>{page.summary}</p>
-        <ServiceInquiryLink service={slug} />
+        <div className="service-hero-copy">
+          <p className="eyebrow">SERVICES & SOLUTIONS / J0HNVEXCODER</p>
+          <h1>{page.name}</h1>
+          <p className="service-hero-definition">{page.summary}</p>
+          <p className="service-hero-audience">{page.heroDetail}</p>
+          <div className="service-hero-actions">
+            <ServiceInquiryLink service={slug} location="service-hero" />
+            <Link
+              className="text-link"
+              href={
+                slug === "technical-seo"
+                  ? "#portfolio-evidence"
+                  : "#engineering"
+              }
+            >
+              {slug === "technical-seo"
+                ? "See delivery evidence"
+                : "See how it is engineered"}{" "}
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="service-hero-proof">
+            <span>Scoped around your workflow</span>
+            <span>Evidence before promises</span>
+          </div>
+        </div>
+        <ServiceIllustration kind={slug} caption={page.visualCaption} />
       </header>
       <div className="service-detail-body">
         <div>
@@ -97,12 +124,61 @@ export default async function ServiceDetail({
             systems. Features and integrations are confirmed before
             implementation.
           </p>
+          <div className="service-deliverables">
+            <h3>What you receive</h3>
+            <ul>
+              {page.engineering.deliverables.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
           <Link className="text-link" href="/services/#website-care">
             Website Care and Maintenance <ArrowUpRight size={14} />
           </Link>
         </aside>
       </div>
+      <section
+        id="engineering"
+        className="service-engineering"
+        aria-labelledby="engineering-heading"
+      >
+        <div className="service-engineering-heading">
+          <div>
+            <p className="eyebrow">THE ENGINEERING / SCOPE TO VERIFY</p>
+            <h2 id="engineering-heading">{page.engineering.heading}</h2>
+          </div>
+          <p>{page.engineering.intro}</p>
+        </div>
+        <ol className="engineering-steps">
+          {page.engineering.steps.map(([title, copy], index) => (
+            <li key={title}>
+              <small>{String(index + 1).padStart(2, "0")} / DELIVERY</small>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="engineering-inputs">
+          <div>
+            <h3>What helps us start</h3>
+            <p>{page.engineering.inputs}</p>
+            <ul
+              className="technology-notes"
+              aria-label="Implementation considerations"
+            >
+              {page.engineering.tech.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>Boundaries to agree</h3>
+            <p>{page.engineering.considerations}</p>
+          </div>
+        </div>
+      </section>
       <ServiceExamples ids={page.examples} evidence={page.evidence} />
+      {page.portfolioCase && <PortfolioSEORecord record={page.portfolioCase} />}
       {slug === "technical-seo" && (
         <p className="service-inline-link">
           <Link className="text-link" href="/">

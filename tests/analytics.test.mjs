@@ -397,3 +397,38 @@ test("all seven service routes produce one page view per navigation and stop aft
     0,
   );
 });
+
+test("service inquiry events allow only real service identifiers and approved placement", () => {
+  assert.deepEqual(
+    safeEvent("service_inquiry_click", {
+      service_id: "custom-solutions",
+      location: "service-hero",
+      email: "private@example.com",
+      message: "private",
+      token: "private",
+      url: "https://example.com/?secret=private",
+    }),
+    { service_id: "custom-solutions", location: "service-hero" },
+  );
+  assert.deepEqual(
+    safeEvent("service_inquiry_click", {
+      service_id: "invented-service",
+      location: "private@example.com",
+    }),
+    {},
+  );
+  const h = harness({ stored: "granted" });
+  h.controller.initialize("/services/custom-solutions/");
+  h.controller.track("service_inquiry_click", {
+    service_id: "custom-solutions",
+    location: "service-hero",
+  });
+  assert.equal(
+    h.calls().filter((c) => c[1] === "service_inquiry_click").length,
+    1,
+  );
+  assert.doesNotMatch(
+    JSON.stringify(h.calls()),
+    /private@example|secret=|token/,
+  );
+});

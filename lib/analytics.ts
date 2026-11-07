@@ -46,6 +46,12 @@ export function safeReferrer(value: string) {
 }
 const enums: Record<string, Set<string>> = {
   form_source: new Set(["homepage", "contact_page"]),
+  service_id: new Set([
+    "overview",
+    ...Object.keys(analyticsPages)
+      .filter((route) => /^\/services\/[^/]+\/$/.test(route))
+      .map((route) => route.split("/")[2]),
+  ]),
   action: new Set([
     "Live site",
     "Local demo",
@@ -65,6 +71,9 @@ const enums: Record<string, Set<string>> = {
     "footer",
     "privacy",
     "services",
+    "service-hero",
+    "service-footer",
+    "service-detail",
   ]),
   network: new Set([
     "LinkedIn",
@@ -92,6 +101,7 @@ const enums: Record<string, Set<string>> = {
   ]),
 };
 const eventKeys: Record<string, string[]> = {
+  service_inquiry_click: ["service_id", "location"],
   project_demo: ["project", "action", "location"],
   project_reference: ["project", "action", "location"],
   project_explore: ["project", "action", "location"],

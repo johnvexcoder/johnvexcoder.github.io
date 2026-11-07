@@ -1,3 +1,4 @@
+import { serviceCatalog, serializeJsonLd } from "@/lib/structured-data";
 import ServiceInquiryLink from "./ServiceInquiryLink";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
@@ -43,11 +44,11 @@ export function ServiceSchema({
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
+        __html: serializeJsonLd({
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "WebPage",
+              "@type": detail ? "WebPage" : "CollectionPage",
               "@id": absoluteUrl(route),
               url: absoluteUrl(route),
               name,
@@ -56,13 +57,16 @@ export function ServiceSchema({
               breadcrumb: { "@id": absoluteUrl(`${route}#breadcrumbs`) },
               ...(detail
                 ? { mainEntity: { "@id": absoluteUrl(`${route}#service`) } }
-                : {}),
+                : { mainEntity: { "@id": absoluteUrl("/services/#catalog") } }),
             },
             {
               "@type": "BreadcrumbList",
               "@id": absoluteUrl(`${route}#breadcrumbs`),
               itemListElement: crumbs,
             },
+            ...(!detail
+              ? [serviceCatalog(servicePages, absoluteUrl("/"), name)]
+              : []),
             ...(detail
               ? [
                   {
@@ -70,6 +74,8 @@ export function ServiceSchema({
                     "@id": absoluteUrl(`${route}#service`),
                     name,
                     description,
+                    serviceType: name,
+                    mainEntityOfPage: { "@id": absoluteUrl(route) },
                     url: absoluteUrl(route),
                     provider: { "@id": absoluteUrl("/#person") },
                     areaServed: { "@type": "Country", name: "Philippines" },
@@ -77,7 +83,7 @@ export function ServiceSchema({
                 ]
               : []),
           ],
-        }).replaceAll("<", "\\u003c"),
+        }),
       }}
     />
   );
@@ -98,7 +104,7 @@ export function ServiceCTA({ service }: { service?: string }) {
           defining a proposal.
         </p>
       </div>
-      <ServiceInquiryLink service={service} />
+      <ServiceInquiryLink service={service} location="service-footer" />
     </section>
   );
 }
@@ -121,7 +127,14 @@ export function ServiceExamples({
           return (
             <article key={id} className="selected-work-card">
               <WorkThumbnail project={project} />
-              <Link prefetch={false} href={`/work/${id}/`}>
+              <Link
+                prefetch={false}
+                href={`/work/${id}/`}
+                data-ga-event="project_explore"
+                data-ga-project={id}
+                data-ga-action="Case study"
+                data-ga-location="services"
+              >
                 <div className="selected-work-copy">
                   <small>
                     {study.classification} /{" "}

@@ -1,3 +1,5 @@
+import "@/app/faq-motion.css";
+import { premiumStyles } from "@/lib/premium-styles";
 import PremiumPageMotion from "@/components/PremiumPageMotion";
 /* eslint-disable @next/next/no-img-element -- Static export uses pre-generated responsive WebP variants without an image server. */
 import ServiceInquiryLink from "@/components/ServiceInquiryLink";
@@ -15,6 +17,7 @@ export default function ServicesPage() {
   const { main, care } = serviceContent;
   return (
     <article className="services-page section">
+      <style>{premiumStyles}</style>
       <PremiumPageMotion />
       <ServiceSchema
         route={main.route}
@@ -60,22 +63,39 @@ export default function ServicesPage() {
           <h2 id="service-areas">Built around the actual problem.</h2>
           <p>{main.scopeNote}</p>
         </div>
-        <div className="service-grid">
+        <div className="service-grid premium-services">
           {servicePages.map((page) => {
             const Icon = serviceIcon(page.id);
             return (
-              <Link key={page.id} className="service-card" href={page.route}>
+              <article key={page.id} className="premium-service">
                 <Icon
                   className="service-ledger-icon"
                   size={22}
                   aria-hidden="true"
                 />
-                <h3>{page.name}</h3>
+                <Link
+                  className="service-stretched-link service-card-primary"
+                  href={page.route}
+                >
+                  <h3>{page.name}</h3>
+                  <span className="service-learn-more text-link">
+                    Learn More <ArrowUpRight size={15} aria-hidden="true" />
+                  </span>
+                </Link>
                 <p>{page.summary}</p>
-                <span className="text-link">
-                  Explore this service <ArrowUpRight size={15} />
-                </span>
-              </Link>
+                <div className="service-card-actions">
+                  <Link
+                    className="button primary service-contact-button"
+                    href={`/contact/?service=${page.id}`}
+                    aria-label={`Contact Me about ${page.name}`}
+                    data-ga-event="service_inquiry_click"
+                    data-ga-service-id={page.id}
+                    data-ga-location="service-detail"
+                  >
+                    Contact Me <ArrowUpRight size={15} aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
             );
           })}
         </div>

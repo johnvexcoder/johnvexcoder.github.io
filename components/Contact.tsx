@@ -37,6 +37,13 @@ export default function Contact() {
               <ArrowUpRight size={12} />
             </a>
           ))}
+          <a
+            href="https://www.upwork.com/freelancers/~0139e1651f7aab54b3?mp_source=share"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Upwork <ArrowUpRight size={12} aria-hidden="true" />
+          </a>
         </div>
         <a
           className="text-link"
